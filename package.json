@@ -1,0 +1,34 @@
+{
+  "name": "hotel-toxin",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Proshka",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "del": "^8.0.0",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^6.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "import": "^0.0.6",
+    "sass": "^1.83.4",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-stream": "^7.0.0"
+  }
+}
