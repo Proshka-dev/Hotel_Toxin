@@ -1,0 +1,36 @@
+@import '../colors.scss';
+
+.text-field {
+    &__label {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        color: $color-darkshade75;
+
+        border: 1px solid $color-darkshade25;
+        border-radius: 4px;
+
+        font-size: 14px;
+        line-height: 18px;
+
+        width: 100%;
+        padding: 15px 13px;
+
+        &::placeholder {
+            color: $color-darkshade25;
+        }
+
+        &:focus,
+        &:hover {
+            color: $color-darkshade75;
+            border-color: $color-darkshade75;
+        }
+
+    }
+}

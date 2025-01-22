@@ -1,24 +1,36 @@
+@use 'nullstyle';
+@use 'fonts';
+@use 'uikit/text-field';
+@use 'uikit/text-field-masked';
+
+@import 'colors';
+
 body {
-    color: white;
-    background-color: black;
-
-    span {
-        color: green;
-    }
-
-    background: url("@img/cover.jpg") 0 0 no-repeat;
+    //background-color: $color-darkshade25;
 }
 
-@media (max-width: 768px) {
-    span {
-        font-size: 20px;
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.uikit-demo {
+    padding: 30px;
+
+    &__item {
+        margin-bottom: 20px;
     }
 }
 
 
 
-@media (max-width: 768px) {
-    body {
-        background-color: grey;
-    }
-}
+
+
+// ************ Пример использования **************
+//background: url("@img/cover.jpg") 0 0 no-repeat;
+
+// @media (max-width: 768px) {
+//     span {
+//         font-size: 20px;
+//     }
+// }
