@@ -1,0 +1,30 @@
+//- Вставка из другого файла, использование миксина с параметрами
+//- mixin mixHead(pageTitle)
+include pug/head
+
+//- mixin mixTextField(vLabel, vType, vPlaceholder)
+include pug/uikit/text-field
+
+//- mixin mixTextFieldMasked(vLabel, vType, vPlaceholder)
+include pug/uikit/text-field-masked
+
+
+doctype html
+
++mixHead('Главная')
+
+body
+  include pug/header
+
+  .uikit-demo
+    .container
+      // Пример вставки картинки
+      // <img width="250" height="200" src="@img/cover.jpg" alt="">
+      .uikit-demo__item
+        +mixTextField('Text field', 'text', 'Email (placeholder)')
+      .uikit-demo__item
+        +mixTextFieldMasked('Masked text field', 'date', '')
+
+  include pug/footer
+
+  script(src='js/app.min.js')

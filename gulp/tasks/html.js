@@ -8,7 +8,7 @@ export const html = () => {
                 message: "Error: <%= error.message %>"
             }))
         )
-        .pipe(fileInclude()) // собираем из частей
+        .pipe(fileInclude()) // собираем из частей (@@include)
         .pipe(app.plugins.replace(/@img\//g, 'img/')) // замена алиаса на путь
         .pipe(app.gulp.dest(app.path.build.html))
 }

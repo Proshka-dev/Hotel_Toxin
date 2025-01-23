@@ -17,6 +17,7 @@ global.app = {
 
 
 // Импорт задач
+import { task_pug } from "./gulp/tasks/pug.js";
 import { copy } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
 import { html } from "./gulp/tasks/html.js";
@@ -29,6 +30,7 @@ import { images } from "./gulp/tasks/images.js";
 function watcher() {
     //аргументы:
     // (путь до папок/файлов за которыми наблюдаем, действие при изменении)
+    gulp.watch(path.watch.pug, task_pug);
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
     gulp.watch(path.watch.scss, scss);
@@ -37,7 +39,7 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-const mainTasks = gulp.parallel(copy, html, scss, js, images);
+const mainTasks = gulp.parallel(copy, task_pug, scss, js, images);
 
 // Построение сценариев выполнения задач
 // series выполняет задачи последовательно

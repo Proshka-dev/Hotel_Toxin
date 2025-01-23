@@ -1,0 +1,6 @@
+//- Объявление миксина
+//- Параметры: vLabel, vType, vPlaceholder
+mixin mixTextField(vLabel, vType, vPlaceholder)
+  .text-field
+  .text-field__label= vLabel
+  input.text-field__input(type= vType placeholder= vPlaceholder)
