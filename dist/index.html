@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<script src="js/dropdown.js"></script><!DOCTYPE html>
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nunito+Sans:opsz,wdth,wght@6..12,75..125,200..1000&amp;display=swap" rel="stylesheet"/>
+  <!-- Подключение Material Icons-->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;icon_names=arrow_forward,expand_more,search,settings" rel="stylesheet"/>
 </head>
 <body>
   <header></header>
@@ -16,14 +19,39 @@
       <!-- Пример вставки картинки-->
       <!-- <img width="250" height="200" src="img/cover.jpg" alt="">-->
       <div class="uikit-demo__item">
-        <div class="text-field"></div>
-        <div class="text-field__label">Text field</div>
-        <input class="text-field__input" type="text" placeholder="Email (placeholder)"/>
+        <div class="text-field">
+          <div class="text-field__label">Text field</div>
+          <input class="text-field__input" type="text" placeholder="Email (placeholder)"/>
+        </div>
       </div>
       <div class="uikit-demo__item">
         <div class="text-field-masked">
           <div class="text-field-masked__label">Masked text field</div>
           <input class="text-field-masked__input" type="date" required="" placeholder=""/>
+        </div>
+      </div>
+      <div class="uikit-demo__item">
+        <div class="text-field-subscription">
+          <div class="text-field-subscription__label">Subscription text field</div>
+          <div class="text-field-subscription__container">
+            <input class="text-field-subscription__input" type="text" placeholder="Email (placeholder)"/>
+          </div>
+        </div>
+      </div>
+      <div class="uikit-demo__item">
+        <div class="dropdown">
+          <div class="dropdown__label">Dropdown</div>
+          <div class="dropdown__container">
+            <button class="dropdown__button">Сколько гостей
+            </button>
+            <ul class="dropdown__list">
+              <li class="dropdown__item" data-value="1">1</li>
+              <li class="dropdown__item" data-value="2">2</li>
+              <li class="dropdown__item" data-value="3">3</li>
+              <li class="dropdown__item" data-value="4">4</li>
+            </ul>
+            <input class="dropdown__input" type="text" name="select-number"/>
+          </div>
         </div>
       </div>
     </div>

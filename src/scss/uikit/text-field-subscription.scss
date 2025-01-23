@@ -1,0 +1,55 @@
+@import '../colors.scss';
+
+.text-field-subscription {
+    &__label {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+
+        margin-bottom: 5px;
+    }
+
+    &__container {
+        position: relative;
+
+        &::before {
+            content: 'arrow_forward';
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: 10px;
+            color: $color-purple;
+
+            font-family: "Material Symbols Outlined", serif;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            font-size: 24px;
+
+        }
+    }
+
+    &__input {
+        color: $color-darkshade75;
+
+        border: 1px solid $color-darkshade25;
+        border-radius: 4px;
+
+        font-size: 14px;
+        line-height: 18px;
+
+        width: 100%;
+        padding: 15px 44px 15px 13px;
+
+        &::placeholder {
+            color: $color-darkshade25;
+        }
+
+        &:focus,
+        &:hover {
+            color: $color-darkshade75;
+            border-color: $color-darkshade75;
+        }
+
+
+    }
+}

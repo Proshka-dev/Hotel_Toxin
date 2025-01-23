@@ -1,0 +1,7 @@
+//- Объявление миксина
+//- Параметры: vLabel, vType, vPlaceholder
+mixin mixTextFieldSubscription(vLabel, vType, vPlaceholder)
+  .text-field-subscription
+    .text-field-subscription__label= vLabel
+    .text-field-subscription__container
+      input.text-field-subscription__input(type= vType placeholder= vPlaceholder)

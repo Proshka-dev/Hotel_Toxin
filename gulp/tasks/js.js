@@ -1,4 +1,5 @@
 import webpack from "webpack-stream";
+//import fileInclude from "gulp-file-include";
 
 export const js = () => {
     return app.gulp.src(app.path.src.js, { sourcemaps: app.isDev }) // sourcemaps только в режиме Dev
@@ -9,6 +10,8 @@ export const js = () => {
                 message: "Error: <%= error.message %>"
             }))
         )
+        // собираем из частей (@@include)
+        //.pipe(fileInclude())
         //
         .pipe(webpack({
             mode: app.isBuild ? 'production' : 'development',

@@ -1,0 +1,16 @@
+//- Объявление миксина
+//- Параметры: vLabel, vType, vPlaceholder
+mixin mixDropdown(vLabel, vPlaceholder)
+  .dropdown
+    .dropdown__label= vLabel
+    .dropdown__container
+      button.dropdown__button
+        =vPlaceholder
+      ul.dropdown__list
+        li.dropdown__item(data-value='1') 1
+        li.dropdown__item(data-value='2') 2
+        li.dropdown__item(data-value='3') 3
+        li.dropdown__item(data-value='4') 4
+      input.dropdown__input(type='text' name='select-number')
+
+script(src='js/dropdown.js')
