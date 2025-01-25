@@ -1,6 +1,7 @@
 // Функция по назначению обработчиков событий на открытие и закрытие списка
 const dropdownOpenAndCloseActions = function (
     buttonElement, listElement, buttonListOpnenedClass, buttonActiveClass, listVisibleClass) {
+
     // Событие Click на кнопке (отображаем список, управляем стрелкой, управляем визуальными эффектами кнопки)
     buttonElement.addEventListener('click', function () {
         //отображаем список
@@ -37,6 +38,34 @@ const dropdownOpenAndCloseActions = function (
 
 };
 
+// Функция установки окончания существительного в зависимости от числительного
+const setEndingDependingOnNumeral = function (numeral, noun) {
+    if (numeral === 0) {
+        return 'Сколько ' + noun + 'ей';
+    } else if (numeral === 1) {
+        return numeral + ' ' + noun + 'ь';
+    } else
+        if ((numeral > 1) && (numeral < 5)) {
+            return numeral + ' ' + noun + 'я';
+        } else
+            if ((!(numeral === 11)) && (((numeral - 1) % 10) === 0)) {
+                return numeral + ' ' + noun + 'ь';
+            } else
+                if ((!(numeral === 12)) && (((numeral - 2) % 10) === 0)) {
+                    return numeral + ' ' + noun + 'я';
+                } else
+                    if ((!(numeral === 13)) && (((numeral - 3) % 10) === 0)) {
+                        return numeral + ' ' + noun + 'я';
+                    } else
+                        if ((!(numeral === 14)) && (((numeral - 4) % 10) === 0)) {
+                            return numeral + ' ' + noun + 'я';
+                        } else {
+                            return numeral + ' ' + noun + 'ей';
+                        };
+
+};
+
+
 // Выборка всех .dropdown и обработка каждого
 document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
@@ -50,18 +79,6 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         'dropdown__button_active',
         'dropdown__list_visible'
     );
-    // // Событие Click на кнопке
-    // // (отображаем список, управляем стрелкой, управляем визуальными эффектами кнопки)
-    // dropdownButton.addEventListener('click', function () {
-    //     //отображаем список
-    //     dropdownList.classList.toggle('dropdown__list_visible');
-
-    //     //добавляем/убираем кнопке атрибут, по которому меняется стрелка
-    //     dropdownButton.classList.toggle('dropdown__button_listopened');
-
-    //     //добавляем визуальный эффект, аналогичный фокусу на кнопке
-    //     dropdownButton.classList.add('dropdown__button_active');
-    // });
 
     // Событие Click на выпадающем списке
     dropdownList.addEventListener('click', function (e) {
@@ -106,30 +123,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                     sum = sum + Number(dropdownInput.value);
                 });
 
-                // устанавливаем окончание в зивисимости от числительного
-                if (sum === 0) {
-                    dropdownButton.innerHTML = 'Сколько гостей';
-                } else if (sum === 1) {
-                    dropdownButton.innerHTML = sum + ' гость';
-                } else
-                    if ((sum > 1) && (sum < 5)) {
-                        dropdownButton.innerHTML = sum + ' гостя';
-                    } else
-                        if ((!(sum === 11)) && (((sum - 1) % 10) === 0)) {
-                            dropdownButton.innerHTML = sum + ' гость';
-                        } else
-                            if ((!(sum === 12)) && (((sum - 2) % 10) === 0)) {
-                                dropdownButton.innerHTML = sum + ' гостя';
-                            } else
-                                if ((!(sum === 13)) && (((sum - 3) % 10) === 0)) {
-                                    dropdownButton.innerHTML = sum + ' гостя';
-                                } else
-                                    if ((!(sum === 14)) && (((sum - 4) % 10) === 0)) {
-                                        dropdownButton.innerHTML = sum + ' гостя';
-                                    } else {
-                                        dropdownButton.innerHTML = sum + ' гостей';
-                                    };
-
+                // Устанавливаем окончание существительного в зависимости от числительного
+                dropdownButton.innerHTML = setEndingDependingOnNumeral(sum, 'гост');
             }
         }
 
@@ -139,30 +134,5 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         //оставляем фокус на кнопке
         dropdownButton.focus();
     })
-
-    // //скрываем по клику снаружи кнопки
-    // document.addEventListener('click', function (e) {
-    //     if (e.target !== dropdownButton) {
-    //         //снимаем визуальное отображение фокуса
-    //         dropdownButton.classList.remove('dropdown__button_active');
-    //         //скрываем список
-    //         dropdownList.classList.remove('dropdown__list_visible');
-    //         //убираем кнопке атрибут, по которому менняется стрелка
-    //         dropdownButton.classList.remove('dropdown__button_listopened');
-    //     }
-    // })
-
-    // //скрываем нажатию на Tab или Escape
-    // document.addEventListener('keydown', function (e) {
-    //     if (e.key === 'Tab' || e.key === 'Escape') {
-    //         //снимаем визуальное отображение фокуса
-    //         dropdownButton.classList.remove('dropdown__button_active');
-    //         //скрываем список
-    //         dropdownList.classList.remove('dropdown__list_visible');
-    //         //убираем кнопке атрибут, по которому менняется стрелка
-    //         dropdownButton.classList.remove('dropdown__button_listopened');
-    //     }
-    // })
-
 
 });
