@@ -44,13 +44,33 @@
           <div class="dropdown__container">
             <button class="dropdown__button">Сколько гостей
             </button>
-            <ul class="dropdown__list">
-              <li class="dropdown__item" data-value="1">1</li>
-              <li class="dropdown__item" data-value="2">2</li>
-              <li class="dropdown__item" data-value="3">3</li>
-              <li class="dropdown__item" data-value="4">4</li>
-            </ul>
-            <input class="dropdown__input" type="text" name="select-number"/>
+            <div class="dropdown__list">
+              <div class="dropdown__item" data-id="1" data-value="0">
+                <div class="dropdown__text">взрослые</div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__item" data-id="2" data-value="0">
+                <div class="dropdown__text">дети</div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__item" data-id="3" data-value="0">
+                <div class="dropdown__text">младенцы</div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__buttons-container"> 
+                <div class="dropdown__button-clear">очистить</div>
+                <div class="dropdown__button-apply">применить</div>
+              </div>
+            </div>
+            <input class="dropdown__input" type="text" data-id="1" name="select-value1"/>
+            <input class="dropdown__input" type="text" data-id="2" name="select-value2"/>
+            <input class="dropdown__input" type="text" data-id="3" name="select-value3"/>
           </div>
         </div>
       </div>

@@ -117,7 +117,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   width: 100%;
-  padding: 15px 13px;
+  padding: 12px 15px;
 }
 .text-field__input::placeholder {
   color: rgba(31, 32, 65, 0.25);
@@ -140,7 +140,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   width: 100%;
-  padding: 15px 13px;
+  padding: 11px 15px;
 }
 .text-field-masked__input::placeholder {
   text-transform: uppercase;
@@ -183,7 +183,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   width: 100%;
-  padding: 15px 44px 15px 13px;
+  padding: 12px 44px 12px 15px;
 }
 .text-field-subscription__input::placeholder {
   color: rgba(31, 32, 65, 0.25);
@@ -225,7 +225,7 @@ body {
   line-height: 18px;
   width: 100%;
   height: 44px;
-  padding: 0px 44px 0px 13px;
+  padding: 0px 44px 0px 15px;
   cursor: pointer;
 }
 .dropdown__button:focus {
@@ -255,8 +255,14 @@ body {
 }
 .dropdown__list {
   display: none;
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid rgba(31, 32, 65, 0.75);
+  border-radius: 0 0 4px 4px;
   margin: 0;
-  padding: 0;
+  padding: 0 15px;
   list-style-type: none;
   position: absolute;
   left: 0;
@@ -270,25 +276,50 @@ body {
   display: block;
 }
 .dropdown__item {
+  display: flex;
+  align-items: center;
   transition: color 300ms;
   transition: background-color 300ms;
-  margin: 0;
-  padding: 0;
-  color: rgba(31, 32, 65, 0.75);
-  font-size: 14px;
-  line-height: 18px;
-  text-align: left;
-  padding: 15px 44px 15px 13px;
-  border: 1px solid rgba(31, 32, 65, 0.75);
-  border-bottom: 0px;
-  cursor: pointer;
+  height: 38px;
+  width: 100%;
+  color: #1f2041;
 }
-.dropdown__item:last-child {
-  border-bottom: 1px solid rgba(31, 32, 65, 0.75);
-  border-radius: 0 0 4px 4px;
+.dropdown__text {
+  flex: 1 0 auto;
 }
-.dropdown__item:hover {
-  color: green;
+.dropdown__button-dec {
+  text-align: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(31, 32, 65, 0.5);
+  border-radius: 15px;
+}
+.dropdown__button-dec_inactive {
+  border-color: rgba(31, 32, 65, 0.25);
+  color: rgba(31, 32, 65, 0.25);
+}
+.dropdown__value {
+  text-align: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+}
+.dropdown__button-inc {
+  text-align: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(31, 32, 65, 0.5);
+  border-radius: 15px;
+}
+.dropdown__buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  width: 100%;
+  color: #BC9CFF;
 }
 .dropdown__input {
   display: none;

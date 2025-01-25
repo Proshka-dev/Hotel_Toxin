@@ -47,7 +47,7 @@
 
         width: 100%;
         height: 44px;
-        padding: 0px 44px 0px 13px;
+        padding: 0px 44px 0px 15px;
 
         cursor: pointer;
 
@@ -90,8 +90,16 @@
         //изначально список скрыт
         display: none;
 
+        font-size: 12px;
+        text-align: left;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        border: 1px solid $color-darkshade75;
+        border-radius: 0 0 4px 4px;
+
         margin: 0;
-        padding: 0;
+        padding: 0 15px;
         list-style-type: none;
         position: absolute;
         left: 0;
@@ -108,33 +116,99 @@
     }
 
     &__item {
+        display: flex;
+        align-items: center;
+
         transition: color 300ms;
         transition: background-color 300ms;
 
-        margin: 0;
-        padding: 0;
+        height: 38px;
+        width: 100%;
 
-        color: $color-darkshade75;
+        //margin: 0;
+        //padding: 0;
 
-        font-size: 14px;
-        line-height: 18px;
-        text-align: left;
+        color: $color-darkshade100;
 
-        padding: 15px 44px 15px 13px;
-        border: 1px solid $color-darkshade75;
+        //padding: 12px 15px 12px 15px;
 
-        border-bottom: 0px;
-
-        cursor: pointer;
-
-        &:last-child {
-            border-bottom: 1px solid $color-darkshade75;
-            border-radius: 0 0 4px 4px;
-        }
+        //cursor: pointer;
 
         &:hover {
-            color: green; //$color-darkshade75;
+            //color: green; //$color-darkshade75;
         }
+    }
+
+    &__text {
+        flex: 1 0 auto;
+    }
+
+    &__button-dec {
+        //flex: 0 0 38px;
+
+        text-align: center;
+        align-content: center;
+
+        width: 30px;
+        height: 30px;
+
+        border: 1px solid $color-darkshade50;
+        border-radius: 15px;
+
+        &_inactive {
+            border-color: $color-darkshade25;
+            color: $color-darkshade25;
+        }
+    }
+
+    &__value {
+        //flex: 0 0 38px;
+
+        text-align: center;
+        align-content: center;
+
+
+        width: 30px;
+        height: 30px;
+
+        //border: 1px solid $color-darkshade25;
+        //border-radius: 15px;
+    }
+
+    &__button-inc {
+        //flex: 0 0 38px;
+
+        text-align: center;
+        align-content: center;
+
+        width: 30px;
+        height: 30px;
+
+        border: 1px solid $color-darkshade50;
+        border-radius: 15px;
+    }
+
+
+
+    &__buttons-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        //padding: 0 15px;
+
+        height: 38px;
+        width: 100%;
+
+
+        color: $color-purple;
+
+        &__buttons-container {}
+
+        &__button-clear {}
+
+        &__button-apply {}
+
     }
 
     &__input {
