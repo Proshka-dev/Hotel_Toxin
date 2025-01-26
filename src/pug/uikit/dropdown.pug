@@ -7,17 +7,17 @@ mixin mixDropdown(vLabel, vPlaceholder)
       button.dropdown__button
         =vPlaceholder
       .dropdown__list
-        .dropdown__item(data-id='1' data-value='0')
+        .dropdown__item(data-id='1')
           .dropdown__text взрослые
           .dropdown__button-dec.dropdown__button-dec_inactive -
           .dropdown__value 0
           .dropdown__button-inc +
-        .dropdown__item(data-id='2' data-value='0')
+        .dropdown__item(data-id='2')
           .dropdown__text дети
           .dropdown__button-dec.dropdown__button-dec_inactive -
           .dropdown__value 0
           .dropdown__button-inc +
-        .dropdown__item(data-id='3' data-value='0')
+        .dropdown__item(data-id='3')
           .dropdown__text младенцы
           .dropdown__button-dec.dropdown__button-dec_inactive -
           .dropdown__value 0
@@ -25,8 +25,8 @@ mixin mixDropdown(vLabel, vPlaceholder)
         .dropdown__buttons-container() 
           .dropdown__button-clear очистить
           .dropdown__button-apply применить
-      input.dropdown__input(type='text' data-id='1' name='select-value1')
-      input.dropdown__input(type='text' data-id='2' name='select-value2')
-      input.dropdown__input(type='text' data-id='3' name='select-value3')
+      input.dropdown__input(type='text' data-id='1' name='select-value1' value='0')
+      input.dropdown__input(type='text' data-id='2' name='select-value2' value='0')
+      input.dropdown__input(type='text' data-id='3' name='select-value3' value='0')
 
 script(src='js/dropdown.js')

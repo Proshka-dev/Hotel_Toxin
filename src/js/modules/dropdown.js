@@ -9,7 +9,7 @@ const dropdownOpenAndCloseActions = function (
         //добавляем/убираем кнопке атрибут, по которому меняется стрелка
         buttonElement.classList.toggle(buttonListOpnenedClass);
         //добавляем визуальный эффект, аналогичный фокусу на кнопке
-        buttonElement.classList.add(buttonActive);
+        buttonElement.classList.add(buttonActiveClass);
     });
 
     //скрываем по клику снаружи кнопки
@@ -68,9 +68,29 @@ const setEndingDependingOnNumeral = function (numeral, noun) {
 
 // Выборка всех .dropdown и обработка каждого
 document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
+    const classDropdownInput = 'dropdown__input';
+    const classButtonInc = 'dropdown__button-inc';
+    const classButtonDec = 'dropdown__button-dec';
+    const classValue = 'dropdown__value';
+    const classButtonDecInactive = 'dropdown__button-dec_inactive';
+
     const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
     const dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
     const dropdownList = dropdownWrapper.querySelector('.dropdown__list');
+    const dropdownInput1 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='1']");
+    const dropdownInput2 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='2']");
+    const dropdownInput3 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='3']");
+
+    const dropdownItem1 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='1']");
+    const dropdownItem2 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='2']");
+    const dropdownItem3 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='3']");
+
+    const buttonDec1 = dropdownItem1.querySelector('.' + classButtonDec);
+    const buttonDec2 = dropdownItem2.querySelector('.' + classButtonDec);
+    const buttonDec3 = dropdownItem3.querySelector('.' + classButtonDec);
+
+    console.log(buttonDec1, buttonDec2, buttonDec3);
+
 
     dropdownOpenAndCloseActions(
         dropdownButton,
@@ -84,49 +104,92 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     dropdownList.addEventListener('click', function (e) {
         let target = e.target; // где был клик?
 
-        //Если click сработало на dropdown__button-inc или dropdown__button-dec
-        if ((target.classList.contains('dropdown__button-inc')) || (target.classList.contains('dropdown__button-dec'))) {
+        //Если click сработало на classButtonInc или classButtonDec
+        if ((target.classList.contains(classButtonInc)) || (target.classList.contains(classButtonDec))) {
+
+            // Определяем родитея, потомком которого является нажатая кнопка, получаем data-id
+            const currItem = target.parentNode;
+            const currItemDataId = currItem.dataset.id;
+
+            // Находим Inpit с таким же data-id
+            const currInput = dropdownWrapper.querySelector("." + classDropdownInput + "[data-id='" + currItemDataId + "']");
+
+            // Запоминаем старое значение
+            const oldValue = Number(currInput.value);
+
             // определяем тип операции
             let increment = 0;
-            if (target.classList.contains('dropdown__button-inc')) {
+            if (target.classList.contains(classButtonInc)) {
                 increment = 1;
             } else {
                 increment = -1;
             }
 
-            // У родителя (.dropdown__item) увеличиваем значение атрибута data-value, если новое значение >= 0
-            const currItem = target.parentNode;
-            if ((Number(currItem.dataset.value) + increment) >= 0) {
-                if ((Number(currItem.dataset.value) === 1) && (increment === -1)) {
-                    //делаем неактивной кнопку "-"
-                    currItem.querySelector('.dropdown__button-dec').classList.add('dropdown__button-dec_inactive');
+            // определяем новое значение
+            const newValue = oldValue + increment;
+
+            // Изменяем значение, если новое значение >= 0
+            if (newValue >= 0) {
+                // Изменяем значение, записанное в Input.value
+                currInput.value = newValue;
+
+                //Если количество взрослых <= 1, а количество детей и младенцев больше 0
+                // то устанавливаем количество взрослых на 1
+                if (Number(dropdownInput1.value) <= 1) {
+                    // Если есть дети / младенцы
+                    if ((Number(dropdownInput2.value) + Number(dropdownInput3.value)) > 0) {
+                        //добавляем 1 взрослого
+                        dropdownInput1.value = '1';
+                    }
+                }
+
+                // ********* Отображение значений dropdownInput ***************
+                const val1 = Number(dropdownInput1.value);
+                const val2 = Number(dropdownInput2.value);
+                const val3 = Number(dropdownInput3.value);
+                dropdownItem1.querySelector('.' + classValue).innerHTML = val1;
+                dropdownItem2.querySelector('.' + classValue).innerHTML = val2;
+                dropdownItem3.querySelector('.' + classValue).innerHTML = val3;
+
+                // ********** Управление активностью кнопок "-" ***************
+                // Кнопка 1
+                if ((val1 === 0) || ((val1 === 1) && ((val2 + val3) > 0))) {
+                    buttonDec1.classList.add(classButtonDecInactive);
                 } else {
-                    if ((Number(currItem.dataset.value) === 0) && (increment === 1)) {
-                        //делаем активной кнопку "-"
-                        currItem.querySelector('.dropdown__button-dec').classList.remove('dropdown__button-dec_inactive');
-                    };
+                    buttonDec1.classList.remove(classButtonDecInactive);
+                };
+                // Кнопка 2
+                if (val2 === 0) {
+                    buttonDec2.classList.add(classButtonDecInactive);
+                } else {
+                    buttonDec2.classList.remove(classButtonDecInactive);
+                };
+                // Кнопка 3
+                if (val3 === 0) {
+                    buttonDec3.classList.add(classButtonDecInactive);
+                } else {
+                    buttonDec3.classList.remove(classButtonDecInactive);
                 };
 
-                currItem.dataset.value = Number(currItem.dataset.value) + increment;
+                console.log(val1, val2, val3);
 
-                // Изменяем значение, записанное в Input.value
-                const currItemDataId = currItem.dataset.id;
-                const currInput = dropdownWrapper.querySelector(".dropdown__input[data-id='" + currItemDataId + "']");
-                currInput.value = currItem.dataset.value;
-
-                // Отображаем значение в элементе .dropdown__value
-                currItem.querySelector('.dropdown__value').innerHTML = currItem.dataset.value;
-
-                // Формируем заголовок .dropdown__button
+                // ************* Формируем заголовок на кнопке *************
                 let sum = 0;
                 dropdownInputs.forEach(function (dropdownInput) {
                     sum = sum + Number(dropdownInput.value);
                 });
-
-                // Устанавливаем окончание существительного в зависимости от числительного
+                // Функцией определяем окончание существительного в зависимости от числительного, устанавливаем заголовок
                 dropdownButton.innerHTML = setEndingDependingOnNumeral(sum, 'гост');
             }
         }
+
+
+
+
+
+
+
+
 
         //останавливаем всплытие
         e.stopPropagation();
