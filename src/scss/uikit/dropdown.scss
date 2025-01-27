@@ -146,6 +146,8 @@
 
     &__button-dec {
         //flex: 0 0 38px;
+        cursor: pointer;
+        user-select: none;
 
         text-align: center;
         align-content: center;
@@ -164,6 +166,8 @@
 
     &__value {
         //flex: 0 0 38px;
+        cursor: default;
+        user-select: none;
 
         text-align: center;
         align-content: center;
@@ -178,6 +182,8 @@
 
     &__button-inc {
         //flex: 0 0 38px;
+        cursor: pointer;
+        user-select: none;
 
         text-align: center;
         align-content: center;
@@ -192,6 +198,8 @@
 
 
     &__buttons-container {
+        //cursor: pointer;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -204,11 +212,18 @@
 
         color: $color-purple;
 
-        &__buttons-container {}
 
-        &__button-clear {}
+    }
 
-        &__button-apply {}
+    &__button-clear {
+        cursor: pointer;
+        user-select: none;
+
+    }
+
+    &__button-apply {
+        cursor: pointer;
+        user-select: none;
 
     }
 

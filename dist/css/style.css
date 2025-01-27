@@ -284,6 +284,8 @@ body {
   flex: 1 0 auto;
 }
 .dropdown__button-dec {
+  cursor: pointer;
+  user-select: none;
   text-align: center;
   align-content: center;
   width: 30px;
@@ -296,12 +298,16 @@ body {
   color: rgba(31, 32, 65, 0.25);
 }
 .dropdown__value {
+  cursor: default;
+  user-select: none;
   text-align: center;
   align-content: center;
   width: 30px;
   height: 30px;
 }
 .dropdown__button-inc {
+  cursor: pointer;
+  user-select: none;
   text-align: center;
   align-content: center;
   width: 30px;
@@ -316,6 +322,14 @@ body {
   height: 38px;
   width: 100%;
   color: #BC9CFF;
+}
+.dropdown__button-clear {
+  cursor: pointer;
+  user-select: none;
+}
+.dropdown__button-apply {
+  cursor: pointer;
+  user-select: none;
 }
 .dropdown__input {
   display: none;
