@@ -73,10 +73,17 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     const classButtonDec = 'dropdown__button-dec';
     const classValue = 'dropdown__value';
     const classButtonDecInactive = 'dropdown__button-dec_inactive';
+    const classButtonActive = 'dropdown__button_active';
+    const classButtonListOpnened = 'dropdown__button_listopened';
+    const classListVisible = 'dropdown__list_visible';
+
+    const classApplyButton = 'dropdown__button-apply';
+    const classClearButton = 'dropdown__button-clear';
 
     const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
     const dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
     const dropdownList = dropdownWrapper.querySelector('.dropdown__list');
+
     const dropdownInput1 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='1']");
     const dropdownInput2 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='2']");
     const dropdownInput3 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='3']");
@@ -91,16 +98,16 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
 
     console.log(buttonDec1, buttonDec2, buttonDec3);
 
-
+    // Вызов функции назначения обработчиков для открытия и закрытия списка
     dropdownOpenAndCloseActions(
         dropdownButton,
         dropdownList,
-        'dropdown__button_listopened',
-        'dropdown__button_active',
-        'dropdown__list_visible'
+        classButtonListOpnened,
+        classButtonActive,
+        classListVisible
     );
 
-    // Событие Click на выпадающем списке
+    // Обработка нажатий на списке
     dropdownList.addEventListener('click', function (e) {
         let target = e.target; // где был клик?
 
@@ -183,13 +190,29 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
             }
         }
 
+        //Если click сработало на кнопке "Применить"
+        if (target.classList.contains(classApplyButton)) {
+            //снимаем визуальное отображение фокуса
+            buttonElement.classList.remove(classButtonActive);
+            //скрываем список
+            listElement.classList.remove(classListVisible);
+            //убираем кнопке атрибут, по которому менняется стрелка
+            buttonElement.classList.remove(classButtonListOpnened);
+        }
 
-
-
-
-
-
-
+        //Если click сработало на кнопке "Очистить"
+        if (target.classList.contains(classClearButton)) {
+            dropdownInput1.value = '0';
+            dropdownInput2.value = '0';
+            dropdownInput3.value = '0';
+            dropdownItem1.querySelector('.' + classValue).innerHTML = '0';
+            dropdownItem2.querySelector('.' + classValue).innerHTML = '0';
+            dropdownItem3.querySelector('.' + classValue).innerHTML = '0';
+            buttonDec1.classList.add(classButtonDecInactive);
+            buttonDec2.classList.add(classButtonDecInactive);
+            buttonDec3.classList.add(classButtonDecInactive);
+            dropdownButton.innerHTML = setEndingDependingOnNumeral(0, 'гост');
+        }
 
         //останавливаем всплытие
         e.stopPropagation();

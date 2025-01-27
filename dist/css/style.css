@@ -213,7 +213,6 @@ body {
   position: relative;
 }
 .dropdown__button {
-  transition: color 300ms ease-in-out;
   display: flex;
   align-items: center;
   position: relative;
@@ -237,7 +236,6 @@ body {
   border-color: rgba(31, 32, 65, 0.75);
 }
 .dropdown__button::after {
-  transition: transform 300ms ease-in-out;
   font-family: "Material Symbols Outlined", serif;
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   font-size: 24px;
@@ -249,7 +247,7 @@ body {
   pointer-events: none;
   color: rgba(31, 32, 65, 0.75);
 }
-.dropdown_active {
+.dropdown__button_active {
   color: rgba(31, 32, 65, 0.75);
   border-color: rgba(31, 32, 65, 0.75);
 }
@@ -278,8 +276,6 @@ body {
 .dropdown__item {
   display: flex;
   align-items: center;
-  transition: color 300ms;
-  transition: background-color 300ms;
   height: 38px;
   width: 100%;
   color: #1f2041;

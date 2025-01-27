@@ -28,7 +28,7 @@
 
     &__button {
         //display: block;
-        transition: color 300ms ease-in-out;
+        //transition: color 300ms ease-in-out;
 
         display: flex;
         align-items: center;
@@ -62,7 +62,7 @@
         }
 
         &::after {
-            transition: transform 300ms ease-in-out;
+            //transition: transform 300ms ease-in-out;
 
             font-family: "Material Symbols Outlined", serif;
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
@@ -79,12 +79,13 @@
             color: $color-darkshade75;
         }
 
+        &_active {
+            color: $color-darkshade75;
+            border-color: $color-darkshade75;
+        }
+
     }
 
-    &_active {
-        color: $color-darkshade75;
-        border-color: $color-darkshade75;
-    }
 
     &__list {
         //изначально список скрыт
@@ -119,8 +120,8 @@
         display: flex;
         align-items: center;
 
-        transition: color 300ms;
-        transition: background-color 300ms;
+        //transition: color 300ms;
+        //transition: background-color 300ms;
 
         height: 38px;
         width: 100%;
