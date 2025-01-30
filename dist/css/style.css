@@ -319,6 +319,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
   height: 38px;
   width: 100%;
   color: #BC9CFF;
@@ -326,6 +327,9 @@ body {
 .dropdown__button-clear {
   cursor: pointer;
   user-select: none;
+}
+.dropdown__button-clear_inactive {
+  display: none;
 }
 .dropdown__button-apply {
   cursor: pointer;

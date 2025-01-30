@@ -94,6 +94,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
 
     const classApplyButton = 'dropdown__button-apply';
     const classClearButton = 'dropdown__button-clear';
+    const classClearButtonInactive = 'dropdown__button-clear_inactive';
 
     const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
     const dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
@@ -106,6 +107,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     const dropdownItem1 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='1']");
     const dropdownItem2 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='2']");
     const dropdownItem3 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='3']");
+
+    const dropdownClearButton = dropdownWrapper.querySelector("." + classClearButton);
 
     //dropdownItem1.querySelector('.' + classValue).innerHTML = String(val1);
     //dropdownItem2.querySelector('.' + classValue).innerHTML = String(val2);
@@ -121,6 +124,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         && dropdownInput2
         && dropdownInput3
         && dropdownButton
+        && dropdownClearButton
     )) return; // Если undefined - прервать выполнение функции
 
     const dropdownValue1 = dropdownItem1.querySelector('.' + classValue);
@@ -245,6 +249,13 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                 } else {
                     buttonDec3.classList.remove(classButtonDecInactive);
                 };
+                // Кнопка "Очистить"
+                if ((val1 === 0) && (val2 === 0) && (val3 === 0)) {
+                    dropdownClearButton.classList.add(classClearButtonInactive);
+                } else {
+                    dropdownClearButton.classList.remove(classClearButtonInactive);
+                };
+
 
                 console.log(val1, val2, val3);
 
@@ -280,6 +291,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
             buttonDec1.classList.add(classButtonDecInactive);
             buttonDec2.classList.add(classButtonDecInactive);
             buttonDec3.classList.add(classButtonDecInactive);
+            dropdownClearButton.classList.add(classClearButtonInactive);
             dropdownButton.innerHTML = setEndingDependingOnNumeral({ numeral: 0, noun: 'гост' })
         }
 
