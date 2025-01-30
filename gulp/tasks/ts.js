@@ -1,4 +1,4 @@
-import webpack from "webpack-stream";
+//import webpack from "webpack-stream";
 import ts from "gulp-typescript";
 
 export const tstask = () => {
@@ -12,7 +12,10 @@ export const tstask = () => {
         )
         // Компилируем TS -> JS
         .pipe(ts({
-            declaration: true
+            //            declaration: true,
+            noImplicitAny: true,
+            outFile: 'app.min.js'
+
         }))
 
         // Копируем в папку

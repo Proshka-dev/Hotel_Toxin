@@ -1,3 +1,5 @@
-import * as flsFunctions from "./modules/functions.js"
+//import * as flsFunctions from "./modules/functions.js"
 
-flsFunctions.isWebp();
+//flsFunctions.isWebp();
+
+console.log('Привет из TS файла');

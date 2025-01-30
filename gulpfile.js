@@ -34,12 +34,12 @@ function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
     gulp.watch(path.watch.scss, scss);
-    gulp.watch(path.watch.js, js);
-    //gulp.watch(path.watch.ts, tstask);
+    //gulp.watch(path.watch.js, js);
+    gulp.watch(path.watch.ts, tstask);
     gulp.watch(path.watch.images, images);
 }
 
-const mainTasks = gulp.parallel(copy, task_pug, scss, js, images);
+const mainTasks = gulp.parallel(copy, task_pug, scss, tstask, images);
 
 // Построение сценариев выполнения задач
 // series выполняет задачи последовательно
