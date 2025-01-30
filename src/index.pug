@@ -33,7 +33,11 @@ body
       .uikit-demo__item
         +mixTextFieldSubscription('Subscription text field', 'text', 'Email (placeholder)')
       .uikit-demo__item
-        +mixDropdown('Dropdown', 'Сколько гостей')
+        //- Параметры: vLabel, vPlaceholder, vType
+        +mixDropdown('Dropdown', '1')
+      .uikit-demo__item
+        //- Параметры: vLabel, vPlaceholder, vType
+        +mixDropdown('Dropdown-type2', '2')
       
       
       

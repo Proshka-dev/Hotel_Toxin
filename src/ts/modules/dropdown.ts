@@ -47,38 +47,49 @@ const dropdownOpenAndCloseActions = function (params: IDropdownParams) {
 };
 
 // Функция установки окончания существительного в зависимости от числительного
-interface INumeralAndNoun {
-    numeral: number;
-    noun: string;
+function numWord(value: number, words: string[]): string {
+    value = Math.abs(value) % 100;
+    const num = value % 10;
+
+    if (value > 10 && value < 20) return words[2];
+    if (num > 1 && num < 5) return words[1];
+    if (num == 1) return words[0];
+    return words[2];
 }
 
-const setEndingDependingOnNumeral = function (params: INumeralAndNoun) {
-    const { noun, numeral } = params;
 
-    if (numeral === 0) {
-        return 'Сколько ' + noun + 'ей';
-    } else if (numeral === 1) {
-        return numeral + ' ' + noun + 'ь';
-    } else
-        if ((numeral > 1) && (numeral < 5)) {
-            return numeral + ' ' + noun + 'я';
-        } else
-            if ((!(numeral === 11)) && (((numeral - 1) % 10) === 0)) {
-                return numeral + ' ' + noun + 'ь';
-            } else
-                if ((!(numeral === 12)) && (((numeral - 2) % 10) === 0)) {
-                    return numeral + ' ' + noun + 'я';
-                } else
-                    if ((!(numeral === 13)) && (((numeral - 3) % 10) === 0)) {
-                        return numeral + ' ' + noun + 'я';
-                    } else
-                        if ((!(numeral === 14)) && (((numeral - 4) % 10) === 0)) {
-                            return numeral + ' ' + noun + 'я';
-                        } else {
-                            return numeral + ' ' + noun + 'ей';
-                        };
+// interface INumeralAndNoun {
+//     numeral: number;
+//     noun: string;
+// }
 
-};
+// const setEndingDependingOnNumeral = function (params: INumeralAndNoun) {
+// const { noun, numeral } = params;
+
+// if (numeral === 0) {
+//     return 'Сколько ' + noun + 'ей';
+// } else if (numeral === 1) {
+//     return numeral + ' ' + noun + 'ь';
+// } else
+//     if ((numeral > 1) && (numeral < 5)) {
+//         return numeral + ' ' + noun + 'я';
+//     } else
+//         if ((!(numeral === 11)) && (((numeral - 1) % 10) === 0)) {
+//             return numeral + ' ' + noun + 'ь';
+//         } else
+//             if ((!(numeral === 12)) && (((numeral - 2) % 10) === 0)) {
+//                 return numeral + ' ' + noun + 'я';
+//             } else
+//                 if ((!(numeral === 13)) && (((numeral - 3) % 10) === 0)) {
+//                     return numeral + ' ' + noun + 'я';
+//                 } else
+//                     if ((!(numeral === 14)) && (((numeral - 4) % 10) === 0)) {
+//                         return numeral + ' ' + noun + 'я';
+//                     } else {
+//                         return numeral + ' ' + noun + 'ей';
+//                     };
+
+//};
 
 
 // Выборка всех .dropdown и обработка каждого
@@ -95,6 +106,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     const classApplyButton = 'dropdown__button-apply';
     const classClearButton = 'dropdown__button-clear';
     const classClearButtonInactive = 'dropdown__button-clear_inactive';
+    const classButtonsContainerInactive = 'dropdown__buttons-container_inactive';
 
     const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
     const dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
@@ -109,6 +121,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     const dropdownItem3 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='3']");
 
     const dropdownClearButton = dropdownWrapper.querySelector("." + classClearButton);
+
+    const dropdownButtonsContainer = dropdownWrapper.querySelector('.dropdown__buttons-container');
 
     //dropdownItem1.querySelector('.' + classValue).innerHTML = String(val1);
     //dropdownItem2.querySelector('.' + classValue).innerHTML = String(val2);
@@ -125,6 +139,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         && dropdownInput3
         && dropdownButton
         && dropdownClearButton
+        && dropdownButtonsContainer
     )) return; // Если undefined - прервать выполнение функции
 
     const dropdownValue1 = dropdownItem1.querySelector('.' + classValue);
@@ -152,6 +167,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         && ("value" in dropdownInput3)
     )) return; // Если undefined - прервать выполнение функции
 
+    // Запоминаем заголовок по умолчанию
+    const placeholder = dropdownButton.innerHTML;
 
     console.log(buttonDec1, buttonDec2, buttonDec3);
 
@@ -212,9 +229,16 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                 // Изменяем значение, записанное в Input.value
                 currInput.value = newValue;
 
-                //Если количество взрослых <= 1, а количество детей и младенцев больше 0
+                //Если тип дропдауна = 1 и количество взрослых <= 1, а количество детей и младенцев больше 0
                 // то устанавливаем количество взрослых на 1
-                if (Number(dropdownInput1.value) <= 1) {
+                let dropdownType = 1; //Тип по умолчанию
+                if ((dropdownWrapper as HTMLElement).dataset) { //Если у dropdownWrapper есть аттрибут dataset
+                    if ((dropdownWrapper as HTMLElement).dataset.type === '2') {
+                        dropdownType = 2;
+                    }
+                }
+
+                if ((dropdownType === 1) && (Number(dropdownInput1.value) <= 1)) {
                     // Если есть дети / младенцы
                     if ((Number(dropdownInput2.value) + Number(dropdownInput3.value)) > 0) {
                         //добавляем 1 взрослого
@@ -232,7 +256,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
 
                 // ********** Управление активностью кнопок "-" ***************
                 // Кнопка 1
-                if ((val1 === 0) || ((val1 === 1) && ((val2 + val3) > 0))) {
+                if ((val1 === 0) || ((dropdownType === 1) && ((val1 === 1) && ((val2 + val3) > 0)))) {
                     buttonDec1.classList.add(classButtonDecInactive);
                 } else {
                     buttonDec1.classList.remove(classButtonDecInactive);
@@ -260,13 +284,33 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                 console.log(val1, val2, val3);
 
                 // ************* Формируем заголовок на кнопке *************
-                let sum = 0;
-                dropdownInputs.forEach(function (dropdownInput) {
-                    if ('value' in dropdownInput) sum = sum + Number(dropdownInput.value);
-                });
-                // Функцией определяем окончание существительного в зависимости от числительного, устанавливаем заголовок
-                //dropdownButton.innerHTML = setEndingDependingOnNumeral(sum, 'гост');
-                dropdownButton.innerHTML = setEndingDependingOnNumeral({ numeral: sum, noun: 'гост' });
+                const sum = val1 + val2 + val3;
+                if (dropdownType === 1) {
+                    if (sum === 0) {
+                        dropdownButton.innerHTML = placeholder;
+                    } else {
+                        dropdownButton.innerHTML = String(sum) + ' ' + numWord(sum, ["гость", "гостя", "гостей"]);
+                    }
+                } else {
+                    if (sum === 0) {
+                        dropdownButton.innerHTML = placeholder;
+                    } else {
+                        let caption = '';
+                        if (val1 > 0) {
+                            if (caption !== '') { caption = caption + ', ' };
+                            caption = caption + String(val1) + ' ' + numWord(val1, ["спальня", "спальни", "спален"]);
+                        }
+                        if (val2 > 0) {
+                            if (caption !== '') { caption = caption + ', ' };
+                            caption = caption + String(val2) + ' ' + numWord(val2, ["кровать", "кровати", "кроватей"]);
+                        }
+                        if (val3 > 0) {
+                            if (caption !== '') { caption = caption + ', ' };
+                            caption = caption + String(val3) + ' ' + numWord(val3, ["ванная комната", "ванные комнаты", "ванных комнат"]);
+                        }
+                        dropdownButton.innerHTML = caption;
+                    }
+                }
             }
         }
 
@@ -292,7 +336,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
             buttonDec2.classList.add(classButtonDecInactive);
             buttonDec3.classList.add(classButtonDecInactive);
             dropdownClearButton.classList.add(classClearButtonInactive);
-            dropdownButton.innerHTML = setEndingDependingOnNumeral({ numeral: 0, noun: 'гост' })
+            dropdownButton.innerHTML = 'Выберите гостей';
         }
 
         //останавливаем всплытие

@@ -39,31 +39,73 @@
         </div>
       </div>
       <div class="uikit-demo__item">
-        <div class="dropdown">
+        <div class="dropdown" data-type="1">
           <div class="dropdown__label">Dropdown</div>
           <div class="dropdown__container">
-            <button class="dropdown__button">Сколько гостей
+            <button class="dropdown__button">Выберите гостей
             </button>
             <div class="dropdown__list">
               <div class="dropdown__item" data-id="1">
-                <div class="dropdown__text">взрослые</div>
+                <div class="dropdown__text"> взрослые
+                </div>
                 <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
                 <div class="dropdown__value">0</div>
                 <div class="dropdown__button-inc">+</div>
               </div>
               <div class="dropdown__item" data-id="2">
-                <div class="dropdown__text">дети</div>
+                <div class="dropdown__text">дети
+                </div>
                 <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
                 <div class="dropdown__value">0</div>
                 <div class="dropdown__button-inc">+</div>
               </div>
               <div class="dropdown__item" data-id="3">
-                <div class="dropdown__text">младенцы</div>
+                <div class="dropdown__text">младенцы
+                </div>
                 <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
                 <div class="dropdown__value">0</div>
                 <div class="dropdown__button-inc">+</div>
               </div>
-              <div class="dropdown__buttons-container"> 
+              <div class="dropdown__buttons-container">
+                <div class="dropdown__button-apply">применить</div>
+                <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
+              </div>
+            </div>
+            <input class="dropdown__input" type="text" data-id="1" name="select-value1" value="0"/>
+            <input class="dropdown__input" type="text" data-id="2" name="select-value2" value="0"/>
+            <input class="dropdown__input" type="text" data-id="3" name="select-value3" value="0"/>
+          </div>
+        </div>
+      </div>
+      <div class="uikit-demo__item">
+        <div class="dropdown" data-type="2">
+          <div class="dropdown__label">Dropdown-type2</div>
+          <div class="dropdown__container">
+            <button class="dropdown__button">Параметры номера
+            </button>
+            <div class="dropdown__list">
+              <div class="dropdown__item" data-id="1">
+                <div class="dropdown__text"> спальни
+                </div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__item" data-id="2">
+                <div class="dropdown__text">кровати
+                </div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__item" data-id="3">
+                <div class="dropdown__text">ванные комнаты
+                </div>
+                <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                <div class="dropdown__value">0</div>
+                <div class="dropdown__button-inc">+</div>
+              </div>
+              <div class="dropdown__buttons-container dropdown__buttons-container_inactive">
                 <div class="dropdown__button-apply">применить</div>
                 <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
               </div>
