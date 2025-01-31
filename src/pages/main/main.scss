@@ -1,0 +1,40 @@
+@use '../../scss/nullstyle.scss';
+@use '../../scss/fonts.scss';
+@use '../../modules/text-field/text-field.scss';
+@use '../../modules/text-field-masked/text-field-masked.scss';
+@use '../../modules/text-field-subscription/text-field-subscription.scss';
+@use '../../modules/dropdown/dropdown.scss';
+@use '../../modules/dropdown-date-split/dropdown-date-split.scss';
+//@use 'extmodules/air-datepicker.css';
+
+@use '../../scss/colors.scss' as *;
+
+body {
+    //background-color: $color-darkshade25;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.uikit-demo {
+    padding: 30px;
+
+    &__item {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+// ************ Пример использования **************
+//background: url("@img/cover.jpg") 0 0 no-repeat;
+
+// @media (max-width: 768px) {
+//     span {
+//         font-size: 20px;
+//     }
+// }

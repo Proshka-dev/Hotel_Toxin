@@ -1,4 +1,4 @@
-@import '../colors.scss';
+@use '../../scss/colors.scss' as *;
 
 .text-field-masked {
     &__label {

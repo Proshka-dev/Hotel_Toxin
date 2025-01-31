@@ -1,28 +1,28 @@
 //- Вставка из другого файла, использование миксина с параметрами
 //- mixin mixHead(pageTitle)
-include pug/head
+include ../../modules/head/head
 
 //- mixin mixTextField(vLabel, vType, vPlaceholder)
-include pug/uikit/text-field
+include ../../modules/text-field/text-field.pug
 
 //- mixin mixTextFieldMasked(vLabel, vType, vPlaceholder)
-include pug/uikit/text-field-masked
+include ../../modules/text-field-masked/text-field-masked.pug
 
 //- mixin mixTextFieldSubscription(vLabel, vType, vPlaceholder)
-include pug/uikit/text-field-subscription
+include ../../modules/text-field-subscription/text-field-subscription.pug
 
 //- mixin mixDropdown(vLabel, vPlaceholder)
-include pug/uikit/dropdown
+include ../../modules/dropdown/dropdown.pug
 
 //- mixin 
-include pug/uikit/dd-date-split
+include ../../modules/dropdown-date-split/dropdown-date-split.pug
 
 doctype html
 
 +mixHead('Главная')
 
 body
-  include pug/header
+  include ../../modules/header/header.pug
   
   .uikit-demo
     .container
@@ -52,9 +52,9 @@ body
       //-   span.material-symbols-outlined favorite
 
 
-  include pug/footer
-
-  script(src='js/modules/air-datepicker.js')
-  script(src='js/app.js')
-  script(src='js/modules/testfile.js')
-  script(src='js/modules/dropdown.js')
+  include ../../modules/footer/footer.pug
+  script(src='js/air-datepicker.js')
+  script(src='js/dropdown-date-split.js')
+  script(src='js/dropdown.js')
+  script(src='js/main.js')
+  

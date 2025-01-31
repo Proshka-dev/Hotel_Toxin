@@ -1,6 +1,8 @@
 import dartSass from 'sass'; // препроцессор
 import gulpSass from 'gulp-sass'; //плагин для запуска препроцессора
 import rename from 'gulp-rename'; // переименование
+import flatten from "gulp-flatten"; // Изменение пути
+
 
 import cleanCss from 'gulp-clean-css'; // Сжатие CSS файла
 import autoprefixer from 'gulp-autoprefixer'; // Добавление вендорных префиксов
@@ -41,6 +43,9 @@ export const scss = () => {
             )
         ))
 
+        // Убираем пути
+        .pipe(flatten())
+
         // Закомментировать, если не нужен не сжатый дубль файла стилей
         .pipe(app.gulp.dest(app.path.build.css))
 
@@ -50,6 +55,10 @@ export const scss = () => {
         .pipe(rename({
             extname: ".min.css"
         }))
-        // Путь сохранения результата
+
+        // Убираем пути
+        .pipe(flatten())
+
+        // Cохранениt результата
         .pipe(app.gulp.dest(app.path.build.css))
 }

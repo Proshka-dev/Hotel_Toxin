@@ -1,6 +1,6 @@
-@import '../colors.scss';
+@use '../../scss/colors.scss' as *;
 
-.text-field-subscription {
+.text-field {
     &__label {
         color: $color-darkshade100;
 
@@ -8,24 +8,6 @@
         text-transform: uppercase;
 
         margin-bottom: 5px;
-    }
-
-    &__container {
-        position: relative;
-
-        &::before {
-            content: 'arrow_forward';
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-            right: 10px;
-            color: $color-purple;
-
-            font-family: "Material Symbols Outlined", serif;
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-            font-size: 24px;
-
-        }
     }
 
     &__input {
@@ -38,7 +20,7 @@
         line-height: 18px;
 
         width: 100%;
-        padding: 12px 44px 12px 15px;
+        padding: 12px 15px;
 
         &::placeholder {
             color: $color-darkshade25;
@@ -49,7 +31,6 @@
             color: $color-darkshade75;
             border-color: $color-darkshade75;
         }
-
 
     }
 }

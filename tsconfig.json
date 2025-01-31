@@ -1,7 +1,8 @@
 {
     "files": [
-        "src/ts/*.ts",
-        "src/ts/modules/*.ts"
+        "src/pages/main/*.ts",
+        "src/modules/dropdown/*.ts",
+        "src/modules/dropdown-date-split/*.ts"
     ],
     "compilerOptions": {
         "noImplicitAny": true,

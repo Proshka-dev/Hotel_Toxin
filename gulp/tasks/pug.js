@@ -1,4 +1,6 @@
 import pug from "gulp-pug";
+import flatten from "gulp-flatten";
+
 
 export const task_pug = () => {
     return app.gulp.src(app.path.src.pug)
@@ -14,5 +16,9 @@ export const task_pug = () => {
         }))
         // замена алиаса на путь
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
+
+        // Убираем пути
+        .pipe(flatten())
+
         .pipe(app.gulp.dest(app.path.build.pug))
 }

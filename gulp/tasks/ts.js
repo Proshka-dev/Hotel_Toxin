@@ -1,6 +1,7 @@
 //var gulp = require("gulp");
 import gulp from "gulp";
 import ts from "gulp-typescript";
+import flatten from "gulp-flatten";
 
 var tsProject = ts.createProject("tsconfig.json");
 
@@ -26,6 +27,9 @@ export const tstask = () => {
         )
         // Компилируем TS -> JS
         .pipe(tsProject()).js
+
+        // Убираем пути
+        .pipe(flatten())
 
         // Копируем в папку
         .pipe(app.gulp.dest(app.path.build.js))
