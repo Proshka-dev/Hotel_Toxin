@@ -1,0 +1,15 @@
+//- Объявление миксина
+//- Параметры: vLabel
+mixin mixDropdownDateSplit(vLabel1, vLabel2)
+  .dd-date-split
+    .dd-date-split__body
+      .dd-date-split__item
+        .dd-date-split__label= vLabel1
+        .dd-date-split__container
+          input.dd-date-split__input(type= 'text' id='inputdate1')
+      .dd-date-split__item
+        .dd-date-split__label= vLabel2
+        .dd-date-split__container
+          input.dd-date-split__input(type= 'text' id='inputdate2')
+
+//- script(src='js/dropdown.js')

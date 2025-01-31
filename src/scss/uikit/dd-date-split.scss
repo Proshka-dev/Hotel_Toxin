@@ -1,0 +1,75 @@
+@import '../colors.scss';
+
+.dd-date-split {
+    &__label {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+
+        margin-bottom: 5px;
+    }
+
+    &__body {
+        display: flex;
+        //flex-direction: row;
+        //justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+
+    &__item {
+        width: 50%;
+    }
+
+    &__container {
+        position: relative;
+        // width: 100%;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: 10px;
+            color: $color-darkshade75;
+
+            font-family: "Material Symbols Outlined", serif;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            font-size: 24px;
+
+            content: "expand_more";
+
+        }
+    }
+
+    &__input {
+        color: $color-darkshade75;
+
+        border: 1px solid $color-darkshade25;
+        border-radius: 4px;
+
+        font-size: 14px;
+        line-height: 18px;
+
+        width: 100%;
+        padding: 12px 44px 12px 15px;
+
+        &::placeholder {
+            color: $color-darkshade25;
+        }
+
+        &:focus,
+        &:hover {
+            color: $color-darkshade75;
+            border-color: $color-darkshade75;
+        }
+
+        // Скрыть иконку
+        &::-webkit-calendar-picker-indicator {
+            //display: none;
+        }
+
+
+
+    }
+}

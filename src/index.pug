@@ -14,6 +14,8 @@ include pug/uikit/text-field-subscription
 //- mixin mixDropdown(vLabel, vPlaceholder)
 include pug/uikit/dropdown
 
+//- mixin 
+include pug/uikit/dd-date-split
 
 doctype html
 
@@ -37,7 +39,9 @@ body
         +mixDropdown('Dropdown', '1')
       .uikit-demo__item
         //- Параметры: vLabel, vPlaceholder, vType
-        +mixDropdown('Dropdown-type2', '2')
+        +mixDropdown('Dropdown (type2)', '2')
+      .uikit-demo__item
+        +mixDropdownDateSplit('Date dropdown split', 'Date dropdown split')
       
       
       
@@ -50,4 +54,7 @@ body
 
   include pug/footer
 
-  script(src='js/app.min.js')
+  script(src='js/modules/air-datepicker.js')
+  script(src='js/app.js')
+  script(src='js/modules/testfile.js')
+  script(src='js/modules/dropdown.js')

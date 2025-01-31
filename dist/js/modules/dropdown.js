@@ -1,6 +1,3 @@
-//import * as flsFunctions from "./modules/functions.js"
-//flsFunctions.isWebp();
-console.log('Привет из TS файла');
 var dropdownOpenAndCloseActions = function (params) {
     var buttonElement = params.buttonElement, listElement = params.listElement, buttonListOpnenedClass = params.buttonListOpnenedClass, buttonActiveClass = params.buttonActiveClass, listVisibleClass = params.listVisibleClass;
     // Событие Click на кнопке (отображаем список, управляем стрелкой, управляем визуальными эффектами кнопки)
@@ -312,4 +309,3 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         dropdownButton.focus();
     });
 });
-console.log('Привет из второго TS файла');

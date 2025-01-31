@@ -1,8 +1,22 @@
-//import webpack from "webpack-stream";
+//var gulp = require("gulp");
+import gulp from "gulp";
 import ts from "gulp-typescript";
 
+var tsProject = ts.createProject("tsconfig.json");
+
+// gulp.task("default", function () {
+//     return tsProject.src()
+//         .pipe(tsProject()).js
+//         .pipe(gulp.dest("dist"));
+// });
+
+
+
+
+
 export const tstask = () => {
-    return app.gulp.src(app.path.src.ts, { sourcemaps: app.isDev }) // sourcemaps только в режиме Dev
+    //    return app.gulp.src(app.path.src.ts, { sourcemaps: app.isDev }) // sourcemaps только в режиме Dev
+    return tsProject.src()
         // Обработка ошибок, вывод ошибки в уведомления win
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
@@ -11,12 +25,7 @@ export const tstask = () => {
             }))
         )
         // Компилируем TS -> JS
-        .pipe(ts({
-            //            declaration: true,
-            noImplicitAny: true,
-            outFile: 'app.min.js'
-
-        }))
+        .pipe(tsProject()).js
 
         // Копируем в папку
         .pipe(app.gulp.dest(app.path.build.js))

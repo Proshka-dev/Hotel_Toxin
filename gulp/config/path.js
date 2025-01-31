@@ -13,7 +13,7 @@ export const path = {
         images: `${buildFolder}/img/`,
         css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
-        files: `${buildFolder}/files/`,
+        files: `${buildFolder}/js/modules/`,
     },
     src: {
         pug: `${srcFolder}/*.pug`,
@@ -24,7 +24,7 @@ export const path = {
         svg: `${srcFolder}/img/**/*.svg`,
         scss: `${srcFolder}/scss/style.scss`,
         html: `${srcFolder}/*.html`,
-        files: `${srcFolder}/files/**/*.*`,
+        files: `./node_modules/air-datepicker/air-datepicker.js`,
     },
     watch: {
         pug: `${srcFolder}/**/*.pug`,
