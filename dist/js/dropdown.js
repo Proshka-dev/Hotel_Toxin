@@ -1,5 +1,5 @@
-var dropdownOpenAndCloseActions = function (params) {
-    var buttonElement = params.buttonElement, listElement = params.listElement, buttonListOpnenedClass = params.buttonListOpnenedClass, buttonActiveClass = params.buttonActiveClass, listVisibleClass = params.listVisibleClass;
+const dropdownOpenAndCloseActions = function (params) {
+    const { buttonElement, listElement, buttonListOpnenedClass, buttonActiveClass, listVisibleClass } = params;
     // Событие Click на кнопке (отображаем список, управляем стрелкой, управляем визуальными эффектами кнопки)
     buttonElement.addEventListener('click', function () {
         //отображаем список
@@ -35,7 +35,7 @@ var dropdownOpenAndCloseActions = function (params) {
 // Функция установки окончания существительного в зависимости от числительного
 function numWord(value, words) {
     value = Math.abs(value) % 100;
-    var num = value % 10;
+    const num = value % 10;
     if (value > 10 && value < 20)
         return words[2];
     if (num > 1 && num < 5)
@@ -75,29 +75,29 @@ function numWord(value, words) {
 //};
 // Выборка всех .dropdown и обработка каждого
 document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
-    var classDropdownInput = 'dropdown__input';
-    var classButtonInc = 'dropdown__button-inc';
-    var classButtonDec = 'dropdown__button-dec';
-    var classValue = 'dropdown__value';
-    var classButtonDecInactive = 'dropdown__button-dec_inactive';
-    var classButtonActive = 'dropdown__button_active';
-    var classButtonListOpnened = 'dropdown__button_listopened';
-    var classListVisible = 'dropdown__list_visible';
-    var classApplyButton = 'dropdown__button-apply';
-    var classClearButton = 'dropdown__button-clear';
-    var classClearButtonInactive = 'dropdown__button-clear_inactive';
-    var classButtonsContainerInactive = 'dropdown__buttons-container_inactive';
-    var dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
-    var dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
-    var dropdownList = dropdownWrapper.querySelector('.dropdown__list');
-    var dropdownInput1 = (dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='1']"));
-    var dropdownInput2 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='2']");
-    var dropdownInput3 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='3']");
-    var dropdownItem1 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='1']");
-    var dropdownItem2 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='2']");
-    var dropdownItem3 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='3']");
-    var dropdownClearButton = dropdownWrapper.querySelector("." + classClearButton);
-    var dropdownButtonsContainer = dropdownWrapper.querySelector('.dropdown__buttons-container');
+    const classDropdownInput = 'dropdown__input';
+    const classButtonInc = 'dropdown__button-inc';
+    const classButtonDec = 'dropdown__button-dec';
+    const classValue = 'dropdown__value';
+    const classButtonDecInactive = 'dropdown__button-dec_inactive';
+    const classButtonActive = 'dropdown__button_active';
+    const classButtonListOpnened = 'dropdown__button_listopened';
+    const classListVisible = 'dropdown__list_visible';
+    const classApplyButton = 'dropdown__button-apply';
+    const classClearButton = 'dropdown__button-clear';
+    const classClearButtonInactive = 'dropdown__button-clear_inactive';
+    const classButtonsContainerInactive = 'dropdown__buttons-container_inactive';
+    const dropdownInputs = dropdownWrapper.querySelectorAll('.dropdown__input');
+    const dropdownButton = dropdownWrapper.querySelector('.dropdown__button');
+    const dropdownList = dropdownWrapper.querySelector('.dropdown__list');
+    const dropdownInput1 = (dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='1']"));
+    const dropdownInput2 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='2']");
+    const dropdownInput3 = dropdownWrapper.querySelector("." + 'dropdown__input' + "[data-id='3']");
+    const dropdownItem1 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='1']");
+    const dropdownItem2 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='2']");
+    const dropdownItem3 = dropdownWrapper.querySelector("." + 'dropdown__item' + "[data-id='3']");
+    const dropdownClearButton = dropdownWrapper.querySelector("." + classClearButton);
+    const dropdownButtonsContainer = dropdownWrapper.querySelector('.dropdown__buttons-container');
     //dropdownItem1.querySelector('.' + classValue).innerHTML = String(val1);
     //dropdownItem2.querySelector('.' + classValue).innerHTML = String(val2);
     //dropdownItem3.querySelector('.' + classValue).innerHTML = String(val3);
@@ -113,12 +113,12 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         && dropdownClearButton
         && dropdownButtonsContainer))
         return; // Если undefined - прервать выполнение функции
-    var dropdownValue1 = dropdownItem1.querySelector('.' + classValue);
-    var dropdownValue2 = dropdownItem2.querySelector('.' + classValue);
-    var dropdownValue3 = dropdownItem3.querySelector('.' + classValue);
-    var buttonDec1 = dropdownItem1.querySelector('.' + classButtonDec);
-    var buttonDec2 = dropdownItem2.querySelector('.' + classButtonDec);
-    var buttonDec3 = dropdownItem3.querySelector('.' + classButtonDec);
+    const dropdownValue1 = dropdownItem1.querySelector('.' + classValue);
+    const dropdownValue2 = dropdownItem2.querySelector('.' + classValue);
+    const dropdownValue3 = dropdownItem3.querySelector('.' + classValue);
+    const buttonDec1 = dropdownItem1.querySelector('.' + classButtonDec);
+    const buttonDec2 = dropdownItem2.querySelector('.' + classButtonDec);
+    const buttonDec3 = dropdownItem3.querySelector('.' + classButtonDec);
     // Проверяем успешность селекторов
     if (!(dropdownValue1
         && dropdownValue2
@@ -133,7 +133,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
         && ("value" in dropdownInput3)))
         return; // Если undefined - прервать выполнение функции
     // Запоминаем заголовок по умолчанию
-    var placeholder = dropdownButton.innerHTML;
+    const placeholder = dropdownButton.innerHTML;
     console.log(buttonDec1, buttonDec2, buttonDec3);
     // Вызов функции назначения обработчиков для открытия и закрытия списка
     dropdownOpenAndCloseActions({
@@ -150,26 +150,26 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     // listVisibleClass: string
     // Обработка нажатий на списке
     dropdownList.addEventListener('click', function (e) {
-        var target = (e.target); // где был клик? (!!!!!)
+        let target = (e.target); // где был клик? (!!!!!)
         if (!target)
             return; // Если undefined - прервать выполнение функции
         //Если click сработало на classButtonInc или classButtonDec
         if ((target.classList.contains(classButtonInc)) || (target.classList.contains(classButtonDec))) {
             // Определяем родитея, потомком которого является нажатая кнопка, получаем data-id
-            var currItem = (target.parentNode);
+            const currItem = (target.parentNode);
             if (!currItem || !currItem.dataset)
                 return;
-            var currItemDataId = currItem.dataset.id;
+            const currItemDataId = currItem.dataset.id;
             // Находим Inpit с таким же data-id
-            var currInput = dropdownWrapper.querySelector("." + classDropdownInput + "[data-id='" + currItemDataId + "']");
+            const currInput = dropdownWrapper.querySelector("." + classDropdownInput + "[data-id='" + currItemDataId + "']");
             if (!currInput)
                 return;
             // Запоминаем старое значение
             if (!("value" in currInput))
                 return;
-            var oldValue = Number(currInput.value);
+            const oldValue = Number(currInput.value);
             // определяем тип операции
-            var increment = 0;
+            let increment = 0;
             if (target.classList.contains(classButtonInc)) {
                 increment = 1;
             }
@@ -177,14 +177,14 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                 increment = -1;
             }
             // определяем новое значение
-            var newValue = oldValue + increment;
+            const newValue = oldValue + increment;
             // Изменяем значение, если новое значение >= 0
             if (newValue >= 0) {
                 // Изменяем значение, записанное в Input.value
                 currInput.value = newValue;
                 //Если тип дропдауна = 1 и количество взрослых <= 1, а количество детей и младенцев больше 0
                 // то устанавливаем количество взрослых на 1
-                var dropdownType = 1; //Тип по умолчанию
+                let dropdownType = 1; //Тип по умолчанию
                 if (dropdownWrapper.dataset) { //Если у dropdownWrapper есть аттрибут dataset
                     if (dropdownWrapper.dataset.type === '2') {
                         dropdownType = 2;
@@ -198,9 +198,9 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                     }
                 }
                 // ********* Отображение значений dropdownInput ***************
-                var val1 = Number(dropdownInput1.value);
-                var val2 = Number(dropdownInput2.value);
-                var val3 = Number(dropdownInput3.value);
+                const val1 = Number(dropdownInput1.value);
+                const val2 = Number(dropdownInput2.value);
+                const val3 = Number(dropdownInput3.value);
                 dropdownValue1.innerHTML = String(val1);
                 dropdownValue2.innerHTML = String(val2);
                 dropdownValue3.innerHTML = String(val3);
@@ -239,7 +239,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                 ;
                 console.log(val1, val2, val3);
                 // ************* Формируем заголовок на кнопке *************
-                var sum = val1 + val2 + val3;
+                const sum = val1 + val2 + val3;
                 if (dropdownType === 1) {
                     if (sum === 0) {
                         dropdownButton.innerHTML = placeholder;
@@ -253,7 +253,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                         dropdownButton.innerHTML = placeholder;
                     }
                     else {
-                        var caption = '';
+                        let caption = '';
                         if (val1 > 0) {
                             if (caption !== '') {
                                 caption = caption + ', ';
