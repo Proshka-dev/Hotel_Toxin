@@ -1,13 +1,25 @@
 // Импорт модуля календаря
 //import AirDatepicker from 'air-datepicker';
 
-// Кастомная кнопка для календаря
+// Кастомные кнопки для календаря
 let dpButtonApply = {
     content: 'Применить',
     className: 'dp-custom-button-apply',
     onClick: (dp: { hide: () => void }) => {
         if ('hide' in dp) {
             dp.hide();
+            //console.log('type of:', (dp.hide()));
+        }
+    }
+}
+
+let dpButtonClear = {
+    content: 'Очистить',
+    className: 'dp-custom-button-clear',
+    onClick: (dp: { clear: () => void }) => {
+        if ('hide' in dp) {
+            dp.clear();
+            dp.update();
             //console.log('type of:', (dp.hide()));
         }
     }
@@ -51,7 +63,7 @@ if (AirDatepicker) {
     const AirDatepicker1 = new AirDatepicker('#inputdate1', {
         range: true,
         multipleDatesSeparator: ' - ',
-        buttons: ['clear', dpButtonApply],
+        buttons: [dpButtonClear, dpButtonApply],
         //inline: true,
         onSelect: function ({ date }: { date: Array<Date> }) {
             // Вызов функции внесения даты начала и конца интервала в 2 inputa
