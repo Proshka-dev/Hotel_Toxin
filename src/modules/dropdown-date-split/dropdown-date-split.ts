@@ -85,4 +85,9 @@ if (AirDatepicker) {
 
     }
 
+    // Закрытие по клику на иконки
+    const Icon1 = document.querySelector('') as HTMLElement;
+    const Icon2 = document.querySelector('') as HTMLElement;
+
+
 }

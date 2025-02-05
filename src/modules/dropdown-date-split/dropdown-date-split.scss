@@ -26,21 +26,36 @@
         position: relative;
         // width: 100%;
 
-        &::before {
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-            right: 10px;
-            color: $color-darkshade75;
+        // &::before {
+        //     position: absolute;
+        //     top: 50%;
+        //     transform: translate(0, -50%);
+        //     right: 10px;
+        //     color: $color-darkshade75;
 
-            font-family: "Material Symbols Outlined", serif;
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-            font-size: 24px;
+        //     font-family: "Material Symbols Outlined", serif;
+        //     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        //     font-size: 24px;
 
-            content: "expand_more";
+        //     content: "expand_more";
 
-            pointer-events: none;
-        }
+        //     pointer-events: none;
+        // }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 10px;
+        color: $color-darkshade75;
+
+        font-family: "Material Symbols Outlined", serif;
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        font-size: 24px;
+
+        pointer-events: none;
+
     }
 
     &__input {

@@ -7,9 +7,11 @@ mixin mixDropdownDateSplit(vLabel1, vLabel2)
         .dd-date-split__label= vLabel1
         .dd-date-split__container
           input.dd-date-split__input(type= 'text' id='inputdate1' readonly)
+          .dd-date-split__icon expand_more
       .dd-date-split__item
         .dd-date-split__label= vLabel2
         .dd-date-split__container
           input.dd-date-split__input(type= 'text' id='inputdate2' readonly)
+          .dd-date-split__icon expand_more
 
 //- script(src='js/dropdown.js')

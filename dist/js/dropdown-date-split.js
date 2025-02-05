@@ -76,4 +76,7 @@ if (AirDatepicker) {
             Input1.focus();
         });
     }
+    // Закрытие по клику на иконки
+    const Icon1 = document.querySelector('');
+    const Icon2 = document.querySelector('');
 }
