@@ -70,8 +70,10 @@ if (AirDatepicker) {
     });
     // Открытие календаря по клику на второй инпут
     const Input2 = document.querySelector('#inputdate2');
-    Input2.addEventListener('click', function (e) {
-        console.log('Клик на инпуте 2');
-        AirDatepicker1.show();
-    });
+    if (Input2) {
+        Input2.addEventListener('click', function (e) {
+            console.log('Клик на инпуте 2');
+            AirDatepicker1.show();
+        });
+    }
 }
