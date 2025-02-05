@@ -385,6 +385,7 @@ body {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   font-size: 24px;
   content: "expand_more";
+  pointer-events: none;
 }
 .dd-date-split__input {
   color: rgba(31, 32, 65, 0.75);
@@ -399,6 +400,44 @@ body {
   color: rgba(31, 32, 65, 0.25);
 }
 .dd-date-split__input:focus, .dd-date-split__input:hover {
+  color: rgba(31, 32, 65, 0.75);
+  border-color: rgba(31, 32, 65, 0.75);
+}
+.dropdown-date-filter__label {
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.dropdown-date-filter__container {
+  position: relative;
+}
+.dropdown-date-filter__container::before {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 10px;
+  color: rgba(31, 32, 65, 0.75);
+  font-family: "Material Symbols Outlined", serif;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 24px;
+  content: "expand_more";
+  pointer-events: none;
+}
+.dropdown-date-filter__input {
+  color: rgba(31, 32, 65, 0.75);
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  width: 100%;
+  padding: 12px 44px 12px 15px;
+  text-transform: lowercase;
+}
+.dropdown-date-filter__input::placeholder {
+  color: rgba(31, 32, 65, 0.25);
+}
+.dropdown-date-filter__input:focus, .dropdown-date-filter__input:hover {
   color: rgba(31, 32, 65, 0.75);
   border-color: rgba(31, 32, 65, 0.75);
 }
@@ -427,7 +466,7 @@ body {
   --adp-background-color-selected-other-month-focused: var(--adp-cell-background-color-selected-hover);
   --adp-background-color-in-range: var(--adp-cell-background-color-in-range);
   --adp-background-color-in-range-focused: var(--adp-cell-background-color-in-range-hover);
-  --adp-background-color-hover: red;
+  --adp-background-color-hover: linear-gradient(rgba(111, 207, 151, 0.3), rgba(102, 210, 234, 0.3));
   --adp-cell-border-radius: 20px;
   --adp-color-other-month-hover: white;
   --adp-cell-background-color-hover: linear-gradient(#6FCF97, #66D2EA);

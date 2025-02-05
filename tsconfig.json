@@ -3,6 +3,7 @@
         "src/pages/main/*.ts",
         "src/modules/dropdown/*.ts",
         "src/modules/dropdown-date-split/*.ts",
+        "src/modules/dropdown-date-filter/*.ts",
         "src/modules/test/*.ts"
     ],
     "compilerOptions": {

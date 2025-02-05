@@ -30,7 +30,7 @@
     --adp-background-color-in-range: var(--adp-cell-background-color-in-range); // фон range не текущего месяца
     --adp-background-color-in-range-focused: var(--adp-cell-background-color-in-range-hover); // hover фона range не текущего месяца
 
-    --adp-background-color-hover: red; //linear-gradient(#6FCF97, #66D2EA); // hover вне выбранного диапазона
+    --adp-background-color-hover: linear-gradient(rgba(111, 207, 151, 0.3), rgba(102, 210, 234, 0.3)); // hover вне выбранного диапазона
     --adp-cell-border-radius: 20px; // радиус начала и конца диапазона
     --adp-color-other-month-hover: white; //hover число другого месяца
 

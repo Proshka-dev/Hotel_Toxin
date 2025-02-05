@@ -17,6 +17,9 @@ include ../../modules/dropdown/dropdown.pug
 //- mixin 
 include ../../modules/dropdown-date-split/dropdown-date-split.pug
 
+//- mixin 
+include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
+
 doctype html
 
 +mixHead('Главная')
@@ -42,6 +45,8 @@ body
         +mixDropdown('Dropdown (type2)', '2')
       .uikit-demo__item
         +mixDropdownDateSplit('Date dropdown split', 'Date dropdown split')
+      .uikit-demo__item
+        +mixDropdownDateFilter('Filter date dropdown')
       
       
       
@@ -55,6 +60,7 @@ body
   include ../../modules/footer/footer.pug
   script(src='js/air-datepicker.js')
   script(src='js/dropdown-date-split.js')
+  script(src='js/dropdown-date-filter.js')
   script(src='js/dropdown.js')
   script(type='module' src='js/main.js')
   

@@ -1,6 +1,6 @@
 @use '../../scss/colors.scss' as *;
 
-.dd-date-split {
+.dropdown-date-filter {
     &__label {
         color: $color-darkshade100;
 
@@ -8,18 +8,6 @@
         text-transform: uppercase;
 
         margin-bottom: 5px;
-    }
-
-    &__body {
-        display: flex;
-        //flex-direction: row;
-        //justify-content: space-between;
-        width: 100%;
-        gap: 20px;
-    }
-
-    &__item {
-        width: 50%;
     }
 
     &__container {
@@ -55,6 +43,7 @@
         width: 100%;
         padding: 12px 44px 12px 15px;
 
+        text-transform: lowercase;
 
         &::placeholder {
             color: $color-darkshade25;

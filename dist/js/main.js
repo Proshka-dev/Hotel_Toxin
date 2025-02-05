@@ -3,5 +3,6 @@
 // import AirDatepicker from 'air-datepicker';
 // import 'air-datepicker/air-datepicker.css';
 // new AirDatepicker('#my-element')
+// @ts-ignore
 import { sayHello } from "./greet.js"; //Импорт модуля
 console.log(sayHello("TypeScript"));

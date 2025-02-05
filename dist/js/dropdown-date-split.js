@@ -60,7 +60,7 @@ if (AirDatepicker) {
         range: true,
         multipleDatesSeparator: ' - ',
         buttons: [dpButtonClear, dpButtonApply],
-        inline: true,
+        //        inline: true,
         onSelect: function ({ date }) {
             // Вызов функции внесения даты начала и конца интервала в 2 inputa
             rangeToInputs({ range: date, idInput1: 'inputdate1', idInput2: 'inputdate2' });
@@ -68,12 +68,12 @@ if (AirDatepicker) {
             // AirDatepicker2.selectDate(date);
         },
     });
-    // Открытие календаря по клику на второй инпут
+    // Открытие календаря по фокусу на второй инпут
+    const Input1 = document.querySelector('#inputdate1');
     const Input2 = document.querySelector('#inputdate2');
-    if (Input2) {
-        Input2.addEventListener('click', function (e) {
-            console.log('Клик на инпуте 2');
-            AirDatepicker1.show();
+    if ((Input1) && (Input2)) {
+        Input2.addEventListener('focus', function (e) {
+            Input1.focus();
         });
     }
 }

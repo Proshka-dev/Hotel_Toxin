@@ -6,6 +6,7 @@
 
 // new AirDatepicker('#my-element')
 
+// @ts-ignore
 import { sayHello } from "./greet.js"; //Импорт модуля
 console.log(sayHello("TypeScript"));
 
