@@ -60,7 +60,7 @@ if (AirDatepicker) {
         range: true,
         multipleDatesSeparator: ' - ',
         buttons: [dpButtonClear, dpButtonApply],
-        //inline: true,
+        inline: true,
         onSelect: function ({ date }) {
             // Вызов функции внесения даты начала и конца интервала в 2 inputa
             rangeToInputs({ range: date, idInput1: 'inputdate1', idInput2: 'inputdate2' });
