@@ -1,14 +1,8 @@
 {
-    "files": [
-        "src/pages/main/*.ts",
-        "src/modules/dropdown/*.ts",
-        "src/modules/dropdown-date-split/*.ts",
-        "src/modules/test/*.ts"
-    ],
-    "compilerOptions": {
-        "noImplicitAny": true,
-        "target": "es2015",
-        "moduleResolution": "nodenext",
-        "module": "nodenext",
-    }
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es2015",
+    "moduleResolution": "nodenext",
+    "module": "nodenext"
+  }
 }
