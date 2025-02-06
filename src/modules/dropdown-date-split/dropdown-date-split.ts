@@ -67,36 +67,43 @@ if (AirDatepicker) {
     range: true,
     multipleDatesSeparator: ' - ',
     buttons: [dpButtonClear, dpButtonApply],
-    //        inline: true,
+    //inline: true,
     onSelect: function ({ date }: { date: Array<Date> }) {
       // Вызов функции внесения даты начала и конца интервала в 2 inputa
       rangeToInputs({ range: date, idInput1: 'inputdate1', idInput2: 'inputdate2' });
-      //Установка значений другого AirDatepicker
-      // AirDatepicker2.selectDate(date);
     },
+  });
 
-    // Открытие календаря по клику на второй инпут
-    const Input2 = document.querySelector("#inputdate2");
-    if(Input2) {
-      Input2.addEventListener("click", function (e) {
-        console.log("Клик на инпуте 2");
-        AirDatepicker1.show();
-      });
+  // Функционал открытия и закрытия календаря
+  const Input1 = document.querySelector('#inputdate1') as HTMLElement;
+  const Input2 = document.querySelector("#inputdate2") as HTMLElement;
+  const Icon1 = Input1.parentElement.lastElementChild as HTMLElement;
+  const Icon2 = Input2.parentElement.lastElementChild as HTMLElement;
+  if ((Input1) && (Input2) && (Icon1) && (Icon2)) {
 
-      // Открытие календаря по фокусу на второй инпут
-      const Input1 = document.querySelector('#inputdate1') as HTMLElement;
-      const Input2 = document.querySelector('#inputdate2') as HTMLElement;
-
-      if ((Input1) && (Input2)) {
-        Input2.addEventListener('focus', function (e) {
-          Input1.focus();
-        });
-
-      }
-
-      // Закрытие по клику на иконки
-      const Icon1 = document.querySelector('') as HTMLElement;
-      const Icon2 = document.querySelector('') as HTMLElement;
+    // Открытие календаря по фокусу на второй инпут
+    Input2.addEventListener('focus', function (e) {
+      Input1.focus();
+    });
 
 
-    }
+    // Закрытие по клику на иконки
+    Icon1.addEventListener('click', function (e) {
+      if (AirDatepicker1.visible) {
+        AirDatepicker1.hide();
+      } else {
+        Input1.focus();
+      };
+    });
+    Icon2.addEventListener('click', function (e) {
+      if (AirDatepicker1.visible) {
+        AirDatepicker1.hide();
+      } else {
+        Input1.focus();
+      };
+    });
+
+
+  }
+}
+

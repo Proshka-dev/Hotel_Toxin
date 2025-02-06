@@ -31,16 +31,16 @@ function watcher() {
   // (путь до папок/файлов за которыми наблюдаем, действие при изменении)
   gulp.watch(path.watch.pug, task_pug);
   // gulp.watch(path.watch.copy_js, copy_js);
-  gulp.watch(path.watch.js, js);
+  //gulp.watch(path.watch.js, js);
   //gulp.watch(path.watch.copy_css, copy_css);
-  gulp.watch(path.watch.html, html);
+  //gulp.watch(path.watch.html, html);
   gulp.watch(path.watch.scss, scss);
   //gulp.watch(path.watch.js, js);
-  gulp.watch(path.watch.ts, tstask);
+  gulp.watch(path.watch.ts, js);
   gulp.watch(path.watch.images, images);
 }
 
-const mainTasks = gulp.parallel(js, copy_css, task_pug, scss, tstask, images);
+const mainTasks = gulp.parallel(js, copy_css, task_pug, scss, images);
 
 // Построение сценариев выполнения задач
 // series выполняет задачи последовательно
