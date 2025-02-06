@@ -30,6 +30,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/modules/checkbox-list/checkbox-list.ts":
+/*!****************************************************!*\
+  !*** ./src/modules/checkbox-list/checkbox-list.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/checkbox-list/checkbox-list.ts?");
+
+/***/ }),
+
 /***/ "./src/modules/dropdown-date-filter/dropdown-date-filter.ts":
 /*!******************************************************************!*\
   !*** ./src/modules/dropdown-date-filter/dropdown-date-filter.ts ***!
@@ -37,7 +48,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var air_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/index.es.js\");\n// Импорт модуля календаря\n\n// Кастомные кнопки для календаря\nlet dpButtonApply = {\n    content: 'Применить',\n    className: 'dp-custom-button-apply',\n    onClick: (dp) => {\n        if ('hide' in dp) {\n            dp.hide();\n        }\n    }\n};\nlet dpButtonClear = {\n    content: 'Очистить',\n    className: 'dp-custom-button-clear',\n    onClick: (dp) => {\n        if ('hide' in dp) {\n            dp.clear();\n            dp.update();\n        }\n    }\n};\n//@ts-ignore\nif (air_datepicker__WEBPACK_IMPORTED_MODULE_0__[\"default\"]) {\n    // @ts-ignore\n    const AirDatepicker2 = new air_datepicker__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('#inputfilter1', {\n        range: true,\n        multipleDatesSeparator: ' - ',\n        buttons: [dpButtonClear, dpButtonApply],\n        //        inline: true,\n        dateFormat: 'd MMM'\n    });\n}\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/dropdown-date-filter/dropdown-date-filter.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var air_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/index.es.js\");\n// Импорт модуля календаря\n\n// Кастомные кнопки для календаря\nlet dpButtonApply = {\n    content: 'Применить',\n    className: 'dp-custom-button-apply',\n    onClick: (dp) => {\n        if ('hide' in dp) {\n            dp.hide();\n        }\n    }\n};\nlet dpButtonClear = {\n    content: 'Очистить',\n    className: 'dp-custom-button-clear',\n    onClick: (dp) => {\n        if ('hide' in dp) {\n            dp.clear();\n            dp.update();\n        }\n    }\n};\nif (air_datepicker__WEBPACK_IMPORTED_MODULE_0__[\"default\"]) {\n    // @ts-ignore\n    new air_datepicker__WEBPACK_IMPORTED_MODULE_0__[\"default\"]('#inputfilter1', {\n        range: true,\n        multipleDatesSeparator: ' - ',\n        buttons: [dpButtonClear, dpButtonApply],\n        dateFormat: 'd MMM'\n    });\n}\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/dropdown-date-filter/dropdown-date-filter.ts?");
 
 /***/ }),
 
@@ -157,6 +168,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//import * as flsFunctions fr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	__webpack_require__("./src/modules/checkbox-list/checkbox-list.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown/dropdown.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-filter/dropdown-date-filter.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-split/dropdown-date-split.ts");

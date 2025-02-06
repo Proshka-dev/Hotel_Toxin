@@ -24,14 +24,12 @@ let dpButtonClear = {
 }
 
 
-//@ts-ignore
 if (AirDatepicker) {
     // @ts-ignore
-    const AirDatepicker2 = new AirDatepicker('#inputfilter1', {
+    new AirDatepicker('#inputfilter1', {
         range: true,
         multipleDatesSeparator: ' - ',
         buttons: [dpButtonClear, dpButtonApply],
-        //        inline: true,
         dateFormat: 'd MMM'
     });
 }

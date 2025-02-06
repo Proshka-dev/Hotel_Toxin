@@ -1,0 +1,25 @@
+//- Объявление миксина
+//- Параметры: vLabel, vExpendable
+mixin mixCheckboxList(vLabel, vExpendable)
+  .checkbox-list(data-expendable=vExpendable)
+    button.checkbox-list__button=vLabel
+    .checkbox-list__items
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox1)
+        label.checkbox-list__label(for="checkbox1") завтрак
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox2)
+        label.checkbox-list__label(for="checkbox2") письменный стол
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox3)
+        label.checkbox-list__label(for="checkbox3") стул для кормления
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox1)
+        label.checkbox-list__label(for="checkbox1") кроватка
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox2)
+        label.checkbox-list__label(for="checkbox2") телевизор
+      .checkbox-list__item
+        input.checkbox-list__checkbox(type="checkbox" id=checkbox3)
+        label.checkbox-list__label(for="checkbox3") шампунь
+

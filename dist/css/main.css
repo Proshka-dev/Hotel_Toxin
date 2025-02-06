@@ -440,6 +440,96 @@ body {
   color: rgba(31, 32, 65, 0.75);
   border-color: rgba(31, 32, 65, 0.75);
 }
+.checkbox-list {
+  display: block;
+  width: 100%;
+}
+.checkbox-list__button {
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  height: 15px;
+  padding: 0px 44px 0px 0px;
+}
+.checkbox-list__button::after {
+  font-family: "Material Symbols Outlined", serif;
+  font-size: 24px;
+  font-weight: normal;
+  content: "expand_more";
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  transform: translate(0, -50%);
+  pointer-events: none;
+  color: rgba(31, 32, 65, 0.75);
+}
+.checkbox-list__items {
+  font-size: 14px;
+  text-align: left;
+  font-weight: normal;
+  line-height: 18px;
+  width: 100%;
+  padding-top: 17px;
+}
+.checkbox-list__items:last-child {
+  margin-bottom: 0px;
+}
+.checkbox-list__item {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 100%;
+  margin-bottom: 11px;
+  color: #1f2041;
+  position: relative;
+}
+.checkbox-list__checkbox {
+  appearance: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 3px solid #C56FFF;
+  transition: 500ms;
+}
+.checkbox-list__checkbox::after {
+  content: "✔";
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: 20px;
+  transition: 500ms;
+  color: green;
+}
+.checkbox-list__checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: 20px;
+  transition: 500ms;
+}
+.checkbox-list__checkbox:disabled {
+  background: lightgreen;
+  border-color: lightgreen;
+}
+.checkbox-list__checkbox:disabled::after {
+  filter: grayscale(100%);
+}
+.checkbox-list__label {
+  margin-left: 10px;
+  color: rgba(31, 32, 65, 0.5);
+  text-transform: lowercase;
+}
+.checkbox-list__label::first-letter {
+  text-transform: uppercase;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
