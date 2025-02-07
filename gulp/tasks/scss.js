@@ -19,8 +19,6 @@ export const scss = () => {
                 message: "Error: <%= error.message %>"
             }))
         )
-        // замена алиаса на путь
-        .pipe(app.plugins.replace(/@img\//g, '../img/'))
         // компиляция scss -> css
         .pipe(sass({
             outputStyle: 'expanded'
@@ -45,6 +43,9 @@ export const scss = () => {
 
         // Убираем пути
         .pipe(flatten())
+
+        // замена алиаса на путь
+        .pipe(app.plugins.replace(/@img\//g, '../img/'))
 
         // Закомментировать, если не нужен не сжатый дубль файла стилей
         .pipe(app.gulp.dest(app.path.build.css))

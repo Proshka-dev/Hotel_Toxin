@@ -452,8 +452,11 @@ body {
   position: relative;
   text-align: left;
   width: 100%;
-  height: 15px;
+  height: 44px;
   padding: 0px 44px 0px 0px;
+}
+.checkbox-list__button_listopened.checkbox-list__button::after {
+  transform: rotateX(180deg) translate(0, 50%);
 }
 .checkbox-list__button::after {
   font-family: "Material Symbols Outlined", serif;
@@ -468,15 +471,16 @@ body {
   color: rgba(31, 32, 65, 0.75);
 }
 .checkbox-list__items {
+  display: none;
   font-size: 14px;
   text-align: left;
   font-weight: normal;
   line-height: 18px;
   width: 100%;
-  padding-top: 17px;
+  padding-top: 3px;
 }
-.checkbox-list__items:last-child {
-  margin-bottom: 0px;
+.checkbox-list__items_visible {
+  display: block;
 }
 .checkbox-list__item {
   display: flex;
@@ -487,39 +491,31 @@ body {
   color: #1f2041;
   position: relative;
 }
+.checkbox-list__item:last-child {
+  margin-bottom: 0px;
+}
 .checkbox-list__checkbox {
   appearance: none;
   position: relative;
-  width: 30px;
-  height: 30px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  border: 3px solid #C56FFF;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
   transition: 500ms;
 }
 .checkbox-list__checkbox::after {
-  content: "✔";
-  position: absolute;
-  top: 0px;
-  left: 5px;
-  font-size: 20px;
-  transition: 500ms;
-  color: green;
-}
-.checkbox-list__checkbox:checked::after {
   content: "";
   position: absolute;
-  top: 0px;
-  left: 5px;
-  font-size: 20px;
-  transition: 500ms;
+  width: 20px;
+  height: 20px;
 }
-.checkbox-list__checkbox:disabled {
-  background: lightgreen;
-  border-color: lightgreen;
+.checkbox-list__checkbox:checked {
+  border-color: mediumpurple;
 }
-.checkbox-list__checkbox:disabled::after {
-  filter: grayscale(100%);
+.checkbox-list__checkbox:checked::after {
+  background-image: url("../img/checkbox-checked.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .checkbox-list__label {
   margin-left: 10px;
