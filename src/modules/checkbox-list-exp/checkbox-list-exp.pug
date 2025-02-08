@@ -1,0 +1,10 @@
+//- Объявление миксина
+//- Параметры: vLabel, vExpendable
+mixin mixCheckboxListExp(vLabel, vItemsId, vItems)
+  .checkbox-list-exp
+    button.checkbox-list-exp__button=vLabel
+    .checkbox-list-exp__items
+      each vItem, vIndex in vItems
+        .checkbox-list-exp__item
+          input.checkbox-list-exp__checkbox(type="checkbox" id=vItemsId[vIndex])
+          label.checkbox-list-exp__label(for=vItemsId[vIndex])=vItem
