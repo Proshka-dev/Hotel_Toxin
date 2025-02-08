@@ -36,8 +36,8 @@ body
       .uikit-demo__item
         +mixDropdownDateFilter('Filter date dropdown')
       .uikit-demo__item
-        //- Параметры: vLabel, vExpendable
-        +mixCheckboxList('Expandable checkbox list', 'true')
+        //- Параметры: vLabel, vItemsId, vItems
+        +mixCheckboxList('Expandable checkbox list', ['chkbox1','chkbox2','chkbox3','chkbox4','chkbox5','chkbox6'],['завтрак', 'письменный стол', 'стул для кормления', 'кроватка', 'телевизор', 'шампунь'])
             
   include ../../modules/footer/footer.pug
 
