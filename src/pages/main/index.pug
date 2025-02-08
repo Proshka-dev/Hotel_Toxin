@@ -8,6 +8,7 @@ include ../../modules/dropdown-date-split/dropdown-date-split.pug
 include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
 include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
 include ../../modules/checkbox-list/checkbox-list.pug
+include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
 
 doctype html
 
@@ -42,6 +43,9 @@ body
       .uikit-demo__item
         //- Параметры: vLabel, vItemsId, vItems
         +mixCheckboxList('Checkbox list', ['chkbox7','chkbox8','chkbox9'],['можно курить', 'можно с питомцами', 'можно пригласить гостей (до 10 человек)'])
+      .uikit-demo__item
+        //- Параметры: vLabel, vItemsId, vItems, vDescriptions
+        +mixCheckboxListRich('Rich checkbox list', ['chkbox10','chkbox11'],['Широкий коридор', 'Помощник для инвалидов'],['Ширина коридоров в номере не менее 91 см.','На 1 этаже вас встретит специалист  и проводит до номера.'])
             
   include ../../modules/footer/footer.pug
 

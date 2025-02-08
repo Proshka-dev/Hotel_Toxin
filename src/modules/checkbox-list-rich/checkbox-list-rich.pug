@@ -1,0 +1,14 @@
+//- Объявление миксина
+//- Параметры: vLabel, vItemsId, vItems, vDescriptions
+mixin mixCheckboxListRich(vLabel, vItemsId, vItems, vDescriptions)
+  .checkbox-list-rich
+    .checkbox-list-rich__button=vLabel
+    .checkbox-list-rich__items
+      each vItem, vIndex in vItems
+        .checkbox-list-rich__item
+          input.checkbox-list-rich__checkbox(type="checkbox" id=vItemsId[vIndex])
+          label.checkbox-list-rich__label(for=vItemsId[vIndex])
+            .checkbox-list-rich__title=vItem
+            .checkbox-list-rich__description=vDescriptions[vIndex]
+
+

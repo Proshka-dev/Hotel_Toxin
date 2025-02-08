@@ -1,0 +1,147 @@
+@use '../../scss/colors.scss' as *;
+
+.checkbox-list-rich {
+    display: block;
+    width: 100%;
+    border: 1px dashed black; // Временно. Удалить!!!
+    box-sizing: border-box; // Временно. Удалить!!!
+
+    &__button {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+
+        position: relative;
+        width: 100%;
+        height: 44px;
+        padding: 0px 44px 0px 0px;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        //padding-right: 10px; //Защитный интервал справа
+    }
+
+    &__item {
+        border: 1px dotted orange; // Временно. Удалить!!!
+        box-sizing: border-box; // Временно. Удалить!!!
+
+
+        display: flex;
+        flex-direction: row;
+
+        height: 100%;
+        width: 100%;
+
+        color: $color-darkshade100;
+        position: relative;
+
+    }
+
+    &__checkbox {
+        appearance: none; // Убираем стандатртный чекбокс
+        position: relative;
+
+        width: 20px;
+        height: 100%;
+        //border-radius: 4px;
+        //border: 1px solid $color-darkshade25;
+        transition: 500ms;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0px;
+            left: 0px //transition: 500ms;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0px;
+            left: 0px;
+            //transition: 500ms;
+            border-radius: 4px;
+            border: 1px solid $color-darkshade25;
+            box-sizing: border-box;
+        }
+
+
+        &:checked {
+
+            &::after {
+                background-image: url("@img/checkbox-checked.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            &::before {
+                border-color: mediumpurple;
+            }
+        }
+
+        &:disabled {
+            // background: lightgreen;
+            // border-color: lightgreen;
+
+            &::after {
+                // filter: grayscale(100%);
+            }
+        }
+    }
+
+    &__label {
+        width: 100%;
+        padding-left: 10px; // отступ от чекбокса
+        padding-top: 0px;
+        padding-bottom: 0px;
+        cursor: pointer;
+
+
+    }
+
+    &__title {
+        color: $color-darkshade75;
+        text-transform: lowercase;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+
+        margin-bottom: 5px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+    }
+
+    &__description {
+        color: $color-darkshade50;
+        text-transform: lowercase;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: normal;
+
+        margin-bottom: 10px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+
+
+}
