@@ -3,7 +3,6 @@
 .checkbox-list-exp {
     display: block;
     width: 100%;
-    border: 1px dashed black; // Временно. Удалить!!!
 
     &__button {
         color: $color-darkshade100;
@@ -143,6 +142,7 @@
         padding-left: 10px; // отступ от чекбокса
         padding-top: 5px;
         padding-bottom: 6px;
+        width: 100%;
         color: $color-darkshade50;
         text-transform: lowercase;
         cursor: pointer;

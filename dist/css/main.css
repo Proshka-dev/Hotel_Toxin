@@ -443,7 +443,6 @@ body {
 .checkbox-list-exp {
   display: block;
   width: 100%;
-  border: 1px dashed black;
 }
 .checkbox-list-exp__button {
   color: #1f2041;
@@ -528,6 +527,7 @@ body {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 6px;
+  width: 100%;
   color: rgba(31, 32, 65, 0.5);
   text-transform: lowercase;
   cursor: pointer;
@@ -539,7 +539,6 @@ body {
 .checkbox-list {
   display: block;
   width: 100%;
-  border: 1px dashed black;
 }
 .checkbox-list__button {
   color: #1f2041;
@@ -607,6 +606,7 @@ body {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 6px;
+  width: 100%;
   color: rgba(31, 32, 65, 0.5);
   text-transform: lowercase;
   cursor: pointer;
@@ -618,8 +618,6 @@ body {
 .checkbox-list-rich {
   display: block;
   width: 100%;
-  border: 1px dashed black;
-  box-sizing: border-box;
 }
 .checkbox-list-rich__button {
   color: #1f2041;
@@ -639,8 +637,6 @@ body {
   width: 100%;
 }
 .checkbox-list-rich__item {
-  border: 1px dotted orange;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -884,6 +880,10 @@ body {
   text-transform: uppercase;
 }
 
+body {
+  background-color: rgba(100, 100, 100, 0.2);
+}
+
 .container {
   max-width: 1180px;
   margin: 0 auto;
@@ -894,4 +894,5 @@ body {
 }
 .uikit-demo__item {
   margin-bottom: 20px;
+  background-color: white;
 }

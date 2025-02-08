@@ -3,8 +3,8 @@
 .checkbox-list-rich {
     display: block;
     width: 100%;
-    border: 1px dashed black; // Временно. Удалить!!!
-    box-sizing: border-box; // Временно. Удалить!!!
+    //border: 1px dashed black; // Временно. Удалить!!!
+    //box-sizing: border-box; // Временно. Удалить!!!
 
     &__button {
         color: $color-darkshade100;
@@ -31,10 +31,6 @@
     }
 
     &__item {
-        border: 1px dotted orange; // Временно. Удалить!!!
-        box-sizing: border-box; // Временно. Удалить!!!
-
-
         display: flex;
         flex-direction: row;
 
