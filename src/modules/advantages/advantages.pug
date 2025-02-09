@@ -1,0 +1,11 @@
+//- Объявление миксина
+//- Параметры: 
+mixin mixAdvantages(vIcon, vTitle, vDescription, vHasLine)
+  .advantages
+    .advantages__content
+      .advantages__icon=vIcon
+      .advantages__textblock
+        .advantages__title=vTitle
+        .advantages__description=vDescription
+    if vHasLine == 'true'
+      .advantages__line

@@ -9,6 +9,7 @@ include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
 include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
 include ../../modules/checkbox-list/checkbox-list.pug
 include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
+include ../../modules/advantages/advantages.pug
 
 doctype html
 
@@ -46,6 +47,12 @@ body
       .uikit-demo__item
         //- Параметры: vLabel, vItemsId, vItems, vDescriptions
         +mixCheckboxListRich('Rich checkbox list', ['chkbox10','chkbox11'],['Широкий коридор', 'Помощник для инвалидов'],['Ширина коридоров в номере не менее 91 см.','На 1 этаже вас встретит специалист  и проводит до номера.'])
+      .uikit-demo__item
+        //- Параметры: vIcon, vTitle, vDescription, vHasLine
+        +mixAdvantages('insert_emoticon', 'Комфорт', 'Шумопоглощающие стены', 'true')
+      .uikit-demo__item
+        //- Параметры: vIcon, vTitle, vDescription, vHasLine
+        +mixAdvantages('location_city', 'Удобство', 'Окно в каждой из спален', 'false')
             
   include ../../modules/footer/footer.pug
 

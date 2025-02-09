@@ -9,13 +9,14 @@
 @use '../../modules/checkbox-list-exp/checkbox-list-exp.scss';
 @use '../../modules/checkbox-list/checkbox-list.scss';
 @use '../../modules/checkbox-list-rich/checkbox-list-rich.scss';
+@use '../../modules/advantages/advantages.scss';
+
 @use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
 
 @use '../../scss/colors.scss' as *;
 
 body {
-    //background-color: $color-darkshade25;
-    background-color: rgba(100, 100, 100, 0.2);
+    //background-color: rgba(100, 100, 100, 0.2);
 }
 
 .container {
