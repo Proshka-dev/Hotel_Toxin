@@ -12,6 +12,8 @@ include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
 include ../../modules/advantages/advantages.pug
 include ../../modules/radio-buttons/radio-buttons.pug
 include ../../modules/toggle/toggle.pug
+include ../../modules/button-like/button-like.pug
+
 
 doctype html
 
@@ -60,6 +62,9 @@ body
       .uikit-demo__item
         //- Параметры: vLabel, vItemsId, vItems
         +mixToggle('Toggle', ['toggle1','toggle2'],['получать спецпредложения', 'получать спецпредложения'])
+      .uikit-demo__item
+        //- Параметры: vNumber, vCheckboxId ,vChecked
+        +mixButtonLike('12', 'btnlike1','true')
           
   include ../../modules/footer/footer.pug
 

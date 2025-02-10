@@ -1,0 +1,11 @@
+//- Объявление миксина
+mixin mixButtonLike(vNumber, vCheckboxId ,vChecked)
+  .button-like
+    .button-like__body
+      if vChecked == 'true'
+        input.button-like__checkbox(type="checkbox" id=vCheckboxId checked)
+      else 
+        input.button-like__checkbox(type="checkbox" id=vCheckboxId)
+      label.button-like__label(for=vCheckboxId)=vNumber
+        .button-like__icon
+        .button-like__text

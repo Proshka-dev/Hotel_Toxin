@@ -1,0 +1,96 @@
+@use '../../scss/colors.scss' as *;
+
+.button-like {
+    display: block;
+    width: 50px;
+    height: 30px;
+
+    &__body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    &__checkbox {
+        border: 1px dashed red; //удалить
+
+        appearance: none; // Убираем стандатртный чекбокс
+        //position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+
+        &::after {
+            // сердце внутри
+            content: 'favorite_border';
+            position: absolute;
+            top: 12px;
+            left: 10px;
+
+            font-family: "Material Symbols Outlined", serif;
+            font-size: 10px;
+            line-height: 0.85em;
+            font-weight: normal;
+
+            color: $color-darkshade25;
+
+        }
+
+        &::before {
+            // рамка
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            top: 5px;
+            left: 5px;
+            //transition: 500ms;
+            border-radius: 10px;
+            border: 1px solid $color-darkshade25;
+        }
+
+
+        &:checked {
+
+            &::after {
+                content: 'favorite';
+                font-variation-settings: 'FILL' 1;
+                background: linear-gradient($color-purple, $color-blue);
+                color: transparent;
+                background-clip: text;
+
+            }
+
+            &::before {
+                border-color: $color-purple;
+            }
+        }
+
+        &:disabled {
+            // background: lightgreen;
+            // border-color: lightgreen;
+
+            &::after {
+                // filter: grayscale(100%);
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 9px;
+        left: 24px;
+        color: $color-purple;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    &__icon {
+        //
+    }
+
+    &__text {
+        //
+    }
+}
