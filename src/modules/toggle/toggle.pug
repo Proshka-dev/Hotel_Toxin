@@ -1,0 +1,10 @@
+//- Объявление миксина
+//- Параметры: vLabel, vItemsId, vItems
+mixin mixToggle(vLabel, vItemsId, vItems)
+  .toggle
+    .toggle__label=vLabel
+    .toggle__items
+      each vItem, vIndex in vItems
+        .toggle__item
+          input.toggle__checkbox(type="checkbox" id=vItemsId[vIndex])
+          label.toggle__item-label(for=vItemsId[vIndex])=vItem

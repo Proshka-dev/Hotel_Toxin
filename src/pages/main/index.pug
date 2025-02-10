@@ -11,6 +11,7 @@ include ../../modules/checkbox-list/checkbox-list.pug
 include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
 include ../../modules/advantages/advantages.pug
 include ../../modules/radio-buttons/radio-buttons.pug
+include ../../modules/toggle/toggle.pug
 
 doctype html
 
@@ -56,7 +57,10 @@ body
       .uikit-demo__item
         //- Параметры: vIcon, vTitle, vDescription, vHasLine
         +mixRadioButtons('Radio buttons', 'Gender', ['radio1','radio2'], ['мужчина', 'женщина'])
-            
+      .uikit-demo__item
+        //- Параметры: vLabel, vItemsId, vItems
+        +mixToggle('Toggle', ['toggle1','toggle2'],['получать спецпредложения', 'получать спецпредложения'])
+          
   include ../../modules/footer/footer.pug
 
   script(src='js/main.js')
