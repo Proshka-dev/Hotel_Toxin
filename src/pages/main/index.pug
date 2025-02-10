@@ -10,6 +10,7 @@ include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
 include ../../modules/checkbox-list/checkbox-list.pug
 include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
 include ../../modules/advantages/advantages.pug
+include ../../modules/radio-buttons/radio-buttons.pug
 
 doctype html
 
@@ -50,9 +51,11 @@ body
       .uikit-demo__item
         //- Параметры: vIcon, vTitle, vDescription, vHasLine
         +mixAdvantages('insert_emoticon', 'Комфорт', 'Шумопоглощающие стены', 'true')
-      .uikit-demo__item
         //- Параметры: vIcon, vTitle, vDescription, vHasLine
         +mixAdvantages('location_city', 'Удобство', 'Окно в каждой из спален', 'false')
+      .uikit-demo__item
+        //- Параметры: vIcon, vTitle, vDescription, vHasLine
+        +mixRadioButtons('Radio buttons', 'Gender', ['radio1','radio2'], ['мужчина', 'женщина'])
             
   include ../../modules/footer/footer.pug
 

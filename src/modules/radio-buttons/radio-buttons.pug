@@ -1,0 +1,10 @@
+//- Объявление миксина
+//- Параметры: vLabel, vGroupName,vItemsId, vItems
+mixin mixRadioButtons(vLabel, vGroupName,vItemsId, vItems)
+  .radio-buttons
+    .radio-buttons__label=vLabel
+    .radio-buttons__items
+      each vItem, vIndex in vItems
+        .radio-buttons__item
+          input.radio-buttons__input(type="radio" name=vGroupName id=vItemsId[vIndex])
+          label.radio-buttons__input-label(for=vItemsId[vIndex])=vItem

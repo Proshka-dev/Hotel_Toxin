@@ -743,6 +743,81 @@ body {
   border-bottom: 1px solid rgba(31, 33, 65, 0.1);
 }
 
+.radio-buttons {
+  display: block;
+  width: 100%;
+}
+.radio-buttons__label {
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.radio-buttons__items {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  font-size: 14px;
+  text-align: left;
+  font-weight: normal;
+  line-height: 24px;
+}
+.radio-buttons__item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.radio-buttons__input {
+  width: 20px;
+  appearance: none;
+  position: relative;
+  height: 36px;
+  cursor: pointer;
+}
+.radio-buttons__input::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 8px;
+  left: 0px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 33, 65, 0.25);
+}
+.radio-buttons__input::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 12px;
+  left: 4px;
+  border-radius: 6px;
+}
+.radio-buttons__input:checked::before {
+  border-color: mediumpurple;
+}
+.radio-buttons__input:checked::after {
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+}
+.radio-buttons__input:checked + .radio-buttons__input-label {
+  color: rgba(31, 32, 65, 0.75);
+}
+.radio-buttons__input-label {
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: rgba(31, 32, 65, 0.5);
+  text-transform: lowercase;
+  cursor: pointer;
+}
+.radio-buttons__input-label::first-letter {
+  text-transform: uppercase;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -925,4 +1000,5 @@ body {
 .uikit-demo__item {
   margin-bottom: 20px;
   background-color: white;
+  box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);
 }

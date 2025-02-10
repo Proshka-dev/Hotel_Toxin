@@ -10,6 +10,7 @@
 @use '../../modules/checkbox-list/checkbox-list.scss';
 @use '../../modules/checkbox-list-rich/checkbox-list-rich.scss';
 @use '../../modules/advantages/advantages.scss';
+@use '../../modules/radio-buttons/radio-buttons.scss';
 
 @use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
 
@@ -30,6 +31,7 @@ body {
     &__item {
         margin-bottom: 20px;
         background-color: white;
+        box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);
     }
 }
 

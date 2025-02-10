@@ -1,0 +1,130 @@
+@use '../../scss/colors.scss' as *;
+
+.radio-buttons {
+    display: block;
+    width: 100%;
+
+    &__label {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+
+        position: relative;
+        width: 100%;
+
+        align-items: center;
+
+        margin-bottom: 10px;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+
+
+        font-size: 14px;
+        text-align: left;
+        font-weight: normal;
+        line-height: 24px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        //height: 100%;
+
+        position: relative;
+    }
+
+    &__input {
+        width: 20px;
+        appearance: none; // Убираем стандатртный чекбокс
+        position: relative;
+        height: 36px;
+        //transition: 500ms;
+        cursor: pointer;
+
+
+
+        &::before {
+            // окантовка
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 8px;
+            left: 0px;
+            //transition: 500ms;
+            border-radius: 10px;
+            border: 1px solid $color-darkshade25;
+
+            //transform: translate(0, -50%);
+
+        }
+
+        &::after {
+            // круг внутри
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 12px;
+            left: 4px;
+            //transition: 500ms;
+            border-radius: 6px;
+
+            //transform: translate(4px, -50%);
+
+
+        }
+
+        &:checked {
+
+            &::before {
+                border-color: mediumpurple;
+            }
+
+            &::after {
+                background: linear-gradient($color-purple, $color-blue);
+            }
+
+            &+.radio-buttons__input-label {
+                color: $color-darkshade75;
+            }
+        }
+
+        &:disabled {
+            // background: lightgreen;
+            // border-color: lightgreen;
+
+            &::after {
+                // filter: grayscale(100%);
+            }
+        }
+    }
+
+    &__input-label {
+        padding-left: 10px; // отступ от чекбокса
+        padding-top: 6px; //отступ для расширения области клика
+        padding-bottom: 6px; //отступ для расширения области клика
+
+        //flex: 0 1 auto;
+
+        //width: 100%;
+        color: $color-darkshade50;
+        text-transform: lowercase;
+        cursor: pointer;
+
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+
+
+}
