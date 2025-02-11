@@ -933,6 +933,48 @@ body {
   font-size: 10px;
 }
 
+.button-rate {
+  border: 1px dashed orange;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: fit-content;
+}
+
+.button-rate:not(:checked) > input {
+  display: none;
+}
+
+.button-rate:not(:checked) > label {
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: grey;
+}
+
+.button-rate:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.button-rate > input:checked ~ label {
+  color: red;
+}
+
+.button-rate:not(:checked) > label:hover,
+.button-rate:not(:checked) > label:hover ~ label {
+  color: green;
+}
+
+.button-rate > input:checked + label:hover,
+.button-rate > input:checked + label:hover ~ label,
+.button-rate > input:checked ~ label:hover,
+.button-rate > input:checked ~ label:hover ~ label,
+.button-rate > label:hover ~ input:checked ~ label {
+  color: magenta;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

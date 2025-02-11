@@ -13,6 +13,7 @@ include ../../modules/advantages/advantages.pug
 include ../../modules/radio-buttons/radio-buttons.pug
 include ../../modules/toggle/toggle.pug
 include ../../modules/button-like/button-like.pug
+include ../../modules/button-rate/button-rate.pug
 
 
 doctype html
@@ -69,6 +70,12 @@ body
         //- Параметры: vNumber, vCheckboxId ,vChecked
         +mixButtonLike('12', 'btnlike1','true')
         +mixButtonLike('25378', 'btnlike2','false')
+      .uikit-demo__item
+        |Rate button
+        br
+        br
+        //- Параметры: vGroupName, vItemsId
+        +mixButtonRate('starrategrp1',['starrate1','starrate2','starrate3','starrate4','starrate5'])
           
   include ../../modules/footer/footer.pug
 

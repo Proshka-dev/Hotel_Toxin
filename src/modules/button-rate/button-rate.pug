@@ -1,0 +1,6 @@
+//- Объявление миксина
+mixin mixButtonRate(vGroupName, vItemsId)
+  .button-rate
+    each vItem, vIndex in vItemsId
+      input(type='radio' id=vItemsId[4-vIndex] name=vGroupName value=5-vIndex)
+      label(for=vItemsId[4-vIndex] title='text')=(5-vIndex)+' star'
