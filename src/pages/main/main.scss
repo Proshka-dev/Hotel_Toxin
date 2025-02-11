@@ -31,6 +31,12 @@ body {
     padding: 30px;
 
     &__item {
+        color: $color-darkshade100;
+
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+
         margin-bottom: 20px;
         background-color: white;
         box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);

@@ -1,11 +1,13 @@
 //- Объявление миксина
 mixin mixButtonLike(vNumber, vCheckboxId ,vChecked)
-  .button-like
-    .button-like__body
-      if vChecked == 'true'
-        input.button-like__checkbox(type="checkbox" id=vCheckboxId checked)
-      else 
-        input.button-like__checkbox(type="checkbox" id=vCheckboxId)
-      label.button-like__label(for=vCheckboxId)=vNumber
-        .button-like__icon
-        .button-like__text
+  if vChecked == 'true'
+    button.button-like.button-like_active(data-id=vCheckboxId data-value=vNumber)
+      .button-like__body
+        .button-like__icon favorite_border
+        .button-like__text=vNumber
+  else 
+    button.button-like(data-id=vCheckboxId data-value=vNumber)
+      .button-like__body
+        .button-like__icon favorite_border
+        .button-like__text=vNumber
+

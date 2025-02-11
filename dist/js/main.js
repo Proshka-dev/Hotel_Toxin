@@ -30,6 +30,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/modules/button-like/button-like.ts":
+/*!************************************************!*\
+  !*** ./src/modules/button-like/button-like.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// *****************************************************************************\n// *************** Выборка всех .button-like и обработка каждого ***************\n// *****************************************************************************\ndocument.querySelectorAll('.button-like').forEach(function (buttonLike) {\n    buttonLike.addEventListener('click', function () {\n        let value = Number(buttonLike.dataset.value);\n        if (buttonLike.classList.contains('button-like_active')) {\n            // Если была активна\n            value = value - 1;\n        }\n        else {\n            // Если была неактивна    \n            value = value + 1;\n        }\n        ;\n        // Изменяем значение data-value\n        buttonLike.dataset.value = String(value);\n        // Изменяем отображаемый текст\n        buttonLike.querySelector('.button-like__text').innerHTML = String(value);\n        // Переключаем класс button-like_active\n        buttonLike.classList.toggle('button-like_active');\n    });\n});\n\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/button-like/button-like.ts?");
+
+/***/ }),
+
 /***/ "./src/modules/checkbox-list-exp/checkbox-list-exp.ts":
 /*!************************************************************!*\
   !*** ./src/modules/checkbox-list-exp/checkbox-list-exp.ts ***!
@@ -168,6 +179,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//import * as flsFunctions fr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	__webpack_require__("./src/modules/button-like/button-like.ts");
 /******/ 	__webpack_require__("./src/modules/checkbox-list-exp/checkbox-list-exp.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown/dropdown.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-filter/dropdown-date-filter.ts");

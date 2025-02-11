@@ -897,61 +897,42 @@ body {
 
 .button-like {
   display: block;
-  width: 50px;
-  height: 30px;
+  width: fit-content;
+  padding: 5px;
 }
-.button-like__body {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.button-like.button-like_active .button-like__body {
+  border-color: #BC9CFF;
 }
-.button-like__checkbox {
-  border: 1px dashed red;
-  appearance: none;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-.button-like__checkbox::after {
-  content: "favorite_border";
-  position: absolute;
-  top: 12px;
-  left: 10px;
-  font-family: "Material Symbols Outlined", serif;
-  font-size: 10px;
-  line-height: 0.85em;
-  font-weight: normal;
-  color: rgba(31, 33, 65, 0.25);
-}
-.button-like__checkbox:checked::after {
-  content: "favorite";
+.button-like.button-like_active .button-like__icon {
   font-variation-settings: "FILL" 1;
   background: linear-gradient(#BC9CFF, #8BA4F9);
   color: transparent;
   background-clip: text;
 }
-.button-like__checkbox:checked::before {
-  border-color: #BC9CFF;
-}
-.button-like__label {
-  position: absolute;
-  top: 9px;
-  left: 24px;
+.button-like.button-like_active .button-like__text {
   color: #BC9CFF;
-  cursor: pointer;
-  text-align: center;
 }
-.button-like__label::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  top: -4px;
-  left: -20px;
+.button-like__body {
+  display: flex;
+  align-items: center;
   border-radius: 10px;
   border: 1px solid rgba(31, 33, 65, 0.25);
-  padding: 0px 10px 0px 30px;
+  min-width: 40px;
 }
+.button-like__icon {
+  font-family: "Material Symbols Outlined", serif;
+  font-size: 10px;
+  line-height: 0.85em;
+  font-weight: normal;
+  color: rgba(31, 33, 65, 0.25);
+  margin: 5px;
+}
+.button-like__text {
+  color: rgba(31, 33, 65, 0.25);
+  margin-right: 5px;
+  font-size: 10px;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -1132,6 +1113,10 @@ body {
   padding: 30px;
 }
 .uikit-demo__item {
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
   margin-bottom: 20px;
   background-color: white;
   box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);

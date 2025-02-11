@@ -2,98 +2,56 @@
 
 .button-like {
     display: block;
-    width: 50px;
-    height: 30px;
+    width: fit-content;
+    //height: 30px;
+    padding: 5px;
+
+    &.button-like_active .button-like__body {
+        // Когда у .button-like есть класс .button-like_active, изменить стиль .button-like__body 
+        border-color: $color-purple;
+    }
+
+    &.button-like_active .button-like__icon {
+        // Когда у .button-like есть класс .button-like_active, изменить стиль .button-like__icon
+        font-variation-settings: 'FILL' 1;
+        background: linear-gradient($color-purple, $color-blue);
+        color: transparent;
+        background-clip: text;
+    }
+
+    &.button-like_active .button-like__text {
+        // Когда у .button-like есть класс .button-like_active, изменить стиль .button-like__text 
+        color: $color-purple;
+    }
 
     &__body {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+        display: flex;
+        align-items: center;
 
-    &__checkbox {
-        border: 1px dashed red; //удалить
+        border-radius: 10px;
+        border: 1px solid $color-darkshade25;
 
-        appearance: none; // Убираем стандатртный чекбокс
-        //position: relative;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
+        min-width: 40px;
 
+        //padding: 0px 10px 0px 30px;
 
-        &::after {
-            // сердце внутри
-            content: 'favorite_border';
-            position: absolute;
-            top: 12px;
-            left: 10px;
-
-            font-family: "Material Symbols Outlined", serif;
-            font-size: 10px;
-            line-height: 0.85em;
-            font-weight: normal;
-
-            color: $color-darkshade25;
-
-        }
-
-
-
-        &:checked {
-
-            &::after {
-                content: 'favorite';
-                font-variation-settings: 'FILL' 1;
-                background: linear-gradient($color-purple, $color-blue);
-                color: transparent;
-                background-clip: text;
-
-            }
-
-            &::before {
-                border-color: $color-purple;
-            }
-        }
-
-        &:disabled {
-            // background: lightgreen;
-            // border-color: lightgreen;
-
-            &::after {
-                // filter: grayscale(100%);
-            }
-        }
-    }
-
-    &__label {
-        position: absolute;
-        top: 9px;
-        left: 24px;
-        color: $color-purple;
-        cursor: pointer;
-        text-align: center;
-
-        &::before {
-            // рамка
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 20px;
-            top: -4px;
-            left: -20px;
-            //transition: 500ms;
-            border-radius: 10px;
-            border: 1px solid $color-darkshade25;
-
-            padding: 0px 10px 0px 30px;
-        }
     }
 
     &__icon {
-        //
+        // сердце внутри
+        font-family: "Material Symbols Outlined", serif;
+        font-size: 10px;
+        line-height: 0.85em;
+        font-weight: normal;
+
+        color: $color-darkshade25;
+        margin: 5px;
     }
 
     &__text {
-        //
+        color: $color-darkshade25;
+        margin-right: 5px;
+
+        font-size: 10px;
     }
 }
