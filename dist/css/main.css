@@ -950,29 +950,21 @@ body {
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 24px;
   color: grey;
 }
 
 .button-rate:not(:checked) > label:before {
-  content: "★ ";
+  content: "star_border ";
+  font-family: "Material Symbols Outlined", serif;
+  font-weight: 300;
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+  color: transparent;
+  background-clip: text;
 }
 
 .button-rate > input:checked ~ label {
-  color: red;
-}
-
-.button-rate:not(:checked) > label:hover,
-.button-rate:not(:checked) > label:hover ~ label {
-  color: green;
-}
-
-.button-rate > input:checked + label:hover,
-.button-rate > input:checked + label:hover ~ label,
-.button-rate > input:checked ~ label:hover,
-.button-rate > input:checked ~ label:hover ~ label,
-.button-rate > label:hover ~ input:checked ~ label {
-  color: magenta;
+  font-variation-settings: "FILL" 1;
 }
 
 .air-datepicker {
