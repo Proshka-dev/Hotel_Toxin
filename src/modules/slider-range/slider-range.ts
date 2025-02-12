@@ -1,45 +1,80 @@
+// Функция по назначению обработчиков событий на открытие и закрытие списка
+interface IRangeSliderParams {
+    vRangeInputMin: HTMLInputElement,
+    vRangeInputMax: HTMLInputElement,
+    vRangeProgress: HTMLElement,
+    vTextElement: HTMLElement,
+    vPriceGap: number
+}
+
+const rangeSliderUpdate = function (params: IRangeSliderParams) {
+    const { vRangeInputMin, vRangeInputMax, vRangeProgress, vTextElement, vPriceGap } = params;
+
+    // min and max
+    let minVal = parseInt(vRangeInputMin.value); // низ диапазона
+    let maxVal = parseInt(vRangeInputMax.value); // верх диапазона
+
+    // min
+    if ((maxVal - minVal) < vPriceGap) {
+        // Если разница между значениями меньше установленной
+        vRangeInputMin.value = String(maxVal - vPriceGap); // установка низа диапазона = (верх_диапазона) - (минимальная_разница)
+        vRangeInputMax.value = String(minVal + vPriceGap); // установка верха диапазона = (низ_диапазона) + (минимальная_разница)
+    } else {
+        // Если разница между значениями больше заданной
+        vRangeProgress.style.left = ((minVal / parseInt(vRangeInputMin.max)) * 100) + '%';
+        vRangeProgress.style.right = 100 - (maxVal / parseInt(vRangeInputMax.max)) * 100 + '%';
+    }
+};
+
+
+
+
+
+
 const sliderRangeWrapper = document.querySelector('.slider-range') as HTMLElement;
 const rangeInputMin = sliderRangeWrapper.querySelector('.slider-range__min') as HTMLInputElement; // [0]
 const rangeInputMax = sliderRangeWrapper.querySelector('.slider-range__max') as HTMLInputElement; // [1]
 
 //const priceInput = document.querySelectorAll(".price-input input");
-const range = sliderRangeWrapper.querySelector('.slider-range__progress') as HTMLElement;
+const rangeProgress = sliderRangeWrapper.querySelector('.slider-range__progress') as HTMLElement;
+const textElement = sliderRangeWrapper.querySelector('.slider-range__text') as HTMLElement;
 
-let priceGap = 100; // минимальная разница между максимумом и минимумом
+let priceGap = 1000; // минимальная разница между максимумом и минимумом
 let minPrice = parseInt(sliderRangeWrapper.dataset.min); // минимальный порог цены
 let maxPrice = parseInt(sliderRangeWrapper.dataset.max); // максимальный порог цены
+// Возможно нужно назначить мин и макс пределы для инпутов ???????????????????????????????????????????
 
 rangeInputMin.addEventListener('input', e => {
-    let minVal = parseInt(rangeInputMin.value); // низ диапазона
-    let maxVal = parseInt(rangeInputMax.value); // верх диапазона
-    if ((maxVal - minVal) < priceGap) {
-        // Если разница между значениями меньше установленной
-        rangeInputMin.value = String(maxVal - priceGap); // установка низа диапазона = (верх_диапазона) - (минимальная_разница)
-    } else {
-        // Если разница между значениями больше заданной
-        // rangeInputMin.value = minVal;
-        // rangeInputMax.value = maxVal;
-        range.style.left = ((minVal / parseInt(rangeInputMin.max)) * 100) + '%';
-    }
+
+    rangeSliderUpdate({
+        vRangeInputMin: rangeInputMin,
+        vRangeInputMax: rangeInputMax,
+        vRangeProgress: rangeProgress,
+        vTextElement: textElement,
+        vPriceGap: priceGap
+    });
 });
 
 rangeInputMax.addEventListener('input', e => {
-    let minVal = parseInt(rangeInputMin.value);
-    let maxVal = parseInt(rangeInputMax.value);
-    if ((maxVal - minVal) < priceGap) {
-        // Если разница между значениями меньше установленной
-        rangeInputMax.value = String(minVal + priceGap); // установка верха диапазона = (низ_диапазона) + (минимальная_разница)
-    } else {
-        // Если разница между значениями больше заданной
-        // rangeInputMin.value = minVal;
-        // rangeInputMax.value = maxVal;
-        range.style.right = 100 - (maxVal / parseInt(rangeInputMax.max)) * 100 + '%';
-    }
+
+    rangeSliderUpdate({
+        vRangeInputMin: rangeInputMin,
+        vRangeInputMax: rangeInputMax,
+        vRangeProgress: rangeProgress,
+        vTextElement: textElement,
+        vPriceGap: priceGap
+    });
 });
 
 
 // Первоначальная установка средней части
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+rangeSliderUpdate({
+    vRangeInputMin: rangeInputMin,
+    vRangeInputMax: rangeInputMax,
+    vRangeProgress: rangeProgress,
+    vTextElement: textElement,
+    vPriceGap: priceGap
+});
 
 
 
