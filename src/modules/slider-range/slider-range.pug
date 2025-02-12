@@ -2,6 +2,9 @@
 //- Параметры: 
 mixin mixSliderRange(vLabel)
   .slider-range(data-min='0' data-max='10000' data-step='100')
+    .slider-range__title
+      .slider-range__label=vLabel
+      .slider-range__text 5 000₽ - 10 000₽
     .slider-range__slider
       .slider-range__progress
     .slider-range__inputs
