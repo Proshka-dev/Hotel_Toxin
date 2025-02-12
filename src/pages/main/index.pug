@@ -14,6 +14,7 @@ include ../../modules/radio-buttons/radio-buttons.pug
 include ../../modules/toggle/toggle.pug
 include ../../modules/button-like/button-like.pug
 include ../../modules/button-rate/button-rate.pug
+include ../../modules/slider-range/slider-range.pug
 
 
 doctype html
@@ -76,6 +77,9 @@ body
         br
         //- Параметры: vGroupName, vItemsId
         +mixButtonRate('starrategrp1',['starrate1','starrate2','starrate3','starrate4','starrate5'])
+      .uikit-demo__item
+        //- Параметры: 
+        +mixSliderRange('Range slider')
           
   include ../../modules/footer/footer.pug
 

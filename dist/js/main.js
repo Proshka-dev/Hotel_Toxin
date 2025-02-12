@@ -85,6 +85,17 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst dropdownOpenAndCloseAct
 
 /***/ }),
 
+/***/ "./src/modules/slider-range/slider-range.ts":
+/*!**************************************************!*\
+  !*** ./src/modules/slider-range/slider-range.ts ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst sliderRangeWrapper = document.querySelector('.slider-range');\nconst rangeInputMin = sliderRangeWrapper.querySelector('.slider-range__min'); // [0]\nconst rangeInputMax = sliderRangeWrapper.querySelector('.slider-range__max'); // [1]\n//const priceInput = document.querySelectorAll(\".price-input input\");\nconst range = sliderRangeWrapper.querySelector('.slider-range__progress');\nlet priceGap = 100; // минимальная разница между максимумом и минимумом\nlet minPrice = parseInt(sliderRangeWrapper.dataset.min); // минимальный порог цены\nlet maxPrice = parseInt(sliderRangeWrapper.dataset.max); // максимальный порог цены\nrangeInputMin.addEventListener('input', e => {\n    let minVal = parseInt(rangeInputMin.value); // низ диапазона\n    let maxVal = parseInt(rangeInputMax.value); // верх диапазона\n    if ((maxVal - minVal) < priceGap) {\n        // Если разница между значениями меньше установленной\n        rangeInputMin.value = String(maxVal - priceGap); // установка низа диапазона = (верх_диапазона) - (минимальная_разница)\n    }\n    else {\n        // Если разница между значениями больше заданной\n        // rangeInputMin.value = minVal;\n        // rangeInputMax.value = maxVal;\n        range.style.left = ((minVal / parseInt(rangeInputMin.max)) * 100) + '%';\n    }\n});\nrangeInputMax.addEventListener('input', e => {\n    let minVal = parseInt(rangeInputMin.value);\n    let maxVal = parseInt(rangeInputMax.value);\n    if ((maxVal - minVal) < priceGap) {\n        // Если разница между значениями меньше установленной\n        rangeInputMax.value = String(minVal + priceGap); // установка верха диапазона = (низ_диапазона) + (минимальная_разница)\n    }\n    else {\n        // Если разница между значениями больше заданной\n        // rangeInputMin.value = minVal;\n        // rangeInputMax.value = maxVal;\n        range.style.right = 100 - (maxVal / parseInt(rangeInputMax.max)) * 100 + '%';\n    }\n});\n\n// *****************************************************************************\n// ************** Выборка всех .slider-range и обработка каждого ***************\n// *****************************************************************************\n// document.querySelectorAll('.button-like').forEach(function (buttonLike: HTMLElement) {\n//     buttonLike.addEventListener('click', function () {\n//         let value = Number(buttonLike.dataset.value);\n//         if (buttonLike.classList.contains('button-like_active')) {\n//             // Если была активна\n//             value = value - 1;\n//         } else {\n//             // Если была неактивна\n//             value = value + 1;\n//         };\n//         // Изменяем значение data-value\n//         buttonLike.dataset.value = String(value);\n//         // Изменяем отображаемый текст\n//         buttonLike.querySelector('.button-like__text').innerHTML = String(value);\n//         // Переключаем класс button-like_active\n//         buttonLike.classList.toggle('button-like_active');\n//     });\n// });\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/slider-range/slider-range.ts?");
+
+/***/ }),
+
 /***/ "./src/modules/test/greet.ts":
 /*!***********************************!*\
   !*** ./src/modules/test/greet.ts ***!
@@ -184,6 +195,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//import * as flsFunctions fr
 /******/ 	__webpack_require__("./src/modules/dropdown/dropdown.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-filter/dropdown-date-filter.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-split/dropdown-date-split.ts");
+/******/ 	__webpack_require__("./src/modules/slider-range/slider-range.ts");
 /******/ 	__webpack_require__("./src/modules/test/greet.ts");
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/main/main.ts");
 /******/ 	

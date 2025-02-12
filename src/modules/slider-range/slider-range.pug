@@ -1,0 +1,18 @@
+//- Объявление миксина
+//- Параметры: 
+mixin mixSliderRange(vLabel)
+  .slider-range(data-min='0' data-max='10000' data-step='100')
+    .slider-range__slider
+      .slider-range__progress
+    .slider-range__input
+      input.slider-range__min(type='range' min='0' max='10000' value='2500' step='100')
+      input.slider-range__max(type='range' min='0' max='10000' value='7500' step='100')
+  
+  //- .slider-range
+  //-   .slider-range__title
+  //-     .slider-range__label=vLabel
+  //-     .slider-range__text
+  //-   .slider-range__ruler
+  //-     .slider-range__begin-point
+  //-     .slider-range__selected-range
+  //-     .slider-range__end-point

@@ -1,0 +1,65 @@
+@use '../../scss/colors.scss' as *;
+
+.slider-range {
+    width: 100%;
+    // width: 400px;
+    // background: #fff;
+    // border-radius: 10px;
+    padding: 20px 25px 20px;
+    // box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.slider-range__slider {
+    height: 5px;
+    position: relative;
+    background: lightgrey; // полоса - не выбранная обсасть
+    border-radius: 5px;
+}
+
+.slider-range__progress {
+    height: 100%;
+    //left: 25%;
+    //right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: green; // полоса - выбранная обсасть
+}
+
+.slider-range__input {
+    position: relative;
+}
+
+.slider-range__min,
+.slider-range__max {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    // ручка слайдера
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: green;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+    // ручка слайдера
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: green;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
