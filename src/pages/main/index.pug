@@ -19,6 +19,7 @@ include ../../modules/button-dark/button-dark.pug
 include ../../modules/button-light/button-light.pug
 include ../../modules/button-clear/button-clear.pug
 include ../../modules/button-arrow/button-arrow.pug
+include ../../modules/bullet-list/bullet-list.pug
 
 
 doctype html
@@ -93,6 +94,9 @@ body
         +mixButtonLight('click me')
         +mixButtonClear('click me')
         +mixButtonArrow('Перейти к оплате')
+      .uikit-demo__item
+        //- Параметры: vLabel, vItemsId, vItems
+        +mixBulletList('Bullet list', ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
 
           
   include ../../modules/footer/footer.pug

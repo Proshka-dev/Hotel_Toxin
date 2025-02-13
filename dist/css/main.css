@@ -1129,6 +1129,50 @@ body {
   font-size: 24px;
 }
 
+.bullet-list {
+  display: block;
+  width: 100%;
+}
+.bullet-list__label {
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.bullet-list__items {
+  font-size: 14px;
+  text-align: left;
+  font-weight: normal;
+  line-height: 24px;
+  text-transform: lowercase;
+  width: 100%;
+}
+.bullet-list__item {
+  width: 100%;
+  color: #1f2041;
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+.bullet-list__item::first-letter {
+  text-transform: uppercase;
+}
+.bullet-list__item:last-child {
+  margin-bottom: 0px;
+}
+.bullet-list__item::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgba(31, 33, 65, 0.25);
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
