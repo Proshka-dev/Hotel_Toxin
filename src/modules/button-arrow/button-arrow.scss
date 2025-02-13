@@ -1,0 +1,32 @@
+@use '../../scss/colors.scss' as *;
+
+.button-arrow {
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 14px 44px 15px 44px;
+    border-radius: 22px;
+    position: relative;
+
+    background: linear-gradient($color-purple, $color-blue);
+    color: $color-white;
+
+    &:hover {
+        background: linear-gradient($color-purple50, $color-blue50);
+
+    }
+
+    &::after {
+        content: 'arrow_forward';
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 10px;
+        color: $color-white;
+
+        font-family: "Material Symbols Outlined", serif;
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        font-size: 24px;
+    }
+}
