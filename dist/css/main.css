@@ -1061,6 +1061,48 @@ body {
   pointer-events: auto;
   -moz-appearance: none;
 }
+.button-dark {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 14px 19px 15px 19px;
+  border-radius: 22px;
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+  color: white;
+}
+.button-dark:hover {
+  background: linear-gradient(rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
+}
+
+.button-light {
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+  color: white;
+}
+.button-light__content {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 17px 13px 17px;
+  background-color: white;
+  color: #BC9CFF;
+  border-radius: 20px;
+}
+.button-light:hover {
+  background: linear-gradient(rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
+}
+
+.button-clear {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #BC9CFF;
+}
+.button-clear:hover {
+  color: rgba(31, 32, 65, 0.5);
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

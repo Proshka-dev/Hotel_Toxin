@@ -1,0 +1,18 @@
+@use '../../scss/colors.scss' as *;
+
+.button-dark {
+    //width: fit-content;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 14px 19px 15px 19px;
+    border-radius: 22px;
+
+    background: linear-gradient($color-purple, $color-blue);
+    color: $color-white;
+
+    &:hover {
+        background: linear-gradient($color-purple50, $color-blue50);
+
+    }
+}

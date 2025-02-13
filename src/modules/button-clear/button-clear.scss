@@ -1,0 +1,13 @@
+@use '../../scss/colors.scss' as *;
+
+.button-clear {
+    //width: fit-content;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-purple;
+
+    &:hover {
+        color: $color-darkshade50;
+    }
+}

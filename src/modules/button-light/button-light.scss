@@ -1,0 +1,26 @@
+@use '../../scss/colors.scss' as *;
+
+.button-light {
+    padding: 2px;
+    border-radius: 22px;
+
+    background: linear-gradient($color-purple, $color-blue);
+    color: $color-white;
+
+    &__content {
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        padding: 12px 17px 13px 17px;
+
+        background-color: $color-white;
+        color: $color-purple;
+        border-radius: 20px;
+    }
+
+    &:hover {
+        background: linear-gradient($color-purple50, $color-blue50);
+
+    }
+}

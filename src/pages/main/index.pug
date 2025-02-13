@@ -15,6 +15,9 @@ include ../../modules/toggle/toggle.pug
 include ../../modules/button-like/button-like.pug
 include ../../modules/button-rate/button-rate.pug
 include ../../modules/slider-range/slider-range.pug
+include ../../modules/button-dark/button-dark.pug
+include ../../modules/button-light/button-light.pug
+include ../../modules/button-clear/button-clear.pug
 
 
 doctype html
@@ -80,6 +83,15 @@ body
       .uikit-demo__item
         //- Параметры: vLabel, vMin, vMax, vMinValue, vMaxValue, vStep, vGap
         +mixSliderRange('Range slider', '1000', '12000', '2000', '10000', '50', '500')
+      .uikit-demo__item
+        |Buttons
+        br
+        br
+        //- Параметры: vNumber, vCheckboxId ,vChecked
+        +mixButtonDark('click me')
+        +mixButtonLight('click me')
+        +mixButtonClear('click me')
+
           
   include ../../modules/footer/footer.pug
 
