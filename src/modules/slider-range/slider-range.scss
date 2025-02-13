@@ -40,17 +40,59 @@
         border: 1px solid $color-darkshade25;
         border-radius: 3px;
         box-sizing: border-box;
+    }
+
+    &__progress-container {
+        height: 6px;
+        //width: 100%;
+        margin: 0 5px;
+        //background: red;
+        position: relative;
+        top: -1px;
 
     }
 
     &__progress {
-        height: 6px;
-        //left: 25%; //Установка полосы на мин значение 
-        //right: 25%; // Установка полосы на макс значение
-        position: absolute;
-        border-radius: 3px;
+        //border-radius: 3px;
         background: linear-gradient($color-green, $color-cyan); // полоса - выбранная обсасть
+        position: absolute;
+        height: 100%;
+        left: 25%;
+        right: 25%;
+
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+
     }
+
+    &__thumb-left {
+        //display: none;
+        width: 8px;
+        height: 16px;
+        background-color: $color-white;
+        border-radius: 0 8px 8px 0;
+        z-index: 2;
+
+        position: absolute;
+        left: 0;
+        top: -4.5px;
+    }
+
+    &__thumb-right {
+        //display: none;
+        width: 8px;
+        height: 16px;
+        background-color: $color-white;
+        border-radius: 8px 0 0 8px;
+        z-index: 2;
+
+        position: absolute;
+        right: 0;
+        top: -4.5px;
+
+    }
+
 
     &__inputs {
         position: relative;
@@ -67,6 +109,9 @@
         -webkit-appearance: none;
         -moz-appearance: none;
 
+        z-index: 3;
+
+
         &::-webkit-slider-thumb {
             // ручка слайдера
             height: 12px;
@@ -77,8 +122,8 @@
             -webkit-appearance: none;
             //box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 
-            border: 2px solid $color-white;
-            box-sizing: content-box;
+            //border: 2px solid $color-white;
+            // box-sizing: content-box;
         }
 
         &::-moz-range-thumb {
@@ -91,8 +136,10 @@
             pointer-events: auto;
             -moz-appearance: none;
             //box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-            border: 2px solid $color-white;
-            box-sizing: content-box;
+            //border: 2px solid $color-white;
+            //box-sizing: content-box;
         }
     }
+
+    &__min {}
 }

@@ -293,17 +293,22 @@
         </div>
       </div>
       <div class="uikit-demo__item">
-        <div class="slider-range" data-min="0" data-max="10000" data-step="100">
+        <div class="slider-range" data-min="1000" data-gap="500">
           <div class="slider-range__title">
             <div class="slider-range__label">Range slider</div>
             <div class="slider-range__text">5 000₽ - 10 000₽</div>
           </div>
           <div class="slider-range__slider">
-            <div class="slider-range__progress"></div>
+            <div class="slider-range__progress-container">
+              <div class="slider-range__progress">
+                <div class="slider-range__thumb-left"></div>
+                <div class="slider-range__thumb-right"></div>
+              </div>
+            </div>
           </div>
           <div class="slider-range__inputs">
-            <input class="slider-range__min" type="range" min="0" max="10000" value="2500" step="100"/>
-            <input class="slider-range__max" type="range" min="0" max="10000" value="7500" step="100"/>
+            <input class="slider-range__min" type="range" min="1000" max="12000" value="2000" step="50"/>
+            <input class="slider-range__max" type="range" min="1000" max="12000" value="10000" step="50"/>
           </div>
         </div>
       </div>

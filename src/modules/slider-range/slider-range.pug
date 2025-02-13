@@ -1,15 +1,18 @@
 //- Объявление миксина
 //- Параметры: 
-mixin mixSliderRange(vLabel)
-  .slider-range(data-min='0' data-max='10000' data-step='100')
+mixin mixSliderRange(vLabel, vMin, vMax, vMinValue, vMaxValue, vStep, vGap)
+  .slider-range(data-min=vMin data-gap=vGap )
     .slider-range__title
       .slider-range__label=vLabel
       .slider-range__text 5 000₽ - 10 000₽
     .slider-range__slider
-      .slider-range__progress
+      .slider-range__progress-container
+        .slider-range__progress
+          .slider-range__thumb-left
+          .slider-range__thumb-right
     .slider-range__inputs
-      input.slider-range__min(type='range' min='0' max='10000' value='2500' step='100')
-      input.slider-range__max(type='range' min='0' max='10000' value='7500' step='100')
+      input.slider-range__min(type='range' min=vMin max=vMax value=vMinValue step=vStep)
+      input.slider-range__max(type='range' min=vMin max=vMax value=vMaxValue step=vStep)
   
   //- .slider-range
   //-   .slider-range__title

@@ -994,11 +994,41 @@ body {
   border-radius: 3px;
   box-sizing: border-box;
 }
-.slider-range__progress {
+.slider-range__progress-container {
   height: 6px;
-  position: absolute;
-  border-radius: 3px;
+  margin: 0 5px;
+  position: relative;
+  top: -1px;
+}
+.slider-range__progress {
   background: linear-gradient(#6FCF97, #66D2EA);
+  position: absolute;
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+.slider-range__thumb-left {
+  width: 8px;
+  height: 16px;
+  background-color: white;
+  border-radius: 0 8px 8px 0;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: -4.5px;
+}
+.slider-range__thumb-right {
+  width: 8px;
+  height: 16px;
+  background-color: white;
+  border-radius: 8px 0 0 8px;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: -4.5px;
 }
 .slider-range__inputs {
   position: relative;
@@ -1012,6 +1042,7 @@ body {
   pointer-events: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  z-index: 3;
 }
 .slider-range__min::-webkit-slider-thumb, .slider-range__max::-webkit-slider-thumb {
   height: 12px;
@@ -1020,8 +1051,6 @@ body {
   background: linear-gradient(#6FCF97, #66D2EA);
   pointer-events: auto;
   -webkit-appearance: none;
-  border: 2px solid white;
-  box-sizing: content-box;
 }
 .slider-range__min::-moz-range-thumb, .slider-range__max::-moz-range-thumb {
   height: 12px;
@@ -1031,10 +1060,7 @@ body {
   background: linear-gradient(#6FCF97, #66D2EA);
   pointer-events: auto;
   -moz-appearance: none;
-  border: 2px solid white;
-  box-sizing: content-box;
 }
-
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
