@@ -1181,8 +1181,8 @@ body {
   margin-bottom: 16px;
 }
 .products-list__list {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 .products-list__item {
   color: rgba(31, 32, 65, 0.5);

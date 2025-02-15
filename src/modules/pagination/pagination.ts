@@ -2,7 +2,7 @@
 const paginate = (products: { id: string; name: string; }[]) => {
     console.log('products: ', products);
 
-    let productCount = 5;
+    let productCount = 7;
     let currentPage = 1;
 
     const productContainer = document.querySelector('.products-list__list') as HTMLElement;
@@ -21,7 +21,13 @@ const paginate = (products: { id: string; name: string; }[]) => {
         const firstProductIndex = numberOfProducts * page - numberOfProducts;
         console.log('firstProductIndex: ', firstProductIndex);
 
-        const lastProductIndex = firstProductIndex + numberOfProducts;
+        let lastProductIndex;
+
+        if ((firstProductIndex + numberOfProducts) < products.length) {
+            lastProductIndex = firstProductIndex + numberOfProducts;
+        } else {
+            lastProductIndex = products.length;
+        };
         console.log('lastProductIndex: ', lastProductIndex);
 
         //вырезаем нужную часть массива
@@ -135,7 +141,9 @@ const paginate = (products: { id: string; name: string; }[]) => {
     // ******************* 3 - Обновляем пагинацию *******************
     updatePagination();
 
-
+    // *************************************************************
+    // *********** Функция - обработчик кликов на кнопки ***********
+    // *************************************************************
     const liElements = document.querySelectorAll('.pagination__item');
     const handlePagination = (event: Event) => {
         // Обработка нажатий на кнопки вперед/назад
