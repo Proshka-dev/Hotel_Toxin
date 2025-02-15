@@ -2,8 +2,8 @@
 const paginate = (products: { id: string; name: string; }[]) => {
     console.log('products: ', products);
 
-    let productCount = 7;
-    let currentPage = 1;
+    let quantityProductsOnPage = 3;
+    let currentPage = 5;
 
     const productContainer = document.querySelector('.products-list__list') as HTMLElement;
     const pagination = document.querySelector('.pagination__list') as HTMLElement;
@@ -15,16 +15,16 @@ const paginate = (products: { id: string; name: string; }[]) => {
     // *************************************************************
     // ***************** Фукнция рендера продуктов *****************
     // *************************************************************
-    const renderProducts = (products: { id: string; name: string; }[], container: HTMLElement, numberOfProducts: number, page: number) => {
+    const renderProducts = (products: { id: string; name: string; }[], container: HTMLElement, numberProductsOnPage: number, page: number) => {
         productContainer.innerHTML = '';
 
-        const firstProductIndex = numberOfProducts * page - numberOfProducts;
+        const firstProductIndex = numberProductsOnPage * page - numberProductsOnPage;
         console.log('firstProductIndex: ', firstProductIndex);
 
         let lastProductIndex;
 
-        if ((firstProductIndex + numberOfProducts) < products.length) {
-            lastProductIndex = firstProductIndex + numberOfProducts;
+        if ((firstProductIndex + numberProductsOnPage) < products.length) {
+            lastProductIndex = firstProductIndex + numberProductsOnPage;
         } else {
             lastProductIndex = products.length;
         };
@@ -38,7 +38,14 @@ const paginate = (products: { id: string; name: string; }[]) => {
         productsOnPage.forEach(({ id, name }) => {
             const li = document.createElement('li');
             li.classList.add('products-list__item');
-            li.innerHTML = `<div class='products-list__id'> ${id} </div> <div class='products-list__name'> ${name} </div > `;
+            li.innerHTML = `
+                <div class='products-list__id'>
+                    ${id}
+                </div>
+                <div class='products-list__name'>
+                    ${name}
+                </div >
+                `;
             container.append(li);
 
             console.log('Product li: ', li);
@@ -53,25 +60,70 @@ const paginate = (products: { id: string; name: string; }[]) => {
     // *************************************************************
     // ***************** Фукнция рендера пагинации *****************
     // *************************************************************
-    const renderPagination = (products: { id: string; name: string; }[], numberOfProducts: number) => {
+    const renderPagination = (totalProducts: number, numberProductsOnPage: number, numberOfCurrentPage: number) => {
 
-        const pagesCount = Math.ceil(products.length / numberOfProducts);
-        console.log('pagesCount : ', pagesCount);
+        // Рассчитываем общее количество страниц
+        const pagesCount = Math.ceil(totalProducts / numberProductsOnPage);
 
+        // Ищем элемент (ul), содержащий в себе элементы - кнопки (li)
         const ul = document.querySelector('.pagination__list');
 
-        console.log('pagination__list: ', ul);
-
+        // Обнуляем внутреннее содержимое ul
         ul.innerHTML = '';
 
-        for (let i = 1; i <= pagesCount; i++) {
-            const li = renderBtn(i);
-            ul.append(li);
+
+        if (pagesCount <= 5) {
+            // Обычный рендер без троеточия
+            for (let i = 1; i <= pagesCount; i++) {
+                const li = renderBtn(i);
+                ul.append(li);
+            }
+
+        } else {
+            // Рендер с троеточием. Будет в 3 этапа: до текущей страницы, текущая и после текущей
+            // *** рендер до текущей ***
+            renderBtnGroup(ul, 1, numberOfCurrentPage - 1);
+            // *** рендер текущей ***
+            renderBtnGroup(ul, numberOfCurrentPage, numberOfCurrentPage);
+            // *** рендер после текущей ***
+            renderBtnGroup(ul, numberOfCurrentPage + 1, pagesCount);
         }
 
 
 
+        // Старый рендер !!!!!!!!!!!!!!!!!!!!!!!!!
+        // for (let i = 1; i <= pagesCount; i++) {
+        //     const li = renderBtn(i);
+        //     ul.append(li);
+        // }
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         //pagination.classList.remove('hidden');
+    };
+
+    // *************************************************************
+    // **************** Фукнция рендера группы кнопок **************
+    // *************************************************************
+    const renderBtnGroup = (ul: Element, firtPage: number, lastPage: number) => {
+
+        if ((lastPage - firtPage) < 3) {
+            for (let i = firtPage; i <= lastPage; i++) {
+                const li = renderBtn(i);
+                ul.append(li);
+            }
+        } else {
+            // Рендер с троеточием
+            // Первая кнопка
+            ul.append(renderBtn(firtPage));
+            // троеточие
+            const li = document.createElement('li');
+            li.classList.add('pagination__item');
+            li.classList.add('pagination__item_unclickable');
+            li.textContent = '...';
+            ul.append(li);
+            // Последняя кнопка
+            ul.append(renderBtn(lastPage));
+        };
     };
 
     // *************************************************************
@@ -102,7 +154,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
             } else {
                 currentPage = Number(eventTarget.textContent);
 
-                renderProducts(products, productContainer, productCount, currentPage);
+                renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
                 let currentli = document.querySelector('.pagination__item.pagination__item_active');
                 currentli.classList.remove('pagination__item_active');
                 eventTarget.classList.add('pagination__item_active');
@@ -122,7 +174,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
             resultString = resultString + String(Math.floor(totalQuantity / 100) * 100) + '+';
         };
 
-        if ((totalQuantity === 1) || (totalQuantity % 10 === 1)) {
+        if (((totalQuantity === 1) || (totalQuantity % 10 === 1)) && (totalQuantity < 100)) {
             resultString = resultString + ' варианта аренды'
         } else {
             resultString = resultString + ' вариантов аренды'
@@ -133,10 +185,10 @@ const paginate = (products: { id: string; name: string; }[]) => {
 
 
     // ******************** 1 - Рендерим продукты ********************
-    renderProducts(products, productContainer, productCount, currentPage);
+    renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
 
     // ******************* 2 - Рендерим пагинацию *******************
-    renderPagination(products, productCount);
+    renderPagination(products.length, quantityProductsOnPage, currentPage);
 
     // ******************* 3 - Обновляем пагинацию *******************
     updatePagination();
@@ -179,7 +231,9 @@ const paginate = (products: { id: string; name: string; }[]) => {
             currentPage = liElements.length;
         }
 
-        renderProducts(products, productContainer, productCount, currentPage);
+        renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
+        renderPagination(products.length, quantityProductsOnPage, currentPage); // добавил
+
     };
 
     // ************ 4 - Обработчик клика на кнопку 'далее' ************
