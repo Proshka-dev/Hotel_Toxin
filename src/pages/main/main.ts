@@ -10,8 +10,6 @@
 // console.log(sayHello("TypeScript"));
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//import { paginate } from './pagination.js';
 import { paginate } from '../../modules/pagination/pagination.js';
 
 const products = [
