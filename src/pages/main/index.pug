@@ -20,6 +20,7 @@ include ../../modules/button-light/button-light.pug
 include ../../modules/button-clear/button-clear.pug
 include ../../modules/button-arrow/button-arrow.pug
 include ../../modules/bullet-list/bullet-list.pug
+include ../../modules/products-list/products-list.pug
 include ../../modules/pagination/pagination.pug
 
 
@@ -98,6 +99,9 @@ body
       .uikit-demo__item
         //- Параметры: vLabel, vItemsId, vItems
         +mixBulletList('Bullet list', ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
+      .uikit-demo__item
+        //- Параметры:
+        +mixProductsList('Products list')
       .uikit-demo__item
         //- Параметры:
         +mixPagination('Pagination')
