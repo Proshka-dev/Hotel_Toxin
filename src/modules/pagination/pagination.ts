@@ -1,6 +1,4 @@
 
-
-
 const paginate = (products: { id: string; name: string; }[]) => {
     console.log('products: ', products);
 
@@ -12,6 +10,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
     // Кнопка 'назад' отсутствует
     //const btnPrevPagination = document.querySelector('.pagination__arrow-prev') as HTMLElement;
     const btnNextPagination = document.querySelector('.pagination__arrow') as HTMLElement;
+    const paginationText = document.querySelector('.pagination__text') as HTMLElement;
 
     // *************************************************************
     // ***************** Фукнция рендера продуктов *****************
@@ -39,7 +38,9 @@ const paginate = (products: { id: string; name: string; }[]) => {
             console.log('Product li: ', li);
         });
 
-        //renderProducts(products, productContainer, productCount, currentPage);
+        // Обновляем текстовую часть
+        paginationText.innerText = renderText(firstProductIndex + 1, lastProductIndex, products.length);
+
 
     };
 
@@ -63,6 +64,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
         }
 
 
+
         //pagination.classList.remove('hidden');
     };
 
@@ -82,7 +84,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
     };
 
     // *************************************************************
-    // *************** Фукнция обновления пагинации ****************
+    // *********** Фукнция обработки кликов по пагинации ***********
     // *************************************************************
     const updatePagination = () => {
 
@@ -100,6 +102,27 @@ const paginate = (products: { id: string; name: string; }[]) => {
                 eventTarget.classList.add('pagination__item_active');
             }
         });
+    };
+
+    // *************************************************************
+    // ****************** Фукнция рендера текста *******************
+    // *************************************************************
+    const renderText = (firstNumber: number, lastNumber: number, totalQuantity: number): string => {
+
+        let resultString = String(firstNumber) + ' – ' + String(lastNumber) + ' из ';
+        if (totalQuantity <= 100) {
+            resultString = resultString + String(totalQuantity)
+        } else {
+            resultString = resultString + String(Math.floor(totalQuantity / 100) * 100) + '+';
+        };
+
+        if ((totalQuantity === 1) || (totalQuantity % 10 === 1)) {
+            resultString = resultString + ' варианта аренды'
+        } else {
+            resultString = resultString + ' вариантов аренды'
+        };
+
+        return resultString;
     };
 
 

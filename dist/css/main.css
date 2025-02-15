@@ -1204,6 +1204,7 @@ body {
 .pagination__body {
   display: flex;
   margin-bottom: 11px;
+  user-select: none;
 }
 .pagination__list {
   display: flex;
