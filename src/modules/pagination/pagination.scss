@@ -28,6 +28,7 @@
         height: 40px;
         text-align: center;
         align-content: center;
+        cursor: pointer;
 
         &_active {
             background: linear-gradient($color-purple, $color-blue);
@@ -35,7 +36,12 @@
             border-radius: 50%;
             font-weight: bold;
         }
+
+        &_unclickable {
+            cursor: default;
+        }
     }
+
 
     &__arrow {
         text-align: center;
@@ -51,6 +57,8 @@
         font-family: "Material Symbols Outlined", serif;
         font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
         font-size: 24px;
+
+        cursor: pointer;
     }
 
     &__text {

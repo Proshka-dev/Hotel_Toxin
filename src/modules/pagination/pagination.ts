@@ -4,14 +4,18 @@
 const paginate = (products: { id: string; name: string; }[]) => {
     console.log('products: ', products);
 
-    let productCount = 7;
+    let productCount = 5;
     let currentPage = 1;
 
-    const productContainer = document.querySelector('.js-products-list') as HTMLElement;
-    const pagination = document.querySelector('.js-pagination') as HTMLElement;
-    const btnPrevPagination = document.querySelector('.js-pagination-btn-prev') as HTMLElement;
-    const btnNextPagination = document.querySelector('.js-pagination-btn-next') as HTMLElement;
+    const productContainer = document.querySelector('.products-list__list') as HTMLElement;
+    const pagination = document.querySelector('.pagination__list') as HTMLElement;
+    // Кнопка 'назад' отсутствует
+    //const btnPrevPagination = document.querySelector('.pagination__arrow-prev') as HTMLElement;
+    const btnNextPagination = document.querySelector('.pagination__arrow') as HTMLElement;
 
+    // *************************************************************
+    // ***************** Фукнция рендера продуктов *****************
+    // *************************************************************
     const renderProducts = (products: { id: string; name: string; }[], container: HTMLElement, numberOfProducts: number, page: number) => {
         productContainer.innerHTML = '';
 
@@ -28,21 +32,30 @@ const paginate = (products: { id: string; name: string; }[]) => {
 
         productsOnPage.forEach(({ id, name }) => {
             const li = document.createElement('li');
-            li.classList.add('product', 'item', 'column', 'aic', 'js-product');
-            li.innerHTML = `<div class="product-id"> ${id} </div> <div class="product-name"> ${name} </div > `;
+            li.classList.add('products-list__item');
+            li.innerHTML = `<div class='products-list__id'> ${id} </div> <div class='products-list__name'> ${name} </div > `;
             container.append(li);
+
+            console.log('Product li: ', li);
         });
 
-        renderProducts(products, productContainer, productCount, currentPage);
+        //renderProducts(products, productContainer, productCount, currentPage);
 
     };
 
+    // *************************************************************
+    // ***************** Фукнция рендера пагинации *****************
+    // *************************************************************
     const renderPagination = (products: { id: string; name: string; }[], numberOfProducts: number) => {
 
         const pagesCount = Math.ceil(products.length / numberOfProducts);
         console.log('pagesCount : ', pagesCount);
 
-        const ul = document.querySelector('.js-pagination-list');
+        const ul = document.querySelector('.pagination__list');
+
+        console.log('pagination__list: ', ul);
+
+        ul.innerHTML = '';
 
         for (let i = 1; i <= pagesCount; i++) {
             const li = renderBtn(i);
@@ -50,74 +63,84 @@ const paginate = (products: { id: string; name: string; }[]) => {
         }
 
 
-        pagination.classList.remove('hidden');
+        //pagination.classList.remove('hidden');
     };
 
+    // *************************************************************
+    // ****************** Фукнция рендера кнопки *******************
+    // *************************************************************
     const renderBtn = (page: number) => {
 
         const li = document.createElement('li');
-        li.classList.add('pagination-item', 'row', 'jcc', 'aic');
+        li.classList.add('pagination__item');
         li.textContent = String(page);
 
         if (currentPage === page) {
-            li.classList.add('active');
+            li.classList.add('pagination__item_active');
         }
         return li;
     };
 
+    // *************************************************************
+    // *************** Фукнция обновления пагинации ****************
+    // *************************************************************
     const updatePagination = () => {
 
         pagination.addEventListener('click', (event) => {
             const eventTarget = event.target as HTMLElement;
 
-            if (!eventTarget.closest('.pagination-item')) {
+            if (!eventTarget.closest('.pagination__item')) {
                 return;
             } else {
                 currentPage = Number(eventTarget.textContent);
 
                 renderProducts(products, productContainer, productCount, currentPage);
-                let currentli = document.querySelector('.pagination-item.active');
-                currentli.classList.remove('active');
-                eventTarget.classList.add('active');
+                let currentli = document.querySelector('.pagination__item.pagination__item_active');
+                currentli.classList.remove('pagination__item_active');
+                eventTarget.classList.add('pagination__item_active');
             }
         });
     };
 
 
-
+    // ******************** 1 - Рендерим продукты ********************
     renderProducts(products, productContainer, productCount, currentPage);
+
+    // ******************* 2 - Рендерим пагинацию *******************
     renderPagination(products, productCount);
+
+    // ******************* 3 - Обновляем пагинацию *******************
     updatePagination();
 
-    const liElements = document.querySelectorAll('.pagination-utem');
 
+    const liElements = document.querySelectorAll('.pagination__item');
     const handlePagination = (event: Event) => {
         // Обработка нажатий на кнопки вперед/назад
-        const currentActiveLi = document.querySelector('.pagination-item.active');
+        const currentActiveLi = document.querySelector('.pagination__item_active');
         let newActiveLi;
 
         const eventTarget = event.target as HTMLElement;
 
-        if (eventTarget.closest('.js-pagination-btn-next')) {
+        if (eventTarget.closest('.pagination__arrow')) {
             newActiveLi = currentActiveLi.nextElementSibling;
             console.log('newActiveLi: ', newActiveLi);
 
             currentPage++;
         } else {
-            newActiveLi = currentActiveLi.previousElementSibling;
-            console.log('newActiveLi: ', newActiveLi);
+            // newActiveLi = currentActiveLi.previousElementSibling;
+            // console.log('newActiveLi: ', newActiveLi);
 
-            currentPage--;
+            // currentPage--;
         };
 
-        if (!newActiveLi && eventTarget.closest('.js-pagination-btn-next')) {
+        if (!newActiveLi && eventTarget.closest('.pagination__arrow')) {
             newActiveLi = liElements[0];
         } else if (!newActiveLi) {
-            newActiveLi = liElements[liElements.length - 1];
+            //newActiveLi = liElements[liElements.length - 1];
         };
 
-        currentActiveLi.classList.remove('active');
-        newActiveLi.classList.add('active');
+        currentActiveLi.classList.remove('pagination__item_active');
+        newActiveLi.classList.add('pagination__item_active');
 
         if (currentPage > liElements.length) {
             currentPage = 1;
@@ -128,8 +151,11 @@ const paginate = (products: { id: string; name: string; }[]) => {
         renderProducts(products, productContainer, productCount, currentPage);
     };
 
+    // ************ 4 - Обработчик клика на кнопку 'далее' ************
     btnNextPagination.addEventListener('click', handlePagination);
-    btnPrevPagination.addEventListener('click', handlePagination);
+
+    // Кнопка 'назад' отсутствует
+    //btnPrevPagination.addEventListener('click', handlePagination);
 };
 
 
