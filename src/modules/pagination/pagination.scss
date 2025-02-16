@@ -60,6 +60,10 @@
         font-size: 24px;
 
         cursor: pointer;
+
+        &_unactive {
+            background: linear-gradient($color-green50, $color-cyan50);
+        }
     }
 
     &__text {

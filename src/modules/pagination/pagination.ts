@@ -1,44 +1,28 @@
+// *************************************************************
+// ***************** Фукнция рендера продуктов *****************
+// *************************************************************
+const renderProducts = (products: { id: string; name: string; }[], container: HTMLElement, textContainer: HTMLElement, numberProductsOnPage: number, page: number) => {
+    container.innerHTML = '';
 
-const paginate = (products: { id: string; name: string; }[]) => {
-    console.log('products: ', products);
+    const firstProductIndex = numberProductsOnPage * page - numberProductsOnPage;
 
-    let quantityProductsOnPage = 3;
-    let currentPage = 5;
+    let lastProductIndex;
 
-    const productContainer = document.querySelector('.products-list__list') as HTMLElement;
-    const pagination = document.querySelector('.pagination__list') as HTMLElement;
-    // Кнопка 'назад' отсутствует
-    //const btnPrevPagination = document.querySelector('.pagination__arrow-prev') as HTMLElement;
-    const btnNextPagination = document.querySelector('.pagination__arrow') as HTMLElement;
-    const paginationText = document.querySelector('.pagination__text') as HTMLElement;
+    if ((firstProductIndex + numberProductsOnPage) < products.length) {
+        lastProductIndex = firstProductIndex + numberProductsOnPage;
+    } else {
+        lastProductIndex = products.length;
+    };
 
-    // *************************************************************
-    // ***************** Фукнция рендера продуктов *****************
-    // *************************************************************
-    const renderProducts = (products: { id: string; name: string; }[], container: HTMLElement, numberProductsOnPage: number, page: number) => {
-        productContainer.innerHTML = '';
-
-        const firstProductIndex = numberProductsOnPage * page - numberProductsOnPage;
-        console.log('firstProductIndex: ', firstProductIndex);
-
-        let lastProductIndex;
-
-        if ((firstProductIndex + numberProductsOnPage) < products.length) {
-            lastProductIndex = firstProductIndex + numberProductsOnPage;
-        } else {
-            lastProductIndex = products.length;
-        };
-        console.log('lastProductIndex: ', lastProductIndex);
-
-        //вырезаем нужную часть массива
-        const productsOnPage = products.slice(firstProductIndex, lastProductIndex);
-        console.log('productsOnPage: ', productsOnPage);
+    //вырезаем нужную часть массива
+    const productsOnPage = products.slice(firstProductIndex, lastProductIndex);
+    console.log('productsOnPage: ', productsOnPage);
 
 
-        productsOnPage.forEach(({ id, name }) => {
-            const li = document.createElement('li');
-            li.classList.add('products-list__item');
-            li.innerHTML = `
+    productsOnPage.forEach(({ id, name }) => {
+        const li = document.createElement('li');
+        li.classList.add('products-list__item');
+        li.innerHTML = `
                 <div class='products-list__id'>
                     ${id}
                 </div>
@@ -46,201 +30,181 @@ const paginate = (products: { id: string; name: string; }[]) => {
                     ${name}
                 </div >
                 `;
-            container.append(li);
+        container.append(li);
 
-            console.log('Product li: ', li);
-        });
+        console.log('Product li: ', li);
+    });
 
-        // Обновляем текстовую часть
-        paginationText.innerText = renderText(firstProductIndex + 1, lastProductIndex, products.length);
+    // Обновляем текстовую часть
+    textContainer.innerText = renderText(firstProductIndex + 1, lastProductIndex, products.length);
+};
 
+// *************************************************************
+// ****************** Фукнция рендера текста *******************
+// *************************************************************
+const renderText = (firstNumber: number, lastNumber: number, totalQuantity: number): string => {
 
+    let resultString = String(firstNumber) + ' – ' + String(lastNumber) + ' из ';
+    if (totalQuantity <= 100) {
+        resultString = resultString + String(totalQuantity)
+    } else {
+        resultString = resultString + String(Math.floor(totalQuantity / 100) * 100) + '+';
     };
 
-    // *************************************************************
-    // ***************** Фукнция рендера пагинации *****************
-    // *************************************************************
-    const renderPagination = (totalProducts: number, numberProductsOnPage: number, numberOfCurrentPage: number) => {
+    if (((totalQuantity === 1) || (totalQuantity % 10 === 1)) && (totalQuantity < 100)) {
+        resultString = resultString + ' варианта аренды'
+    } else {
+        resultString = resultString + ' вариантов аренды'
+    };
 
-        // Рассчитываем общее количество страниц
-        const pagesCount = Math.ceil(totalProducts / numberProductsOnPage);
+    return resultString;
+};
 
-        // Ищем элемент (ul), содержащий в себе элементы - кнопки (li)
-        const ul = document.querySelector('.pagination__list');
+// *************************************************************
+// ***************** Фукнция рендера пагинации *****************
+// *************************************************************
+const renderPagination = (totalProducts: number, numberProductsOnPage: number, currPage: number) => {
 
-        // Обнуляем внутреннее содержимое ul
-        ul.innerHTML = '';
+    // Рассчитываем общее количество страниц
+    const pagesCount = Math.ceil(totalProducts / numberProductsOnPage);
+
+    // Ищем элемент (ul), содержащий в себе элементы - кнопки (li)
+    const ul = document.querySelector('.pagination__list');
+
+    // Обнуляем внутреннее содержимое ul
+    ul.innerHTML = '';
 
 
-        if (pagesCount <= 5) {
-            // Обычный рендер без троеточия
-            for (let i = 1; i <= pagesCount; i++) {
-                const li = renderBtn(i);
-                ul.append(li);
-            }
-
-        } else {
-            // Рендер с троеточием. Будет в 3 этапа: до текущей страницы, текущая и после текущей
-            // *** рендер до текущей ***
-            renderBtnGroup(ul, 1, numberOfCurrentPage - 1);
-            // *** рендер текущей ***
-            renderBtnGroup(ul, numberOfCurrentPage, numberOfCurrentPage);
-            // *** рендер после текущей ***
-            renderBtnGroup(ul, numberOfCurrentPage + 1, pagesCount);
+    if (pagesCount <= 5) {
+        // Обычный рендер без троеточия
+        for (let i = 1; i <= pagesCount; i++) {
+            const li = renderBtn(i, currPage);
+            ul.append(li);
         }
 
+    } else {
+        // Рендер с троеточием. Будет в 3 этапа: до текущей страницы, текущая и после текущей
+        // *** рендер до текущей ***
+        renderBtnGroup(ul, 1, currPage - 1, currPage);
+        // *** рендер текущей ***
+        renderBtnGroup(ul, currPage, currPage, currPage);
+        // *** рендер после текущей ***
+        renderBtnGroup(ul, currPage + 1, pagesCount, currPage);
+    }
 
-
-        // Старый рендер !!!!!!!!!!!!!!!!!!!!!!!!!
-        // for (let i = 1; i <= pagesCount; i++) {
-        //     const li = renderBtn(i);
-        //     ul.append(li);
-        // }
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        //pagination.classList.remove('hidden');
+    // *** Обработка стиля активной/неактивной стрелки ***
+    const arrowElement = document.querySelector('.pagination__arrow'); // вынести за пределы функции
+    if (currPage < pagesCount) {
+        arrowElement.classList.remove('pagination__arrow_unactive');
+    } else {
+        arrowElement.classList.add('pagination__arrow_unactive');
     };
 
-    // *************************************************************
-    // **************** Фукнция рендера группы кнопок **************
-    // *************************************************************
-    const renderBtnGroup = (ul: Element, firtPage: number, lastPage: number) => {
 
-        if ((lastPage - firtPage) < 3) {
-            for (let i = firtPage; i <= lastPage; i++) {
-                const li = renderBtn(i);
-                ul.append(li);
-            }
-        } else {
-            // Рендер с троеточием
-            // Первая кнопка
-            ul.append(renderBtn(firtPage));
-            // троеточие
-            const li = document.createElement('li');
-            li.classList.add('pagination__item');
-            li.classList.add('pagination__item_unclickable');
-            li.textContent = '...';
+};
+
+// *************************************************************
+// **************** Фукнция рендера группы кнопок **************
+// *************************************************************
+const renderBtnGroup = (ul: Element, firtPage: number, lastPage: number, currPage: number) => {
+
+    if ((lastPage - firtPage) < 3) {
+        for (let i = firtPage; i <= lastPage; i++) {
+            const li = renderBtn(i, currPage);
             ul.append(li);
-            // Последняя кнопка
-            ul.append(renderBtn(lastPage));
-        };
-    };
-
-    // *************************************************************
-    // ****************** Фукнция рендера кнопки *******************
-    // *************************************************************
-    const renderBtn = (page: number) => {
-
+        }
+    } else {
+        // Рендер с троеточием
+        // Первая кнопка
+        ul.append(renderBtn(firtPage, currPage));
+        // троеточие
         const li = document.createElement('li');
         li.classList.add('pagination__item');
-        li.textContent = String(page);
-
-        if (currentPage === page) {
-            li.classList.add('pagination__item_active');
-        }
-        return li;
+        li.classList.add('pagination__item_unclickable');
+        li.textContent = '...';
+        ul.append(li);
+        // Последняя кнопка
+        ul.append(renderBtn(lastPage, currPage));
     };
+};
+
+// *************************************************************
+// ****************** Фукнция рендера кнопки *******************
+// *************************************************************
+const renderBtn = (page: number, currPage: number) => {
+
+    const li = document.createElement('li');
+    li.classList.add('pagination__item');
+    li.textContent = String(page);
+
+    if (currPage === page) {
+        li.classList.add('pagination__item_active');
+    }
+    return li;
+};
+
+
+// ********************************************************************************************
+// ********************************************************************************************
+// *******************************  Основная часть  *******************************************
+// ********************************************************************************************
+// ********************************************************************************************
+const paginate = (products: { id: string; name: string; }[]) => {
+    console.log('products: ', products);
+
+    let quantityProductsOnPage = 3;
+    let currentPage = 1;
+    let totalPages = Math.ceil(products.length / quantityProductsOnPage);
+
+    const productContainer = document.querySelector('.products-list__list') as HTMLElement;
+    const paginationWrapper = document.querySelector('.pagination') as HTMLElement;
+    const paginationText = document.querySelector('.pagination__text') as HTMLElement;
+
 
     // *************************************************************
     // *********** Фукнция обработки кликов по пагинации ***********
     // *************************************************************
-    const updatePagination = () => {
-
-        pagination.addEventListener('click', (event) => {
+    // !!! переписать на внешнюю функцию, использующую только данные, переданные в параметрах
+    const eventListenerPaginationClicks = () => {
+        // На контейнер пагинации вешаем обработчик кликов
+        paginationWrapper.addEventListener('click', (event) => {
+            // получаем цель клика
             const eventTarget = event.target as HTMLElement;
-
-            if (!eventTarget.closest('.pagination__item')) {
-                return;
+            // Проверяем нет ли у цели клика родителя с классом pagination__item
+            if (eventTarget.closest('.pagination__item')) {
+                // Если в содержимом нет трех точек
+                if (eventTarget.textContent !== '...') {
+                    // меняем значение переменной currentPage на то, что содержится в тексте контейнера
+                    currentPage = Number(eventTarget.textContent);
+                    // запускаем рендер продуктов
+                    renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
+                    // запускаем рендер пагинации
+                    renderPagination(products.length, quantityProductsOnPage, currentPage);
+                }
             } else {
-                currentPage = Number(eventTarget.textContent);
+                // Если кликнули на стрелку и еще не достигли максимумальной страницы
+                if ((eventTarget.closest('.pagination__arrow')) && (currentPage < totalPages)) {
+                    // меняем значение переменной currentPage на то, что содержится в тексте контейнера
+                    currentPage = currentPage + 1;
+                    // запускаем рендер продуктов
+                    renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
+                    // запускаем рендер пагинации
+                    renderPagination(products.length, quantityProductsOnPage, currentPage);
+                }
+            };
 
-                renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
-                let currentli = document.querySelector('.pagination__item.pagination__item_active');
-                currentli.classList.remove('pagination__item_active');
-                eventTarget.classList.add('pagination__item_active');
-            }
         });
     };
 
-    // *************************************************************
-    // ****************** Фукнция рендера текста *******************
-    // *************************************************************
-    const renderText = (firstNumber: number, lastNumber: number, totalQuantity: number): string => {
-
-        let resultString = String(firstNumber) + ' – ' + String(lastNumber) + ' из ';
-        if (totalQuantity <= 100) {
-            resultString = resultString + String(totalQuantity)
-        } else {
-            resultString = resultString + String(Math.floor(totalQuantity / 100) * 100) + '+';
-        };
-
-        if (((totalQuantity === 1) || (totalQuantity % 10 === 1)) && (totalQuantity < 100)) {
-            resultString = resultString + ' варианта аренды'
-        } else {
-            resultString = resultString + ' вариантов аренды'
-        };
-
-        return resultString;
-    };
-
-
     // ******************** 1 - Рендерим продукты ********************
-    renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
+    renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
 
     // ******************* 2 - Рендерим пагинацию *******************
     renderPagination(products.length, quantityProductsOnPage, currentPage);
 
-    // ******************* 3 - Обновляем пагинацию *******************
-    updatePagination();
+    // **** 3 - вешаем обработчик кликов по контейнеру пагинации ****
+    eventListenerPaginationClicks();
 
-    // *************************************************************
-    // *********** Функция - обработчик кликов на кнопки ***********
-    // *************************************************************
-    const liElements = document.querySelectorAll('.pagination__item');
-    const handlePagination = (event: Event) => {
-        // Обработка нажатий на кнопки вперед/назад
-        const currentActiveLi = document.querySelector('.pagination__item_active');
-        let newActiveLi;
-
-        const eventTarget = event.target as HTMLElement;
-
-        if (eventTarget.closest('.pagination__arrow')) {
-            newActiveLi = currentActiveLi.nextElementSibling;
-            console.log('newActiveLi: ', newActiveLi);
-
-            currentPage++;
-        } else {
-            // newActiveLi = currentActiveLi.previousElementSibling;
-            // console.log('newActiveLi: ', newActiveLi);
-
-            // currentPage--;
-        };
-
-        if (!newActiveLi && eventTarget.closest('.pagination__arrow')) {
-            newActiveLi = liElements[0];
-        } else if (!newActiveLi) {
-            //newActiveLi = liElements[liElements.length - 1];
-        };
-
-        currentActiveLi.classList.remove('pagination__item_active');
-        newActiveLi.classList.add('pagination__item_active');
-
-        if (currentPage > liElements.length) {
-            currentPage = 1;
-        } else if (currentPage < 1) {
-            currentPage = liElements.length;
-        }
-
-        renderProducts(products, productContainer, quantityProductsOnPage, currentPage);
-        renderPagination(products.length, quantityProductsOnPage, currentPage); // добавил
-
-    };
-
-    // ************ 4 - Обработчик клика на кнопку 'далее' ************
-    btnNextPagination.addEventListener('click', handlePagination);
-
-    // Кнопка 'назад' отсутствует
-    //btnPrevPagination.addEventListener('click', handlePagination);
 };
 
 
