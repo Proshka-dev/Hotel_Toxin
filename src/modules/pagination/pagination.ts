@@ -63,7 +63,12 @@ const renderText = (firstNumber: number, lastNumber: number, totalQuantity: numb
 // *************************************************************
 // ***************** Фукнция рендера пагинации *****************
 // *************************************************************
-const renderPagination = (totalProducts: number, numberProductsOnPage: number, currPage: number) => {
+interface IRenderPagination {
+    totalProducts: number;
+    numberProductsOnPage: number;
+    currPage: number;
+};
+const renderPagination = ({ totalProducts, numberProductsOnPage, currPage }: IRenderPagination) => {
 
     // Рассчитываем общее количество страниц
     const pagesCount = Math.ceil(totalProducts / numberProductsOnPage);
@@ -145,16 +150,14 @@ const renderBtn = (page: number, currPage: number) => {
 
 
 // ********************************************************************************************
-// ********************************************************************************************
 // *******************************  Основная часть  *******************************************
-// ********************************************************************************************
 // ********************************************************************************************
 const paginate = (products: { id: string; name: string; }[]) => {
     console.log('products: ', products);
 
     let quantityProductsOnPage = 3;
     let currentPage = 1;
-    let totalPages = Math.ceil(products.length / quantityProductsOnPage);
+    const totalPages = Math.ceil(products.length / quantityProductsOnPage);
 
     const productContainer = document.querySelector('.products-list__list') as HTMLElement;
     const paginationWrapper = document.querySelector('.pagination') as HTMLElement;
@@ -164,7 +167,6 @@ const paginate = (products: { id: string; name: string; }[]) => {
     // *************************************************************
     // *********** Фукнция обработки кликов по пагинации ***********
     // *************************************************************
-    // !!! переписать на внешнюю функцию, использующую только данные, переданные в параметрах
     const eventListenerPaginationClicks = () => {
         // На контейнер пагинации вешаем обработчик кликов
         paginationWrapper.addEventListener('click', (event) => {
@@ -179,7 +181,7 @@ const paginate = (products: { id: string; name: string; }[]) => {
                     // запускаем рендер продуктов
                     renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
                     // запускаем рендер пагинации
-                    renderPagination(products.length, quantityProductsOnPage, currentPage);
+                    renderPagination({ totalProducts: products.length, numberProductsOnPage: quantityProductsOnPage, currPage: currentPage });
                 }
             } else {
                 // Если кликнули на стрелку и еще не достигли максимумальной страницы
@@ -189,7 +191,8 @@ const paginate = (products: { id: string; name: string; }[]) => {
                     // запускаем рендер продуктов
                     renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
                     // запускаем рендер пагинации
-                    renderPagination(products.length, quantityProductsOnPage, currentPage);
+                    renderPagination({ totalProducts: products.length, numberProductsOnPage: quantityProductsOnPage, currPage: currentPage });
+
                 }
             };
 
@@ -200,13 +203,12 @@ const paginate = (products: { id: string; name: string; }[]) => {
     renderProducts(products, productContainer, paginationText, quantityProductsOnPage, currentPage);
 
     // ******************* 2 - Рендерим пагинацию *******************
-    renderPagination(products.length, quantityProductsOnPage, currentPage);
+    renderPagination({ totalProducts: products.length, numberProductsOnPage: quantityProductsOnPage, currPage: currentPage });
 
     // **** 3 - вешаем обработчик кликов по контейнеру пагинации ****
     eventListenerPaginationClicks();
 
 };
-
 
 export {
     paginate
