@@ -177,7 +177,6 @@ interface IRenderBtn {
     page: number;
     currPage: number;
 };
-
 const renderBtn = ({ page, currPage }: IRenderBtn) => {
 
     const li = document.createElement('li');
@@ -202,7 +201,6 @@ interface IEventListenerPaginationClicks {
     quantityProductsOnPage: number;
     totalPages: number;
 };
-
 const eventListenerPaginationClicks = ({ paginationWrapper, products, currentPage, productContainer, paginationText, quantityProductsOnPage, totalPages }: IEventListenerPaginationClicks) => {
     // На контейнер пагинации вешаем обработчик кликов
     paginationWrapper.addEventListener('click', (event: Event) => {
@@ -258,8 +256,6 @@ const eventListenerPaginationClicks = ({ paginationWrapper, products, currentPag
 // *******************************  Основная часть  *******************************************
 // ********************************************************************************************
 const paginate = (products: { id: string; name: string; }[]) => {
-    console.log('products: ', products);
-
     let quantityProductsOnPage = 3;
     let currentPage = 1;
     const totalPages = Math.ceil(products.length / quantityProductsOnPage);
@@ -294,8 +290,6 @@ const paginate = (products: { id: string; name: string; }[]) => {
         quantityProductsOnPage,
         totalPages
     });
-
-
 };
 
 export {

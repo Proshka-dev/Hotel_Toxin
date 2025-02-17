@@ -23,6 +23,10 @@ include ../../modules/bullet-list/bullet-list.pug
 include ../../modules/products-list/products-list.pug
 include ../../modules/pagination/pagination.pug
 
+//- Составные модули
+include ../../composite_modules/review/review.pug
+
+
 
 doctype html
 
@@ -105,8 +109,20 @@ body
       .uikit-demo__item
         //- Параметры:
         +mixPagination('Pagination')
-
-          
+      .uikit-demo__item
+        |Review
+        -
+          let reviewParams = {
+            photo: '@img/review/review-photo1.jpg',
+            name: 'Мурад Сарафанов',
+            timeReview: '5 дней назад',
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+            numberLikes: '12',
+            btnLikeId: 'btnlike2',
+            liked: 'true'
+          };
+        +mixReview(reviewParams)
+        
   include ../../modules/footer/footer.pug
 
   script(src='js/main.js')

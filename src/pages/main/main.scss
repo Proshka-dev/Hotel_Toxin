@@ -1,5 +1,9 @@
+// Базовые (цвета, шрифты, обнуление)
 @use '../../scss/nullstyle.scss';
 @use '../../scss/fonts.scss';
+@use '../../scss/colors.scss' as *;
+
+// Модули UI Kit
 @use '../../modules/text-field/text-field.scss';
 @use '../../modules/text-field-masked/text-field-masked.scss';
 @use '../../modules/text-field-subscription/text-field-subscription.scss';
@@ -23,9 +27,11 @@
 @use '../../modules/products-list/products-list.scss';
 @use '../../modules/pagination/pagination.scss';
 
-@use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
+// Составные модули
+@use '../../composite_modules/review/review.scss';
 
-@use '../../scss/colors.scss' as *;
+// Переназначение стилей сторонних модулей
+@use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
 
 body {
     //background-color: rgba(100, 100, 100, 0.2);

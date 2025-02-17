@@ -1,0 +1,11 @@
+//- Объявление миксина
+mixin mixReview(params)
+    .review
+        .review__photo-container
+            img.review__photo(src=params.photo, alt="photo")
+        .review__title
+            .review__name=params.name
+            .review__date=params.timeReview
+        .review__button-container
+            +mixButtonLike(params.numberLikes, params.btnLikeId, params.liked)    
+        .review__text=params.text
