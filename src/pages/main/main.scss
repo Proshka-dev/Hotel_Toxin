@@ -29,6 +29,7 @@
 
 // Составные модули
 @use '../../composite_modules/review/review.scss';
+@use '../../composite_modules/search/search.scss';
 
 // Переназначение стилей сторонних модулей
 @use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
