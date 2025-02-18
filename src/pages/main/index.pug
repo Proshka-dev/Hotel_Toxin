@@ -172,7 +172,7 @@ body
       //- radio-buttons
       .uikit-demo__item
         -
-          const radioButtonsParams = { //vLabel, vGroupName,vItemsId, vItems
+          const radioButtonsParams = { 
             label: 'Radio buttons',
             groupName: 'gender',
             inputs:[
@@ -182,52 +182,107 @@ body
           };
         +mixRadioButtons(radioButtonsParams)
       
-      //- 
+      //- toggle
       .uikit-demo__item
-        +mixToggle('Toggle', ['toggle1','toggle2'],['получать спецпредложения', 'получать спецпредложения'])
+        -
+          const toggleParams = {
+            label: 'Toggle',
+            inputs:[
+              {id: 'toggle1', name: 'getoffres', value: 'получать спецпредложения'},
+              {id: 'toggle2', name: 'getnews', value: 'получать новости'},
+            ]
+          };
+        +mixToggle(toggleParams)
       
-      //- 
+      //- button-like
       .uikit-demo__item
         |Like button
         br
         br
-        +mixButtonLike('12', 'btnlike1','true')
-        +mixButtonLike('25378', 'btnlike2','false')
+        -
+          const buttonLikeParams1 = {
+            numberOfLikes: '12',
+            id: 'btnlike1',
+            isChecked: 'true'
+          };
+        +mixButtonLike(buttonLikeParams1)
+        -
+          const buttonLikeParams2 = {
+            numberOfLikes: '25378',
+            id: 'btnlike2',
+            isChecked: 'false'
+          };
+        +mixButtonLike(buttonLikeParams2)
       
-      //- 
+      //- button-rate
       .uikit-demo__item
         |Rate button
         br
         br
-        +mixButtonRate('starrategrp1',['starrate1','starrate2','starrate3','starrate4','starrate5'])
+        -
+          const buttonRateParams = {
+            name: 'starrategrp1',
+            inputIds: ['starrate1','starrate2','starrate3','starrate4','starrate5'],
+          };
+        +mixButtonRate(buttonRateParams)
       
-      //- 
+      //- slider-range
       .uikit-demo__item
-        +mixSliderRange('Range slider', '1000', '12000', '2000', '10000', '50', '500')
+        -
+          const sliderRangeParams = {
+            label: 'Range slider',
+            min: '1000',
+            max: '12000',
+            minValue: '2000',
+            maxValue: '10000',
+            step: '50',
+            gap: '500'
+          };
+        +mixSliderRange(sliderRangeParams)
       
-      //- 
       .uikit-demo__item
         |Buttons
         br
         br
-        +mixButtonDark('click me')
-        +mixButtonLight('click me')
-        +mixButtonClear('click me')
-        +mixButtonArrow('Перейти к оплате')
+        //- button-dark
+        - const buttonDarkParams = {text: 'click me'};
+        +mixButtonDark(buttonDarkParams)
+        //- button-light
+        -  const buttonLightParams = {text: 'click me'};
+        +mixButtonLight(buttonLightParams)
+        //- button-clear
+        -  const buttonClearParams = {text: 'click me'};
+        +mixButtonClear(buttonClearParams)
+        //- button-arrow
+        -  const buttonArrowParams = {text: 'Перейти к оплате'};
+        +mixButtonArrow(buttonArrowParams)
       
-      //- 
+      //- bullet-list
       .uikit-demo__item
-        +mixBulletList('Bullet list', ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
+        -
+          const bulletListParams = {
+            label: 'Bullet list',
+            items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'],
+          };
+        +mixBulletList(bulletListParams)
       
-      //- 
+      //- products-list
       .uikit-demo__item
-        +mixProductsList('Products list')
+        -
+          const productListParams = {
+            label: 'Products list',
+          };
+        +mixProductsList(productListParams)
       
-      //- 
+      //- pagination
       .uikit-demo__item
-        +mixPagination('Pagination')
+        -
+          const paginationParams = {
+            label: 'Pagination',
+          };
+        +mixPagination(paginationParams)
 
-      //- 
+      //- review
       .uikit-demo__item
         |Review
         -
@@ -242,7 +297,7 @@ body
           };
         +mixReview(reviewParams)
 
-      //- 
+      //- search
       .uikit-demo__item
         -
           const searchParams = {

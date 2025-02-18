@@ -1,8 +1,8 @@
 //- Объявление миксина
 //- Параметры: 
-mixin mixBulletList(vLabel, vItems)
+mixin mixBulletList({label, items})
   .bullet-list
-    .bullet-list__label=vLabel
+    .bullet-list__label=label
     ul.bullet-list__items
-      each vItem in vItems
-        li.bullet-list__item=vItem
+      each item in items
+        li.bullet-list__item=item

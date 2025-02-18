@@ -1,6 +1,6 @@
 //- Объявление миксина
-mixin mixButtonRate(vGroupName, vItemsId)
+mixin mixButtonRate({groupName: name, inputIds})
   .button-rate
-    each vItem, vIndex in vItemsId
-      input(type='radio' id=vItemsId[4-vIndex] name=vGroupName value=5-vIndex)
-      label(for=vItemsId[4-vIndex] title='text')=(5-vIndex)+' star'
+    each item, index in inputIds
+      input(type='radio' id=inputIds[4-index] name=groupName value=5-index)
+      label(for=inputIds[4-index] title='text')=(5-index)+' star'
