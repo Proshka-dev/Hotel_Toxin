@@ -1,6 +1,7 @@
 //- Объявление миксина
-//- Параметры: vLabel, vPlaceholder, vType
-mixin mixDropdown(vLabel, vType)
+mixin mixDropdown({label: vLabel, type: vType, inputNames})
+  -
+    const in1 = inputNames[0];
   .dropdown(data-type=vType)
     .dropdown__label= vLabel
     .dropdown__container
@@ -45,8 +46,8 @@ mixin mixDropdown(vLabel, vType)
           .dropdown__buttons-container.dropdown__buttons-container_inactive
             .dropdown__button-apply применить
             .dropdown__button-clear.dropdown__button-clear_inactive очистить
-      input.dropdown__input(type='text' data-id='1' name='select-value1' value='0')
-      input.dropdown__input(type='text' data-id='2' name='select-value2' value='0')
-      input.dropdown__input(type='text' data-id='3' name='select-value3' value='0')
+      input.dropdown__input(type='text' data-id='1' name=inputNames[0] value='0')
+      input.dropdown__input(type='text' data-id='2' name=inputNames[1] value='0')
+      input.dropdown__input(type='text' data-id='3' name=inputNames[2] value='0')
 
 //- script(src='js/dropdown.js')

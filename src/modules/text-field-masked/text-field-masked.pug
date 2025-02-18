@@ -1,6 +1,6 @@
 //- Объявление миксина
 //- Параметры: vLabel, vType, vPlaceholder
-mixin mixTextFieldMasked(vLabel, vType, vPlaceholder)
+mixin mixTextFieldMasked({label: vLabel, type: vType, placeholder: vPlaceholder})
   .text-field-masked
     .text-field-masked__label= vLabel
     input.text-field-masked__input(type= vType required='' placeholder= vPlaceholder)

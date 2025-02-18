@@ -1,17 +1,17 @@
 //- Объявление миксина
 //- Параметры: vLabel
-mixin mixDropdownDateSplit(vLabel1, vLabel2)
+mixin mixDropdownDateSplit({label1: vLabel1, label2: vLabel2, inputNames, inputIDs})
   .dd-date-split
     .dd-date-split__body
       .dd-date-split__item
         .dd-date-split__label= vLabel1
         .dd-date-split__container
-          input.dd-date-split__input(type= 'text' id='inputdate1' readonly)
+          input.dd-date-split__input(type= 'text' id=inputIDs[0] name=inputNames[0] readonly)
           .dd-date-split__icon expand_more
       .dd-date-split__item
         .dd-date-split__label= vLabel2
         .dd-date-split__container
-          input.dd-date-split__input(type= 'text' id='inputdate2' readonly)
+          input.dd-date-split__input(type= 'text' id=inputIDs[1] name=inputNames[1] readonly)
           .dd-date-split__icon expand_more
 
 //- script(src='js/dropdown.js')

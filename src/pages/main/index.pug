@@ -39,21 +39,71 @@ body
   .uikit-demo
     .container
       //- Пример вставки картинки
-      //<img width="250" height="200" src="@img/cover.jpg" alt="">
+      //- <img width="250" height="200" src="@img/cover.jpg" alt="">
+
+      //- text-field
       .uikit-demo__item
-        +mixTextField('Text field', 'text', 'Email (placeholder)')
+        -
+          let textFieldParams = {
+            label: 'Text field',
+            type: 'text',
+            placeholder: 'Email (placeholder)'          };
+        +mixTextField(textFieldParams)
+
+      //- text-field-masked
       .uikit-demo__item
-        +mixTextFieldMasked('Masked text field', 'date', '')
+        -
+          let textFieldMaskedParams = {
+            label: 'Masked text field',
+            type: 'date',
+            placeholder: ''
+          };
+        +mixTextFieldMasked(textFieldMaskedParams)
+
+      //- text-field-subscription
       .uikit-demo__item
-        +mixTextFieldSubscription('Subscription text field', 'text', 'Email (placeholder)')
+        -
+          let textFieldSubscriptionParams = {
+            label: 'Subscription text field',
+            type: 'text',
+            placeholder: 'Email (placeholder)'
+          };
+        +mixTextFieldSubscription(textFieldSubscriptionParams)
+
+      //- dropdown - c гостями
       .uikit-demo__item
-        //- Параметры: vLabel, vPlaceholder, vType
-        +mixDropdown('Dropdown', '1')
+        -
+          let dropdownParams = {
+            label: 'Dropdown',
+            type: '1', // с гостями
+            inputNames: ['select-value1', 'select-value2', 'select-value3']
+          };
+        +mixDropdown(dropdownParams)
+
+      //- dropdown - с параметрами номера
       .uikit-demo__item
-        //- Параметры: vLabel, vPlaceholder, vType
-        +mixDropdown('Dropdown (type2)', '2')
+        -
+          let dropdownParams2 = {
+            label: 'Dropdown (type2)',
+            type: '2', // с параметрами номера
+            inputNames: ['select-value4', 'select-value5', 'select-value6']
+          };
+        +mixDropdown(dropdownParams2)
+      
+      //- dropdown-date-split
+      //- !!!!!!!!!! отследить использование input id в коде
+      //- !!!!!!!!!! также проверить уникальность id в прошлых примерах
+      //- !!!!!!!!!! привязать инициализацию календаря к переданным id
       .uikit-demo__item
-        +mixDropdownDateSplit('Date dropdown split', 'Date dropdown split')
+        -
+          let dropdownSplitParams = {
+            label1: 'Date dropdown split',
+            label2: 'Date dropdown split',
+            inputNames: ['input-split-name1', 'input-split-name2'],
+            inputIDs: ['inputdate1', 'inputdate2']
+          };
+        +mixDropdownDateSplit(dropdownSplitParams)
+
       .uikit-demo__item
         +mixDropdownDateFilter('Filter date dropdown')
       .uikit-demo__item
