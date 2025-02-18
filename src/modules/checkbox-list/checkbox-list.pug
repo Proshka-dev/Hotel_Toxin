@@ -1,10 +1,10 @@
 //- Объявление миксина
 //- Параметры: vLabel, vExpendable
-mixin mixCheckboxList(vLabel, vItemsId, vItems)
+mixin mixCheckboxList({label: vLabel, inputs})
   .checkbox-list
     .checkbox-list__button=vLabel
     .checkbox-list__items
-      each vItem, vIndex in vItems
+      each item in inputs
         .checkbox-list__item
-          input.checkbox-list__checkbox(type="checkbox" id=vItemsId[vIndex])
-          label.checkbox-list__label(for=vItemsId[vIndex])=vItem
+          input.checkbox-list__checkbox(type="checkbox" name=item.name id=item.id)
+          label.checkbox-list__label(for=item.id)=item.value

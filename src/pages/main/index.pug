@@ -44,7 +44,7 @@ body
       //- text-field
       .uikit-demo__item
         -
-          let textFieldParams = {
+          const textFieldParams = {
             label: 'Text field',
             type: 'text',
             placeholder: 'Email (placeholder)'          };
@@ -53,7 +53,7 @@ body
       //- text-field-masked
       .uikit-demo__item
         -
-          let textFieldMaskedParams = {
+          const textFieldMaskedParams = {
             label: 'Masked text field',
             type: 'date',
             placeholder: ''
@@ -63,7 +63,7 @@ body
       //- text-field-subscription
       .uikit-demo__item
         -
-          let textFieldSubscriptionParams = {
+          const textFieldSubscriptionParams = {
             label: 'Subscription text field',
             type: 'text',
             placeholder: 'Email (placeholder)'
@@ -73,7 +73,7 @@ body
       //- dropdown - c гостями
       .uikit-demo__item
         -
-          let dropdownParams = {
+          const dropdownParams = {
             label: 'Dropdown',
             type: '1', // с гостями
             inputNames: ['select-value1', 'select-value2', 'select-value3']
@@ -83,7 +83,7 @@ body
       //- dropdown - с параметрами номера
       .uikit-demo__item
         -
-          let dropdownParams2 = {
+          const dropdownParams2 = {
             label: 'Dropdown (type2)',
             type: '2', // с параметрами номера
             inputNames: ['select-value4', 'select-value5', 'select-value6']
@@ -91,80 +91,147 @@ body
         +mixDropdown(dropdownParams2)
       
       //- dropdown-date-split
-      //- !!!!!!!!!! отследить использование input id в коде
-      //- !!!!!!!!!! также проверить уникальность id в прошлых примерах
-      //- !!!!!!!!!! привязать инициализацию календаря к переданным id
       .uikit-demo__item
         -
-          let dropdownSplitParams = {
-            label1: 'Date dropdown split',
-            label2: 'Date dropdown split',
+          const dropdownSplitParams = {
+            label1: 'Date dropdown split - part1',
+            label2: 'Date dropdown split - part2',
             inputNames: ['input-split-name1', 'input-split-name2'],
-            inputIDs: ['inputdate1', 'inputdate2']
           };
         +mixDropdownDateSplit(dropdownSplitParams)
 
+      //- dropdown-date-filter
       .uikit-demo__item
-        +mixDropdownDateFilter('Filter date dropdown')
+        -
+          const dropdownDateFilterParams = {
+            label: 'Filter date dropdown',
+            inputName: 'input-date-filter-name1',
+          };
+        +mixDropdownDateFilter(dropdownDateFilterParams)
+
+      //- checkbox-list-exp
       .uikit-demo__item
-        //- Параметры: vLabel, vItemsId, vItems
-        +mixCheckboxListExp('Expandable checkbox list', ['chkbox1','chkbox2','chkbox3','chkbox4','chkbox5','chkbox6'],['завтрак', 'письменный стол', 'стул для кормления', 'кроватка', 'телевизор', 'шампунь'])
+        -
+          const checkboxListExpParams = {
+            label: 'Expendable checkbox list',
+            inputs:[
+              {id: 'chkbox1', name: 'breakfast', value: 'завтрак'},
+              {id: 'chkbox2', name: 'desk', value: 'письменный стол'},
+              {id: 'chkbox3', name: 'high-chair', value: 'стул для кормления'},
+              {id: 'chkbox4', name: 'crib', value: 'кроватка'},
+              {id: 'chkbox5', name: 'tv', value: 'телевизор'},
+              {id: 'chkbox6', name: 'shampoo', value: 'шампунь'},
+            ]
+          };
+        +mixCheckboxListExp(checkboxListExpParams)
+      
+      //- checkbox-list
       .uikit-demo__item
-        //- Параметры: vLabel, vItemsId, vItems
-        +mixCheckboxList('Checkbox list', ['chkbox7','chkbox8','chkbox9'],['можно курить', 'можно с питомцами', 'можно пригласить гостей (до 10 человек)'])
+        -
+          const checkboxListParams = {
+            label: 'Checkbox list',
+            inputs:[
+              {id: 'chkbox7', name: 'smoking', value: 'можно курить'},
+              {id: 'chkbox8', name: 'pets', value: 'можно с питомцами'},
+              {id: 'chkbox9', name: 'guests', value: 'можно пригласить гостей (до 10 человек)'},
+            ]
+          };
+        +mixCheckboxList(checkboxListParams)
+      
+      //- checkbox-list-rich
       .uikit-demo__item
-        //- Параметры: vLabel, vItemsId, vItems, vDescriptions
-        +mixCheckboxListRich('Rich checkbox list', ['chkbox10','chkbox11'],['Широкий коридор', 'Помощник для инвалидов'],['Ширина коридоров в номере не менее 91 см.','На 1 этаже вас встретит специалист  и проводит до номера.'])
+        -
+          const checkboxListRichParams = {
+            label: 'Rich checkbox list',
+            inputs:[
+              {id: 'chkbox10', name: 'wide-corridor', value: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'},
+              {id: 'chkbox11', name: 'disabled-assistant', value: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
+            ]
+          };
+        +mixCheckboxListRich(checkboxListRichParams)
+      
+      //- advantages
       .uikit-demo__item
-        //- Параметры: vIcon, vTitle, vDescription, vHasLine
-        +mixAdvantages('insert_emoticon', 'Комфорт', 'Шумопоглощающие стены', 'true')
-        //- Параметры: vIcon, vTitle, vDescription, vHasLine
-        +mixAdvantages('location_city', 'Удобство', 'Окно в каждой из спален', 'false')
+        -
+          const advantagesParams1 = {
+            icon: 'insert_emoticon',
+            title: 'Комфорт',
+            description: 'Шумопоглощающие стены',
+            hasline: 'true',
+          };
+        +mixAdvantages(advantagesParams1)
+        -
+          const advantagesParams2 = {
+            icon: 'location_city',
+            title: 'Удобство',
+            description: 'Окно в каждой из спален',
+            hasline: 'false',
+          };
+        +mixAdvantages(advantagesParams2)
+      
+      //- radio-buttons
       .uikit-demo__item
-        //- Параметры: vIcon, vTitle, vDescription, vHasLine
-        +mixRadioButtons('Radio buttons', 'Gender', ['radio1','radio2'], ['мужчина', 'женщина'])
+        -
+          const radioButtonsParams = { //vLabel, vGroupName,vItemsId, vItems
+            label: 'Radio buttons',
+            groupName: 'gender',
+            inputs:[
+              {id: 'radio1', value: 'мужчина'},
+              {id: 'radio2', value: 'женщина'},
+            ]
+          };
+        +mixRadioButtons(radioButtonsParams)
+      
+      //- 
       .uikit-demo__item
-        //- Параметры: vLabel, vItemsId, vItems
         +mixToggle('Toggle', ['toggle1','toggle2'],['получать спецпредложения', 'получать спецпредложения'])
+      
+      //- 
       .uikit-demo__item
         |Like button
         br
         br
-        //- Параметры: vNumber, vCheckboxId ,vChecked
         +mixButtonLike('12', 'btnlike1','true')
         +mixButtonLike('25378', 'btnlike2','false')
+      
+      //- 
       .uikit-demo__item
         |Rate button
         br
         br
-        //- Параметры: vGroupName, vItemsId
         +mixButtonRate('starrategrp1',['starrate1','starrate2','starrate3','starrate4','starrate5'])
+      
+      //- 
       .uikit-demo__item
-        //- Параметры: vLabel, vMin, vMax, vMinValue, vMaxValue, vStep, vGap
         +mixSliderRange('Range slider', '1000', '12000', '2000', '10000', '50', '500')
+      
+      //- 
       .uikit-demo__item
         |Buttons
         br
         br
-        //- Параметры: vNumber, vCheckboxId ,vChecked
         +mixButtonDark('click me')
         +mixButtonLight('click me')
         +mixButtonClear('click me')
         +mixButtonArrow('Перейти к оплате')
+      
+      //- 
       .uikit-demo__item
-        //- Параметры: vLabel, vItemsId, vItems
         +mixBulletList('Bullet list', ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
+      
+      //- 
       .uikit-demo__item
-        //- Параметры:
         +mixProductsList('Products list')
+      
+      //- 
       .uikit-demo__item
-        //- Параметры:
         +mixPagination('Pagination')
 
+      //- 
       .uikit-demo__item
         |Review
         -
-          let reviewParams = {
+          const reviewParams = {
             photo: '@img/review/review-photo1.jpg',
             name: 'Мурад Сарафанов',
             timeReview: '5 дней назад',
@@ -175,9 +242,10 @@ body
           };
         +mixReview(reviewParams)
 
+      //- 
       .uikit-demo__item
         -
-          let searchParams = {
+          const searchParams = {
             photo: '@img/review/review-photo1.jpg',
             name: 'Мурад Сарафанов',
             timeReview: '5 дней назад',

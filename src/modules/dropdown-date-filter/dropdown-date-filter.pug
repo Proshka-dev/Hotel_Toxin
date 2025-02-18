@@ -1,10 +1,10 @@
 //- Объявление миксина
 //- Параметры: vLabel
-mixin mixDropdownDateFilter(vLabel1)
+mixin mixDropdownDateFilter({label: vLabel, inputName})
   .dropdown-date-filter
-    .dropdown-date-filter__label= vLabel1
+    .dropdown-date-filter__label= vLabel
     .dropdown-date-filter__container
-      input.dropdown-date-filter__input(type= 'text' id='inputfilter1' readonly)
+      input.dropdown-date-filter__input(type= 'text' name=inputName id='inputfilter1' readonly)
 
 //- script(src='js/dropdown.js')
     //- .dropdown-date-filter__body
