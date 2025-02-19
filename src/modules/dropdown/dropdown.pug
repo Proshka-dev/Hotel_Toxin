@@ -1,15 +1,11 @@
 //- Объявление миксина
-mixin mixDropdown({label: vLabel, type: vType, inputNames})
+mixin mixDropdown({label: vLabel, type: vType, inputNames, placeholder})
   -
     const in1 = inputNames[0];
   .dropdown(data-type=vType)
     .dropdown__label= vLabel
     .dropdown__container
-      button.dropdown__button
-        if vType === '1'
-          |Выберите гостей
-        else
-          |Параметры номера
+      button.dropdown__button=placeholder
       .dropdown__list
         .dropdown__item(data-id='1')
           .dropdown__text 

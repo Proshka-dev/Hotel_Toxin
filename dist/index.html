@@ -39,8 +39,7 @@
         <div class="dropdown" data-type="1">
           <div class="dropdown__label">Dropdown</div>
           <div class="dropdown__container">
-            <button class="dropdown__button">Выберите гостей
-            </button>
+            <button class="dropdown__button">Сколько гостей</button>
             <div class="dropdown__list">
               <div class="dropdown__item" data-id="1">
                 <div class="dropdown__text"> взрослые
@@ -78,8 +77,7 @@
         <div class="dropdown" data-type="2">
           <div class="dropdown__label">Dropdown (type2)</div>
           <div class="dropdown__container">
-            <button class="dropdown__button">Параметры номера
-            </button>
+            <button class="dropdown__button">Параметры номера</button>
             <div class="dropdown__list">
               <div class="dropdown__item" data-id="1">
                 <div class="dropdown__text"> спальни
@@ -119,14 +117,14 @@
             <div class="dd-date-split__item">
               <div class="dd-date-split__label">Date dropdown split - part1</div>
               <div class="dd-date-split__container">
-                <input class="dd-date-split__input" type="text" id="inputdate1" name="date-from" readonly="readonly"/>
+                <input class="dd-date-split__input" type="text" id="inputdate1" name="date-from" placeholder="ДД.ММ.ГГГГ" readonly="readonly"/>
                 <div class="dd-date-split__icon">expand_more</div>
               </div>
             </div>
             <div class="dd-date-split__item">
               <div class="dd-date-split__label">Date dropdown split - part2</div>
               <div class="dd-date-split__container">
-                <input class="dd-date-split__input" type="text" id="inputdate2" name="date-to" readonly="readonly"/>
+                <input class="dd-date-split__input" type="text" id="inputdate2" name="date-to" placeholder="ДД.ММ.ГГГГ" readonly="readonly"/>
                 <div class="dd-date-split__icon">expand_more</div>
               </div>
             </div>
@@ -380,10 +378,10 @@
             <div class="review__date">5 дней назад</div>
           </div>
           <div class="review__button-container">
-            <button class="button-like">
+            <button class="button-like button-like_active" data-id="btnlike3" data-value="12">
               <div class="button-like__body">
                 <div class="button-like__icon">favorite_border</div>
-                <div class="button-like__text"></div>
+                <div class="button-like__text">12</div>
               </div>
             </button>
           </div>
@@ -392,20 +390,68 @@
       </div>
       <div class="uikit-demo__item">
         <div class="search">
-          <div class="search__photo-container"><img class="search__photo" src="img/review/review-photo1.jpg" alt="photo"/></div>
-          <div class="search__title">
-            <div class="search__name">Мурад Сарафанов</div>
-            <div class="search__date">5 дней назад</div>
-          </div>
-          <div class="search__button-container">
-            <button class="button-like">
-              <div class="button-like__body">
-                <div class="button-like__icon">favorite_border</div>
-                <div class="button-like__text"></div>
+          <div class="search__title">Найдем номера под ваши пожелания</div>
+          <div class="search__dropdown-date-split">
+            <div class="dd-date-split">
+              <div class="dd-date-split__body">
+                <div class="dd-date-split__item">
+                  <div class="dd-date-split__label">Прибытие</div>
+                  <div class="dd-date-split__container">
+                    <input class="dd-date-split__input" type="text" id="inputdate3" name="date-from" placeholder="ДД.ММ.ГГГГ" readonly="readonly"/>
+                    <div class="dd-date-split__icon">expand_more</div>
+                  </div>
+                </div>
+                <div class="dd-date-split__item">
+                  <div class="dd-date-split__label">Выезд</div>
+                  <div class="dd-date-split__container">
+                    <input class="dd-date-split__input" type="text" id="inputdate4" name="date-to" placeholder="ДД.ММ.ГГГГ" readonly="readonly"/>
+                    <div class="dd-date-split__icon">expand_more</div>
+                  </div>
+                </div>
               </div>
-            </button>
+            </div>
           </div>
-          <div class="search__text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</div>
+          <div class="search__guests">
+            <div class="dropdown" data-type="1">
+              <div class="dropdown__label">Гости</div>
+              <div class="dropdown__container">
+                <button class="dropdown__button">Сколько гостей</button>
+                <div class="dropdown__list">
+                  <div class="dropdown__item" data-id="1">
+                    <div class="dropdown__text"> взрослые
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__item" data-id="2">
+                    <div class="dropdown__text">дети
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__item" data-id="3">
+                    <div class="dropdown__text">младенцы
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__buttons-container">
+                    <div class="dropdown__button-apply">применить</div>
+                    <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
+                  </div>
+                </div>
+                <input class="dropdown__input" type="text" data-id="1" name="select-value7" value="0"/>
+                <input class="dropdown__input" type="text" data-id="2" name="select-value8" value="0"/>
+                <input class="dropdown__input" type="text" data-id="3" name="select-value9" value="0"/>
+              </div>
+            </div>
+          </div>
+          <div class="search__button">
+            <button class="button-arrow">Подобрать номер</button>
+          </div>
         </div>
       </div>
     </div>

@@ -75,6 +75,7 @@ body
         -
           const dropdownParams = {
             label: 'Dropdown',
+            placeholder: 'Сколько гостей',
             type: '1', // с гостями
             inputNames: ['select-value1', 'select-value2', 'select-value3']
           };
@@ -85,6 +86,7 @@ body
         -
           const dropdownParams2 = {
             label: 'Dropdown (type2)',
+            placeholder: 'Параметры номера',
             type: '2', // с параметрами номера
             inputNames: ['select-value4', 'select-value5', 'select-value6']
           };
@@ -295,9 +297,11 @@ body
             name: 'Мурад Сарафанов',
             timeReview: '5 дней назад',
             text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-            numberLikes: '12',
-            btnLikeId: 'btnlike2',
-            liked: 'true'
+            buttonLikeParams: {
+              numberOfLikes: '12',
+              id: 'btnlike3',
+              isChecked: 'true'
+            },
           };
         +mixReview(reviewParams)
 
@@ -305,13 +309,22 @@ body
       .uikit-demo__item
         -
           const searchParams = {
-            photo: '@img/review/review-photo1.jpg',
-            name: 'Мурад Сарафанов',
-            timeReview: '5 дней назад',
-            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-            numberLikes: '12',
-            btnLikeId: 'btnlike2',
-            liked: 'true'
+            title: 'Найдем номера под ваши пожелания',
+            dropdownSplitParams: {
+              label1: 'Прибытие',
+              label2: 'Выезд',
+              inputs:[
+                {id: 'inputdate3', name: 'date-from'},
+                {id: 'inputdate4', name: 'date-to'},
+              ]
+            },
+            dropdownParams: {
+              label: 'Гости',
+              placeholder: 'Сколько гостей',
+              type: '1', // с гостями
+              inputNames: ['select-value7', 'select-value8', 'select-value9']
+            },
+            buttonArrowParams: {text: 'Подобрать номер'},
           };
         +mixSearch(searchParams)
         

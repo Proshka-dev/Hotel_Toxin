@@ -1,11 +1,10 @@
 //- Объявление миксина
 mixin mixSearch(params)
     .search
-        .search__photo-container
-            img.search__photo(src=params.photo, alt="photo")
-        .search__title
-            .search__name=params.name
-            .search__date=params.timeReview
-        .search__button-container
-            +mixButtonLike(params.numberLikes, params.btnLikeId, params.liked)    
-        .search__text=params.text
+        .search__title=params.title
+        .search__dropdown-date-split
+            +mixDropdownDateSplit(params.dropdownSplitParams)
+        .search__guests
+            +mixDropdown(params.dropdownParams)
+        .search__button
+            +mixButtonArrow(params.buttonArrowParams)

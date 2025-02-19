@@ -7,5 +7,5 @@ mixin mixReview(params)
             .review__name=params.name
             .review__date=params.timeReview
         .review__button-container
-            +mixButtonLike(params.numberLikes, params.btnLikeId, params.liked)    
+            +mixButtonLike(params.buttonLikeParams)    
         .review__text=params.text
