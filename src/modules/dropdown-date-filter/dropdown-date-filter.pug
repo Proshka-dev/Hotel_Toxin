@@ -1,8 +1,7 @@
 //- Объявление миксина
 //- Параметры: vLabel
-mixin mixDropdownDateFilter({label: vLabel, input})
+mixin mixDropdownDateFilter({input})
   .dropdown-date-filter
-    .dropdown-date-filter__label= vLabel
     .dropdown-date-filter__container
       input.dropdown-date-filter__input(type= 'text' name=input.name id=input.id readonly)
 

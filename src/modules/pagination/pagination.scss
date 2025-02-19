@@ -2,15 +2,6 @@
 
 .pagination {
 
-    &__label {
-        color: $color-darkshade100;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 12px;
-
-        margin-bottom: 16px;
-    }
-
     &__body {
         display: flex;
         margin-bottom: 11px;

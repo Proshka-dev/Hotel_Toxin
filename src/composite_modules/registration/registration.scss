@@ -16,13 +16,60 @@
         }
     }
 
-    &__dropdown-date-split {
-        margin-bottom: 21px;
+    &__name {
+        margin-bottom: 10px;
     }
 
-    &__guests {
+    &__last-name {
+        margin-bottom: 10px;
+    }
+
+    &__radio-buttons {
+        margin-bottom: 20px;
+    }
+
+    &__label1 {
+        margin-bottom: 5px;
+    }
+
+    &__birthdate {
+        margin-bottom: 20px;
+    }
+
+    &__label2 {
+        margin-bottom: 5px;
+    }
+
+    &__email {
+        margin-bottom: 10px;
+    }
+
+    &__password {
+        margin-bottom: 10px;
+    }
+
+    &__toggle {
+        margin-bottom: 20px;
+    }
+
+    &__button-pay {
         margin-bottom: 30px;
     }
 
-    &__button {}
+    &__button-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text-login {
+        font-size: 14px;
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    &__button-login {
+        min-width: 99px;
+    }
 }

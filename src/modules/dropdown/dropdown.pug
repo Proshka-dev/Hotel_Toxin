@@ -1,9 +1,8 @@
 //- Объявление миксина
-mixin mixDropdown({label: vLabel, type: vType, inputNames, placeholder})
+mixin mixDropdown({type: vType, inputNames, placeholder})
   -
     const in1 = inputNames[0];
   .dropdown(data-type=vType)
-    .dropdown__label= vLabel
     .dropdown__container
       button.dropdown__button=placeholder
       .dropdown__list

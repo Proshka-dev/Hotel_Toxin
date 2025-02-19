@@ -4,6 +4,8 @@ mixin mixSearch(params)
         .search__title=params.title
         .search__dropdown-date-split
             +mixDropdownDateSplit(params.dropdownSplitParams)
+        .search__label
+            +mixLabel(params.label1)
         .search__guests
             +mixDropdown(params.dropdownParams)
         .search__button

@@ -111,12 +111,6 @@ body {
   text-transform: uppercase;
 }
 
-.text-field__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
 .text-field__input {
   color: rgba(31, 32, 65, 0.75);
   border: 1px solid rgba(31, 33, 65, 0.25);
@@ -134,12 +128,6 @@ body {
   border-color: rgba(31, 32, 65, 0.75);
 }
 
-.text-field-masked__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
 .text-field-masked__input {
   color: rgba(31, 32, 65, 0.75);
   border: 1px solid rgba(31, 33, 65, 0.25);
@@ -163,12 +151,6 @@ body {
   color: rgba(31, 33, 65, 0.25);
 }
 
-.text-field-subscription__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
 .text-field-subscription__container {
   position: relative;
 }
@@ -209,12 +191,6 @@ body {
   display: block;
   width: 100%;
   position: relative;
-}
-.dropdown__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
 }
 .dropdown__container {
   position: relative;
@@ -408,12 +384,6 @@ body {
 .dd-date-split__input:focus, .dd-date-split__input:hover {
   color: rgba(31, 32, 65, 0.75);
   border-color: rgba(31, 32, 65, 0.75);
-}
-.dropdown-date-filter__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
 }
 .dropdown-date-filter__container {
   position: relative;
@@ -754,16 +724,6 @@ body {
   display: block;
   width: 100%;
 }
-.radio-buttons__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  position: relative;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 10px;
-}
 .radio-buttons__items {
   display: flex;
   justify-content: flex-start;
@@ -828,17 +788,6 @@ body {
 .toggle {
   display: block;
   width: 100%;
-}
-.toggle__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 11px;
 }
 .toggle__items {
   display: flex;
@@ -1086,6 +1035,7 @@ body {
   border-radius: 22px;
   background: linear-gradient(#BC9CFF, #8BA4F9);
   color: white;
+  width: 100%;
 }
 .button-light__content {
   font-size: 12px;
@@ -1180,13 +1130,6 @@ body {
   background-color: rgba(31, 33, 65, 0.25);
 }
 
-.products-list__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin-bottom: 16px;
-}
 .products-list__list {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -1201,13 +1144,6 @@ body {
   flex: 1;
 }
 
-.pagination__label {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin-bottom: 16px;
-}
 .pagination__body {
   display: flex;
   margin-bottom: 11px;
@@ -1325,6 +1261,9 @@ body {
 .search__dropdown-date-split {
   margin-bottom: 21px;
 }
+.search__label {
+  margin-bottom: 5px;
+}
 .search__guests {
   margin-bottom: 30px;
 }
@@ -1342,12 +1281,51 @@ body {
 .registration__title::first-letter {
   text-transform: uppercase;
 }
-.registration__dropdown-date-split {
-  margin-bottom: 21px;
+.registration__name {
+  margin-bottom: 10px;
 }
-.registration__guests {
+.registration__last-name {
+  margin-bottom: 10px;
+}
+.registration__radio-buttons {
+  margin-bottom: 20px;
+}
+.registration__label1 {
+  margin-bottom: 5px;
+}
+.registration__birthdate {
+  margin-bottom: 20px;
+}
+.registration__label2 {
+  margin-bottom: 5px;
+}
+.registration__email {
+  margin-bottom: 10px;
+}
+.registration__password {
+  margin-bottom: 10px;
+}
+.registration__toggle {
+  margin-bottom: 20px;
+}
+.registration__button-pay {
   margin-bottom: 30px;
 }
+.registration__button-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.registration__text-login {
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: none;
+}
+.registration__button-login {
+  min-width: 99px;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

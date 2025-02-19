@@ -1,18 +1,6 @@
 @use '../../scss/colors.scss' as *;
 
 .text-field-masked {
-    &__label {
-        color: $color-darkshade100;
-
-        font-weight: bold;
-        text-transform: uppercase;
-
-        margin-bottom: 5px;
-
-
-
-    }
-
     &__input {
         color: $color-darkshade75;
 

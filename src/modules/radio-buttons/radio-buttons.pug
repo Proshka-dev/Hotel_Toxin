@@ -1,7 +1,6 @@
 //- Объявление миксина
-mixin mixRadioButtons({label, groupName, inputs})
+mixin mixRadioButtons({groupName, inputs})
   .radio-buttons
-    .radio-buttons__label=label
     .radio-buttons__items
       each item in inputs
         .radio-buttons__item

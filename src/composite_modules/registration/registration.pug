@@ -2,21 +2,27 @@
 mixin mixRegistration(params)
     .registration
         .registration__title=params.title
-        +mixTextField(params.textFieldParams1)
-        +mixTextField(params.textFieldParams2)
-        +mixRadioButtons(params.radioButtonsParams)
-        +mixTextFieldMasked(params.textFieldMaskedParams)
-        +mixTextField(params.textFieldParams3)
-        +mixTextField(params.textFieldParams4)
-        +mixToggle(params.toggleParams)
-        +mixButtonArrow(params.buttonArrowParams)
-        +mixButtonLight(params.buttonLightParams)
-
-
-
-
-        //- .registration__dropdown-date-split
-        //-     +mixDropdownDateSplit(params.dropdownSplitParams)
-        //- .registration__guests
-        //-     +mixDropdown(params.dropdownParams)
-        //- .registration__button
+        .registration__name
+            +mixTextField(params.textFieldParams1)
+        .registration__last-name
+            +mixTextField(params.textFieldParams2)
+        .registration__radio-buttons
+            +mixRadioButtons(params.radioButtonsParams)
+        .registration__label1
+            +mixLabel(params.label1)
+        .registration__birthdate
+            +mixTextFieldMasked(params.textFieldMaskedParams)
+        .registration__label2
+            +mixLabel(params.label2)
+        .registration__email
+            +mixTextField(params.textFieldParams3)
+        .registration__password
+            +mixTextField(params.textFieldParams4)
+        .registration__toggle
+            +mixToggle(params.toggleParams)
+        .registration__button-pay
+            +mixButtonArrow(params.buttonArrowParams)
+        .registration__button-footer    
+            .registration__text-login Уже есть аккаунт Toxin
+            .registration__button-login
+                +mixButtonLight(params.buttonLightParams)
