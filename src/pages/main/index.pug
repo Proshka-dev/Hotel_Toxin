@@ -30,6 +30,7 @@ include ../../modules/pagination/pagination.pug
 include ../../composite_modules/review/review.pug
 include ../../composite_modules/search/search.pug
 include ../../composite_modules/registration/registration.pug
+include ../../composite_modules/booking/booking.pug
 
 
 
@@ -398,6 +399,42 @@ body
             buttonLightParams: {text: 'Войти'},
           };
         +mixRegistration(registrationParams)
+
+      //- booking
+      .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'booking'})
+        -
+          const bookingParams = {
+            data: { //данные о заказе - цена, скидки итд
+              number: '888',
+              type: 'Люкс',
+              price: '9990',
+              discountChild: '0.5',
+              discountBaby: '0.2',
+              serviceFee: '2179',
+              serviceFeeDiscount: '2179',
+              additionalServiceFee: '300',
+            },
+            dropdownSplitParams: {
+              label1: 'Прибытие',
+              label2: 'Выезд',
+              inputs:[
+                {id: 'inputdate5', name: 'date-from'},
+                {id: 'inputdate6', name: 'date-to'},
+              ]
+            },
+            label1: ({text: 'гости'}),
+            dropdownParams: {
+              label: 'Гости',
+              placeholder: 'Сколько гостей',
+              type: '1', // с гостями
+              inputNames: ['guests', 'children', 'babies']
+            },
+            buttonArrowParams: {text: 'Забронировать'},
+          };
+        +mixBooking(bookingParams)
+
 
   include ../../modules/footer/footer.pug
 

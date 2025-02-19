@@ -1,0 +1,21 @@
+@use '../../scss/colors.scss' as *;
+
+.booking {
+    max-width: 380px;
+    padding: 40px 30px 30px 30px;
+    border: 1px dashed black;
+
+    &__dropdown-date-split {
+        margin-bottom: 21px;
+    }
+
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__guests {
+        margin-bottom: 30px;
+    }
+
+    &__button {}
+}

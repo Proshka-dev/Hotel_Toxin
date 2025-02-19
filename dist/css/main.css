@@ -1326,6 +1326,20 @@ body {
   min-width: 99px;
 }
 
+.booking {
+  max-width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px dashed black;
+}
+.booking__dropdown-date-split {
+  margin-bottom: 21px;
+}
+.booking__label {
+  margin-bottom: 5px;
+}
+.booking__guests {
+  margin-bottom: 30px;
+}
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

@@ -1,0 +1,11 @@
+//- Объявление миксина
+mixin mixBooking(params)
+    .booking
+        .booking__dropdown-date-split
+            +mixDropdownDateSplit(params.dropdownSplitParams)
+        .booking__label
+            +mixLabel(params.label1)
+        .booking__guests
+            +mixDropdown(params.dropdownParams)
+        .booking__button
+            +mixButtonArrow(params.buttonArrowParams)
