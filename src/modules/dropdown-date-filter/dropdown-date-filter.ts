@@ -23,13 +23,27 @@ let dpButtonClear = {
     }
 }
 
+let index = 0;
+let airDatepickersFilter = [];
 
-if (AirDatepicker) {
-    // @ts-ignore
-    new AirDatepicker('#inputfilter1', {
-        range: true,
-        multipleDatesSeparator: ' - ',
-        buttons: [dpButtonClear, dpButtonApply],
-        dateFormat: 'd MMM'
-    });
-}
+// Выборка всех .dd-date-split и обработка каждого
+document.querySelectorAll('.dropdown-date-filter').forEach(function (dropdownDateFilterWrapper) {
+
+    const input = dropdownDateFilterWrapper.querySelector('input') as HTMLInputElement;
+    if (!input) { return }; // Если инпута нет - прервать выполнение
+    const idInput = input.id; // id первого input
+
+    if (AirDatepicker) {
+        // @ts-ignore
+        airDatepickersFilter[index] = new AirDatepicker('#' + idInput, {
+            range: true,
+            multipleDatesSeparator: ' - ',
+            buttons: [dpButtonClear, dpButtonApply],
+            dateFormat: 'd MMM'
+        });
+        // добавляем индекс для следующей итерации
+        index = index + 1;
+    }
+});
+
+
