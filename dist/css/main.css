@@ -1321,6 +1321,26 @@ body {
 .search__guests {
   margin-bottom: 30px;
 }
+.registration {
+  max-width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px dashed black;
+}
+.registration__title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-bottom: 21px;
+}
+.registration__title::first-letter {
+  text-transform: uppercase;
+}
+.registration__dropdown-date-split {
+  margin-bottom: 21px;
+}
+.registration__guests {
+  margin-bottom: 30px;
+}
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

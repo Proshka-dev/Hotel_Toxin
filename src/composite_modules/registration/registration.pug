@@ -1,0 +1,22 @@
+//- Объявление миксина
+mixin mixRegistration(params)
+    .registration
+        .registration__title=params.title
+        +mixTextField(params.textFieldParams1)
+        +mixTextField(params.textFieldParams2)
+        +mixRadioButtons(params.radioButtonsParams)
+        +mixTextFieldMasked(params.textFieldMaskedParams)
+        +mixTextField(params.textFieldParams3)
+        +mixTextField(params.textFieldParams4)
+        +mixToggle(params.toggleParams)
+        +mixButtonArrow(params.buttonArrowParams)
+        +mixButtonLight(params.buttonLightParams)
+
+
+
+
+        //- .registration__dropdown-date-split
+        //-     +mixDropdownDateSplit(params.dropdownSplitParams)
+        //- .registration__guests
+        //-     +mixDropdown(params.dropdownParams)
+        //- .registration__button

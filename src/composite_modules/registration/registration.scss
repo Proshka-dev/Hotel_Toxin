@@ -1,0 +1,28 @@
+@use '../../scss/colors.scss' as *;
+
+.registration {
+    max-width: 380px;
+    padding: 40px 30px 30px 30px;
+    border: 1px dashed black;
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: lowercase;
+        margin-bottom: 21px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__dropdown-date-split {
+        margin-bottom: 21px;
+    }
+
+    &__guests {
+        margin-bottom: 30px;
+    }
+
+    &__button {}
+}

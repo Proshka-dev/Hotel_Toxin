@@ -18,20 +18,20 @@
       <div class="uikit-demo__item">
         <div class="text-field">
           <div class="text-field__label">Text field</div>
-          <input class="text-field__input" type="text" placeholder="Email (placeholder)"/>
+          <input class="text-field__input" type="text" placeholder="Email (placeholder)" name="default-input-name"/>
         </div>
       </div>
       <div class="uikit-demo__item">
         <div class="text-field-masked">
           <div class="text-field-masked__label">Masked text field</div>
-          <input class="text-field-masked__input" type="date" required="" placeholder=""/>
+          <input class="text-field-masked__input" type="date" required="" placeholder="" name="default-input-name"/>
         </div>
       </div>
       <div class="uikit-demo__item">
         <div class="text-field-subscription">
           <div class="text-field-subscription__label">Subscription text field</div>
           <div class="text-field-subscription__container">
-            <input class="text-field-subscription__input" type="text" placeholder="Email (placeholder)"/>
+            <input class="text-field-subscription__input" type="text" placeholder="Email (placeholder)" name="default-input-name"/>
           </div>
         </div>
       </div>
@@ -452,6 +452,57 @@
           <div class="search__button">
             <button class="button-arrow">Подобрать номер</button>
           </div>
+        </div>
+      </div>
+      <div class="uikit-demo__item">
+        <div class="registration">
+          <div class="registration__title">Регистрация аккаунта</div>
+          <div class="text-field">
+            <div class="text-field__label"></div>
+            <input class="text-field__input" type="text" placeholder="Имя" name="default-input-name"/>
+          </div>
+          <div class="text-field">
+            <div class="text-field__label"></div>
+            <input class="text-field__input" type="text" placeholder="Фамилия" name="default-input-name"/>
+          </div>
+          <div class="radio-buttons">
+            <div class="radio-buttons__label"></div>
+            <div class="radio-buttons__items">
+              <div class="radio-buttons__item">
+                <input class="radio-buttons__input" type="radio" name="gender" id="radio3"/>
+                <label class="radio-buttons__input-label" for="radio3">мужчина</label>
+              </div>
+              <div class="radio-buttons__item">
+                <input class="radio-buttons__input" type="radio" name="gender" id="radio4"/>
+                <label class="radio-buttons__input-label" for="radio4">женщина</label>
+              </div>
+            </div>
+          </div>
+          <div class="text-field-masked">
+            <div class="text-field-masked__label">Дата рождения</div>
+            <input class="text-field-masked__input" type="date" required="" placeholder="" name="default-input-name"/>
+          </div>
+          <div class="text-field">
+            <div class="text-field__label">Данные для входа в сервис</div>
+            <input class="text-field__input" type="text" placeholder="Email" name="default-input-name"/>
+          </div>
+          <div class="text-field">
+            <div class="text-field__label"></div>
+            <input class="text-field__input" type="text" placeholder="Пароль" name="default-input-name"/>
+          </div>
+          <div class="toggle">
+            <div class="toggle__label"></div>
+            <div class="toggle__items">
+              <div class="toggle__item">
+                <input class="toggle__checkbox" type="checkbox" name="getoffres" id="toggle3"/>
+                <label class="toggle__item-label" for="toggle3">получать спецпредложения</label>
+              </div>
+            </div>
+          </div>
+          <button class="button-arrow">Перейти к оплате</button>
+          <button class="button-light">
+            <div class="button-light__content">Войти</div>
+          </button>
         </div>
       </div>
     </div>

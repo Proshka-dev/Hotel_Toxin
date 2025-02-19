@@ -1,5 +1,5 @@
 //- Объявление миксина
-mixin mixTextField({label: vLabel, type: vType, placeholder: vPlaceholder})
+mixin mixTextField({label: vLabel, type: vType, placeholder: vPlaceholder, name})
   .text-field
     .text-field__label= vLabel
-    input.text-field__input(type= vType placeholder= vPlaceholder)
+    input.text-field__input(type= vType placeholder= vPlaceholder name=name)

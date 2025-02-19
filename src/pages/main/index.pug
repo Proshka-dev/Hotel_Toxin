@@ -26,6 +26,7 @@ include ../../modules/pagination/pagination.pug
 //- Составные модули
 include ../../composite_modules/review/review.pug
 include ../../composite_modules/search/search.pug
+include ../../composite_modules/registration/registration.pug
 
 
 
@@ -47,7 +48,9 @@ body
           const textFieldParams = {
             label: 'Text field',
             type: 'text',
-            placeholder: 'Email (placeholder)'          };
+            placeholder: 'Email (placeholder)',
+            name: 'default-input-name',
+          };
         +mixTextField(textFieldParams)
 
       //- text-field-masked
@@ -56,7 +59,8 @@ body
           const textFieldMaskedParams = {
             label: 'Masked text field',
             type: 'date',
-            placeholder: ''
+            placeholder: '',
+            name: 'default-input-name',
           };
         +mixTextFieldMasked(textFieldMaskedParams)
 
@@ -66,7 +70,8 @@ body
           const textFieldSubscriptionParams = {
             label: 'Subscription text field',
             type: 'text',
-            placeholder: 'Email (placeholder)'
+            placeholder: 'Email (placeholder)',
+            name: 'default-input-name',
           };
         +mixTextFieldSubscription(textFieldSubscriptionParams)
 
@@ -327,7 +332,61 @@ body
             buttonArrowParams: {text: 'Подобрать номер'},
           };
         +mixSearch(searchParams)
-        
+
+      //- registration
+      .uikit-demo__item
+        -
+          const registrationParams = {
+            title: 'Регистрация аккаунта',
+            textFieldParams1: {
+              label: '',
+              type: 'text',
+              placeholder: 'Имя',
+              name: 'default-input-name',
+            },
+            textFieldParams2: {
+              label: '',
+              type: 'text',
+              placeholder: 'Фамилия',
+              name: 'default-input-name',
+            },
+            radioButtonsParams: { 
+              label: '',
+              groupName: 'gender',
+              inputs:[
+                {id: 'radio3', value: 'мужчина'},
+                {id: 'radio4', value: 'женщина'},
+              ]
+            },
+            textFieldMaskedParams: {
+              label: 'Дата рождения',
+              type: 'date',
+              placeholder: '',
+              name: 'default-input-name',
+            },
+            textFieldParams3: {
+              label: 'Данные для входа в сервис',
+              type: 'text',
+              placeholder: 'Email',
+              name: 'default-input-name',
+            },
+            textFieldParams4: {
+              label: '',
+              type: 'text',
+              placeholder: 'Пароль',
+              name: 'default-input-name',
+            },
+            toggleParams: {
+              label: '',
+              inputs:[
+                {id: 'toggle3', name: 'getoffres', value: 'получать спецпредложения'},
+              ]
+            },
+            buttonArrowParams: {text: 'Перейти к оплате'},
+            buttonLightParams: {text: 'Войти'},
+          };
+        +mixRegistration(registrationParams)
+
   include ../../modules/footer/footer.pug
 
   script(src='js/main.js')
