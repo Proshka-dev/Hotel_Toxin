@@ -62,24 +62,36 @@ function rangeToInputs({
 }
 
 if (AirDatepicker) {
-  // @ts-ignore
-  const AirDatepicker1 = new AirDatepicker('#inputdate1', {
-    range: true,
-    multipleDatesSeparator: ' - ',
-    buttons: [dpButtonClear, dpButtonApply],
-    //inline: true,
-    onSelect: function ({ date }: { date: Array<Date> }) {
-      // Вызов функции внесения даты начала и конца интервала в 2 inputa
-      rangeToInputs({ range: date, idInput1: 'inputdate1', idInput2: 'inputdate2' });
-    },
-  });
 
-  // Функционал открытия и закрытия календаря
-  const Input1 = document.querySelector('#inputdate1') as HTMLElement;
-  const Input2 = document.querySelector("#inputdate2") as HTMLElement;
-  const Icon1 = Input1.parentElement.lastElementChild as HTMLElement;
-  const Icon2 = Input2.parentElement.lastElementChild as HTMLElement;
-  if ((Input1) && (Input2) && (Icon1) && (Icon2)) {
+  let index = 0;
+  let airDatepickers = [];
+
+  // Выборка всех .dd-date-split и обработка каждого
+  document.querySelectorAll('.dd-date-split').forEach(function (dropdownDateSplitWrapper) {
+
+    // определение переменных, зависящих от текущего .dd-date-split
+    const inputs = dropdownDateSplitWrapper.querySelectorAll('input');
+    if (inputs.length < 2) { return }; // Если инпутов меньше 2 - прервать выполнение
+
+    const Input1 = inputs[0] as HTMLInputElement;
+    const Input2 = inputs[1] as HTMLInputElement;
+    const idInput1 = Input1.id; // id первого input
+    const idInput2 = Input2.id; // id второго input
+    const Icon1 = Input1.parentElement.lastElementChild as HTMLElement;
+    const Icon2 = Input2.parentElement.lastElementChild as HTMLElement;
+
+    if (!((Icon1) && (Icon2))) { return }; // Если не нашли иконки - прервать выполнение
+
+    // @ts-ignore
+    airDatepickers[index] = new AirDatepicker('#' + idInput1, {
+      range: true,
+      multipleDatesSeparator: ' - ',
+      buttons: [dpButtonClear, dpButtonApply],
+      onSelect: function ({ date }: { date: Array<Date> }) {
+        // Вызов функции внесения даты начала и конца интервала в 2 inputa
+        rangeToInputs({ range: date, idInput1, idInput2 });
+      },
+    });
 
     // Открытие календаря по фокусу на второй инпут
     Input2.addEventListener('focus', function (e) {
@@ -89,21 +101,21 @@ if (AirDatepicker) {
 
     // Закрытие по клику на иконки
     Icon1.addEventListener('click', function (e) {
-      if (AirDatepicker1.visible) {
-        AirDatepicker1.hide();
+      if (airDatepickers[index].visible) {
+        airDatepickers[index].hide();
       } else {
         Input1.focus();
       };
     });
     Icon2.addEventListener('click', function (e) {
-      if (AirDatepicker1.visible) {
-        AirDatepicker1.hide();
+      if (airDatepickers[index].visible) {
+        airDatepickers[index].hide();
       } else {
         Input1.focus();
       };
     });
 
-
-  }
-}
-
+    // добавляем индекс для следующей итерации
+    index = index + 1;
+  });
+};

@@ -96,7 +96,12 @@ body
           const dropdownSplitParams = {
             label1: 'Date dropdown split - part1',
             label2: 'Date dropdown split - part2',
-            inputNames: ['input-split-name1', 'input-split-name2'],
+            //inputNames: ['input-split-name1', 'input-split-name2'],
+            inputs:[
+              {id: 'inputdate1', name: 'date-from'},
+              {id: 'inputdate2', name: 'date-to'},
+            ]
+
           };
         +mixDropdownDateSplit(dropdownSplitParams)
 
