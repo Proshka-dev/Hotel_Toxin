@@ -104,6 +104,13 @@ body {
   font-size: 12px;
 }
 
+.label {
+  color: #1f2041;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .text-field__label {
   color: #1f2041;
   font-weight: bold;
@@ -1528,4 +1535,7 @@ body {
   margin-bottom: 20px;
   background-color: white;
   box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);
+}
+.uikit-demo__label-container {
+  margin-bottom: 5px;
 }

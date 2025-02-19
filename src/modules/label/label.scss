@@ -1,0 +1,8 @@
+@use '../../scss/colors.scss' as *;
+
+.label {
+    color: $color-darkshade100;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -4,6 +4,7 @@
 @use '../../scss/colors.scss' as *;
 
 // Модули UI Kit
+@use '../../modules/label/label.scss';
 @use '../../modules/text-field/text-field.scss';
 @use '../../modules/text-field-masked/text-field-masked.scss';
 @use '../../modules/text-field-subscription/text-field-subscription.scss';
@@ -57,6 +58,10 @@ body {
         margin-bottom: 20px;
         background-color: white;
         box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);
+    }
+
+    &__label-container {
+        margin-bottom: 5px;
     }
 }
 

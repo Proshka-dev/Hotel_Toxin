@@ -1,5 +1,8 @@
 //- Вставка из другого файла, использование миксинов с параметрами
 include ../../modules/head/head
+
+//- Модули
+include ../../modules/label/label.pug
 include ../../modules/text-field/text-field.pug
 include ../../modules/text-field-masked/text-field-masked.pug
 include ../../modules/text-field-subscription/text-field-subscription.pug
@@ -44,6 +47,8 @@ body
 
       //- text-field
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Text field'})
         -
           const textFieldParams = {
             label: 'Text field',
@@ -55,6 +60,8 @@ body
 
       //- text-field-masked
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Masked text field'})
         -
           const textFieldMaskedParams = {
             label: 'Masked text field',
@@ -66,6 +73,8 @@ body
 
       //- text-field-subscription
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Subscription text field'})
         -
           const textFieldSubscriptionParams = {
             label: 'Subscription text field',
@@ -77,6 +86,8 @@ body
 
       //- dropdown - c гостями
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Dropdown'})
         -
           const dropdownParams = {
             label: 'Dropdown',
@@ -88,6 +99,8 @@ body
 
       //- dropdown - с параметрами номера
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Dropdown (type2)'})
         -
           const dropdownParams2 = {
             label: 'Dropdown (type2)',
@@ -99,10 +112,12 @@ body
       
       //- dropdown-date-split
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Date dropdown split'})
         -
           const dropdownSplitParams = {
-            label1: 'Date dropdown split - part1',
-            label2: 'Date dropdown split - part2',
+            label1: 'part1',
+            label2: 'part2',
             inputs:[
               {id: 'inputdate1', name: 'date-from'},
               {id: 'inputdate2', name: 'date-to'},
@@ -113,6 +128,8 @@ body
 
       //- dropdown-date-filter
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Filter date dropdown'})
         -
           const dropdownDateFilterParams = {
             label: 'Filter date dropdown',
@@ -163,6 +180,8 @@ body
       
       //- advantages
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Text'})
         -
           const advantagesParams1 = {
             icon: 'insert_emoticon',
@@ -182,6 +201,8 @@ body
       
       //- radio-buttons
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Radio buttons'})
         -
           const radioButtonsParams = { 
             label: 'Radio buttons',
@@ -195,6 +216,8 @@ body
       
       //- toggle
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Toggle'})
         -
           const toggleParams = {
             label: 'Toggle',
@@ -207,9 +230,8 @@ body
       
       //- button-like
       .uikit-demo__item
-        |Like button
-        br
-        br
+        .uikit-demo__label-container
+          +mixLabel({text: 'Like button'})
         -
           const buttonLikeParams1 = {
             numberOfLikes: '12',
@@ -227,9 +249,8 @@ body
       
       //- button-rate
       .uikit-demo__item
-        |Rate button
-        br
-        br
+        .uikit-demo__label-container
+          +mixLabel({text: 'Rate button'})
         -
           const buttonRateParams = {
             name: 'starrategrp1',
@@ -252,9 +273,8 @@ body
         +mixSliderRange(sliderRangeParams)
       
       .uikit-demo__item
-        |Buttons
-        br
-        br
+        .uikit-demo__label-container
+          +mixLabel({text: 'Buttons'})
         //- button-dark
         - const buttonDarkParams = {text: 'click me'};
         +mixButtonDark(buttonDarkParams)
@@ -279,6 +299,8 @@ body
       
       //- products-list
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Products list'})
         -
           const productListParams = {
             label: 'Products list',
@@ -287,6 +309,8 @@ body
       
       //- pagination
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'Pagination'})
         -
           const paginationParams = {
             label: 'Pagination',
@@ -295,7 +319,8 @@ body
 
       //- review
       .uikit-demo__item
-        |Review
+        .uikit-demo__label-container
+          +mixLabel({text: 'Review'})
         -
           const reviewParams = {
             photo: '@img/review/review-photo1.jpg',
@@ -312,6 +337,8 @@ body
 
       //- search
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'search'})
         -
           const searchParams = {
             title: 'Найдем номера под ваши пожелания',
@@ -335,6 +362,8 @@ body
 
       //- registration
       .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'registration'})
         -
           const registrationParams = {
             title: 'Регистрация аккаунта',
