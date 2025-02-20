@@ -5,6 +5,13 @@ function divideNumDigits(num: number) {
     return String(num).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
 
+function convertToDate(dateString: String) {
+    //  Convert a "dd-MM-yyyy" string into a Date object
+    let d = dateString.split(".");
+    let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
+    return dat;
+}
+
 // ********************************************************************************************
 // *******************************  Основная часть  *******************************************
 // ********************************************************************************************
@@ -96,19 +103,20 @@ const bookingChangeRangeHandlerInitialization = () => {
 
     console.log('input:', inputRangeFrom);
 
-    inputRangeFrom.addEventListener('input', () => {
-        console.log('input event');
-        const dateFrom = Date.parse(inputRangeFrom.value);
-        const dateTo = Date.parse(inputRangeTo.value);
+    inputRangeTo.addEventListener('input', () => {
+        const dateFrom = convertToDate(inputRangeFrom.value);
+        const dateTo = convertToDate(inputRangeTo.value);
         if ((dateFrom) && (dateTo)) {
-            console.log('inside if - from:', dateFrom, ' to', dateTo);
-        } else {
-            console.log('from:', dateFrom, ' to', dateTo);
-        };
-    });
+            const days = Math.round((dateTo - dateFrom) / (1000 * 60 * 60 * 24));
+            console.log('days:', days);
+            if (days) {
+                bookingParams.days = days;
+            } else {
+                bookingParams.days = 0;
+            }
+            bookingUpdateCard();
 
-    inputRangeFrom.addEventListener('change', () => {
-        console.log('change event');
+        };
     });
 
 };

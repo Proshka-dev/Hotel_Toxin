@@ -45,17 +45,22 @@ function rangeToInputs({
 }) {
   const input1 = document.querySelector("#" + idInput1);
   const input2 = document.querySelector("#" + idInput2);
+  let event = new Event('input');
+
   if (input1 && input2) {
     //Если существуют input1 и input2
     if ("value" in input1 && "value" in input2) {
       //и у них есть поле "value"
       if (range[0]) {
         input1.value = dateToStringDMY(range[0]);
+        input1.dispatchEvent(event);
       }
       if (range[1]) {
         input2.value = dateToStringDMY(range[1]);
+        input2.dispatchEvent(event);
       } else {
         input2.value = "";
+        input2.dispatchEvent(event);
       }
     }
   }

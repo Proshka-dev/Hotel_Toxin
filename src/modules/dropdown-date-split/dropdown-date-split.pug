@@ -6,12 +6,12 @@ mixin mixDropdownDateSplit({label1: vLabel1, label2: vLabel2, inputs})
       .dd-date-split__item
         .dd-date-split__label= vLabel1
         .dd-date-split__container
-          input.dd-date-split__input(type= 'text' id=inputs[0].id name=inputs[0].name placeholder='ДД.ММ.ГГГГ' readonly)
+          input.dd-date-split__input(type= 'text' id=inputs[0].id name=inputs[0].name placeholder='ДД.ММ.ГГГГ')
           .dd-date-split__icon expand_more
       .dd-date-split__item
         .dd-date-split__label= vLabel2
         .dd-date-split__container
-          input.dd-date-split__input(type= 'text' id=inputs[1].id name=inputs[1].name placeholder='ДД.ММ.ГГГГ' readonly)
+          input.dd-date-split__input(type= 'text' id=inputs[1].id name=inputs[1].name placeholder='ДД.ММ.ГГГГ')
           .dd-date-split__icon expand_more
 
 //- script(src='js/dropdown.js')
