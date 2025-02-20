@@ -1376,7 +1376,7 @@ body {
   display: grid;
   grid-template-columns: 214px auto auto;
   grid-template-rows: repeat(3, auto);
-  grid-template-areas: "base base-price base-price" "fee fee-info fee-price" "addfee addfee-info addfee-price";
+  grid-template-areas: "base base-price base-price" "fee fee-info fee-price" "addfee addfee-info addfee-price" "discount discount discount-price";
   margin-bottom: 30px;
   row-gap: 10px;
   color: rgba(31, 32, 65, 0.75);
@@ -1430,6 +1430,13 @@ body {
 }
 .booking__addfee-price {
   grid-area: addfee-price;
+  text-align: right;
+}
+.booking__discount {
+  grid-area: discount;
+}
+.booking__discount-price {
+  grid-area: discount-price;
   text-align: right;
 }
 .booking__total {

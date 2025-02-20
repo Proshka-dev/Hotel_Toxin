@@ -62,7 +62,8 @@
         grid-template-areas:
             "base base-price base-price"
             "fee fee-info fee-price"
-            "addfee addfee-info addfee-price";
+            "addfee addfee-info addfee-price"
+            "discount discount discount-price";
         margin-bottom: 30px;
         row-gap: 10px;
 
@@ -132,6 +133,16 @@
 
     &__addfee-price {
         grid-area: addfee-price;
+        text-align: right;
+    }
+
+    &__discount {
+        grid-area: discount;
+
+    }
+
+    &__discount-price {
+        grid-area: discount-price;
         text-align: right;
     }
 
