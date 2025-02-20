@@ -1384,10 +1384,10 @@ body {
   font-weight: normal;
   line-height: 24px;
 }
-.booking__price-period {
+.booking__period {
   grid-area: base;
 }
-.booking__price-period-price {
+.booking__period-price {
   grid-area: base-price;
   text-align: right;
 }

@@ -11,7 +11,9 @@
 
 
 import { paginate } from '../../modules/pagination/pagination.js';
+import { bookingUpdateCard } from '../../composite_modules/booking/booking.js';
 
+// Массив с продуктами
 const products = [
     { id: 'prod1', name: 'Название1' },
     { id: 'prod2', name: 'Название2' },
@@ -45,7 +47,20 @@ const products = [
     { id: 'prod30', name: 'Название30' },
 ]
 
+// Данные для карточки заказа
+const bookingParams = {
+    number: '888',
+    type: 'Люкс',
+    price: 9990,
+    discountChild: 1,
+    discountBaby: 1,
+    serviceFee: 2179,
+    serviceFeeDiscount: 2179,
+    additionalServiceFee: 300,
+};
+
 window.addEventListener('DOMContentLoaded', () => {
-    const productContainer = document.querySelector('.products-list');
+    //    const productContainer = document.querySelector('.products-list');
     paginate(products);
+    bookingUpdateCard(bookingParams);
 });
