@@ -1,11 +1,32 @@
 //- Объявление миксина
 mixin mixBooking(params)
     .booking
+        .booking__header 
+            .booking__number-container
+                span № 
+                span.booking__number=888
+            .booking__type люкс
+            .booking__price-container
+                span.booking__price 9 990₽
+                span  в сутки
         .booking__dropdown-date-split
             +mixDropdownDateSplit(params.dropdownSplitParams)
         .booking__label
             +mixLabel(params.label1)
         .booking__guests
             +mixDropdown(params.dropdownParams)
+        .booking__table
+            .booking__price-period 9 990₽ x 4 суток
+            .booking__price-period-price 39 960₽
+            .booking__fee Сбор за услуги: скидка 2 179₽
+            .booking__fee-info i
+            .booking__fee-price 0₽
+            .booking__addfee Сбор за дополнительные услуги
+            .booking__addfee-info i
+            .booking__addfee-price 300₽
+        .booking__total
+            .booking__total-text Итого
+            .booking__total-line
+            .booking__total-price 38 081₽
         .booking__button
             +mixButtonArrow(params.buttonArrowParams)

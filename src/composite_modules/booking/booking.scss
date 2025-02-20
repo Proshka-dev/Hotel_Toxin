@@ -5,6 +5,44 @@
     padding: 40px 30px 30px 30px;
     border: 1px dashed black;
 
+    &__header {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 19px;
+    }
+
+    &__number-container {
+        font-size: 14px;
+        font-weight: bold;
+        color: $color-darkshade100;
+    }
+
+    &__type {
+        margin-left: 8px;
+        margin-right: auto;
+        color: $color-purple;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__price-container {
+        font-size: 12px;
+        font-weight: normal;
+        color: $color-darkshade50;
+        text-transform: lowercase;
+    }
+
+    &__number {
+        font-size: 24px;
+    }
+
+    &__price {
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: none;
+    }
+
     &__dropdown-date-split {
         margin-bottom: 21px;
     }
@@ -14,8 +52,109 @@
     }
 
     &__guests {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
+
+    &__table {
+        display: grid;
+        grid-template-columns: 214px auto auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas:
+            "base base-price base-price"
+            "fee fee-info fee-price"
+            "addfee addfee-info addfee-price";
+        margin-bottom: 30px;
+        row-gap: 10px;
+
+        color: $color-darkshade75;
+
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 24px;
+    }
+
+    &__price-period {
+        grid-area: base;
+    }
+
+    &__price-period-price {
+        grid-area: base-price;
+        text-align: right;
+    }
+
+    &__fee {
+        grid-area: fee;
+
+    }
+
+    &__fee-info {
+        grid-area: fee-info;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid $color-darkshade25;
+        color: $color-darkshade25;
+        text-align: center;
+        align-content: center;
+
+        font-size: 12px;
+        line-height: 14px;
+
+        margin: 0 5px;
+    }
+
+    &__fee-price {
+        grid-area: fee-price;
+        text-align: right;
+    }
+
+    &__addfee {
+        grid-area: addfee;
+        line-height: 18px;
+
+    }
+
+    &__addfee-info {
+        grid-area: addfee-info;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid $color-darkshade25;
+        color: $color-darkshade25;
+        text-align: center;
+        align-content: center;
+
+        font-size: 12px;
+        line-height: 14px;
+
+        margin: 0 5px;
+    }
+
+    &__addfee-price {
+        grid-area: addfee-price;
+        text-align: right;
+    }
+
+    &__total {
+        display: flex;
+        margin-bottom: 25px;
+
+        font-size: 19px;
+        font-weight: bold;
+
+        color: $color-darkshade100;
+    }
+
+    &__total-text {}
+
+    &__total-line {
+        flex-grow: 1;
+        border-bottom: 1px dotted $color-darkshade25;
+        margin-left: 4px;
+
+    }
+
+    &__total-price {}
 
     &__button {}
 }

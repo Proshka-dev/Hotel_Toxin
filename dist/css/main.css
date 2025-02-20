@@ -1331,6 +1331,38 @@ body {
   padding: 40px 30px 30px 30px;
   border: 1px dashed black;
 }
+.booking__header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 19px;
+}
+.booking__number-container {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1f2041;
+}
+.booking__type {
+  margin-left: 8px;
+  margin-right: auto;
+  color: #BC9CFF;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.booking__price-container {
+  font-size: 12px;
+  font-weight: normal;
+  color: rgba(31, 32, 65, 0.5);
+  text-transform: lowercase;
+}
+.booking__number {
+  font-size: 24px;
+}
+.booking__price {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;
+}
 .booking__dropdown-date-split {
   margin-bottom: 21px;
 }
@@ -1338,7 +1370,79 @@ body {
   margin-bottom: 5px;
 }
 .booking__guests {
+  margin-bottom: 20px;
+}
+.booking__table {
+  display: grid;
+  grid-template-columns: 214px auto auto;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "base base-price base-price" "fee fee-info fee-price" "addfee addfee-info addfee-price";
   margin-bottom: 30px;
+  row-gap: 10px;
+  color: rgba(31, 32, 65, 0.75);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+}
+.booking__price-period {
+  grid-area: base;
+}
+.booking__price-period-price {
+  grid-area: base-price;
+  text-align: right;
+}
+.booking__fee {
+  grid-area: fee;
+}
+.booking__fee-info {
+  grid-area: fee-info;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 33, 65, 0.25);
+  color: rgba(31, 33, 65, 0.25);
+  text-align: center;
+  align-content: center;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0 5px;
+}
+.booking__fee-price {
+  grid-area: fee-price;
+  text-align: right;
+}
+.booking__addfee {
+  grid-area: addfee;
+  line-height: 18px;
+}
+.booking__addfee-info {
+  grid-area: addfee-info;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 33, 65, 0.25);
+  color: rgba(31, 33, 65, 0.25);
+  text-align: center;
+  align-content: center;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0 5px;
+}
+.booking__addfee-price {
+  grid-area: addfee-price;
+  text-align: right;
+}
+.booking__total {
+  display: flex;
+  margin-bottom: 25px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #1f2041;
+}
+.booking__total-line {
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(31, 33, 65, 0.25);
+  margin-left: 4px;
 }
 .air-datepicker {
   font-weight: normal;
@@ -1520,10 +1624,6 @@ body {
   padding: 30px;
 }
 .uikit-demo__item {
-  color: #1f2041;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
   margin-bottom: 20px;
   background-color: white;
   box-shadow: 0 0 10px 0px rgba(125, 125, 125, 0.6);
