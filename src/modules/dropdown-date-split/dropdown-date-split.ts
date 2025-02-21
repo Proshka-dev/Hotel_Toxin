@@ -87,9 +87,11 @@ if (AirDatepicker) {
 
     if (!((Icon1) && (Icon2))) { return }; // Если не нашли иконки - прервать выполнение
 
+    const today = Date();
     // @ts-ignore
     airDatepickers[index] = new AirDatepicker('#' + idInput1, {
       range: true,
+      minDate: today,
       multipleDatesSeparator: ' - ',
       buttons: [dpButtonClear, dpButtonApply],
       onSelect: function ({ date }: { date: Array<Date> }) {

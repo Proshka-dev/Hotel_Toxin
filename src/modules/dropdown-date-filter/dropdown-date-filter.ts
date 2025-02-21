@@ -34,9 +34,11 @@ document.querySelectorAll('.dropdown-date-filter').forEach(function (dropdownDat
     const idInput = input.id; // id первого input
 
     if (AirDatepicker) {
+        const today = Date();
         // @ts-ignore
         airDatepickersFilter[index] = new AirDatepicker('#' + idInput, {
             range: true,
+            minDate: today,
             multipleDatesSeparator: ' - ',
             buttons: [dpButtonClear, dpButtonApply],
             dateFormat: 'd MMM'
