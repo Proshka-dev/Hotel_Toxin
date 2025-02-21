@@ -1579,6 +1579,33 @@ body {
   height: 100%;
 }
 
+.splide__arrow {
+  background: none;
+  opacity: 1;
+}
+.splide__arrow svg {
+  fill: white;
+  height: 13px;
+  width: 13px;
+}
+
+.splide__pagination {
+  justify-content: end;
+}
+
+.splide__pagination__page {
+  background: none;
+  height: 7.5px;
+  opacity: 1;
+  width: 7.5px;
+  border: 1.3px solid white;
+}
+
+.splide__pagination__page.is-active {
+  background: white;
+  transform: none;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
