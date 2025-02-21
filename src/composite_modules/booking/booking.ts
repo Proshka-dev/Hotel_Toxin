@@ -5,11 +5,24 @@ function divideNumDigits(num: number) {
     return String(num).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
 
+//  Преобразование строки "dd.MM.yyyy" в дату
 function convertToDate(dateString: String) {
-    //  Convert a "dd-MM-yyyy" string into a Date object
     let d = dateString.split(".");
     let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
     return dat;
+}
+
+// Функция рассчета количества дней
+function daysBetween(startDate: Date, endDate: Date) {
+    if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+        throw new Error('Применяйте корректные объекты Date.');
+    }
+
+    const diffTime = Math.abs(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()) -
+        Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()));
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    return diffDays;
 }
 
 // ********************************************************************************************
@@ -43,6 +56,7 @@ const bookingUpdateCard = () => {
     const bookingElementAddfeePrice = bookingWrapper.querySelector('.booking__addfee-price') as HTMLElement;
     const bookingElementDiscountPrice = bookingWrapper.querySelector('.booking__discount-price') as HTMLElement;
     const bookingElementTotalPrice = bookingWrapper.querySelector('.booking__total-price') as HTMLElement;
+    const bookingElementButton = bookingWrapper.querySelector('.button-arrow') as HTMLElement;
 
     const rangeInputs = bookingWrapper.querySelectorAll('.booking__dropdown-date-split input');
     const inputRangeFrom = rangeInputs[0] as HTMLInputElement
@@ -72,6 +86,7 @@ const bookingUpdateCard = () => {
         inputAdult,
         inputChildren,
         inputBabies,
+        button: bookingElementButton,
     };
 
     // Перебираем все свойства у elem. Если хотя-бы одно не определено - прерываем выполнение
@@ -81,34 +96,61 @@ const bookingUpdateCard = () => {
     elem.roomNumber.innerText = bookingParams.roomNumber;
     elem.type.innerText = bookingParams.type;
     elem.price.innerText = divideNumDigits(bookingParams.price) + '₽';
-    elem.period.innerText = divideNumDigits(bookingParams.price) + '₽ x ' + String(bookingParams.days) + ' суток';
-    elem.periodPrice.innerText = divideNumDigits(bookingParams.price * bookingParams.days) + '₽';
-    elem.feePrice.innerText = divideNumDigits(bookingParams.serviceFee) + '₽';
-    elem.addFeePrice.innerText = divideNumDigits(bookingParams.additionalServiceFee) + '₽';
-    elem.discountPrice.innerText = divideNumDigits(-bookingParams.Discount) + '₽';
-    elem.totalPrice.innerText = divideNumDigits(bookingParams.price * bookingParams.days + bookingParams.serviceFee
-        + bookingParams.additionalServiceFee - bookingParams.Discount) + '₽';
+    // меняем вывод в зависимости от выбранного количества дней
+    if (bookingParams.days > 0) {
+        elem.period.innerText = divideNumDigits(bookingParams.price) + '₽ x ' + String(bookingParams.days);
+        if (bookingParams.days === 1) {
+            elem.period.innerText = elem.period.innerText + ' сутки';
+        } else {
+            elem.period.innerText = elem.period.innerText + ' суток';
+        };
+        elem.periodPrice.innerText = divideNumDigits(bookingParams.price * bookingParams.days) + '₽';
+        elem.feePrice.innerText = divideNumDigits(bookingParams.serviceFee) + '₽';
+        elem.addFeePrice.innerText = divideNumDigits(bookingParams.additionalServiceFee) + '₽';
+        elem.discountPrice.innerText = divideNumDigits(-bookingParams.Discount) + '₽';
+        elem.totalPrice.innerText = divideNumDigits(bookingParams.price * bookingParams.days + bookingParams.serviceFee
+            + bookingParams.additionalServiceFee - bookingParams.Discount) + '₽';
+    } else {
+        elem.period.innerText = 'Стоимость';
+        elem.periodPrice.innerText = '0₽';
+        elem.feePrice.innerText = '0₽';
+        elem.addFeePrice.innerText = '0₽';
+        elem.discountPrice.innerText = '0₽';
+        elem.totalPrice.innerText = '0₽';
+    };
+
+    // управление активностью кнопки
+    if ((Number(elem.inputAdult.value) > 0) && (bookingParams.days > 0)) {
+        //Кнопка активна
+        elem.button.classList.remove('button-arrow__inactive');
+    } else {
+        // Кнопка неактивна
+        elem.button.classList.add('button-arrow__inactive');
+    };
+
 };
 
 // ********************************************************************************************
 // Инициалмзация обработчика изменений в диапазоне дат
-const bookingChangeRangeHandlerInitialization = () => {
+const bookingChangeHandlersInitialization = () => {
     const bookingWrapper = document.querySelector('.booking') as HTMLElement;
     if (!bookingWrapper) { return };
 
     const rangeInputs = bookingWrapper.querySelectorAll('.booking__dropdown-date-split input');
     const inputRangeFrom = rangeInputs[0] as HTMLInputElement
     const inputRangeTo = rangeInputs[1] as HTMLInputElement
-    if ((!inputRangeFrom) || (!inputRangeTo)) { return };
+    const inputAdult = bookingWrapper.querySelector('.booking__guests input');
 
-    console.log('input:', inputRangeFrom);
+    if ((!inputRangeFrom) || (!inputRangeTo) || (!inputAdult)) { return };
 
+    // Обработчик события input на inputRangeTo
     inputRangeTo.addEventListener('input', () => {
         const dateFrom = convertToDate(inputRangeFrom.value);
         const dateTo = convertToDate(inputRangeTo.value);
         if ((dateFrom) && (dateTo)) {
-            const days = Math.round((dateTo - dateFrom) / (1000 * 60 * 60 * 24));
-            console.log('days:', days);
+            //const days = Math.round((dateTo - dateFrom) / (1000 * 60 * 60 * 24));
+            const days = daysBetween(dateFrom, dateTo);
+            console.log('days:', dateTo);
             if (days) {
                 bookingParams.days = days;
             } else {
@@ -119,8 +161,15 @@ const bookingChangeRangeHandlerInitialization = () => {
         };
     });
 
+    // Обработчик события input на inputAdult
+    inputAdult.addEventListener('input', () => {
+        bookingUpdateCard();
+    });
+
+
+
 };
 
 export {
-    bookingUpdateCard, bookingChangeRangeHandlerInitialization
+    bookingUpdateCard, bookingChangeHandlersInitialization
 };

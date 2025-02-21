@@ -15,4 +15,8 @@
         background: linear-gradient($color-purple50, $color-blue50);
 
     }
+
+    &.button-dark__inactive {
+        background: $color-darkshade25;
+    }
 }

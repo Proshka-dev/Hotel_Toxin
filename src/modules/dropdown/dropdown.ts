@@ -192,6 +192,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
     // Обработка нажатий на списке
     dropdownList.addEventListener('click', function (e) {
         let target = (e.target) as HTMLElement; // где был клик? (!!!!!)
+        let addedAdult = false;
 
         if (!target) return; // Если undefined - прервать выполнение функции
 
@@ -243,6 +244,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
                     if ((Number(dropdownInput2.value) + Number(dropdownInput3.value)) > 0) {
                         //добавляем 1 взрослого
                         dropdownInput1.value = '1';
+                        addedAdult = true;
                     }
                 }
 
@@ -282,6 +284,11 @@ document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
 
 
                 console.log(val1, val2, val3);
+
+                // **************** Вызываем собитие input ****************
+                const event = new Event('input');
+                currInput.dispatchEvent(event);
+                if (addedAdult) { dropdownInput1.dispatchEvent(event); };
 
                 // ************* Формируем заголовок на кнопке *************
                 const sum = val1 + val2 + val3;

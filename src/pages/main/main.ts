@@ -11,7 +11,7 @@
 
 
 import { paginate } from '../../modules/pagination/pagination.js';
-import { bookingUpdateCard, bookingChangeRangeHandlerInitialization } from '../../composite_modules/booking/booking.js';
+import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
 
 // Массив с продуктами
 const products = [
@@ -57,14 +57,14 @@ let bookingParams = {
     serviceFee: 0,
     Discount: 2179,
     additionalServiceFee: 300,
-    days: 4,
+    days: 0,
 };
 
 window.addEventListener('DOMContentLoaded', () => {
     //    const productContainer = document.querySelector('.products-list');
     paginate(products);
     bookingUpdateCard();
-    bookingChangeRangeHandlerInitialization();
+    bookingChangeHandlersInitialization();
 });
 
 // экспорт переменной с данными о карточке заказа

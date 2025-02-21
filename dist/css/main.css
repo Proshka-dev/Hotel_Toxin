@@ -1029,6 +1029,9 @@ body {
 .button-dark:hover {
   background: linear-gradient(rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
 }
+.button-dark.button-dark__inactive {
+  background: rgba(31, 33, 65, 0.25);
+}
 
 .button-light {
   padding: 2px;
@@ -1084,6 +1087,9 @@ body {
   font-family: "Material Symbols Outlined", serif;
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
   font-size: 24px;
+}
+.button-arrow.button-arrow__inactive {
+  background: rgba(31, 33, 65, 0.25);
 }
 
 .bullet-list {
