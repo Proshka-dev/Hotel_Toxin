@@ -1,0 +1,47 @@
+@use '../../scss/colors.scss' as *;
+
+.login {
+    max-width: 380px;
+    padding: 40px 30px 30px 30px;
+    border: 1px dashed black;
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: lowercase;
+        margin-bottom: 21px;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__email {
+        margin-bottom: 10px;
+    }
+
+    &__password {
+        margin-bottom: 10px;
+    }
+
+    &__button-login {
+        margin-bottom: 30px;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text {
+        font-size: 14px;
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    &__button-create {
+        min-width: 99px;
+    }
+}

@@ -31,6 +31,7 @@ include ../../composite_modules/review/review.pug
 include ../../composite_modules/search/search.pug
 include ../../composite_modules/registration/registration.pug
 include ../../composite_modules/booking/booking.pug
+include ../../composite_modules/login/login.pug
 
 
 
@@ -434,6 +435,32 @@ body
             buttonArrowParams: {text: 'Забронировать'},
           };
         +mixBooking(bookingParams)
+
+      //- login
+      .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'login'})
+        -
+          const loginParams = {
+            title: 'Войти',
+
+            textFieldParams3: {
+              type: 'text',
+              placeholder: 'Email',
+              name: 'default-input-name',
+            },
+
+            textFieldParams4: {
+              type: 'password',
+              placeholder: 'Пароль',
+              name: 'default-input-name',
+            },
+
+            buttonArrowParams: {text: 'Войти'},
+
+            buttonLightParams: {text: 'Создать'},
+          };
+        +mixLogin(loginParams)
 
 
   include ../../modules/footer/footer.pug

@@ -1,0 +1,14 @@
+//- Объявление миксина
+mixin mixLogin(params)
+    .login
+        .login__title=params.title
+        .login__email
+            +mixTextField(params.textFieldParams3)
+        .login__password
+            +mixTextField(params.textFieldParams4)
+        .login__button-login
+            +mixButtonArrow(params.buttonArrowParams)
+        .login__footer    
+            .login__text Нет аккаунта на Toxin?
+            .login__button-create
+                +mixButtonLight(params.buttonLightParams)

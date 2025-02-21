@@ -1457,6 +1457,44 @@ body {
   border-bottom: 1px dotted rgba(31, 33, 65, 0.25);
   margin-left: 4px;
 }
+.login {
+  max-width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px dashed black;
+}
+.login__title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-bottom: 21px;
+}
+.login__title::first-letter {
+  text-transform: uppercase;
+}
+.login__email {
+  margin-bottom: 10px;
+}
+.login__password {
+  margin-bottom: 10px;
+}
+.login__button-login {
+  margin-bottom: 30px;
+}
+.login__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.login__text {
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: none;
+}
+.login__button-create {
+  min-width: 99px;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
