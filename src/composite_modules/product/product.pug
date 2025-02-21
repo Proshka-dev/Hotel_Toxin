@@ -1,7 +1,19 @@
 //- Объявление миксина
 mixin mixProduct(params)
     .product
-        .product__slider
+        .product__slider-container
+            .product__slider
+                section.splide
+                    .splide__track
+                        ul.splide__list
+                            li.splide__slide
+                                img.product__image(src="@img/rooms/room01-1.jpg", alt="" )
+                            li.splide__slide
+                                img.product__image(src="@img/rooms/room01-2.jpg", alt="" )
+                            li.splide__slide
+                                img.product__image(src="@img/rooms/room01-3.jpg", alt="" )
+                            li.splide__slide
+                                img.product__image(src="@img/rooms/room01-4.jpg", alt="" )
         .product__body
             .product__info
                 .product__number-container

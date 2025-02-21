@@ -24,7 +24,7 @@ export const path = {
         scss: `${srcFolder}/pages/**/*.scss`,
         html: `${srcFolder}/*.html`,
         node_modules_js: `./node_modules/air-datepicker/air-datepicker.js`,
-        node_modules_css: `./node_modules/air-datepicker/air-datepicker.css`,
+        node_modules_css: [`./node_modules/air-datepicker/air-datepicker.css`, `./node_modules/@splidejs/splide/dist/css/splide.min.css`],
     },
     watch: {
         pug: `${srcFolder}/**/*.pug`,

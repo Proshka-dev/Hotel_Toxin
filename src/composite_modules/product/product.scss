@@ -1,14 +1,31 @@
 @use '../../scss/colors.scss' as *;
 
 .product {
-    max-width: 270px;
+    width: 270px;
     border: 1px dashed black;
     border-radius: 4px;
 
-    &__slider {
-        border: 1px dashed green;
+    &__slider-container {
+        // border: 1px dashed green;
+        position: relative;
         width: 100%;
         padding-bottom: 56%;
+    }
+
+    &__slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__image {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+
     }
 
     &__body {
@@ -83,4 +100,9 @@
         font-weight: normal;
 
     }
+}
+
+.splide {
+    width: 100%;
+    height: 100%;
 }
