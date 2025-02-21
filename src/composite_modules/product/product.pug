@@ -1,0 +1,18 @@
+//- Объявление миксина
+mixin mixProduct(params)
+    .product
+        .product__slider
+        .product__body
+            .product__info
+                .product__number-container
+                    span № 
+                    span.product__number=888
+                .product__type люкс
+                .product__price-container
+                    span.product__price 9 990₽
+                    span  в сутки
+            .product__reviews
+                .product__rating
+                    +mixButtonRate(params.buttonRateParams)
+                .product__quantity-reviews 145
+                .product__text Отзывов

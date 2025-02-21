@@ -1495,6 +1495,72 @@ body {
   min-width: 99px;
 }
 
+.product {
+  max-width: 270px;
+  border: 1px dashed black;
+  border-radius: 4px;
+}
+.product__slider {
+  border: 1px dashed green;
+  width: 100%;
+  padding-bottom: 56%;
+}
+.product__body {
+  padding: 20px 17px 19px 20px;
+}
+.product__info {
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(31, 33, 65, 0.1);
+}
+.product__number-container {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1f2041;
+}
+.product__number {
+  font-size: 19px;
+}
+.product__type {
+  margin-left: 2px;
+  margin-right: auto;
+  color: #BC9CFF;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.product__price-container {
+  font-size: 12px;
+  font-weight: normal;
+  color: rgba(31, 32, 65, 0.5);
+  text-transform: lowercase;
+}
+.product__price {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: none;
+}
+.product__reviews {
+  display: flex;
+  align-items: center;
+}
+.product__quantity-reviews {
+  margin-left: auto;
+  margin-right: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(31, 32, 65, 0.5);
+  font-weight: bold;
+}
+.product__text {
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(31, 32, 65, 0.5);
+  font-weight: normal;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

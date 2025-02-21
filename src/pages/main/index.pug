@@ -32,6 +32,7 @@ include ../../composite_modules/search/search.pug
 include ../../composite_modules/registration/registration.pug
 include ../../composite_modules/booking/booking.pug
 include ../../composite_modules/login/login.pug
+include ../../composite_modules/product/product.pug
 
 
 
@@ -461,6 +462,19 @@ body
             buttonLightParams: {text: 'Создать'},
           };
         +mixLogin(loginParams)
+
+      //- product
+      .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'product'})
+        -
+          const productParams = {
+            buttonRateParams: {
+              name: 'rating-888',
+              inputIds: ['starrate6','starrate7','starrate8','starrate9','starrate10'],
+            },
+          };
+        +mixProduct(productParams)
 
 
   include ../../modules/footer/footer.pug

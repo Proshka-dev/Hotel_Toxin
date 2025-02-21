@@ -1,0 +1,86 @@
+@use '../../scss/colors.scss' as *;
+
+.product {
+    max-width: 270px;
+    border: 1px dashed black;
+    border-radius: 4px;
+
+    &__slider {
+        border: 1px dashed green;
+        width: 100%;
+        padding-bottom: 56%;
+    }
+
+    &__body {
+        padding: 20px 17px 19px 20px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: baseline;
+        padding-bottom: 10px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid $color-darkshade10;
+
+    }
+
+    &__number-container {
+        font-size: 14px;
+        font-weight: bold;
+        color: $color-darkshade100;
+
+    }
+
+    &__number {
+        font-size: 19px;
+
+    }
+
+    &__type {
+        margin-left: 2px;
+        margin-right: auto;
+        color: $color-purple;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__price-container {
+        font-size: 12px;
+        font-weight: normal;
+        color: $color-darkshade50;
+        text-transform: lowercase;
+
+    }
+
+    &__price {
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: none;
+    }
+
+    &__reviews {
+        display: flex;
+        align-items: center;
+    }
+
+    &__rating {}
+
+    &__quantity-reviews {
+        margin-left: auto;
+        margin-right: 4px;
+
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-darkshade50;
+        font-weight: bold;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-darkshade50;
+        font-weight: normal;
+
+    }
+}
