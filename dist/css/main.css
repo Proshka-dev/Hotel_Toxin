@@ -1578,7 +1578,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .splide__arrow {
   background: none;
   opacity: 1;
@@ -1588,11 +1587,9 @@ body {
   height: 13px;
   width: 13px;
 }
-
 .splide__pagination {
   justify-content: end;
 }
-
 .splide__pagination__page {
   background: none;
   height: 7.5px;
@@ -1600,7 +1597,6 @@ body {
   width: 7.5px;
   border: 1.3px solid white;
 }
-
 .splide__pagination__page.is-active {
   background: white;
   transform: none;

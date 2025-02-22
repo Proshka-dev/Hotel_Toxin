@@ -1,0 +1,24 @@
+//- Объявление миксина
+mixin mixHeader(params)
+	.header
+		.header__logo
+		nav.header__menu
+			ul.header__list
+				.header__item.header__item__active О нас
+				.header__item.header__item_expendable Услуги
+					ul.header__submenu
+						li.submenu-item Услуга 1
+						li.submenu-item Услуга 2
+						li.submenu-item Услуга 3
+				.header__item Вакансии
+				.header__item Новости
+				.header__item.header__item_expendable Соглашения
+					ul.header__submenu
+						li.submenu-item Соглашение 1
+						li.submenu-item Соглашение 2
+						li.submenu-item Соглашение 3
+		.header__buttons
+			button.header__button-login
+			button.header__button-register
+		.header__user
+			button.header__username

@@ -52,6 +52,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/composite_modules/header/header.ts":
+/*!************************************************!*\
+  !*** ./src/composite_modules/header/header.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n\n//\n\n\n//# sourceURL=webpack://hotel-toxin/./src/composite_modules/header/header.ts?");
+
+/***/ }),
+
 /***/ "./src/composite_modules/product/product.ts":
 /*!**************************************************!*\
   !*** ./src/composite_modules/product/product.ts ***!
@@ -235,6 +246,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	__webpack_require__("./src/composite_modules/booking/booking.ts");
+/******/ 	__webpack_require__("./src/composite_modules/header/header.ts");
 /******/ 	__webpack_require__("./src/composite_modules/product/product.ts");
 /******/ 	__webpack_require__("./src/modules/button-like/button-like.ts");
 /******/ 	__webpack_require__("./src/modules/checkbox-list-exp/checkbox-list-exp.ts");
