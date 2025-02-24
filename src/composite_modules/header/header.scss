@@ -3,4 +3,33 @@
 .header {
 	width: 100%;
 	border: 1px dashed black;
+
+	&__logo {}
+
+	&__menu {}
+
+	&__list {}
+
+	&__item {
+
+		//
+		&_active {}
+
+		&_expendable {}
+
+	}
+
+	&__submenu {}
+
+	&__submenu-item {}
+
+	&__buttons {}
+
+	&__button-login {}
+
+	&__button-register {}
+
+	&__user {}
+
+	&__username {}
 }

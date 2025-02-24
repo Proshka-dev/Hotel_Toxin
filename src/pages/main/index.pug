@@ -25,6 +25,7 @@ include ../../modules/button-arrow/button-arrow.pug
 include ../../modules/bullet-list/bullet-list.pug
 include ../../modules/products-list/products-list.pug
 include ../../modules/pagination/pagination.pug
+include ../../modules/menu/menu.pug
 
 //- Составные модули
 include ../../composite_modules/review/review.pug
@@ -33,6 +34,7 @@ include ../../composite_modules/registration/registration.pug
 include ../../composite_modules/booking/booking.pug
 include ../../composite_modules/login/login.pug
 include ../../composite_modules/product/product.pug
+include ../../composite_modules/header/header.pug
 
 doctype html
 
@@ -474,6 +476,25 @@ body
           };
         +mixProduct(productParams)
 
+      //- menu
+      .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'menu'})
+        -
+          const menuParams = {
+          };
+        +mixMenu(menuParams)
+
+      //- header
+      //- .uikit-demo__item
+      //-   .uikit-demo__label-container
+      //-     +mixLabel({text: 'product'})
+      //-   -
+      //-     const headerParams = {
+      //-       buttonLightParams: {text: 'войти'},
+      //-       buttonDarkParams: {text: 'зарегистрироваться'},
+      //-     };
+      //-   +mixHeader(headerParams)
 
   include ../../modules/footer/footer.pug
 

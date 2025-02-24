@@ -129,6 +129,17 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst dropdownOpenAndCloseAct
 
 /***/ }),
 
+/***/ "./src/modules/menu/menu.ts":
+/*!**********************************!*\
+  !*** ./src/modules/menu/menu.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst nav = document.querySelector('.menu').parentElement;\nnav.classList.add('enhanced');\nconst submenus = nav.querySelectorAll('.menu__item[data-has-children]');\nconst dropdowns = nav.querySelectorAll('.menu__item[data-has-children] > .menu');\nconst icon = `\r\n  <svg\r\n    width=\"24px\"\r\n    height=\"24px\"\r\n    viewBox=\"0 0 24 24\"\r\n    aria-hidden=\"true\"\r\n    class=\"menu__button-icon\"\r\n  >\r\n  <path fill=\"currentColor\" d=\"M5.64645 8.64645c.19526-.19527.51184-.19527.7071 0L12 14.2929l5.6464-5.64645c.1953-.19527.5119-.19527.7072 0 .1952.19526.1952.51184 0 .7071L12 15.7071 5.64645 9.35355c-.19527-.19526-.19527-.51184 0-.7071Z\"></path>\r\n  </svg>\r\n`;\n// Находим подменю, заменяем в нём span на кнопку\nsubmenus.forEach((item) => {\n    const dropdown = item.querySelector(':scope > .menu');\n    dropdown.setAttribute('hidden', '');\n    const button = item.querySelector(':scope > .menu__button');\n    // Добавляем иконку к кнопке, чтобы визуально было\n    // понятно открыто меню или нет\n    button.innerHTML += icon;\n    button.addEventListener('click', function (e) {\n        toggleDropdown(button, dropdown);\n    });\n    // Обрабатываем нажатие на Esc\n    dropdown.addEventListener('keydown', (e) => {\n        e.stopImmediatePropagation();\n        if (e.keyCode === 27 && focusIsInside(dropdown)) {\n            toggleDropdown(button, dropdown);\n            button.focus();\n        }\n    }, false);\n});\nfunction toggleDropdown(button, dropdown) {\n    if (button.getAttribute('aria-expanded') === 'true') {\n        button.setAttribute('aria-expanded', 'false');\n        dropdown.setAttribute('hidden', '');\n    }\n    else {\n        button.setAttribute('aria-expanded', 'true');\n        dropdown.removeAttribute('hidden');\n    }\n}\nfunction focusIsInside(element) {\n    return element.contains(document.activeElement);\n}\nfunction collapseDropdownsWhenTabbingOutsideNav(e) {\n    if (e.keyCode === 9 && !focusIsInside(nav)) {\n        dropdowns.forEach(function (dropdown) {\n            dropdown.setAttribute('hidden', '');\n            const btn = dropdown.parentNode.querySelector('button');\n            btn.setAttribute('aria-expanded', 'false');\n        });\n    }\n}\nfunction collapseDropdownsWhenClickingOutsideNav(e) {\n    const target = e.target;\n    dropdowns.forEach(function (dropdown) {\n        if (!dropdown.parentNode.contains(target)) {\n            dropdown.setAttribute('hidden', '');\n            const btn = dropdown.parentNode.querySelector('button');\n            btn.setAttribute('aria-expanded', 'false');\n        }\n    });\n}\n// Закрываем навигацию, если протапались за её пределы\ndocument.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav);\n// Закрываем навигацию, если кликнули вне навигации\nwindow.addEventListener('click', collapseDropdownsWhenClickingOutsideNav);\n\n\n\n//# sourceURL=webpack://hotel-toxin/./src/modules/menu/menu.ts?");
+
+/***/ }),
+
 /***/ "./src/modules/pagination/pagination.ts":
 /*!**********************************************!*\
   !*** ./src/modules/pagination/pagination.ts ***!
@@ -253,6 +264,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	__webpack_require__("./src/modules/dropdown/dropdown.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-filter/dropdown-date-filter.ts");
 /******/ 	__webpack_require__("./src/modules/dropdown-date-split/dropdown-date-split.ts");
+/******/ 	__webpack_require__("./src/modules/menu/menu.ts");
 /******/ 	__webpack_require__("./src/modules/pagination/pagination.ts");
 /******/ 	__webpack_require__("./src/modules/slider-range/slider-range.ts");
 /******/ 	__webpack_require__("./src/modules/test/greet.ts");

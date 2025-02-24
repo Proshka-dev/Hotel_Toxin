@@ -27,6 +27,7 @@
 @use '../../modules/bullet-list/bullet-list.scss';
 @use '../../modules/products-list/products-list.scss';
 @use '../../modules/pagination/pagination.scss';
+@use '../../modules/menu/menu.scss';
 
 // Составные модули
 @use '../../composite_modules/review/review.scss';
@@ -35,6 +36,7 @@
 @use '../../composite_modules/booking/booking.scss';
 @use '../../composite_modules/login/login.scss';
 @use '../../composite_modules/product/product.scss';
+@use '../../composite_modules/header/header.scss';
 
 // Переназначение стилей сторонних модулей
 @use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker

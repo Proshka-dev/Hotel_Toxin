@@ -1,0 +1,28 @@
+//- Объявление миксина
+mixin mixMenu(params)
+  nav.site-nav(aria-label="Сайт")
+    ul.menu
+      li.menu__item.menu__item_active
+        a.menu__link(href="#")  О нас
+      li.menu__item.menu__item_expendable(data-has-children)
+        button.menu__button(aria-expanded="false" aria-controls="css-submenu1") Услуги
+        ul.menu.menu__submenu
+          li.menu__item
+            a.menu__link(href="#") Услуга 1
+          li.menu__item
+            a.menu__link(href="#") Услуга 2
+          li.menu__item
+            a.menu__link(href="#") Услуга 3
+      li.menu__item
+        a.menu__link(href="#") Вакансии
+      li.menu__item
+        a.menu__link(href="#") Новости
+      li.menu__item.menu__item_expendable(data-has-children)
+        button.menu__button(aria-expanded="false" aria-controls="css-submenu2") Соглашения
+        ul.menu.menu__submenu
+          li.menu__item
+            a.menu__link(href="#") Соглашение 1
+          li.menu__item
+            a.menu__link(href="#") Соглашение 2
+          li.menu__item
+            a.menu__link(href="#") Соглашение 3

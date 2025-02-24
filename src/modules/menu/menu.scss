@@ -1,0 +1,160 @@
+@use '../../scss/colors.scss' as *;
+
+// ul,
+// li {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+//     text-align: start;
+// }
+
+// a[aria-current="page"] {
+//     font-weight: 500;
+//     color: #000000;
+// }
+
+// button:focus-visible,
+// a:focus-visible {
+// outline: 2px solid;
+// outline-offset: -3px;
+// }
+
+// .header {
+// display: flex;
+// align-items: center;
+// background-color: #C56FFF;
+// padding: 0 50px;
+// }
+
+.menu {
+    display: flex;
+    min-width: max-content;
+    background: #C56FFF;
+    color: #000000;
+
+    &__submenu {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-inline-start: 3rem;
+
+        background: #FFFFFF;
+
+
+        & .menu__link:hover {
+            background-color: #C56FFF;
+        }
+
+        & .menu__button:hover {
+            background-color: #C56FFF;
+        }
+
+        & .menu__button[aria-expanded="true"] {
+            background-color: #C56FFF;
+        }
+
+        & .menu__link:focus-visible {
+            outline-width: 2px;
+            outline-offset: -3px;
+            outline-style: solid;
+            outline-color: #000000;
+        }
+
+        & .menu__button:focus-visible {
+            outline-width: 2px;
+            outline-offset: -3px;
+            outline-style: solid;
+            outline-color: #000000;
+        }
+
+        & .menu__button-icon {
+            transform: rotate(-90deg);
+        }
+
+        & .menu__button[aria-expanded="true"] .menu__button-icon {
+            transform: rotate(90deg);
+        }
+
+
+
+    }
+
+    &__button {
+        display: flex;
+        width: 100%;
+        gap: .5em;
+        align-items: center;
+        padding: .75rem 1.5rem;
+        font-size: 1.125rem;
+        font-weight: 300;
+        font-family: inherit;
+        color: #000000;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        transition: background-color 0.2s linear;
+
+        &:hover {
+            background-color: #FFFFFF;
+        }
+
+        &[aria-expanded="true"] {
+            background-color: #FFFFFF;
+        }
+
+        &[aria-expanded="true"] .menu__button-icon {
+            transform: rotate(180deg);
+        }
+
+    }
+
+    &__link {
+        display: flex;
+        width: 100%;
+        gap: .5em;
+        align-items: center;
+        padding: .75rem 1.5rem;
+        font-size: 1.125rem;
+        font-weight: 300;
+        font-family: inherit;
+        color: #000000;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        transition: background-color 0.2s linear;
+
+        text-decoration: none;
+
+        &:hover {
+            background-color: #FFFFFF;
+        }
+    }
+
+    &__button-icon {
+        color: inherit;
+        transition: transform .1s linear;
+    }
+
+    &__item {
+        position: relative;
+    }
+
+}
+
+/* Первый уровень вложенности */
+.enhanced .menu__submenu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    padding-inline-start: 0;
+}
+
+/* Второй уровень вложенности */
+.enhanced .menu__submenu .menu__submenu {
+    top: 0;
+    left: 104%;
+}
+
+.menu[hidden] {
+    display: none;
+}
