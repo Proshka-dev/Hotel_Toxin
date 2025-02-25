@@ -3,33 +3,48 @@
 .header {
 	width: 100%;
 	border: 1px dashed black;
+	display: flex;
+	padding: 15px 0px;
+	align-items: center;
 
 	&__logo {}
 
-	&__menu {}
-
-	&__list {}
-
-	&__item {
-
-		//
-		&_active {}
-
-		&_expendable {}
-
+	&__menu {
+		margin-left: auto;
+		margin-right: 20px;
 	}
 
-	&__submenu {}
+	&__buttons {
+		border: 1px dashed green;
+		display: flex;
+	}
 
-	&__submenu-item {}
-
-	&__buttons {}
-
-	&__button-login {}
+	&__button-login {
+		margin-right: 20px;
+	}
 
 	&__button-register {}
 
-	&__user {}
+	&__user {
+		padding-left: 20px;
+		border-left: 1px solid $color-darkshade10;
+		height: 30px;
+		display: flex;
+	}
 
-	&__username {}
+	&__username {
+		font-size: 14px;
+		font-weight: normal;
+		color: $color-darkshade50;
+	}
+
+	& .button-light__content {
+		// Переопределение отступов у кнопок
+		padding: 7px 18px 8px 18px;
+	}
+
+	& .button-dark {
+		// Переопределение отступов у кнопок
+		padding: 9px 20px 10px 20px;
+	}
 }

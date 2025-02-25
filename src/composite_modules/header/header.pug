@@ -2,15 +2,14 @@
 mixin mixHeader(params)
 	header.header
 		img.header__logo(src="@img/Logo.svg", alt="")
-		nav.header__menu PLACE FOR MENU
-		.header__buttons
-			button.header__button-login
-				+mixButtonLight(params.buttonLightParams)
-			button.header__button-register
-				+mixButtonDark(params.buttonDarkParams)
-
-		.header__user
-			button.header__username Юлий Цезарь
-
-
-//-
+		.header__menu
+			+mixMenu()
+		if (params.logged === 'true')
+			.header__user
+				button.header__username Юлий Цезарь
+		else
+			.header__buttons
+				.header__button-login
+					+mixButtonLight(params.buttonLightParams)
+				.header__button-register
+					+mixButtonDark(params.buttonDarkParams)

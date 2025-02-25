@@ -741,44 +741,106 @@
       </div>
       <div class="uikit-demo__item">
         <div class="uikit-demo__label-container">
-          <div class="label">menu</div>
+          <div class="label">header</div>
         </div>
-        <nav class="menu" aria-label="Сайт">
-          <ul class="menu__list">
-            <li class="menu__item menu__item_active"><a class="menu__link" href="#">О нас
-                <div class="menu__hover-text">О нас</div></a></li>
-            <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
-              <button class="menu__button" aria-expanded="false" aria-controls="css-submenu1">Услуги
-                <div class="menu__hover-text">Услуги</div>
-                <div class="menu__icon">expand_more</div>
-              </button>
-              <ul class="menu__submenu menu__submenu_hidden">
-                <li class="menu__item"><a class="menu__link" href="#">Трансфер
-                    <div class="menu__hover-text">Трансфер</div></a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Питание
-                    <div class="menu__hover-text">Питание</div></a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Помощь инвалидам
-                    <div class="menu__hover-text">Помощь инвалидам</div></a></li>
+        <header class="header"><img class="header__logo" src="img/Logo.svg" alt=""/>
+          <div class="header__menu">
+            <nav class="menu" aria-label="Сайт">
+              <ul class="menu__list">
+                <li class="menu__item menu__item_active"><a class="menu__link" href="#">О нас
+                    <div class="menu__hover-text">О нас</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu1">Услуги
+                    <div class="menu__hover-text">Услуги</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Трансфер
+                        <div class="menu__hover-text">Трансфер</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Питание
+                        <div class="menu__hover-text">Питание</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Помощь инвалидам
+                        <div class="menu__hover-text">Помощь инвалидам</div></a></li>
+                  </ul>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Вакансии
+                    <div class="menu__hover-text">Вакансии</div></a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Новости
+                    <div class="menu__hover-text">Новости</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu2">Соглашения
+                    <div class="menu__hover-text">Соглашения</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Правила пользования
+                        <div class="menu__hover-text">Правила пользования</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Образец договора
+                        <div class="menu__hover-text">Образец договора</div></a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-            <li class="menu__item"><a class="menu__link" href="#">Вакансии
-                <div class="menu__hover-text">Вакансии</div></a></li>
-            <li class="menu__item"><a class="menu__link" href="#">Новости
-                <div class="menu__hover-text">Новости</div></a></li>
-            <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
-              <button class="menu__button" aria-expanded="false" aria-controls="css-submenu2">Соглашения
-                <div class="menu__hover-text">Соглашения</div>
-                <div class="menu__icon">expand_more</div>
+            </nav>
+          </div>
+          <div class="header__buttons">
+            <div class="header__button-login">
+              <button class="button-light">
+                <div class="button-light__content">войти</div>
               </button>
-              <ul class="menu__submenu menu__submenu_hidden">
-                <li class="menu__item"><a class="menu__link" href="#">Правила пользования
-                    <div class="menu__hover-text">Правила пользования</div></a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Образец договора
-                    <div class="menu__hover-text">Образец договора</div></a></li>
+            </div>
+            <div class="header__button-register">
+              <button class="button-dark">зарегистрироваться</button>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="uikit-demo__item">
+        <div class="uikit-demo__label-container">
+          <div class="label">header - user logged</div>
+        </div>
+        <header class="header"><img class="header__logo" src="img/Logo.svg" alt=""/>
+          <div class="header__menu">
+            <nav class="menu" aria-label="Сайт">
+              <ul class="menu__list">
+                <li class="menu__item menu__item_active"><a class="menu__link" href="#">О нас
+                    <div class="menu__hover-text">О нас</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu1">Услуги
+                    <div class="menu__hover-text">Услуги</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Трансфер
+                        <div class="menu__hover-text">Трансфер</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Питание
+                        <div class="menu__hover-text">Питание</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Помощь инвалидам
+                        <div class="menu__hover-text">Помощь инвалидам</div></a></li>
+                  </ul>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Вакансии
+                    <div class="menu__hover-text">Вакансии</div></a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Новости
+                    <div class="menu__hover-text">Новости</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu2">Соглашения
+                    <div class="menu__hover-text">Соглашения</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Правила пользования
+                        <div class="menu__hover-text">Правила пользования</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Образец договора
+                        <div class="menu__hover-text">Образец договора</div></a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-          </ul>
-        </nav>
+            </nav>
+          </div>
+          <div class="header__user">
+            <button class="header__username">Юлий Цезарь</button>
+          </div>
+        </header>
       </div>
     </div>
   </div>
