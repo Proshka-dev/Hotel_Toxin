@@ -1,12 +1,13 @@
 //- Объявление миксина
 mixin mixMenu(params)
-  nav.site-nav(aria-label="Сайт")
-    ul.menu
+  nav.menu(aria-label="Сайт")
+    ul.menu__list
       li.menu__item.menu__item_active
         a.menu__link(href="#")  О нас
       li.menu__item.menu__item_expendable(data-has-children)
         button.menu__button(aria-expanded="false" aria-controls="css-submenu1") Услуги
-        ul.menu.menu__submenu
+          .menu__icon expand_more
+        ul.menu__submenu.menu__submenu_hidden
           li.menu__item
             a.menu__link(href="#") Услуга 1
           li.menu__item
@@ -19,7 +20,8 @@ mixin mixMenu(params)
         a.menu__link(href="#") Новости
       li.menu__item.menu__item_expendable(data-has-children)
         button.menu__button(aria-expanded="false" aria-controls="css-submenu2") Соглашения
-        ul.menu.menu__submenu
+          .menu__icon expand_more
+        ul.menu__submenu.menu__submenu_hidden
           li.menu__item
             a.menu__link(href="#") Соглашение 1
           li.menu__item

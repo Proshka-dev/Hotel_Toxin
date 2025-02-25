@@ -1201,115 +1201,67 @@ body {
   line-height: 24px;
 }
 
-.menu {
+.menu__list {
   display: flex;
   min-width: max-content;
-  background: #C56FFF;
-  color: #000000;
+  gap: 20px;
+  font-size: 14px;
+  background: white;
 }
 .menu__submenu {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-inline-start: 3rem;
-  background: #FFFFFF;
+  position: absolute;
+  top: 110%;
+  left: 0;
 }
-.menu__submenu .menu__link:hover {
-  background-color: #C56FFF;
+.menu__submenu_hidden {
+  display: none;
 }
-.menu__submenu .menu__button:hover {
-  background-color: #C56FFF;
-}
-.menu__submenu .menu__button[aria-expanded=true] {
-  background-color: #C56FFF;
-}
-.menu__submenu .menu__link:focus-visible {
-  outline-width: 2px;
-  outline-offset: -3px;
-  outline-style: solid;
-  outline-color: #000000;
-}
-.menu__submenu .menu__button:focus-visible {
-  outline-width: 2px;
-  outline-offset: -3px;
-  outline-style: solid;
-  outline-color: #000000;
-}
-.menu__submenu .menu__button-icon {
-  transform: rotate(-90deg);
-}
-.menu__submenu .menu__button[aria-expanded=true] .menu__button-icon {
-  transform: rotate(90deg);
+.menu__submenu .menu__submenu {
+  top: 0;
+  left: 104%;
 }
 .menu__button {
   display: flex;
-  width: 100%;
-  gap: 0.5em;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.125rem;
-  font-weight: 300;
-  font-family: inherit;
-  color: #000000;
   cursor: pointer;
-  border: none;
-  background: transparent;
   transition: background-color 0.2s linear;
+  color: rgba(31, 32, 65, 0.5);
 }
 .menu__button:hover {
-  background-color: #FFFFFF;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.75);
 }
-.menu__button[aria-expanded=true] {
-  background-color: #FFFFFF;
-}
-.menu__button[aria-expanded=true] .menu__button-icon {
+.menu__button.menu__button_extended .menu__icon {
   transform: rotate(180deg);
+}
+.menu__icon {
+  font-family: "Material Symbols Outlined", serif;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 24px;
+  transition: transform 0.1s linear;
+  width: 24px;
 }
 .menu__link {
   display: flex;
   width: 100%;
-  gap: 0.5em;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.125rem;
-  font-weight: 300;
-  font-family: inherit;
-  color: #000000;
   cursor: pointer;
-  border: none;
-  background: transparent;
   transition: background-color 0.2s linear;
-  text-decoration: none;
+  color: rgba(31, 32, 65, 0.5);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .menu__link:hover {
-  background-color: #FFFFFF;
-}
-.menu__button-icon {
-  color: inherit;
-  transition: transform 0.1s linear;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.75);
 }
 .menu__item {
   position: relative;
+  align-content: center;
 }
-
-/* Первый уровень вложенности */
-.enhanced .menu__submenu {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  padding-inline-start: 0;
-}
-
-/* Второй уровень вложенности */
-.enhanced .menu__submenu .menu__submenu {
-  top: 0;
-  left: 104%;
-}
-
-.menu[hidden] {
-  display: none;
-}
-
 .review {
   display: grid;
   grid-template-columns: minmax(6.75%, auto) auto;

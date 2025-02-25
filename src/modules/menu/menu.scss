@@ -1,160 +1,116 @@
 @use '../../scss/colors.scss' as *;
 
-// ul,
-// li {
-//     list-style: none;
-//     padding: 0;
-//     margin: 0;
-//     text-align: start;
-// }
-
-// a[aria-current="page"] {
-//     font-weight: 500;
-//     color: #000000;
-// }
-
-// button:focus-visible,
-// a:focus-visible {
-// outline: 2px solid;
-// outline-offset: -3px;
-// }
-
-// .header {
-// display: flex;
-// align-items: center;
-// background-color: #C56FFF;
-// padding: 0 50px;
-// }
-
 .menu {
-    display: flex;
-    min-width: max-content;
-    background: #C56FFF;
-    color: #000000;
+
+    &__list {
+        display: flex;
+        min-width: max-content;
+        gap: 20px;
+
+        font-size: 14px;
+
+        background: $color-white;
+    }
 
     &__submenu {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        padding-inline-start: 3rem;
 
-        background: #FFFFFF;
+        position: absolute;
+        top: 110%;
+        left: 0;
+
+        &_hidden {
+            display: none;
+        }
 
 
         & .menu__link:hover {
-            background-color: #C56FFF;
+            // background-color: $color-blue50;
         }
 
         & .menu__button:hover {
-            background-color: #C56FFF;
+            // background-color: $color-blue50;
         }
 
-        & .menu__button[aria-expanded="true"] {
-            background-color: #C56FFF;
+        // /* Второй уровень вложенности */
+        & .menu__submenu {
+            top: 0;
+            left: 104%;
         }
-
-        & .menu__link:focus-visible {
-            outline-width: 2px;
-            outline-offset: -3px;
-            outline-style: solid;
-            outline-color: #000000;
-        }
-
-        & .menu__button:focus-visible {
-            outline-width: 2px;
-            outline-offset: -3px;
-            outline-style: solid;
-            outline-color: #000000;
-        }
-
-        & .menu__button-icon {
-            transform: rotate(-90deg);
-        }
-
-        & .menu__button[aria-expanded="true"] .menu__button-icon {
-            transform: rotate(90deg);
-        }
-
 
 
     }
 
     &__button {
         display: flex;
-        width: 100%;
-        gap: .5em;
         align-items: center;
-        padding: .75rem 1.5rem;
-        font-size: 1.125rem;
-        font-weight: 300;
-        font-family: inherit;
-        color: #000000;
         cursor: pointer;
-        border: none;
-        background: transparent;
         transition: background-color 0.2s linear;
 
+        color: $color-darkshade50;
+
+
         &:hover {
-            background-color: #FFFFFF;
+            // background-color: $color-blue50;
+            font-weight: bold;
+            color: $color-darkshade75;
         }
 
-        &[aria-expanded="true"] {
-            background-color: #FFFFFF;
+        &.menu__button_extended {
+            //background-color: $color-blue50;
         }
 
-        &[aria-expanded="true"] .menu__button-icon {
+        &.menu__button_extended .menu__icon {
             transform: rotate(180deg);
         }
+    }
 
+    &__icon {
+        font-family: "Material Symbols Outlined", serif;
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        font-size: 24px;
+        transition: transform .1s linear;
+        width: 24px;
     }
 
     &__link {
         display: flex;
         width: 100%;
-        gap: .5em;
         align-items: center;
-        padding: .75rem 1.5rem;
-        font-size: 1.125rem;
-        font-weight: 300;
-        font-family: inherit;
-        color: #000000;
         cursor: pointer;
-        border: none;
-        background: transparent;
         transition: background-color 0.2s linear;
 
-        text-decoration: none;
+        color: $color-darkshade50;
+
+        padding-top: 5px;
+        padding-bottom: 5px;
+
 
         &:hover {
-            background-color: #FFFFFF;
+            // background-color: $color-blue50;
+            font-weight: bold;
+            // text-shadow: .6px 0px 0px $color-darkshade75, -.6px 0px 0px $color-darkshade75;
+            color: $color-darkshade75;
         }
-    }
-
-    &__button-icon {
-        color: inherit;
-        transition: transform .1s linear;
     }
 
     &__item {
         position: relative;
+        align-content: center;
+
+        &_active {
+            // font-weight: bold;
+
+            &>.menu__link {
+                //color: $color-darkshade75;
+            }
+        }
     }
 
 }
 
-/* Первый уровень вложенности */
-.enhanced .menu__submenu {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    padding-inline-start: 0;
-}
-
-/* Второй уровень вложенности */
-.enhanced .menu__submenu .menu__submenu {
-    top: 0;
-    left: 104%;
-}
-
-.menu[hidden] {
-    display: none;
-}
+// .menu[hidden] {
+//display: none;
+// }

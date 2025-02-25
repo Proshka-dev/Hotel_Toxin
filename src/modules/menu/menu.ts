@@ -1,35 +1,16 @@
 const nav = document.querySelector('.menu').parentElement;
-nav.classList.add('enhanced')
 
 const submenus = nav.querySelectorAll(
-    '.menu__item[data-has-children]'
+    '.menu__item_expendable'
 )
 const dropdowns = nav.querySelectorAll(
-    '.menu__item[data-has-children] > .menu'
+    '.menu__item_expendable > .menu__submenu'
 )
 
-const icon = `
-  <svg
-    width="24px"
-    height="24px"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    class="menu__button-icon"
-  >
-  <path fill="currentColor" d="M5.64645 8.64645c.19526-.19527.51184-.19527.7071 0L12 14.2929l5.6464-5.64645c.1953-.19527.5119-.19527.7072 0 .1952.19526.1952.51184 0 .7071L12 15.7071 5.64645 9.35355c-.19527-.19526-.19527-.51184 0-.7071Z"></path>
-  </svg>
-`
-
-// Находим подменю, заменяем в нём span на кнопку
+// Находим подменю
 submenus.forEach((item) => {
-    const dropdown = item.querySelector(':scope > .menu')
-    dropdown.setAttribute('hidden', '')
-
+    const dropdown = item.querySelector(':scope > .menu__submenu')
     const button = item.querySelector(':scope > .menu__button')
-
-    // Добавляем иконку к кнопке, чтобы визуально было
-    // понятно открыто меню или нет
-    button.innerHTML += icon
 
     button.addEventListener('click', function (e) {
         toggleDropdown(button, dropdown)
@@ -47,13 +28,20 @@ submenus.forEach((item) => {
 })
 
 function toggleDropdown(button, dropdown) {
-    if (button.getAttribute('aria-expanded') === 'true') {
-        button.setAttribute('aria-expanded', 'false')
-        dropdown.setAttribute('hidden', '')
+    if (button.classList.contains('menu__button_extended')) {
+        button.classList.remove('menu__button_extended');
+        dropdown.classList.add('menu__submenu_hidden');
     } else {
-        button.setAttribute('aria-expanded', 'true')
-        dropdown.removeAttribute('hidden')
+        button.classList.add('menu__button_extended');
+        dropdown.classList.remove('menu__submenu_hidden');
     }
+    // if (button.getAttribute('aria-expanded') === 'true') {
+    //     button.setAttribute('aria-expanded', 'false')
+    //     dropdown.classList.add('menu__submenu_hidden');
+    // } else {
+    //     button.setAttribute('aria-expanded', 'true')
+    //     dropdown.classList.remove('menu__submenu_hidden');
+    // }
 }
 
 function focusIsInside(element) {
@@ -63,9 +51,10 @@ function focusIsInside(element) {
 function collapseDropdownsWhenTabbingOutsideNav(e) {
     if (e.keyCode === 9 && !focusIsInside(nav)) {
         dropdowns.forEach(function (dropdown) {
-            dropdown.setAttribute('hidden', '')
+            dropdown.classList.add('menu__submenu_hidden');
             const btn = dropdown.parentNode.querySelector('button')
-            btn.setAttribute('aria-expanded', 'false')
+            btn.classList.remove('menu__button_extended');
+            //btn.setAttribute('aria-expanded', 'false')
         })
     }
 }
@@ -75,9 +64,11 @@ function collapseDropdownsWhenClickingOutsideNav(e) {
 
     dropdowns.forEach(function (dropdown) {
         if (!dropdown.parentNode.contains(target)) {
-            dropdown.setAttribute('hidden', '')
+            // dropdown.setAttribute('hidden', '')
+            dropdown.classList.add('menu__submenu_hidden');
             const btn = dropdown.parentNode.querySelector('button')
-            btn.setAttribute('aria-expanded', 'false')
+            btn.classList.remove('menu__button_extended');
+            // btn.setAttribute('aria-expanded', 'false')
         }
     });
 }
