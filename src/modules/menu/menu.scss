@@ -1,8 +1,6 @@
 @use '../../scss/colors.scss' as *;
 
 .menu {
-    border: 1px dashed black;
-
     &__list {
         display: flex;
         min-width: max-content;

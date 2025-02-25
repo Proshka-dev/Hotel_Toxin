@@ -1201,9 +1201,6 @@ body {
   line-height: 24px;
 }
 
-.menu {
-  border: 1px dashed black;
-}
 .menu__list {
   display: flex;
   min-width: max-content;
@@ -1710,7 +1707,6 @@ body {
   margin-right: 20px;
 }
 .header__buttons {
-  border: 1px dashed green;
   display: flex;
 }
 .header__button-login {

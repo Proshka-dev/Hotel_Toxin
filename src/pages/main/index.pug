@@ -35,6 +35,7 @@ include ../../composite_modules/booking/booking.pug
 include ../../composite_modules/login/login.pug
 include ../../composite_modules/product/product.pug
 include ../../composite_modules/header/header.pug
+include ../../composite_modules/footer/footer.pug
 
 doctype html
 
@@ -508,6 +509,15 @@ body
             logged: 'true'
           };
         +mixHeader(headerParams2)
+
+      //- footer
+      .uikit-demo__item
+        .uikit-demo__label-container
+          +mixLabel({text: 'footer'})
+        -
+          const footerParams = {
+          };
+        +mixFooter(footerParams)
 
   include ../../modules/footer/footer.pug
 
