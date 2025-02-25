@@ -1,5 +1,56 @@
 //- Объявление миксина
 mixin mixFooter(params)
 	footer.footer
-		img.footer__logo(src="@img/Logo.svg", alt="")
-		.footer__menu
+		.container
+			.footer__body 
+				.footer__logo-review
+					img.footer__logo(src="@img/Logo.svg", alt="")
+					.footer__review Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+				nav.footer__navigation
+					.footer__nav-column
+						.footer__nav-title Навигация
+						ul.footer__nav-list
+							li.footer__nav-item
+								a.footer__link(href="#") О нас
+							li.footer__nav-item
+								a.footer__link(href="#") Новости
+							li.footer__nav-item
+								a.footer__link(href="#") Служба поддержки
+							li.footer__nav-item
+								a.footer__link(href="#")  Услуги
+					.footer__nav-column
+						.footer__nav-title О нас
+						ul.footer__nav-list
+							li.footer__nav-item
+								a.footer__link(href="#")  О сервисе
+							li.footer__nav-item
+								a.footer__link(href="#")  Наша команда
+							li.footer__nav-item
+								a.footer__link(href="#")  Вакансии
+							li.footer__nav-item
+								a.footer__link(href="#")  Инвесторы
+					.footer__nav-column
+						.footer__nav-title Служба поддержки
+						ul.footer__nav-list
+							li.footer__nav-item
+								a.footer__link(href="#") Соглашения
+							li.footer__nav-item
+								a.footer__link(href="#") Сообщества
+							li.footer__nav-item
+								a.footer__link(href="#") Связь с нами
+				.footer__subscribe-column
+					.footer__subscribe-title Подписка
+					.footer__subscribe-text Получайте специальные предложения и новости сервиса
+					.footer__email
+		.footer__line
+		.container
+			.footer__subfooter
+				.footer__subfooter-text
+				.footer__subfooter-socials
+					button.footer__subfooter-button
+						a.footer__subfooter-link(href="#") tw
+					button.footer__subfooter-button
+						a.footer__subfooter-link(href="#") fa
+					button.footer__subfooter-button
+						a.footer__subfooter-link(href="#") in
+
