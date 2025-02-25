@@ -1231,11 +1231,28 @@ body {
   color: rgba(31, 32, 65, 0.5);
 }
 .menu__button:hover {
-  font-weight: bold;
+  visibility: hidden;
+}
+.menu__button:hover .menu__hover-text {
+  display: block;
+  visibility: visible;
+}
+.menu__button:hover .menu__icon {
+  visibility: visible;
   color: rgba(31, 32, 65, 0.75);
 }
 .menu__button.menu__button_extended .menu__icon {
   transform: rotate(180deg);
+}
+.menu__hover-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  font-weight: bold;
+  width: max-content;
+  color: rgba(31, 32, 65, 0.75);
 }
 .menu__icon {
   font-family: "Material Symbols Outlined", serif;
@@ -1255,7 +1272,14 @@ body {
   padding-bottom: 5px;
 }
 .menu__link:hover {
-  font-weight: bold;
+  visibility: hidden;
+}
+.menu__link:hover .menu__hover-text {
+  display: block;
+  visibility: visible;
+}
+.menu__link:hover .menu__icon {
+  visibility: visible;
   color: rgba(31, 32, 65, 0.75);
 }
 .menu__item {

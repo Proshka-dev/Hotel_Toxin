@@ -3,28 +3,39 @@ mixin mixMenu(params)
   nav.menu(aria-label="Сайт")
     ul.menu__list
       li.menu__item.menu__item_active
-        a.menu__link(href="#")  О нас
+        a.menu__link(href="#") О нас
+          .menu__hover-text О нас
       li.menu__item.menu__item_expendable(data-has-children)
         button.menu__button(aria-expanded="false" aria-controls="css-submenu1") Услуги
+          .menu__hover-text Услуги
           .menu__icon expand_more
         ul.menu__submenu.menu__submenu_hidden
           li.menu__item
             a.menu__link(href="#") Услуга 1
+              .menu__hover-text Услуга 1
           li.menu__item
             a.menu__link(href="#") Услуга 2
+              .menu__hover-text Услуга 2
           li.menu__item
             a.menu__link(href="#") Услуга 3
+              .menu__hover-text Услуга 3
       li.menu__item
         a.menu__link(href="#") Вакансии
+          .menu__hover-text Вакансии
       li.menu__item
         a.menu__link(href="#") Новости
+          .menu__hover-text Новости
       li.menu__item.menu__item_expendable(data-has-children)
         button.menu__button(aria-expanded="false" aria-controls="css-submenu2") Соглашения
+          .menu__hover-text Соглашения
           .menu__icon expand_more
         ul.menu__submenu.menu__submenu_hidden
           li.menu__item
             a.menu__link(href="#") Соглашение 1
+              .menu__hover-text Соглашение 1
           li.menu__item
             a.menu__link(href="#") Соглашение 2
+              .menu__hover-text Соглашение 2
           li.menu__item
             a.menu__link(href="#") Соглашение 3
+              .menu__hover-text Соглашение 3
