@@ -1765,6 +1765,133 @@ body {
   padding: 9px 20px 10px 20px;
 }
 
+.footer__body {
+  display: flex;
+  gap: 40px;
+  padding: 104px 0 100px 0;
+}
+@media (max-width: 768px) {
+  .footer__body {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+  }
+}
+.footer__logo-review {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .footer__logo-review {
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer__logo {
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .footer__logo {
+    margin-bottom: 0;
+  }
+}
+.footer__review {
+  font-size: 14px;
+  color: rgba(31, 32, 65, 0.75);
+  line-height: 24px;
+}
+@media (max-width: 768px) {
+  .footer__review {
+    display: none;
+  }
+}
+.footer__navigation {
+  flex: 2;
+  display: flex;
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .footer__navigation {
+    display: none;
+  }
+}
+.footer__nav-title {
+  font-size: 12px;
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 21px;
+}
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer__link {
+  font-size: 14px;
+  color: rgba(31, 32, 65, 0.75);
+}
+.footer__subscribe-column {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .footer__subscribe-column {
+    display: none;
+  }
+}
+.footer__subscribe-title {
+  font-size: 12px;
+  color: #1f2041;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 21px;
+}
+.footer__subscribe-text {
+  font-size: 14px;
+  color: rgba(31, 32, 65, 0.75);
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+.footer__line {
+  border-bottom: 1px solid rgba(31, 33, 65, 0.25);
+}
+@media (max-width: 768px) {
+  .footer__line {
+    display: none;
+  }
+}
+.footer__subfooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 23px 0;
+}
+@media (max-width: 768px) {
+  .footer__subfooter {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 120px;
+  }
+}
+.footer__subfooter-text {
+  font-size: 14px;
+  color: rgba(31, 32, 65, 0.75);
+}
+@media (max-width: 768px) {
+  .footer__subfooter-text {
+    margin-bottom: 25px;
+  }
+}
+.footer__subfooter-socials {
+  display: flex;
+  gap: 20px;
+}
+.footer__icon {
+  font-size: 24px;
+  line-height: 0.977em;
+  background: linear-gradient(#BC9CFF, #8BA4F9);
+  background-clip: text;
+  color: transparent;
+}
+
 .air-datepicker {
   font-weight: normal;
   --adp-font-family: -apple-system, BlinkMacSystemFont, "Montserrat", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -1939,6 +2066,7 @@ body {
 .container {
   max-width: 1180px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .uikit-demo {

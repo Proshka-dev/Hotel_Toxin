@@ -1,3 +1,154 @@
 @use '../../scss/colors.scss' as *;
 
-.footer {}
+.footer {
+
+    &__body {
+        display: flex;
+        gap: 40px;
+        padding: 104px 0 100px 0;
+
+        @media (max-width: 768px) {
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+
+    }
+
+    &__logo-review {
+        flex: 1;
+
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+
+    &__logo {
+        margin-bottom: 20px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__review {
+        font-size: 14px;
+        color: $color-darkshade75;
+        line-height: 24px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__navigation {
+        flex: 2;
+
+        display: flex;
+        gap: 40px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+    }
+
+    &__nav-column {}
+
+    &__nav-title {
+        font-size: 12px;
+        color: $color-darkshade100;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 21px;
+    }
+
+    &__nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__nav-item {}
+
+    &__link {
+        font-size: 14px;
+        color: $color-darkshade75;
+    }
+
+    &__subscribe-column {
+        flex: 1;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__subscribe-title {
+        font-size: 12px;
+        color: $color-darkshade100;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 21px;
+    }
+
+    &__subscribe-text {
+        font-size: 14px;
+        color: $color-darkshade75;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+
+    &__email {}
+
+    &__line {
+        border-bottom: 1px solid $color-darkshade25;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__subfooter {
+        display: flex;
+        justify-content: space-between;
+        padding: 23px 0;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+    }
+
+    &__subfooter-text {
+        font-size: 14px;
+        color: $color-darkshade75;
+
+        @media (max-width: 768px) {
+            margin-bottom: 25px;
+        }
+
+    }
+
+    &__subfooter-socials {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__subfooter-button {}
+
+    &__subfooter-link {}
+
+    &__icon {
+        font-size: 24px;
+        line-height: 0.977em;
+        background: linear-gradient($color-purple, $color-blue);
+        background-clip: text;
+        color: transparent;
+    }
+
+}

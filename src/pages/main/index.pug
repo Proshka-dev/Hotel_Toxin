@@ -511,13 +511,13 @@ body
         +mixHeader(headerParams2)
 
       //- footer
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'footer'})
-        -
-          const footerParams = {
-          };
-        +mixFooter(footerParams)
+      //- .uikit-demo__item
+      //-   .uikit-demo__label-container
+  -
+    const footerParams = {
+    };
+  +mixLabel({text: 'footer'})
+  +mixFooter(footerParams)
 
   include ../../modules/footer/footer.pug
 
