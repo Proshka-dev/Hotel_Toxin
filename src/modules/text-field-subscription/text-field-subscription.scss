@@ -3,20 +3,6 @@
 .text-field-subscription {
     &__container {
         position: relative;
-
-        &::before {
-            content: 'arrow_forward';
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-            right: 10px;
-            color: $color-purple;
-
-            font-family: "Material Symbols Outlined", serif;
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-            font-size: 24px;
-
-        }
     }
 
     &__input {
@@ -43,4 +29,17 @@
 
 
     }
+
+    &__button {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 10px;
+        color: $color-purple;
+
+        font-family: "Material Symbols Outlined", serif;
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        font-size: 24px;
+    }
+
 }

@@ -189,17 +189,6 @@ body {
 .text-field-subscription__container {
   position: relative;
 }
-.text-field-subscription__container::before {
-  content: "arrow_forward";
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 10px;
-  color: #BC9CFF;
-  font-family: "Material Symbols Outlined", serif;
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
-  font-size: 24px;
-}
 .text-field-subscription__input {
   color: rgba(31, 32, 65, 0.75);
   border: 1px solid rgba(31, 33, 65, 0.25);
@@ -215,6 +204,16 @@ body {
 .text-field-subscription__input:focus, .text-field-subscription__input:hover {
   color: rgba(31, 32, 65, 0.75);
   border-color: rgba(31, 32, 65, 0.75);
+}
+.text-field-subscription__button {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 10px;
+  color: #BC9CFF;
+  font-family: "Material Symbols Outlined", serif;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 24px;
 }
 
 /* кастомный select */
@@ -1799,7 +1798,7 @@ body {
     background: linear-gradient(#BC9CFF, #8BA4F9);
     background-clip: text;
     color: transparent;
-    padding: 0 20px;
+    padding: 10px 20px;
   }
 }
 
