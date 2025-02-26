@@ -487,32 +487,28 @@ body
       //-   +mixMenu(menuParams)
 
       //- header
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'header'})
-        -
-          const headerParams1 = {
-            buttonLightParams: {text: 'войти'},
-            buttonDarkParams: {text: 'зарегистрироваться'},
-            logged: 'false'
-          };
-        +mixHeader(headerParams1)
+  +mixLabel({text: 'header'})
+  -
+    const headerParams1 = {
+      buttonLightParams: {text: 'войти'},
+      buttonDarkParams: {text: 'зарегистрироваться'},
+      logged: 'false'
+    };
+  +mixHeader(headerParams1)
 
       //- header - user logged
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'header - user logged'})
-        -
-          const headerParams2 = {
-            buttonLightParams: {text: 'войти'},
-            buttonDarkParams: {text: 'зарегистрироваться'},
-            logged: 'true'
-          };
-        +mixHeader(headerParams2)
-
-      //- footer
       //- .uikit-demo__item
       //-   .uikit-demo__label-container
+      //-     +mixLabel({text: 'header - user logged'})
+      //-   -
+      //-     const headerParams2 = {
+      //-       buttonLightParams: {text: 'войти'},
+      //-       buttonDarkParams: {text: 'зарегистрироваться'},
+      //-       logged: 'true'
+      //-     };
+      //-   +mixHeader(headerParams2)
+
+      //- footer
   -
     const footerParams = {
     };

@@ -1,17 +1,19 @@
 //- Объявление миксина
 mixin mixHeader(params)
 	header.header
-		img.header__logo(src="@img/Logo.svg", alt="")
-		.header__menu
-			+mixMenu()
-		if (params.logged === 'true')
-			.header__user
-				button.header__username Юлий Цезарь
-			button.header__burger menu
-		else
-			.header__buttons
-				.header__button-login
-					+mixButtonLight(params.buttonLightParams)
-				.header__button-register
-					+mixButtonDark(params.buttonDarkParams)
-			button.header__burger menu
+		.container
+			.header__body
+				img.header__logo(src="@img/Logo.svg", alt="")
+				.header__menu
+					+mixMenu()
+				if (params.logged === 'true')
+					.header__user
+						button.header__username Юлий Цезарь
+					button.header__burger menu
+				else
+					.header__buttons
+						.header__button-login
+							+mixButtonLight(params.buttonLightParams)
+						.header__button-register
+							+mixButtonDark(params.buttonDarkParams)
+					button.header__burger menu

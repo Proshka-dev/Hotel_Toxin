@@ -1,11 +1,13 @@
 @use '../../scss/colors.scss' as *;
 
 .header {
-	width: 100%;
-	border: 1px dashed black;
-	display: flex;
-	padding: 15px 0px;
-	align-items: center;
+	&__body {
+		width: 100%;
+		border: 1px dashed black;
+		display: flex;
+		padding: 15px 0px;
+		align-items: center;
+	}
 
 	&__logo {
 		@media (max-width: 992px) {
@@ -18,9 +20,9 @@
 		margin-left: auto;
 		margin-right: 20px;
 
-		@media (max-width: 992px) {
-			display: none;
-		}
+		// @media (max-width: 992px) {
+		// 	display: none;
+		// }
 
 	}
 
