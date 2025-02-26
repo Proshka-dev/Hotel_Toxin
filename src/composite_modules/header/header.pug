@@ -7,9 +7,11 @@ mixin mixHeader(params)
 		if (params.logged === 'true')
 			.header__user
 				button.header__username Юлий Цезарь
+			.header__burger menu
 		else
 			.header__buttons
 				.header__button-login
 					+mixButtonLight(params.buttonLightParams)
 				.header__button-register
 					+mixButtonDark(params.buttonDarkParams)
+			.header__burger menu

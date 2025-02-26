@@ -1737,12 +1737,27 @@ body {
   padding: 15px 0px;
   align-items: center;
 }
+@media (max-width: 992px) {
+  .header__logo {
+    margin-right: auto;
+  }
+}
 .header__menu {
   margin-left: auto;
   margin-right: 20px;
 }
+@media (max-width: 992px) {
+  .header__menu {
+    display: none;
+  }
+}
 .header__buttons {
   display: flex;
+}
+@media (max-width: 992px) {
+  .header__buttons {
+    display: none;
+  }
 }
 .header__button-login {
   margin-right: 20px;
@@ -1752,6 +1767,14 @@ body {
   border-left: 1px solid rgba(31, 33, 65, 0.1);
   height: 30px;
   display: flex;
+}
+@media (max-width: 992px) {
+  .header__user {
+    border-left: none;
+    border-right: 1px solid rgba(31, 33, 65, 0.1);
+    padding-left: 0;
+    padding-right: 20px;
+  }
 }
 .header__username {
   font-size: 14px;
@@ -1763,6 +1786,21 @@ body {
 }
 .header .button-dark {
   padding: 9px 20px 10px 20px;
+}
+.header__burger {
+  display: none;
+}
+@media (max-width: 992px) {
+  .header__burger {
+    display: block;
+    font-family: "Material Symbols Outlined", serif;
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+    font-size: 24px;
+    background: linear-gradient(#BC9CFF, #8BA4F9);
+    background-clip: text;
+    color: transparent;
+    padding: 0 20px;
+  }
 }
 
 .footer__body {
