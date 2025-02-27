@@ -1257,7 +1257,7 @@ body {
 @media (max-width: 992px) {
   .menu__body {
     background-color: white;
-    width: fit-content;
+    width: 334px;
     height: 100%;
     padding: 30px 60px 10px 30px;
   }

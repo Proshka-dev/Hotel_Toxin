@@ -1,10 +1,60 @@
-// ************************ Функции ************************
+//*****************************************************************
+// ************************ Основная часть ************************
+//*****************************************************************
+const nav = document.querySelector('.menu').parentElement as HTMLElement;
+const submenus = nav.querySelectorAll('.menu__item_expendable');
+const dropdowns = nav.querySelectorAll('.menu__item_expendable > .menu__submenu');
+const burgerMenu = document.querySelector('.menu') as HTMLElement;
+const burgerIcon = document.querySelector('.header__burger') as HTMLElement;
+const burgerMenuBody = burgerMenu.querySelector('.menu__body') as HTMLElement;
+
+
+// Организовываем открытие/закрытие подменю
+submenus.forEach((item) => {
+    const dropdown = item.querySelector(':scope > .menu__submenu') as HTMLElement;
+    const button = item.querySelector(':scope > .menu__button') as HTMLElement;
+
+    // открываем/закрываем подменю по клику на кнопку
+    button.addEventListener('click', function (e) {
+        toggleDropdown({ button, dropdown })
+    })
+
+    // Обрабатываем нажатие на Esc
+    dropdown.addEventListener('keydown', (e: KeyboardEvent) => {
+        //e.stopImmediatePropagation()
+
+        if (e.code === '27' && focusIsInside(dropdown)) {
+            toggleDropdown({ button, dropdown })
+            button.focus()
+        }
+    }, false)
+})
+
+// Закрываем навигацию, если протапались за её пределы
+document.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav);
+
+// Закрываем навигацию, если кликнули вне навигации
+window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav);
+
+// Показываем меню бургер при нажатии иконку бургера
+burgerIcon.addEventListener('click', openMenuWhenClickIcon)
+
+// Скрываем меню бургер при нажатии на Esc
+window.addEventListener('keydown', closeMenuWhenPressEsc);
+
+// Закрываем меню, если кликнули за его пределами
+window.addEventListener('click', closeMenuWhenClickingOutside);
+
+
+
+//*****************************************************************
+// ************************ Функции *******************************
+//*****************************************************************
 /** Активация / деактивания меню 2 уровня */
 interface IToggleDropdownParams {
     button: HTMLElement;
     dropdown: HTMLElement;
 };
-
 function toggleDropdown({ button, dropdown }: IToggleDropdownParams) {
     if (button.classList.contains('menu__button_extended')) {
         button.classList.remove('menu__button_extended');
@@ -44,36 +94,35 @@ function collapseDropdownsWhenClickingOutsideNav(e: Event) {
     });
 }
 
-// ************************ Основная часть ************************
+/** Показываем меню бургер при нажатии иконку бургера */
+function openMenuWhenClickIcon(e: Event) {
+    console.log('Клик по бургеру');
+    //блокировка скролла body при открытом меню
+    //document.body.classList.toggle('_lock');
+    burgerMenu.classList.add('menu_active');
 
-const nav = document.querySelector('.menu').parentElement as HTMLElement;
-const submenus = nav.querySelectorAll('.menu__item_expendable');
-const dropdowns = nav.querySelectorAll('.menu__item_expendable > .menu__submenu');
+}
 
-
-// Находим подменю
-submenus.forEach((item) => {
-    const dropdown = item.querySelector(':scope > .menu__submenu') as HTMLElement;
-    const button = item.querySelector(':scope > .menu__button') as HTMLElement;
-
-    button.addEventListener('click', function (e) {
-        toggleDropdown({ button, dropdown })
-    })
-
-    // Обрабатываем нажатие на Esc
-    dropdown.addEventListener('keydown', (e: KeyboardEvent) => {
-        e.stopImmediatePropagation()
-
-        if (e.code === '27' && focusIsInside(dropdown)) {
-            toggleDropdown({ button, dropdown })
-            button.focus()
+/** Скрытие меню по нажатию Esc */
+function closeMenuWhenPressEsc(e: KeyboardEvent) {
+    const target = e.target as HTMLElement;
+    if (e.code === 'Escape') {
+        // Если меню активно, отключаем его
+        if (burgerMenu.classList.contains('menu_active')) {
+            burgerMenu.classList.remove('menu_active');
         }
-    }, false)
-})
+    }
 
+}
 
-// Закрываем навигацию, если протапались за её пределы
-document.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav)
+/** Скрытие меню по клику снаружи */
+function closeMenuWhenClickingOutside(e: Event) {
+    const target = e.target as HTMLElement;
+    //Если клик не по иконке бургера
+    // и меню открыто
+    // и цель клика не внутри burgerMenuBody
 
-// Закрываем навигацию, если кликнули вне навигации
-window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
+    if ((target !== burgerIcon) && (burgerMenu.classList.contains('menu_active')) && (!burgerMenuBody.contains(target))) {
+        burgerMenu.classList.remove('menu_active');
+    }
+}
