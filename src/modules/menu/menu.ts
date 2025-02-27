@@ -1,6 +1,11 @@
 // ************************ Функции ************************
 /** Активация / деактивания меню 2 уровня */
-function toggleDropdown(button, dropdown) {
+interface IToggleDropdownParams {
+    button: HTMLElement;
+    dropdown: HTMLElement;
+};
+
+function toggleDropdown({ button, dropdown }: IToggleDropdownParams) {
     if (button.classList.contains('menu__button_extended')) {
         button.classList.remove('menu__button_extended');
         dropdown.classList.add('menu__submenu_hidden');
@@ -11,13 +16,13 @@ function toggleDropdown(button, dropdown) {
 }
 
 /** Фокус ввода внутри элемента? */
-function focusIsInside(element) {
+function focusIsInside(element: HTMLElement) {
     return element.contains(document.activeElement)
 }
 
 /** Скрытие подменю протапались за его пределы */
-function collapseDropdownsWhenTabbingOutsideNav(e) {
-    if (e.keyCode === 9 && !focusIsInside(nav)) {
+function collapseDropdownsWhenTabbingOutsideNav(e: KeyboardEvent) {
+    if (e.code === '9' && !focusIsInside(nav)) {
         dropdowns.forEach(function (dropdown) {
             dropdown.classList.add('menu__submenu_hidden');
             const btn = dropdown.parentNode.querySelector('button')
@@ -27,8 +32,8 @@ function collapseDropdownsWhenTabbingOutsideNav(e) {
 }
 
 /** Скрытие подменю по клику снаружи */
-function collapseDropdownsWhenClickingOutsideNav(e) {
-    const target = e.target
+function collapseDropdownsWhenClickingOutsideNav(e: Event) {
+    const target = e.target as HTMLElement;
 
     dropdowns.forEach(function (dropdown) {
         if (!dropdown.parentNode.contains(target)) {
@@ -41,26 +46,26 @@ function collapseDropdownsWhenClickingOutsideNav(e) {
 
 // ************************ Основная часть ************************
 
-const nav = document.querySelector('.menu').parentElement;
+const nav = document.querySelector('.menu').parentElement as HTMLElement;
 const submenus = nav.querySelectorAll('.menu__item_expendable');
 const dropdowns = nav.querySelectorAll('.menu__item_expendable > .menu__submenu');
 
 
 // Находим подменю
 submenus.forEach((item) => {
-    const dropdown = item.querySelector(':scope > .menu__submenu')
-    const button = item.querySelector(':scope > .menu__button')
+    const dropdown = item.querySelector(':scope > .menu__submenu') as HTMLElement;
+    const button = item.querySelector(':scope > .menu__button') as HTMLElement;
 
     button.addEventListener('click', function (e) {
-        toggleDropdown(button, dropdown)
+        toggleDropdown({ button, dropdown })
     })
 
     // Обрабатываем нажатие на Esc
-    dropdown.addEventListener('keydown', (e) => {
+    dropdown.addEventListener('keydown', (e: KeyboardEvent) => {
         e.stopImmediatePropagation()
 
-        if (e.keyCode === 27 && focusIsInside(dropdown)) {
-            toggleDropdown(button, dropdown)
+        if (e.code === '27' && focusIsInside(dropdown)) {
+            toggleDropdown({ button, dropdown })
             button.focus()
         }
     }, false)
