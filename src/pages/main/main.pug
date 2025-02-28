@@ -42,8 +42,6 @@ doctype html
 +mixHead('Главная')
 
 body
-  include ../../modules/header/header.pug
-  
   .uikit-demo
     .container
       //- Пример вставки картинки
@@ -514,8 +512,6 @@ body
     };
   +mixLabel({text: 'footer'})
   +mixFooter(footerParams)
-
-  include ../../modules/footer/footer.pug
-
+  
   script(src='js/main.js')
   

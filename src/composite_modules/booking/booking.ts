@@ -1,18 +1,19 @@
-import { bookingParams } from '../../pages/main/main.js';
-
-// Функция разделения числа по разрядам
+// *********************************************************************************
+//                              Функции
+// *********************************************************************************
+/** Функция разделения числа по разрядам */
 function divideNumDigits(num: number) {
     return String(num).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
 
-//  Преобразование строки "dd.MM.yyyy" в дату
+/** Преобразование строки "dd.MM.yyyy" в дату */
 function convertToDate(dateString: String) {
     let d = dateString.split(".");
     let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
     return dat;
 }
 
-// Функция рассчета количества дней
+/** Функция рассчета количества дней */
 function daysBetween(startDate: Date, endDate: Date) {
     if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
         throw new Error('Применяйте корректные объекты Date.');
@@ -25,24 +26,12 @@ function daysBetween(startDate: Date, endDate: Date) {
     return diffDays;
 }
 
-// ********************************************************************************************
-// *******************************  Основная часть  *******************************************
-// ********************************************************************************************
+// *********************************************************************************
+//                              Основная часть
+// *********************************************************************************
+import { bookingParams } from '../../pages/main/main.js';
 
-// interface IBookingParams {
-//     number: string;
-//     type: string;
-//     price: number;
-//     discountChild: number;
-//     discountBaby: number;
-//     serviceFee: number;
-//     serviceFeeDiscount: number;
-//     additionalServiceFee: number;
-//     days: number;
-// };
-
-// ********************************************************************************************
-// Обновление данных карточки заказа
+/** Обновление данных карточки заказа */
 const bookingUpdateCard = () => {
     const bookingWrapper = document.querySelector('.booking') as HTMLElement;
     const bookingElementRoomNumber = bookingWrapper.querySelector('.booking__number') as HTMLElement;
@@ -130,8 +119,7 @@ const bookingUpdateCard = () => {
 
 };
 
-// ********************************************************************************************
-// Инициалмзация обработчика изменений в диапазоне дат
+/** Инициалмзация обработчика изменений в диапазоне дат */
 const bookingChangeHandlersInitialization = () => {
     const bookingWrapper = document.querySelector('.booking') as HTMLElement;
     if (!bookingWrapper) { return };
@@ -170,6 +158,10 @@ const bookingChangeHandlersInitialization = () => {
 
 };
 
+// *********************************************************************************
+//                              Экспорт
+// *********************************************************************************
 export {
-    bookingUpdateCard, bookingChangeHandlersInitialization
+    bookingUpdateCard,
+    bookingChangeHandlersInitialization,
 };

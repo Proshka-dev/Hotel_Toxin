@@ -40,15 +40,6 @@ const products = [
     { id: 'prod29', name: 'Название29' },
     { id: 'prod30', name: 'Название30' },
 ]
-
-window.addEventListener('DOMContentLoaded', () => {
-    // Обновляем статус пользователя.
-    //  Вызываем при загрузке, либо после смены статуса (залогинен/не залогинен)
-    updateUserStatus();
-});
-
-export { products };
-
 /****************************** Функции *********************************/
 /** Функция обновления статуса пользователя */
 const updateUserStatus = () => {
@@ -61,3 +52,5 @@ const updateUserStatus = () => {
         changeUserNameInHeader(''); // смена имени пользователя
     };
 };
+
+export { products, updateUserStatus };

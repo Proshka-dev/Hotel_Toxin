@@ -1,10 +1,12 @@
-// Функция разделения числа по разрядам
+// *********************************************************************************
+//                              Функции
+// *********************************************************************************
+/** Функция разделения числа по разрядам */
 function divideDigits(str: string) {
     return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
 
-
-// Функция по назначению обработчиков событий на открытие и закрытие списка
+/** Функция по назначению обработчиков событий на открытие и закрытие списка */
 interface IRangeSliderParams {
     vRangeInputMin: HTMLInputElement,
     vRangeInputMax: HTMLInputElement,
@@ -15,7 +17,6 @@ interface IRangeSliderParams {
     vSetMin: boolean
 
 }
-
 const rangeSliderUpdate = function (params: IRangeSliderParams) {
     const { vRangeInputMin, vRangeInputMax, vRangeProgress, vTextElement, vPriceGap, vMinPrice, vSetMin } = params;
 
@@ -46,25 +47,49 @@ const rangeSliderUpdate = function (params: IRangeSliderParams) {
     vTextElement.innerHTML = divideDigits(vRangeInputMin.value) + '₽ - ' + divideDigits(vRangeInputMax.value) + '₽';
 };
 
+// *********************************************************************************
+//                              Основная часть
+// *********************************************************************************
+const sliderRangeActivate = () => {
+    /** Выборка всех .slider-range и обработка каждого */
+    document.querySelectorAll('.slider-range').forEach(function (sliderRangeWrapper: HTMLElement) {
+        // Селекторы
+        const rangeInputMin = sliderRangeWrapper.querySelector('.slider-range__min') as HTMLInputElement; // [0]
+        const rangeInputMax = sliderRangeWrapper.querySelector('.slider-range__max') as HTMLInputElement; // [1]
+        const rangeProgress = sliderRangeWrapper.querySelector('.slider-range__progress') as HTMLElement;
+        const textElement = sliderRangeWrapper.querySelector('.slider-range__text') as HTMLElement;
 
+        // Переменные
+        let priceGap = parseInt(sliderRangeWrapper.dataset.gap); // минимальная разница между максимумом и минимумом
+        let minPrice = parseInt(sliderRangeWrapper.dataset.min); // минимальный порог цены
 
+        // Event - ввод на элементе с нижним порогом диапазона
+        rangeInputMin.addEventListener('input', e => {
+            rangeSliderUpdate({
+                vRangeInputMin: rangeInputMin,
+                vRangeInputMax: rangeInputMax,
+                vRangeProgress: rangeProgress,
+                vTextElement: textElement,
+                vPriceGap: priceGap,
+                vMinPrice: minPrice,
+                vSetMin: true
+            });
+        });
 
-// *****************************************************************************
-// ************** Выборка всех .slider-range и обработка каждого ***************
-// *****************************************************************************
-document.querySelectorAll('.slider-range').forEach(function (sliderRangeWrapper: HTMLElement) {
-    // Селекторы
-    const rangeInputMin = sliderRangeWrapper.querySelector('.slider-range__min') as HTMLInputElement; // [0]
-    const rangeInputMax = sliderRangeWrapper.querySelector('.slider-range__max') as HTMLInputElement; // [1]
-    const rangeProgress = sliderRangeWrapper.querySelector('.slider-range__progress') as HTMLElement;
-    const textElement = sliderRangeWrapper.querySelector('.slider-range__text') as HTMLElement;
+        // Event - ввод на элементе с верхним порогом диапазона
+        rangeInputMax.addEventListener('input', e => {
+            rangeSliderUpdate({
+                vRangeInputMin: rangeInputMin,
+                vRangeInputMax: rangeInputMax,
+                vRangeProgress: rangeProgress,
+                vTextElement: textElement,
+                vPriceGap: priceGap,
+                vMinPrice: minPrice,
+                vSetMin: false
+            });
+        });
 
-    // Переменные
-    let priceGap = parseInt(sliderRangeWrapper.dataset.gap); // минимальная разница между максимумом и минимумом
-    let minPrice = parseInt(sliderRangeWrapper.dataset.min); // минимальный порог цены
-
-    // Event - ввод на элементе с нижним порогом диапазона
-    rangeInputMin.addEventListener('input', e => {
+        // Первоначальная установка положения ввыбранного диапазона
         rangeSliderUpdate({
             vRangeInputMin: rangeInputMin,
             vRangeInputMax: rangeInputMax,
@@ -74,30 +99,11 @@ document.querySelectorAll('.slider-range').forEach(function (sliderRangeWrapper:
             vMinPrice: minPrice,
             vSetMin: true
         });
-    });
 
-    // Event - ввод на элементе с верхним порогом диапазона
-    rangeInputMax.addEventListener('input', e => {
-        rangeSliderUpdate({
-            vRangeInputMin: rangeInputMin,
-            vRangeInputMax: rangeInputMax,
-            vRangeProgress: rangeProgress,
-            vTextElement: textElement,
-            vPriceGap: priceGap,
-            vMinPrice: minPrice,
-            vSetMin: false
-        });
     });
+}
 
-    // Первоначальная установка положения ввыбранного диапазона
-    rangeSliderUpdate({
-        vRangeInputMin: rangeInputMin,
-        vRangeInputMax: rangeInputMax,
-        vRangeProgress: rangeProgress,
-        vTextElement: textElement,
-        vPriceGap: priceGap,
-        vMinPrice: minPrice,
-        vSetMin: true
-    });
-
-});
+// *********************************************************************************
+//                              Экспорт
+// *********************************************************************************
+export { sliderRangeActivate }
