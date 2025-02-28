@@ -3,7 +3,7 @@ import { changeUserNameInHeader } from '../composite_modules/header/header.js';
 
 // Данные пользователя
 let userData = {
-    logged: false,
+    logged: true,
     name: 'Юлий Цезарь',
 };
 

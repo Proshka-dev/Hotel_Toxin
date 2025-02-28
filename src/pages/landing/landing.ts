@@ -1,14 +1,6 @@
-/** Импорт данных о товарах */
-import { products } from '../../common/common.js';
-
 import { paginate } from '../../modules/pagination/pagination.js';
 import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
-
-/** Импорт функций для активации модулей */
-import { dropdownActivate } from '../../modules/dropdown/dropdown.js';
-import { buttonLikeActivate } from '../../modules/button-like/button-like.js';
-import { checkboxListExpActivate } from '../../modules/checkbox-list-exp/checkbox-list-exp.js';
-
+import { products } from '../../common/common.js';
 
 // Данные для карточки заказа
 let bookingParams = {
@@ -24,16 +16,9 @@ let bookingParams = {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    /** Активирование функций модулей */
-    dropdownActivate();
-    buttonLikeActivate();
-    checkboxListExpActivate();
-
-
     paginate(products);
     bookingUpdateCard();
     bookingChangeHandlersInitialization();
-
 });
 
 // экспорт переменной с данными о карточке заказа

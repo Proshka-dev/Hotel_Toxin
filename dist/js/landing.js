@@ -80,6 +80,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/pages/landing/landing.ts":
+/*!**************************************!*\
+  !*** ./src/pages/landing/landing.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   bookingParams: () => (/* binding */ bookingParams)\n/* harmony export */ });\n/* harmony import */ var _modules_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/pagination/pagination.js */ \"./src/modules/pagination/pagination.ts\");\n/* harmony import */ var _composite_modules_booking_booking_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../composite_modules/booking/booking.js */ \"./src/composite_modules/booking/booking.ts\");\n/* harmony import */ var _common_common_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/common.js */ \"./src/common/common.ts\");\n\n\n\n// Данные для карточки заказа\nlet bookingParams = {\n    roomNumber: '888',\n    type: 'Люкс',\n    price: 9990,\n    discountChild: 1,\n    discountBaby: 1,\n    serviceFee: 0,\n    Discount: 2179,\n    additionalServiceFee: 300,\n    days: 0,\n};\nwindow.addEventListener('DOMContentLoaded', () => {\n    (0,_modules_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_0__.paginate)(_common_common_js__WEBPACK_IMPORTED_MODULE_2__.products);\n    (0,_composite_modules_booking_booking_js__WEBPACK_IMPORTED_MODULE_1__.bookingUpdateCard)();\n    (0,_composite_modules_booking_booking_js__WEBPACK_IMPORTED_MODULE_1__.bookingChangeHandlersInitialization)();\n});\n// экспорт переменной с данными о карточке заказа\n\n\n\n//# sourceURL=webpack://hotel-toxin/./src/pages/landing/landing.ts?");
+
+/***/ }),
+
 /***/ "./src/pages/main/main.ts":
 /*!********************************!*\
   !*** ./src/pages/main/main.ts ***!
@@ -149,8 +159,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/main/main.ts");
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/landing/landing.ts");
 /******/ 	
 /******/ })()
 ;

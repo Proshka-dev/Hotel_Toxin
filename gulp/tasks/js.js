@@ -4,8 +4,13 @@ import webpack from "webpack";
 // import webpackConfig from "../../webpack.config.js";
 
 const config = {
+  entry: {
+    main: './src/pages/main/main.ts',
+    landing: './src/pages/landing/landing.ts',
+  },
   output: {
-    filename: "main.js",
+    //filename: "main.js",
+    filename: '[name].js'
   },
   mode: "development",
   module: {
