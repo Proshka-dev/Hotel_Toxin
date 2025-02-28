@@ -42,5 +42,44 @@ doctype html
 +mixHead('Главная')
 
 body
+
+  //- header
+  -
+    const headerParams = {
+      buttonLightParams: {text: 'войти'},
+      buttonDarkParams: {text: 'зарегистрироваться'},
+    };
+  +mixHeader(headerParams)
+
+  section.main
+    .main__text-container
+      .main__text Лучшие номера для вашей работы, отдыха и просто вдохновения
+    .main__search
+      //- search
+      -
+        const searchParams = {
+          title: 'Найдем номера под ваши пожелания',
+          dropdownSplitParams: {
+            label1: 'Прибытие',
+            label2: 'Выезд',
+            inputs:[
+              {id: 'inputdate3', name: 'date-from'},
+              {id: 'inputdate4', name: 'date-to'},
+            ]
+          },
+          label1: ({text: 'гости'}),
+          dropdownParams: {
+            label: 'Гости',
+            placeholder: 'Сколько гостей',
+            type: '1', // с гостями
+            inputNames: ['select-value7', 'select-value8', 'select-value9']
+          },
+          buttonArrowParams: {text: 'Подобрать номер'},
+        };
+      +mixSearch(searchParams)
+
+  //- footer
+  +mixFooter()
+
   script(src='js/landing.js')
   

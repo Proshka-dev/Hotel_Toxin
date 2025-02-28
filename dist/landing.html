@@ -13,5 +13,203 @@
   <!-- Подключение Material Icons--><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 </head>
 <body>
+  <header class="header">
+    <div class="container">
+      <div class="header__body"><img class="header__logo" src="img/Logo.svg" alt=""/>
+        <div class="header__menu">
+          <nav class="menu" aria-label="Сайт">
+            <div class="menu__body"><img class="menu__logo" src="img/Logo.svg" alt="Toxin"/>
+              <ul class="menu__list">
+                <li class="menu__item menu__item_active"><a class="menu__link" href="#">О нас
+                    <div class="menu__hover-text">О нас</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu1">Услуги
+                    <div class="menu__hover-text">Услуги</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Трансфер
+                        <div class="menu__hover-text">Трансфер</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Питание
+                        <div class="menu__hover-text">Питание</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Помощь инвалидам
+                        <div class="menu__hover-text">Помощь инвалидам</div></a></li>
+                  </ul>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Вакансии
+                    <div class="menu__hover-text">Вакансии</div></a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Новости
+                    <div class="menu__hover-text">Новости</div></a></li>
+                <li class="menu__item menu__item_expendable" data-has-children="data-has-children">
+                  <button class="menu__button" aria-expanded="false" aria-controls="css-submenu2">Соглашения
+                    <div class="menu__hover-text">Соглашения</div>
+                    <div class="menu__icon">expand_more</div>
+                  </button>
+                  <ul class="menu__submenu menu__submenu_hidden">
+                    <li class="menu__item"><a class="menu__link" href="#">Правила пользования
+                        <div class="menu__hover-text">Правила пользования</div></a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Образец договора
+                        <div class="menu__hover-text">Образец договора</div></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="header__logged-container">
+          <div class="header__user">
+            <button class="header__username"></button>
+          </div>
+        </div>
+        <div class="header__unlogged-container">
+          <div class="header__buttons">
+            <div class="header__button-login">
+              <button class="button-light">
+                <div class="button-light__content">войти</div>
+              </button>
+            </div>
+            <div class="header__button-register">
+              <button class="button-dark">зарегистрироваться</button>
+            </div>
+          </div>
+          <button class="header__icon-login">login</button>
+        </div>
+        <button class="header__burger">menu</button>
+      </div>
+    </div>
+  </header>
+  <section class="main">
+    <div class="main__text-container">
+      <div class="main__text">Лучшие номера для вашей работы, отдыха и просто вдохновения</div>
+    </div>
+    <div class="main__search">
+      <div class="search">
+        <div class="search__title">Найдем номера под ваши пожелания</div>
+        <div class="search__dropdown-date-split">
+          <div class="dd-date-split">
+            <div class="dd-date-split__body">
+              <div class="dd-date-split__item">
+                <div class="dd-date-split__label">Прибытие</div>
+                <div class="dd-date-split__container">
+                  <input class="dd-date-split__input" type="text" id="inputdate3" name="date-from" placeholder="ДД.ММ.ГГГГ"/>
+                  <div class="dd-date-split__icon">expand_more</div>
+                </div>
+              </div>
+              <div class="dd-date-split__item">
+                <div class="dd-date-split__label">Выезд</div>
+                <div class="dd-date-split__container">
+                  <input class="dd-date-split__input" type="text" id="inputdate4" name="date-to" placeholder="ДД.ММ.ГГГГ"/>
+                  <div class="dd-date-split__icon">expand_more</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="search__label">
+          <div class="label">гости</div>
+        </div>
+        <div class="search__guests">
+          <div class="dropdown" data-type="1">
+            <div class="dropdown__container">
+              <button class="dropdown__button">Сколько гостей</button>
+              <div class="dropdown__list">
+                <div class="dropdown__item" data-id="1">
+                  <div class="dropdown__text"> взрослые
+                  </div>
+                  <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                  <div class="dropdown__value">0</div>
+                  <div class="dropdown__button-inc">+</div>
+                </div>
+                <div class="dropdown__item" data-id="2">
+                  <div class="dropdown__text">дети
+                  </div>
+                  <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                  <div class="dropdown__value">0</div>
+                  <div class="dropdown__button-inc">+</div>
+                </div>
+                <div class="dropdown__item" data-id="3">
+                  <div class="dropdown__text">младенцы
+                  </div>
+                  <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                  <div class="dropdown__value">0</div>
+                  <div class="dropdown__button-inc">+</div>
+                </div>
+                <div class="dropdown__buttons-container">
+                  <div class="dropdown__button-apply">применить</div>
+                  <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
+                </div>
+              </div>
+              <input class="dropdown__input" type="text" data-id="1" name="select-value7" value="0"/>
+              <input class="dropdown__input" type="text" data-id="2" name="select-value8" value="0"/>
+              <input class="dropdown__input" type="text" data-id="3" name="select-value9" value="0"/>
+            </div>
+          </div>
+        </div>
+        <div class="search__button">
+          <button class="button-arrow">Подобрать номер</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__body"> 
+        <div class="footer__logo-review"><img class="footer__logo" src="img/Logo.svg" alt=""/>
+          <div class="footer__review">Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»</div>
+        </div>
+        <nav class="footer__navigation">
+          <div class="footer__nav-column">
+            <div class="footer__nav-title">Навигация</div>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a class="footer__link" href="#">О нас</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#">Новости</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#">Служба поддержки</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#"> Услуги</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-column">
+            <div class="footer__nav-title">О нас</div>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a class="footer__link" href="#"> О сервисе</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#"> Наша команда</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#"> Вакансии</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#"> Инвесторы</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-column">
+            <div class="footer__nav-title">Служба поддержки</div>
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item"><a class="footer__link" href="#">Соглашения</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#">Сообщества</a></li>
+              <li class="footer__nav-item"><a class="footer__link" href="#">Связь с нами</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="footer__subscribe-column">
+          <div class="footer__subscribe-title">Подписка</div>
+          <div class="footer__subscribe-text">Получайте специальные предложения и новости сервиса</div>
+          <div class="footer__email">
+            <div class="text-field-subscription">
+              <div class="text-field-subscription__container">
+                <input class="text-field-subscription__input" type="text" placeholder="Email" name="email"/>
+                <button class="text-field-subscription__button">arrow_forward</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__line"></div>
+    <div class="container">
+      <div class="footer__subfooter">
+        <div class="footer__subfooter-text">Copyright © 2018 Toxin отель. Все права защищены.</div>
+        <div class="footer__subfooter-socials">
+          <button class="footer__subfooter-button"><a class="footer__subfooter-link" href="#"><span class="footer__icon _icon-twitter"></span></a></button>
+          <button class="footer__subfooter-button"><a class="footer__subfooter-link" href="#"><span class="footer__icon _icon-facebook-square"></span></a></button>
+          <button class="footer__subfooter-button"><a class="footer__subfooter-link" href="#"><span class="footer__icon _icon-instagram"></span></a></button>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="js/landing.js"></script>
 </body>
