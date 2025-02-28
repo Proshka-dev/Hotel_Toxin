@@ -1805,6 +1805,9 @@ body {
   margin-left: auto;
   margin-right: 20px;
 }
+.header__logged-container {
+  display: none;
+}
 .header__buttons {
   display: flex;
 }
@@ -1853,8 +1856,31 @@ body {
     background: linear-gradient(#BC9CFF, #8BA4F9);
     background-clip: text;
     color: transparent;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    margin-right: 10px;
   }
+}
+.header__icon-login {
+  display: none;
+}
+@media (max-width: 992px) {
+  .header__icon-login {
+    display: block;
+    font-family: "Material Symbols Outlined", serif;
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+    font-size: 24px;
+    background: linear-gradient(#BC9CFF, #8BA4F9);
+    background-clip: text;
+    color: transparent;
+    padding: 10px 10px;
+  }
+}
+
+body._userlogged .header__unlogged-container {
+  display: none;
+}
+body._userlogged .header__logged-container {
+  display: block;
 }
 
 .footer__body {

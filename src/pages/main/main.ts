@@ -12,6 +12,14 @@
 
 import { paginate } from '../../modules/pagination/pagination.js';
 import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
+import { changeUserNameInHeader } from '../../composite_modules/header/header.js';
+
+// Данные пользователя
+let userData = {
+    logged: true,
+    name: 'Юлий Цезарь',
+};
+
 
 // Массив с продуктами
 const products = [
@@ -61,11 +69,27 @@ let bookingParams = {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    //    const productContainer = document.querySelector('.products-list');
     paginate(products);
     bookingUpdateCard();
     bookingChangeHandlersInitialization();
+
+    // Обновляем статус пользователя.
+    //  Вызываем при загрузке, либо после смены статуса (залогинен/не залогинен)
+    updateUserStatus();
 });
 
 // экспорт переменной с данными о карточке заказа
 export { bookingParams };
+
+/************************** Функции **********************************/
+/** Функция обновления статуса пользователя */
+const updateUserStatus = () => {
+    const bodyElement = document.querySelector('body');
+    if (userData.logged) {
+        bodyElement.classList.add('_userlogged');
+        changeUserNameInHeader(userData.name); // смена имени пользователя
+    } else {
+        bodyElement.classList.remove('_userlogged');
+        changeUserNameInHeader(''); // смена имени пользователя
+    };
+};

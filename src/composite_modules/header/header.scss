@@ -26,6 +26,15 @@
 
 	}
 
+	//Контейнер для элементов, активирующихся если пользователь не залогинен (по умолчению)
+	&__unlogged-container {}
+
+	//Контейнер для элементов, активирующихся если пользователь залогинен
+	&__logged-container {
+		display: none;
+	}
+
+
 	&__buttons {
 		display: flex;
 
@@ -82,8 +91,36 @@
 			background: linear-gradient($color-purple, $color-blue);
 			background-clip: text;
 			color: transparent;
-			padding: 10px 20px;
+			padding: 10px 10px;
+			margin-right: 10px;
 		}
 
+	}
+
+	&__icon-login {
+		display: none;
+
+		@media (max-width: 992px) {
+			display: block;
+			font-family: "Material Symbols Outlined", serif;
+			font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+			font-size: 24px;
+			background: linear-gradient($color-purple, $color-blue);
+			background-clip: text;
+			color: transparent;
+			padding: 10px 10px;
+		}
+
+	}
+}
+
+//Когда body с классом _userlogged изменяем стили
+body._userlogged {
+	& .header__unlogged-container {
+		display: none;
+	}
+
+	& .header__logged-container {
+		display: block;
 	}
 }
