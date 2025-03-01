@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="css/air-datepicker.css"/>
   <link rel="stylesheet" href="css/splide.min.css"/>
-  <link rel="stylesheet" href="css/landing.css"/>
-  <title>Быстрый поиск</title>
+  <link rel="stylesheet" href="css/rooms.css"/>
+  <title>Поиск номеров</title>
   <!-- Подключение шрифтов-->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -81,76 +81,60 @@
   <section class="main">
     <div class="container">
       <div class="main__body">
-        <div class="main__search">
-          <div class="search">
-            <div class="search__title">Найдем номера под ваши пожелания</div>
-            <div class="search__dropdown-date-split">
-              <div class="dd-date-split">
-                <div class="dd-date-split__body">
-                  <div class="dd-date-split__item">
-                    <div class="dd-date-split__label">Прибытие</div>
-                    <div class="dd-date-split__container">
-                      <input class="dd-date-split__input" type="text" id="inputdate3" name="date-from" placeholder="ДД.ММ.ГГГГ"/>
-                      <div class="dd-date-split__icon">expand_more</div>
-                    </div>
-                  </div>
-                  <div class="dd-date-split__item">
-                    <div class="dd-date-split__label">Выезд</div>
-                    <div class="dd-date-split__container">
-                      <input class="dd-date-split__input" type="text" id="inputdate4" name="date-to" placeholder="ДД.ММ.ГГГГ"/>
-                      <div class="dd-date-split__icon">expand_more</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="main__filters">
+          <div class="main__dates">
+            <div class="main__label">
+              <div class="label">даты пребывания в отеле</div>
             </div>
-            <div class="search__label">
+          </div>
+          <div class="main__guests">
+            <div class="main__label">
               <div class="label">гости</div>
             </div>
-            <div class="search__guests">
-              <div class="dropdown" data-type="1">
-                <div class="dropdown__container">
-                  <button class="dropdown__button">Сколько гостей</button>
-                  <div class="dropdown__list">
-                    <div class="dropdown__item" data-id="1">
-                      <div class="dropdown__text"> взрослые
-                      </div>
-                      <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
-                      <div class="dropdown__value">0</div>
-                      <div class="dropdown__button-inc">+</div>
-                    </div>
-                    <div class="dropdown__item" data-id="2">
-                      <div class="dropdown__text">дети
-                      </div>
-                      <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
-                      <div class="dropdown__value">0</div>
-                      <div class="dropdown__button-inc">+</div>
-                    </div>
-                    <div class="dropdown__item" data-id="3">
-                      <div class="dropdown__text">младенцы
-                      </div>
-                      <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
-                      <div class="dropdown__value">0</div>
-                      <div class="dropdown__button-inc">+</div>
-                    </div>
-                    <div class="dropdown__buttons-container">
-                      <div class="dropdown__button-apply">применить</div>
-                      <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
-                    </div>
-                  </div>
-                  <input class="dropdown__input" type="text" data-id="1" name="select-value7" value="0"/>
-                  <input class="dropdown__input" type="text" data-id="2" name="select-value8" value="0"/>
-                  <input class="dropdown__input" type="text" data-id="3" name="select-value9" value="0"/>
-                </div>
-              </div>
+          </div>
+          <div class="main__slider">
+            <div class="main__label">
+              <div class="label">диапазон цены</div>
             </div>
-            <div class="search__button">
-              <button class="button-arrow">Подобрать номер</button>
+          </div>
+          <div class="main__rules">
+            <div class="main__label">
+              <div class="label">правила дома</div>
+            </div>
+          </div>
+          <div class="main__accessibility">
+            <div class="main__label">
+              <div class="label">доступность</div>
+            </div>
+          </div>
+          <div class="main__amenities">
+            <div class="main__label">
+              <div class="label">удобства номера</div>
+            </div>
+          </div>
+          <div class="main__additional-amenities">
+            <div class="main__label">
+              <div class="label">дополнительные удобства</div>
             </div>
           </div>
         </div>
-        <div class="main__text-container">
-          <div class="main__text">Лучшие номера для вашей работы, отдыха и просто вдохновения</div>
+        <div class="main__rooms">
+          <div class="main__title">Номера, которые мы для вас подобрали</div>
+          <div class="main__items">
+            <div class="main__item">room1</div>
+            <div class="main__item">room2</div>
+            <div class="main__item">room3</div>
+            <div class="main__item">room4</div>
+            <div class="main__item">room5</div>
+            <div class="main__item">room6</div>
+            <div class="main__item">room7</div>
+            <div class="main__item">room8</div>
+            <div class="main__item">room9</div>
+            <div class="main__item">room10</div>
+            <div class="main__item">room11</div>
+            <div class="main__item">room12</div>
+          </div>
+          <div class="main__pagination">place_for_pagination</div>
         </div>
       </div>
     </div>
@@ -215,5 +199,5 @@
       </div>
     </div>
   </footer>
-  <script src="js/landing.js"></script>
+  <script src="js/rooms.js"></script>
 </body>

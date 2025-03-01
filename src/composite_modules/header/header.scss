@@ -1,6 +1,8 @@
 @use '../../scss/colors.scss' as *;
 
 .header {
+	box-shadow: 0 10px 20px $color-darkshade5;
+
 	&__body {
 		width: 100%;
 		display: flex;

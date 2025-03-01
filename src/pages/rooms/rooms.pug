@@ -40,53 +40,67 @@ include ../../composite_modules/footer/footer.pug
 doctype html
 
 -
-  const headParams = {
-    pageTitle: 'Быстрый поиск',
-    cssFile: 'css/landing.css',
-  };
+	const headParams = {
+		pageTitle: 'Поиск номеров',
+		cssFile: 'css/rooms.css',
+	};
 +mixHead(headParams)
 
 body
 
-  //- header
-  -
-    const headerParams = {
-      buttonLightParams: {text: 'войти'},
-      buttonDarkParams: {text: 'зарегистрироваться'},
-    };
-  +mixHeader(headerParams)
+	//- Header
+	-
+		const headerParams = {
+			buttonLightParams: {text: 'войти'},
+			buttonDarkParams: {text: 'зарегистрироваться'},
+		};
+	+mixHeader(headerParams)
 
-  section.main
-    .container
-      .main__body
-        .main__search
-          //- search
-          -
-            const searchParams = {
-              title: 'Найдем номера под ваши пожелания',
-              dropdownSplitParams: {
-                label1: 'Прибытие',
-                label2: 'Выезд',
-                inputs:[
-                  {id: 'inputdate3', name: 'date-from'},
-                  {id: 'inputdate4', name: 'date-to'},
-                ]
-              },
-              label1: ({text: 'гости'}),
-              dropdownParams: {
-                label: 'Гости',
-                placeholder: 'Сколько гостей',
-                type: '1', // с гостями
-                inputNames: ['select-value7', 'select-value8', 'select-value9']
-              },
-              buttonArrowParams: {text: 'Подобрать номер'},
-            };
-          +mixSearch(searchParams)
-        .main__text-container
-          .main__text Лучшие номера для вашей работы, отдыха и просто вдохновения
+	//- Основная секция
+	section.main
+		.container
+			.main__body
+				.main__filters
+					.main__dates
+						.main__label
+							+mixLabel({text: 'даты пребывания в отеле'})
+					.main__guests
+						.main__label
+							+mixLabel({text: 'гости'})
+					.main__slider
+						.main__label
+							+mixLabel({text: 'диапазон цены'})
+					.main__rules
+						.main__label
+							+mixLabel({text: 'правила дома'})
+					.main__accessibility
+						.main__label
+							+mixLabel({text: 'доступность'})
+					.main__amenities
+						.main__label
+							+mixLabel({text: 'удобства номера'})
+					.main__additional-amenities
+						.main__label
+							+mixLabel({text: 'дополнительные удобства'})
+				.main__rooms
+					.main__title Номера, которые мы для вас подобрали
+					.main__items
+						.main__item room1
+						.main__item room2
+						.main__item room3
+						.main__item room4
+						.main__item room5
+						.main__item room6
+						.main__item room7
+						.main__item room8
+						.main__item room9
+						.main__item room10
+						.main__item room11
+						.main__item room12
+					.main__pagination place_for_pagination
 
-  //- footer
-  +mixFooter()
+	//- Footer
+	+mixFooter()
 
-  script(src='js/landing.js')
-  
+	script(src='js/rooms.js')
+	
