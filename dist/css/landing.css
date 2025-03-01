@@ -1887,7 +1887,7 @@ body._userlogged .header__logged-container {
   gap: 40px;
   padding: 104px 0 100px 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__body {
     padding-bottom: 0;
     margin-bottom: 20px;
@@ -1896,7 +1896,7 @@ body._userlogged .header__logged-container {
 .footer__logo-review {
   flex: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__logo-review {
     display: flex;
     justify-content: center;
@@ -1905,7 +1905,7 @@ body._userlogged .header__logged-container {
 .footer__logo {
   margin-bottom: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__logo {
     margin-bottom: 0;
   }
@@ -1915,7 +1915,7 @@ body._userlogged .header__logged-container {
   color: rgba(31, 32, 65, 0.75);
   line-height: 24px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__review {
     display: none;
   }
@@ -1925,7 +1925,7 @@ body._userlogged .header__logged-container {
   display: flex;
   gap: 40px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__navigation {
     display: none;
   }
@@ -1949,7 +1949,7 @@ body._userlogged .header__logged-container {
 .footer__subscribe-column {
   flex: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__subscribe-column {
     display: none;
   }
@@ -1970,7 +1970,7 @@ body._userlogged .header__logged-container {
 .footer__line {
   border-bottom: 1px solid rgba(31, 33, 65, 0.25);
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__line {
     display: none;
   }
@@ -1980,7 +1980,7 @@ body._userlogged .header__logged-container {
   justify-content: space-between;
   padding: 23px 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__subfooter {
     flex-direction: column;
     align-items: center;
@@ -1992,7 +1992,7 @@ body._userlogged .header__logged-container {
   font-size: 14px;
   color: rgba(31, 32, 65, 0.75);
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer__subfooter-text {
     margin-bottom: 25px;
   }
@@ -2181,7 +2181,7 @@ body._userlogged .header__logged-container {
 }
 
 .container {
-  max-width: 2300px;
+  max-width: 81.944%;
   margin: 0 auto;
   padding: 0 50px;
 }

@@ -7,7 +7,7 @@
         gap: 40px;
         padding: 104px 0 100px 0;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             padding-bottom: 0;
             margin-bottom: 20px;
         }
@@ -17,7 +17,7 @@
     &__logo-review {
         flex: 1;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: flex;
             justify-content: center;
         }
@@ -27,7 +27,7 @@
     &__logo {
         margin-bottom: 20px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             margin-bottom: 0;
         }
     }
@@ -37,7 +37,7 @@
         color: $color-darkshade75;
         line-height: 24px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: none;
         }
     }
@@ -48,7 +48,7 @@
         display: flex;
         gap: 40px;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: none;
         }
 
@@ -80,7 +80,7 @@
     &__subscribe-column {
         flex: 1;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: none;
         }
     }
@@ -105,7 +105,7 @@
     &__line {
         border-bottom: 1px solid $color-darkshade25;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: none;
         }
     }
@@ -115,7 +115,7 @@
         justify-content: space-between;
         padding: 23px 0;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             flex-direction: column;
             align-items: center;
             padding-top: 0;
@@ -128,7 +128,7 @@
         font-size: 14px;
         color: $color-darkshade75;
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             margin-bottom: 25px;
         }
 
