@@ -22,9 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
     /** Активирование функций модулей */
     // buttonLikeActivate();
     // checkboxListExpActivate();
-    // dropdownActivate();
+    dropdownActivate();
     // dropdownDateFilterActivate();
-    // dropdownDateSplitActivate();
+    dropdownDateSplitActivate();
     menuActivate();
     // sliderRangeActivate();
     // paginate(products);

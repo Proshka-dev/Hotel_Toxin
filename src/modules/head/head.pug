@@ -1,13 +1,13 @@
 //- Объявление миксина
 //- Параметры: pageTitle
-mixin mixHead(pageTitle)
+mixin mixHead(params)
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='css/air-datepicker.css')
     link(rel='stylesheet' href='css/splide.min.css')
-    link(rel='stylesheet' href='css/main.css')
-    title= pageTitle
+    link(rel='stylesheet' href=params.cssFile)
+    title= params.pageTitle
     // Подключение шрифтов
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')

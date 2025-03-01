@@ -39,7 +39,12 @@ include ../../composite_modules/footer/footer.pug
 
 doctype html
 
-+mixHead('Главная')
+-
+  const headParams = {
+    pageTitle: 'Главная страница',
+    cssFile: 'css/main.css',
+  };
++mixHead(headParams)
 
 body
   .uikit-demo

@@ -50,5 +50,42 @@ body {
 .container {
     max-width: 1180px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 50px;
+}
+
+.main {
+
+    background-image: url('@img/landing/landing-bgr1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        height: 830px;
+        padding: 70px 0 18px 0;
+    }
+
+    &__search {
+        @media (max-width: 768px) {
+            align-self: center;
+        }
+
+    }
+
+    &__text-container {
+        margin-top: auto;
+        margin-left: auto;
+        width: 250px;
+    }
+
+    &__text {
+        text-align: right;
+    }
+
+
 }
