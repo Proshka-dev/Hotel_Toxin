@@ -12,7 +12,7 @@ import { sliderRangeActivate } from '../../modules/slider-range/slider-range.js'
 
 /** Импорт функций для активации составных модулей */
 import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
-import { productActivate } from '../../composite_modules/product/product.js';
+import { productActivate } from '../../composite_modules/product/product.js'; // карточка товара
 
 
 

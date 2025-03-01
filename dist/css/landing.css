@@ -2181,9 +2181,14 @@ body._userlogged .header__logged-container {
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 2300px;
   margin: 0 auto;
   padding: 0 50px;
+}
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1180px;
+  }
 }
 
 .main {
