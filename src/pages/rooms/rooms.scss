@@ -70,20 +70,38 @@ body {
         flex: 0 0 266px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
     }
 
-    &__dates {}
+    &__dates {
+        margin-bottom: 20px;
+    }
 
-    &__guests {}
+    &__guests {
+        z-index: 5;
+        margin-bottom: 30px;
+    }
 
-    &__slider {}
+    &__slider {
+        margin-bottom: 8px;
+    }
+
+    &__slider-bottomtext {
+        color: $color-darkshade50;
+        font-size: 12px;
+        line-height: 14px;
+        padding-top: 5px;
+    }
 
     &__rules {}
 
-    &__accessibility {}
+    &__accessibility {
+        margin-bottom: 20px;
+    }
 
-    &__amenities {}
+    &__amenities {
+        width: 266px;
+        margin-bottom: 15px;
+    }
 
     &__add-amenities {}
 

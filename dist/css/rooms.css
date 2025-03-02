@@ -2203,7 +2203,29 @@ body._userlogged .header__logged-container {
   flex: 0 0 266px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+}
+.main__dates {
+  margin-bottom: 20px;
+}
+.main__guests {
+  z-index: 5;
+  margin-bottom: 30px;
+}
+.main__slider {
+  margin-bottom: 8px;
+}
+.main__slider-bottomtext {
+  color: rgba(31, 32, 65, 0.5);
+  font-size: 12px;
+  line-height: 14px;
+  padding-top: 5px;
+}
+.main__accessibility {
+  margin-bottom: 20px;
+}
+.main__amenities {
+  width: 266px;
+  margin-bottom: 15px;
 }
 .main__label {
   margin-bottom: 5px;
