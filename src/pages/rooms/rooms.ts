@@ -21,13 +21,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /** Активирование функций модулей */
     // buttonLikeActivate();
-    // checkboxListExpActivate();
-    //dropdownActivate();
-    // dropdownDateFilterActivate();
+    checkboxListExpActivate();
+    dropdownActivate();
+    dropdownDateFilterActivate();
     //dropdownDateSplitActivate();
     menuActivate();
-    // sliderRangeActivate();
-    // paginate(products);
+    sliderRangeActivate();
+    //paginate(products);
 
     /** Активирование функций составных модулей */
     // bookingUpdateCard();

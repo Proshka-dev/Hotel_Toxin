@@ -64,12 +64,42 @@ body
 					.main__dates
 						.main__label
 							+mixLabel({text: 'даты пребывания в отеле'})
+
+						//- dropdown-date-filter
+						-
+							const dropdownDateFilterParams = {
+								input: {id: 'input-date-filter-name1', name: 'dates-range'},
+							};
+						+mixDropdownDateFilter(dropdownDateFilterParams)
+
 					.main__guests
 						.main__label
 							+mixLabel({text: 'гости'})
+
+						//- dropdown - c гостями
+						-
+							const dropdownParams = {
+								placeholder: 'Сколько гостей',
+								type: '1', // с гостями
+								inputNames: ['adult', 'children', 'babies']
+							};
+						+mixDropdown(dropdownParams)
+
 					.main__slider
-						.main__label
-							+mixLabel({text: 'диапазон цены'})
+						//- slider-range
+						-
+							const sliderRangeParams = {
+								label: 'диапазон цены',
+								min: '1000',
+								max: '20000',
+								minValue: '1000',
+								maxValue: '20000',
+								step: '100',
+								gap: '0'
+							};
+						+mixSliderRange(sliderRangeParams)
+
+
 					.main__rules
 						.main__label
 							+mixLabel({text: 'правила дома'})

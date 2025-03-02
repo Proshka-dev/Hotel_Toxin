@@ -7,6 +7,7 @@ const config = {
   entry: {
     main: './src/pages/main/main.ts',
     landing: './src/pages/landing/landing.ts',
+    rooms: './src/pages/rooms/rooms.ts',
   },
   output: {
     //filename: "main.js",
