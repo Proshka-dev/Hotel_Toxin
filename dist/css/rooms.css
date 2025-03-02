@@ -2196,6 +2196,17 @@ body._userlogged .header__logged-container {
 
 .main__body {
   display: flex;
+  gap: 60px;
+  padding: 30px 0 70px 0;
+}
+.main__filters {
+  flex: 0 0 266px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.main__label {
+  margin-bottom: 5px;
 }
 .main__items {
   display: grid;

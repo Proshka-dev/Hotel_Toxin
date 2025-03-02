@@ -64,7 +64,6 @@ body
 					.main__dates
 						.main__label
 							+mixLabel({text: 'даты пребывания в отеле'})
-
 						//- dropdown-date-filter
 						-
 							const dropdownDateFilterParams = {
@@ -75,7 +74,6 @@ body
 					.main__guests
 						.main__label
 							+mixLabel({text: 'гости'})
-
 						//- dropdown - c гостями
 						-
 							const dropdownParams = {
@@ -95,23 +93,65 @@ body
 								minValue: '1000',
 								maxValue: '20000',
 								step: '100',
-								gap: '0'
+								gap: '500'
 							};
 						+mixSliderRange(sliderRangeParams)
 
-
 					.main__rules
 						.main__label
-							+mixLabel({text: 'правила дома'})
+						//- checkbox-list
+						-
+							const checkboxListParams = {
+								label: 'правила дома',
+								inputs:[
+									{id: 'chkbox1', name: 'smoking', value: 'можно курить'},
+									{id: 'chkbox2', name: 'pets', value: 'можно с питомцами'},
+									{id: 'chkbox3', name: 'manyguests', value: 'можно пригласить гостей (до 10 человек)'},
+								]
+							};
+						+mixCheckboxList(checkboxListParams)
+
 					.main__accessibility
 						.main__label
-							+mixLabel({text: 'доступность'})
+						//- checkbox-list-rich
+						-
+							const checkboxListRichParams = {
+								label: 'Доступность',
+								inputs:[
+									{id: 'chkbox4', name: 'wide-corridor', value: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'},
+									{id: 'chkbox5', name: 'disabled-assistant', value: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
+								]
+							};
+						+mixCheckboxListRich(checkboxListRichParams)
+
 					.main__amenities
 						.main__label
-							+mixLabel({text: 'удобства номера'})
-					.main__additional-amenities
-						.main__label
-							+mixLabel({text: 'дополнительные удобства'})
+							+mixLabel({text: 'Удобства номера'})
+						//- dropdown - с параметрами номера
+						-
+							const dropdownParams2 = {
+								placeholder: 'Параметры номера',
+								type: '2', // с параметрами номера
+								inputNames: ['amenities-bedrooms', 'amenities-beds', 'amenities-bathrooms']
+							};
+						+mixDropdown(dropdownParams2)
+
+					.main__add-amenities
+						//- checkbox-list-exp
+						-
+							const checkboxListExpParams = {
+								label: 'Дополнительные удобства',
+								inputs:[
+									{id: 'chkbox6', name: 'add-amenities-breakfast', value: 'завтрак'},
+									{id: 'chkbox7', name: 'add-amenities-desk', value: 'письменный стол'},
+									{id: 'chkbox8', name: 'add-amenities-high-chair', value: 'стул для кормления'},
+									{id: 'chkbox9', name: 'add-amenities-crib', value: 'кроватка'},
+									{id: 'chkbox10', name: 'add-amenities-tv', value: 'телевизор'},
+									{id: 'chkbox11', name: 'add-amenities-shampoo', value: 'шампунь'},
+								]
+							};
+						+mixCheckboxListExp(checkboxListExpParams)
+
 				.main__rooms
 					.main__title Номера, которые мы для вас подобрали
 					.main__items

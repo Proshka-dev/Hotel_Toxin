@@ -62,9 +62,16 @@ body {
 
     &__body {
         display: flex;
+        gap: 60px;
+        padding: 30px 0 70px 0;
     }
 
-    &__filters {}
+    &__filters {
+        flex: 0 0 266px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
 
     &__dates {}
 
@@ -78,9 +85,11 @@ body {
 
     &__amenities {}
 
-    &__additional-amenities {}
+    &__add-amenities {}
 
-    &__label {}
+    &__label {
+        margin-bottom: 5px;
+    }
 
     &__rooms {}
 

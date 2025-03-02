@@ -133,7 +133,7 @@
             </div>
           </div>
           <div class="main__slider">
-            <div class="slider-range" data-min="1000" data-gap="0">
+            <div class="slider-range" data-min="1000" data-gap="500">
               <div class="slider-range__title">
                 <div class="slider-range__label">диапазон цены</div>
                 <div class="slider-range__text">5 000₽ - 10 000₽</div>
@@ -153,23 +153,116 @@
             </div>
           </div>
           <div class="main__rules">
-            <div class="main__label">
-              <div class="label">правила дома</div>
+            <div class="main__label"></div>
+            <div class="checkbox-list">
+              <div class="checkbox-list__button">правила дома</div>
+              <div class="checkbox-list__items">
+                <div class="checkbox-list__item">
+                  <input class="checkbox-list__checkbox" type="checkbox" name="smoking" id="chkbox1"/>
+                  <label class="checkbox-list__label" for="chkbox1">можно курить</label>
+                </div>
+                <div class="checkbox-list__item">
+                  <input class="checkbox-list__checkbox" type="checkbox" name="pets" id="chkbox2"/>
+                  <label class="checkbox-list__label" for="chkbox2">можно с питомцами</label>
+                </div>
+                <div class="checkbox-list__item">
+                  <input class="checkbox-list__checkbox" type="checkbox" name="manyguests" id="chkbox3"/>
+                  <label class="checkbox-list__label" for="chkbox3">можно пригласить гостей (до 10 человек)</label>
+                </div>
+              </div>
             </div>
           </div>
           <div class="main__accessibility">
-            <div class="main__label">
-              <div class="label">доступность</div>
+            <div class="main__label"></div>
+            <div class="checkbox-list-rich">
+              <div class="checkbox-list-rich__button">Доступность</div>
+              <div class="checkbox-list-rich__items">
+                <div class="checkbox-list-rich__item">
+                  <input class="checkbox-list-rich__checkbox" type="checkbox" name="wide-corridor" id="chkbox4"/>
+                  <label class="checkbox-list-rich__label" for="chkbox4">
+                    <div class="checkbox-list-rich__title">Широкий коридор</div>
+                    <div class="checkbox-list-rich__description">Ширина коридоров в номере не менее 91 см.</div>
+                  </label>
+                </div>
+                <div class="checkbox-list-rich__item">
+                  <input class="checkbox-list-rich__checkbox" type="checkbox" name="disabled-assistant" id="chkbox5"/>
+                  <label class="checkbox-list-rich__label" for="chkbox5">
+                    <div class="checkbox-list-rich__title">Помощник для инвалидов</div>
+                    <div class="checkbox-list-rich__description">На 1 этаже вас встретит специалист  и проводит до номера.</div>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           <div class="main__amenities">
             <div class="main__label">
-              <div class="label">удобства номера</div>
+              <div class="label">Удобства номера</div>
+            </div>
+            <div class="dropdown" data-type="2">
+              <div class="dropdown__container">
+                <button class="dropdown__button">Параметры номера</button>
+                <div class="dropdown__list">
+                  <div class="dropdown__item" data-id="1">
+                    <div class="dropdown__text"> спальни
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__item" data-id="2">
+                    <div class="dropdown__text">кровати
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__item" data-id="3">
+                    <div class="dropdown__text">ванные комнаты
+                    </div>
+                    <div class="dropdown__button-dec dropdown__button-dec_inactive">-</div>
+                    <div class="dropdown__value">0</div>
+                    <div class="dropdown__button-inc">+</div>
+                  </div>
+                  <div class="dropdown__buttons-container dropdown__buttons-container_inactive">
+                    <div class="dropdown__button-apply">применить</div>
+                    <div class="dropdown__button-clear dropdown__button-clear_inactive">очистить</div>
+                  </div>
+                </div>
+                <input class="dropdown__input" type="text" data-id="1" name="amenities-bedrooms" value="0"/>
+                <input class="dropdown__input" type="text" data-id="2" name="amenities-beds" value="0"/>
+                <input class="dropdown__input" type="text" data-id="3" name="amenities-bathrooms" value="0"/>
+              </div>
             </div>
           </div>
-          <div class="main__additional-amenities">
-            <div class="main__label">
-              <div class="label">дополнительные удобства</div>
+          <div class="main__add-amenities">
+            <div class="checkbox-list-exp">
+              <button class="checkbox-list-exp__button">Дополнительные удобства</button>
+              <div class="checkbox-list-exp__items">
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-breakfast" id="chkbox6"/>
+                  <label class="checkbox-list-exp__label" for="chkbox6">завтрак</label>
+                </div>
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-desk" id="chkbox7"/>
+                  <label class="checkbox-list-exp__label" for="chkbox7">письменный стол</label>
+                </div>
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-high-chair" id="chkbox8"/>
+                  <label class="checkbox-list-exp__label" for="chkbox8">стул для кормления</label>
+                </div>
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-crib" id="chkbox9"/>
+                  <label class="checkbox-list-exp__label" for="chkbox9">кроватка</label>
+                </div>
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-tv" id="chkbox10"/>
+                  <label class="checkbox-list-exp__label" for="chkbox10">телевизор</label>
+                </div>
+                <div class="checkbox-list-exp__item">
+                  <input class="checkbox-list-exp__checkbox" type="checkbox" name="add-amenities-shampoo" id="chkbox11"/>
+                  <label class="checkbox-list-exp__label" for="chkbox11">шампунь</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
