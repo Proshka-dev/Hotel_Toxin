@@ -51,6 +51,12 @@ const renderProducts = ({ products, container, textContainer, numberProductsOnPa
 	console.log('productsOnPage: ', productsOnPage);
 
 
+	/** ВСТАВИТЬ!!!!! 
+	 *  
+	 * Функция заполнения данными карточки товара
+	 * 
+	 * */
+
 	productsOnPage.forEach(({ number, type }) => {
 		const li = document.createElement('li');
 		li.classList.add('products-list__item');
@@ -321,16 +327,16 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 						<div class="product__reviews">
 							<div class="product__rating">
 								<div class="button-rate">
-									<input type="radio" id="starrate10" value="5"/>
-									<label for="starrate10" title="text">5 star</label>
-									<input type="radio" id="starrate9" value="4"/>
-									<label for="starrate9" title="text">4 star</label>
-									<input type="radio" id="starrate8" value="3"/>
-									<label for="starrate8" title="text">3 star</label>
-									<input type="radio" id="starrate7" value="2"/>
-									<label for="starrate7" title="text">2 star</label>
-									<input type="radio" id="starrate6" value="1"/>
-									<label for="starrate6" title="text">1 star</label>
+									<input type="radio" id="starrate${index * 5 + 5}" value="5"/>
+									<label for="starrate${index * 5 + 5}" title="text">5 star</label>
+									<input type="radio" id="starrate${index * 5 + 4}" value="4"/>
+									<label for="starrate${index * 5 + 4}" title="text">4 star</label>
+									<input type="radio" id="starrate${index * 5 + 3}" value="3"/>
+									<label for="starrate${index * 5 + 3}" title="text">3 star</label>
+									<input type="radio" id="starrate${index * 5 + 2}" value="2"/>
+									<label for="starrate${index * 5 + 2}" title="text">2 star</label>
+									<input type="radio" id="starrate${index * 5 + 1}" value="1"/>
+									<label for="starrate${index * 5 + 1}" title="text">1 star</label>
 								</div>
 							</div>
 							<div class="product__quantity-reviews">145</div>
