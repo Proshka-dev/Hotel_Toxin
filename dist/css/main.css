@@ -1683,7 +1683,7 @@ body {
 }
 
 .product {
-  width: 270px;
+  width: 100%;
   border: 1px dashed black;
   border-radius: 4px;
 }

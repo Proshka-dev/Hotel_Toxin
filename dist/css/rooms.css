@@ -1683,7 +1683,7 @@ body {
 }
 
 .product {
-  width: 270px;
+  width: 100%;
   border: 1px dashed black;
   border-radius: 4px;
 }
@@ -2230,7 +2230,35 @@ body._userlogged .header__logged-container {
 .main__label {
   margin-bottom: 5px;
 }
+.main__rooms {
+  border: 1px dashed green;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.main__title {
+  font-weight: bold;
+  font-size: 24px;
+  color: #1f2041;
+  margin-bottom: 20px;
+}
 .main__items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 12px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1180px) {
+  .main__items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 940px) {
+  .main__items {
+    grid-template-columns: 1fr;
+  }
+}
+.main__pagination {
+  align-self: center;
 }

@@ -156,19 +156,44 @@ body
 				.main__rooms
 					.main__title Номера, которые мы для вас подобрали
 					.main__items
-						.main__item room1
-						.main__item room2
-						.main__item room3
-						.main__item room4
-						.main__item room5
-						.main__item room6
-						.main__item room7
-						.main__item room8
-						.main__item room9
-						.main__item room10
-						.main__item room11
-						.main__item room12
-					.main__pagination place_for_pagination
+						.main__item
+							-
+								const productParams = {
+									buttonRateParams: {
+										name: 'rating-888',
+										inputIds: ['starrate6','starrate7','starrate8','starrate9','starrate10'],
+									},
+								};
+							+mixProduct(productParams)
+
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+						.main__item
+							+mixProduct(productParams)
+					.main__pagination
+						-
+							const paginationParams = {
+							};
+						+mixPagination(paginationParams)
+
 
 	//- Footer
 	+mixFooter()
