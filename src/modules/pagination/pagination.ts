@@ -327,15 +327,15 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 						<div class="product__reviews">
 							<div class="product__rating">
 								<div class="button-rate">
-									<input type="radio" id="starrate${index * 5 + 5}" value="5"/>
+									<input type="radio" id="starrate${index * 5 + 5}" name="starname${index}" value="5" disabled/>
 									<label for="starrate${index * 5 + 5}" title="text">5 star</label>
-									<input type="radio" id="starrate${index * 5 + 4}" value="4"/>
+									<input type="radio" id="starrate${index * 5 + 4}" name="starname${index}" value="4" disabled/>
 									<label for="starrate${index * 5 + 4}" title="text">4 star</label>
-									<input type="radio" id="starrate${index * 5 + 3}" value="3"/>
+									<input type="radio" id="starrate${index * 5 + 3}" name="starname${index}" value="3" disabled/>
 									<label for="starrate${index * 5 + 3}" title="text">3 star</label>
-									<input type="radio" id="starrate${index * 5 + 2}" value="2"/>
+									<input type="radio" id="starrate${index * 5 + 2}" name="starname${index}" value="2" disabled/>
 									<label for="starrate${index * 5 + 2}" title="text">2 star</label>
-									<input type="radio" id="starrate${index * 5 + 1}" value="1"/>
+									<input type="radio" id="starrate${index * 5 + 1}" name="starname${index}" value="1" disabled/>
 									<label for="starrate${index * 5 + 1}" title="text">1 star</label>
 								</div>
 							</div>
@@ -360,6 +360,19 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 
 };
 
+/** Функция заполнения данными карточки товара */
+const fillCardData = ({ product, cardItem }: { product: IProduct; cardItem: HTMLElement }) => {
+
+	const images = cardItem.querySelectorAll('.product__image');
+	const number = cardItem.querySelector('.product__number');
+	const numberType = cardItem.querySelector('.product__type');
+	const price = cardItem.querySelector('.product__price');
+	const type = cardItem.querySelector('.product__type');
+	const quantityReviews = cardItem.querySelector('.product__quantity-reviews');
+	//const rating = cardItem.querySelector('.product__type');
+
+
+};
 
 // *********************************************************************************
 //                              Основная часть
