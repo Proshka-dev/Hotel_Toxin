@@ -1,6 +1,9 @@
 /** Импорт данных и функций из common.js */
 import { updateUserStatus, products } from '../../common/common.js';
 
+
+import { paginate } from '../../modules/pagination/pagination.js';
+
 /** Импорт функций для активации модулей */
 import { buttonLikeActivate } from '../../modules/button-like/button-like.js';
 import { checkboxListExpActivate } from '../../modules/checkbox-list-exp/checkbox-list-exp.js';
@@ -27,12 +30,12 @@ window.addEventListener('DOMContentLoaded', () => {
     //dropdownDateSplitActivate();
     menuActivate();
     sliderRangeActivate();
-    //paginate(products);
+    paginate(products);
 
     /** Активирование функций составных модулей */
     // bookingUpdateCard();
     // bookingChangeHandlersInitialization();
-    productActivate();
+    // productActivate();
 });
 
 // *********************************************************************************
