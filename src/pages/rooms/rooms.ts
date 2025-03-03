@@ -1,5 +1,5 @@
 /** Импорт данных и функций из common.js */
-import { updateUserStatus } from '../../common/common.js';
+import { updateUserStatus, products } from '../../common/common.js';
 
 /** Импорт функций для активации модулей */
 import { buttonLikeActivate } from '../../modules/button-like/button-like.js';
