@@ -4,6 +4,7 @@
 interface IProduct {
 	number: string;
 	type: string;
+	price: number;
 	rating: number;
 	reviews: number;
 	rules: { smoke: boolean; pets: boolean; manyguests: boolean };
@@ -363,15 +364,31 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 /** Функция заполнения данными карточки товара */
 const fillCardData = ({ product, cardItem }: { product: IProduct; cardItem: HTMLElement }) => {
 
+	const ratingString = String(product.rating);
+
 	const images = cardItem.querySelectorAll('.product__image');
-	const number = cardItem.querySelector('.product__number');
-	const numberType = cardItem.querySelector('.product__type');
-	const price = cardItem.querySelector('.product__price');
-	const type = cardItem.querySelector('.product__type');
-	const quantityReviews = cardItem.querySelector('.product__quantity-reviews');
-	//const rating = cardItem.querySelector('.product__type');
 
+	const number = cardItem.querySelector('.product__number') as HTMLElement;
+	const type = cardItem.querySelector('.product__type') as HTMLElement;
+	const price = cardItem.querySelector('.product__price') as HTMLElement;
+	const quantityReviews = cardItem.querySelector('.product__quantity-reviews') as HTMLElement;
+	const rating = cardItem.querySelector(`.product__rating input[value="${ratingString}"]`) as HTMLInputElement; // Проверить, выбирает ли !!!!!!!!!!!!!!!!!!!!
 
+	// Проверка успешности селекторов
+	if (!((number) && (type) && (price) && (quantityReviews) && (rating))) return;
+	if (images.length !== 4) return;
+
+	let i = 0;
+	images.forEach((image) => {
+		(image as HTMLElement).setAttribute('src', 'img/rooms/' + product.images[i]);
+		i++;
+	});
+
+	number.innerText = String(product.number);
+	type.innerText = product.type;
+	price.innerText = String(product.price);
+	quantityReviews.innerText = String(product.reviews);
+	rating.setAttribute('checked', '');
 };
 
 // *********************************************************************************
