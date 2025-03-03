@@ -1,9 +1,33 @@
 // *********************************************************************************
+//                              Интерфейсы
+// *********************************************************************************
+interface IProduct {
+    number: string;
+    type: string;
+    rating: number;
+    reviews: number;
+    rules: { smoke: boolean; pets: boolean; manyguests: boolean };
+    accessibility: { wideCorridor: boolean; disabledAssistant: boolean };
+    amenities: {
+        bedrooms: number;
+        beds: number;
+        bathrooms: number;
+        breakfast: boolean;
+        desk: boolean;
+        highChair: boolean;
+        crib: boolean;
+        tv: boolean;
+        shampoo: boolean;
+    };
+    images: string[];
+}
+
+// *********************************************************************************
 //                              Функции
 // *********************************************************************************
 /** Функция рендера продуктов */
 interface IRenderProducts {
-    products: { id: string; name: string; }[];
+    products: IProduct[];
     container: HTMLElement;
     textContainer: HTMLElement;
     numberProductsOnPage: number;
@@ -27,17 +51,20 @@ const renderProducts = ({ products, container, textContainer, numberProductsOnPa
     console.log('productsOnPage: ', productsOnPage);
 
 
-    productsOnPage.forEach(({ id, name }) => {
+    productsOnPage.forEach(({ number, type }) => {
         const li = document.createElement('li');
         li.classList.add('products-list__item');
+
+        /** Заполнение карточки товара */
         li.innerHTML = `
                 <div class='products-list__id'>
-                    ${id}
+                    ${number}
                 </div>
                 <div class='products-list__name'>
-                    ${name}
+                    ${type}
                 </div >
                 `;
+        /*******************************/
         container.append(li);
 
         console.log('Product li: ', li);
@@ -185,7 +212,7 @@ const renderBtn = ({ page, currPage }: IRenderBtn) => {
 /** Функция обработки кликов по пагинации */
 interface IEventListenerPaginationClicks {
     paginationWrapper: HTMLElement;
-    products: { id: string; name: string; }[];
+    products: IProduct[];
     currentPage: number;
     productContainer: HTMLElement;
     paginationText: HTMLElement;
@@ -246,7 +273,7 @@ const eventListenerPaginationClicks = ({ paginationWrapper, products, currentPag
 // *********************************************************************************
 //                              Основная часть
 // *********************************************************************************
-const paginate = (products: { id: string; name: string; }[]) => {
+const paginate = (products: IProduct[]) => {
     let quantityProductsOnPage = 3;
     let currentPage = 1;
     const totalPages = Math.ceil(products.length / quantityProductsOnPage);
