@@ -40,6 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /** Инициализация функционала отображения/скрытия панели фильтров */
     clickButtonFiltersHandlersInitialization();
+    closeFiltersWhenClickingOutsideNav();
 });
 
 // *********************************************************************************
@@ -52,6 +53,22 @@ const clickButtonFiltersHandlersInitialization = () => {
     buttonFilters.addEventListener('click', (e) => {
         /** Обработчик кликов на кнопке отображения фильтров */
         panelFilters.classList.toggle('main__filters-container_active');
+    });
+};
+
+/** Обработчик события для закрытия панели фильтров при клике вне панели */
+const closeFiltersWhenClickingOutsideNav = () => {
+    window.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const filtersBody = document.querySelector('.main__filters') as HTMLElement;
+        const filtersPanel = document.querySelector('.main__filters-container') as HTMLElement;
+        const filtersButton = document.querySelector('.main__panel-button') as HTMLElement;
+
+        if ((!filtersBody) || (!filtersPanel) || (!filtersButton)) { return };
+
+        if ((!filtersBody.contains(target)) && ((!filtersButton.contains(target)))) {
+            filtersPanel.classList.remove('main__filters-container_active');
+        }
     });
 };
 
