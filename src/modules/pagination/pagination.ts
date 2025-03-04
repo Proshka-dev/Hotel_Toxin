@@ -1,3 +1,5 @@
+import { activateSlider } from '../../composite_modules/product/product.js'; // карточка товара
+
 // *********************************************************************************
 //                              Интерфейсы
 // *********************************************************************************
@@ -330,6 +332,12 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 			`;
 			/*******************************/
 			listElement.append(li);
+
+			// Активируем слайдер на последнем элементе
+			const splideElements = listElement.querySelectorAll('.splide');
+			const splideElement = splideElements[splideElements.length - 1] as HTMLElement; // Выбираем последний элемент
+			activateSlider(splideElement);
+
 		};
 		return; // Прерываем выполнение функции
 	};
