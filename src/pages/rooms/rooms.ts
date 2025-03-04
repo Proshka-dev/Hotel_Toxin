@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
     /** Активирование функций составных модулей */
     // bookingUpdateCard();
     // bookingChangeHandlersInitialization();
-    // productActivate();
+    productActivate();
 });
 
 // *********************************************************************************

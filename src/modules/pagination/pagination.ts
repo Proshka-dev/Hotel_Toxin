@@ -35,11 +35,11 @@ interface IRenderProducts {
 	page: number
 };
 const renderProducts = ({ products, container, textContainer, numberProductsOnPage, page }: IRenderProducts) => {
-	//container.innerHTML = '';
 
 	const firstProductIndex = numberProductsOnPage * page - numberProductsOnPage;
-
 	let lastProductIndex;
+	let i = 0; // переменная для перебора карточек
+
 
 	if ((firstProductIndex + numberProductsOnPage) < products.length) {
 		lastProductIndex = firstProductIndex + numberProductsOnPage;
@@ -49,36 +49,18 @@ const renderProducts = ({ products, container, textContainer, numberProductsOnPa
 
 	/** вырезаем нужную часть массива */
 	const productsOnPage = products.slice(firstProductIndex, lastProductIndex);
-	console.log('productsOnPage: ', productsOnPage);
 
+	// Функция рендера списка, добавляющая/удаляющая элементы
+	renderList({ listElement: container, numberItems: lastProductIndex - firstProductIndex });
+	const cardElements = container.querySelectorAll('.main__item');
 
-	/** ВСТАВИТЬ!!!!! 
-	 *  
-	 * Функция заполнения данными карточки товара
-	 * 
-	 * */
+	if (cardElements.length !== productsOnPage.length) return;
 
-	productsOnPage.forEach(({ number, type }) => {
-		const li = document.createElement('li');
-		li.classList.add('products-list__item');
-
+	productsOnPage.forEach((product) => {
 		/** Заполнение карточки товара */
-		li.innerHTML = `
-				<div class='products-list__id'>
-					${number}
-				</div>
-				<div class='products-list__name'>
-					${type}
-				</div >
-				`;
-		/*******************************/
-		// container.append(li);
-
-		// Функция рендера списка, добавляющая/удаляющая элементы
-		renderList({ listElement: container, numberItems: lastProductIndex - firstProductIndex });
-
-
-		console.log('Product li: ', li);
+		const cardItem = (cardElements[i]) as HTMLElement;
+		fillCardData({ product, cardItem });
+		i++;
 	});
 
 	/** Обновляем текстовую часть  */
@@ -302,7 +284,7 @@ const renderList = ({ listElement, numberItems }: IRenderListParams) => {
 			const li = document.createElement('li');
 			li.classList.add('main__item'); //назначение класса элементу
 
-			/** Заполнение карточки товара */
+			/** Генерация карточки товара */
 			li.innerHTML = `
 				<div class="product">
 					<div class="product__slider-container">
@@ -380,7 +362,7 @@ const fillCardData = ({ product, cardItem }: { product: IProduct; cardItem: HTML
 
 	let i = 0;
 	images.forEach((image) => {
-		(image as HTMLElement).setAttribute('src', 'img/rooms/' + product.images[i]);
+		(image as HTMLElement).setAttribute('src', 'img/rooms/small/' + product.images[i]);
 		i++;
 	});
 
