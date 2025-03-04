@@ -40,482 +40,482 @@ include ../../composite_modules/footer/footer.pug
 doctype html
 
 -
-  const headParams = {
-    pageTitle: 'Главная страница',
-    cssFile: 'css/main.css',
-  };
+	const headParams = {
+		pageTitle: 'Главная страница',
+		cssFile: 'css/main.css',
+	};
 +mixHead(headParams)
 
 body
-  .uikit-demo
-    .container
-      //- Пример вставки картинки
-      //- <img width="250" height="200" src="@img/cover.jpg" alt="">
+	.uikit-demo
+		.container
+			//- Пример вставки картинки
+			//- <img width="250" height="200" src="@img/cover.jpg" alt="">
 
-      //- text-field
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Text field'})
-        -
-          const textFieldParams = {
-            type: 'text',
-            placeholder: 'Email (placeholder)',
-            name: 'default-input-name',
-          };
-        +mixTextField(textFieldParams)
+			//- text-field
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Text field'})
+				-
+					const textFieldParams = {
+						type: 'text',
+						placeholder: 'Email (placeholder)',
+						name: 'default-input-name',
+					};
+				+mixTextField(textFieldParams)
 
-      //- text-field-masked
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Masked text field'})
-        -
-          const textFieldMaskedParams = {
-            type: 'date',
-            placeholder: '',
-            name: 'default-input-name',
-          };
-        +mixTextFieldMasked(textFieldMaskedParams)
+			//- text-field-masked
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Masked text field'})
+				-
+					const textFieldMaskedParams = {
+						type: 'date',
+						placeholder: '',
+						name: 'default-input-name',
+					};
+				+mixTextFieldMasked(textFieldMaskedParams)
 
-      //- text-field-subscription
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Subscription text field'})
-        -
-          const textFieldSubscriptionParams = {
-            type: 'text',
-            placeholder: 'Email (placeholder)',
-            name: 'default-input-name',
-          };
-        +mixTextFieldSubscription(textFieldSubscriptionParams)
+			//- text-field-subscription
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Subscription text field'})
+				-
+					const textFieldSubscriptionParams = {
+						type: 'text',
+						placeholder: 'Email (placeholder)',
+						name: 'default-input-name',
+					};
+				+mixTextFieldSubscription(textFieldSubscriptionParams)
 
-      //- dropdown - c гостями
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Dropdown'})
-        -
-          const dropdownParams = {
-            placeholder: 'Сколько гостей',
-            type: '1', // с гостями
-            inputNames: ['select-value1', 'select-value2', 'select-value3']
-          };
-        +mixDropdown(dropdownParams)
+			//- dropdown - c гостями
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Dropdown'})
+				-
+					const dropdownParams = {
+						placeholder: 'Сколько гостей',
+						type: '1', // с гостями
+						inputNames: ['select-value1', 'select-value2', 'select-value3']
+					};
+				+mixDropdown(dropdownParams)
 
-      //- dropdown - с параметрами номера
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Dropdown (type2)'})
-        -
-          const dropdownParams2 = {
-            placeholder: 'Параметры номера',
-            type: '2', // с параметрами номера
-            inputNames: ['select-value4', 'select-value5', 'select-value6']
-          };
-        +mixDropdown(dropdownParams2)
-      
-      //- dropdown-date-split
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Date dropdown split'})
-        -
-          const dropdownSplitParams = {
-            label1: 'part1',
-            label2: 'part2',
-            inputs:[
-              {id: 'inputdate1', name: 'date-from'},
-              {id: 'inputdate2', name: 'date-to'},
-            ]
+			//- dropdown - с параметрами номера
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Dropdown (type2)'})
+				-
+					const dropdownParams2 = {
+						placeholder: 'Параметры номера',
+						type: '2', // с параметрами номера
+						inputNames: ['select-value4', 'select-value5', 'select-value6']
+					};
+				+mixDropdown(dropdownParams2)
+			
+			//- dropdown-date-split
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Date dropdown split'})
+				-
+					const dropdownSplitParams = {
+						label1: 'part1',
+						label2: 'part2',
+						inputs:[
+							{id: 'inputdate1', name: 'date-from'},
+							{id: 'inputdate2', name: 'date-to'},
+						]
 
-          };
-        +mixDropdownDateSplit(dropdownSplitParams)
+					};
+				+mixDropdownDateSplit(dropdownSplitParams)
 
-      //- dropdown-date-filter
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Filter date dropdown'})
-        -
-          const dropdownDateFilterParams = {
-            input: {id: 'input-date-filter-name1', name: 'date-range'},
-          };
-        +mixDropdownDateFilter(dropdownDateFilterParams)
+			//- dropdown-date-filter
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Filter date dropdown'})
+				-
+					const dropdownDateFilterParams = {
+						input: {id: 'input-date-filter-name1', name: 'date-range'},
+					};
+				+mixDropdownDateFilter(dropdownDateFilterParams)
 
-      //- checkbox-list-exp
-      .uikit-demo__item
-        -
-          const checkboxListExpParams = {
-            label: 'Expendable checkbox list',
-            inputs:[
-              {id: 'chkbox1', name: 'breakfast', value: 'завтрак'},
-              {id: 'chkbox2', name: 'desk', value: 'письменный стол'},
-              {id: 'chkbox3', name: 'high-chair', value: 'стул для кормления'},
-              {id: 'chkbox4', name: 'crib', value: 'кроватка'},
-              {id: 'chkbox5', name: 'tv', value: 'телевизор'},
-              {id: 'chkbox6', name: 'shampoo', value: 'шампунь'},
-            ]
-          };
-        +mixCheckboxListExp(checkboxListExpParams)
-      
-      //- checkbox-list
-      .uikit-demo__item
-        -
-          const checkboxListParams = {
-            label: 'Checkbox list',
-            inputs:[
-              {id: 'chkbox7', name: 'smoking', value: 'можно курить'},
-              {id: 'chkbox8', name: 'pets', value: 'можно с питомцами'},
-              {id: 'chkbox9', name: 'guests', value: 'можно пригласить гостей (до 10 человек)'},
-            ]
-          };
-        +mixCheckboxList(checkboxListParams)
-      
-      //- checkbox-list-rich
-      .uikit-demo__item
-        -
-          const checkboxListRichParams = {
-            label: 'Rich checkbox list',
-            inputs:[
-              {id: 'chkbox10', name: 'wide-corridor', value: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'},
-              {id: 'chkbox11', name: 'disabled-assistant', value: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
-            ]
-          };
-        +mixCheckboxListRich(checkboxListRichParams)
-      
-      //- advantages
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'advantages'})
-        -
-          const advantagesParams1 = {
-            icon: 'insert_emoticon',
-            title: 'Комфорт',
-            description: 'Шумопоглощающие стены',
-            hasline: 'true',
-          };
-        +mixAdvantages(advantagesParams1)
-        -
-          const advantagesParams2 = {
-            icon: 'location_city',
-            title: 'Удобство',
-            description: 'Окно в каждой из спален',
-            hasline: 'false',
-          };
-        +mixAdvantages(advantagesParams2)
-      
-      //- radio-buttons
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Radio buttons'})
-        -
-          const radioButtonsParams = { 
-            groupName: 'gender',
-            inputs:[
-              {id: 'radio1', value: 'мужчина'},
-              {id: 'radio2', value: 'женщина'},
-            ]
-          };
-        +mixRadioButtons(radioButtonsParams)
-      
-      //- toggle
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Toggle'})
-        -
-          const toggleParams = {
-            inputs:[
-              {id: 'toggle1', name: 'getoffres', value: 'получать спецпредложения'},
-              {id: 'toggle2', name: 'getnews', value: 'получать новости'},
-            ]
-          };
-        +mixToggle(toggleParams)
-      
-      //- button-like
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Like button'})
-        -
-          const buttonLikeParams1 = {
-            numberOfLikes: '12',
-            id: 'btnlike1',
-            isChecked: 'true'
-          };
-        +mixButtonLike(buttonLikeParams1)
-        -
-          const buttonLikeParams2 = {
-            numberOfLikes: '25378',
-            id: 'btnlike2',
-            isChecked: 'false'
-          };
-        +mixButtonLike(buttonLikeParams2)
-      
-      //- button-rate
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Rate button'})
-        -
-          const buttonRateParams = {
-            name: 'starrategrp1',
-            inputIds: ['starrate1','starrate2','starrate3','starrate4','starrate5'],
-          };
-        +mixButtonRate(buttonRateParams)
-      
-      //- slider-range
-      .uikit-demo__item
-        -
-          const sliderRangeParams = {
-            label: 'Range slider',
-            min: '1000',
-            max: '12000',
-            minValue: '2000',
-            maxValue: '10000',
-            step: '50',
-            gap: '500'
-          };
-        +mixSliderRange(sliderRangeParams)
-      
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Buttons'})
-        //- button-dark
-        - const buttonDarkParams = {text: 'click me'};
-        +mixButtonDark(buttonDarkParams)
-        //- button-light
-        -  const buttonLightParams = {text: 'click me'};
-        +mixButtonLight(buttonLightParams)
-        //- button-clear
-        -  const buttonClearParams = {text: 'click me'};
-        +mixButtonClear(buttonClearParams)
-        //- button-arrow
-        -  const buttonArrowParams = {text: 'Перейти к оплате'};
-        +mixButtonArrow(buttonArrowParams)
-      
-      //- bullet-list
-      .uikit-demo__item
-        -
-          const bulletListParams = {
-            label: 'Bullet list',
-            items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'],
-          };
-        +mixBulletList(bulletListParams)
-      
-      //- products-list
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Products list'})
-        +mixProductsList()
-      
-      //- pagination
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Pagination'})
-        -
-          const paginationParams = {
-          };
-        +mixPagination(paginationParams)
+			//- checkbox-list-exp
+			.uikit-demo__item
+				-
+					const checkboxListExpParams = {
+						label: 'Expendable checkbox list',
+						inputs:[
+							{id: 'chkbox1', name: 'breakfast', value: 'завтрак'},
+							{id: 'chkbox2', name: 'desk', value: 'письменный стол'},
+							{id: 'chkbox3', name: 'high-chair', value: 'стул для кормления'},
+							{id: 'chkbox4', name: 'crib', value: 'кроватка'},
+							{id: 'chkbox5', name: 'tv', value: 'телевизор'},
+							{id: 'chkbox6', name: 'shampoo', value: 'шампунь'},
+						]
+					};
+				+mixCheckboxListExp(checkboxListExpParams)
+			
+			//- checkbox-list
+			.uikit-demo__item
+				-
+					const checkboxListParams = {
+						label: 'Checkbox list',
+						inputs:[
+							{id: 'chkbox7', name: 'smoking', value: 'можно курить'},
+							{id: 'chkbox8', name: 'pets', value: 'можно с питомцами'},
+							{id: 'chkbox9', name: 'guests', value: 'можно пригласить гостей (до 10 человек)'},
+						]
+					};
+				+mixCheckboxList(checkboxListParams)
+			
+			//- checkbox-list-rich
+			.uikit-demo__item
+				-
+					const checkboxListRichParams = {
+						label: 'Rich checkbox list',
+						inputs:[
+							{id: 'chkbox10', name: 'wide-corridor', value: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'},
+							{id: 'chkbox11', name: 'disabled-assistant', value: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
+						]
+					};
+				+mixCheckboxListRich(checkboxListRichParams)
+			
+			//- advantages
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'advantages'})
+				-
+					const advantagesParams1 = {
+						icon: 'insert_emoticon',
+						title: 'Комфорт',
+						description: 'Шумопоглощающие стены',
+						hasline: 'true',
+					};
+				+mixAdvantages(advantagesParams1)
+				-
+					const advantagesParams2 = {
+						icon: 'location_city',
+						title: 'Удобство',
+						description: 'Окно в каждой из спален',
+						hasline: 'false',
+					};
+				+mixAdvantages(advantagesParams2)
+			
+			//- radio-buttons
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Radio buttons'})
+				-
+					const radioButtonsParams = { 
+						groupName: 'gender',
+						inputs:[
+							{id: 'radio1', value: 'мужчина'},
+							{id: 'radio2', value: 'женщина'},
+						]
+					};
+				+mixRadioButtons(radioButtonsParams)
+			
+			//- toggle
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Toggle'})
+				-
+					const toggleParams = {
+						inputs:[
+							{id: 'toggle1', name: 'getoffres', value: 'получать спецпредложения'},
+							{id: 'toggle2', name: 'getnews', value: 'получать новости'},
+						]
+					};
+				+mixToggle(toggleParams)
+			
+			//- button-like
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Like button'})
+				-
+					const buttonLikeParams1 = {
+						numberOfLikes: '12',
+						id: 'btnlike1',
+						isChecked: 'true'
+					};
+				+mixButtonLike(buttonLikeParams1)
+				-
+					const buttonLikeParams2 = {
+						numberOfLikes: '25378',
+						id: 'btnlike2',
+						isChecked: 'false'
+					};
+				+mixButtonLike(buttonLikeParams2)
+			
+			//- button-rate
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Rate button'})
+				-
+					const buttonRateParams = {
+						groupName: 'starrategrp1',
+						inputIds: ['starrate1','starrate2','starrate3','starrate4','starrate5'],
+					};
+				+mixButtonRate(buttonRateParams)
+			
+			//- slider-range
+			.uikit-demo__item
+				-
+					const sliderRangeParams = {
+						label: 'Range slider',
+						min: '1000',
+						max: '12000',
+						minValue: '2000',
+						maxValue: '10000',
+						step: '50',
+						gap: '500'
+					};
+				+mixSliderRange(sliderRangeParams)
+			
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Buttons'})
+				//- button-dark
+				- const buttonDarkParams = {text: 'click me'};
+				+mixButtonDark(buttonDarkParams)
+				//- button-light
+				-  const buttonLightParams = {text: 'click me'};
+				+mixButtonLight(buttonLightParams)
+				//- button-clear
+				-  const buttonClearParams = {text: 'click me'};
+				+mixButtonClear(buttonClearParams)
+				//- button-arrow
+				-  const buttonArrowParams = {text: 'Перейти к оплате'};
+				+mixButtonArrow(buttonArrowParams)
+			
+			//- bullet-list
+			.uikit-demo__item
+				-
+					const bulletListParams = {
+						label: 'Bullet list',
+						items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'],
+					};
+				+mixBulletList(bulletListParams)
+			
+			//- products-list
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Products list'})
+				+mixProductsList()
+			
+			//- pagination
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Pagination'})
+				-
+					const paginationParams = {
+					};
+				+mixPagination(paginationParams)
 
-      //- review
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'Review'})
-        -
-          const reviewParams = {
-            photo: '@img/review/review-photo1.jpg',
-            name: 'Мурад Сарафанов',
-            timeReview: '5 дней назад',
-            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-            buttonLikeParams: {
-              numberOfLikes: '12',
-              id: 'btnlike3',
-              isChecked: 'true'
-            },
-          };
-        +mixReview(reviewParams)
+			//- review
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'Review'})
+				-
+					const reviewParams = {
+						photo: '@img/review/review-photo1.jpg',
+						name: 'Мурад Сарафанов',
+						timeReview: '5 дней назад',
+						text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+						buttonLikeParams: {
+							numberOfLikes: '12',
+							id: 'btnlike3',
+							isChecked: 'true'
+						},
+					};
+				+mixReview(reviewParams)
 
-      //- search
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'search'})
-        -
-          const searchParams = {
-            title: 'Найдем номера под ваши пожелания',
-            dropdownSplitParams: {
-              label1: 'Прибытие',
-              label2: 'Выезд',
-              inputs:[
-                {id: 'inputdate3', name: 'date-from'},
-                {id: 'inputdate4', name: 'date-to'},
-              ]
-            },
-            label1: ({text: 'гости'}),
-            dropdownParams: {
-              label: 'Гости',
-              placeholder: 'Сколько гостей',
-              type: '1', // с гостями
-              inputNames: ['select-value7', 'select-value8', 'select-value9']
-            },
-            buttonArrowParams: {text: 'Подобрать номер'},
-          };
-        +mixSearch(searchParams)
+			//- search
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'search'})
+				-
+					const searchParams = {
+						title: 'Найдем номера под ваши пожелания',
+						dropdownSplitParams: {
+							label1: 'Прибытие',
+							label2: 'Выезд',
+							inputs:[
+								{id: 'inputdate3', name: 'date-from'},
+								{id: 'inputdate4', name: 'date-to'},
+							]
+						},
+						label1: ({text: 'гости'}),
+						dropdownParams: {
+							label: 'Гости',
+							placeholder: 'Сколько гостей',
+							type: '1', // с гостями
+							inputNames: ['select-value7', 'select-value8', 'select-value9']
+						},
+						buttonArrowParams: {text: 'Подобрать номер'},
+					};
+				+mixSearch(searchParams)
 
-      //- registration
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'registration'})
-        -
-          const registrationParams = {
-            title: 'Регистрация аккаунта',
-            textFieldParams1: {
-              type: 'text',
-              placeholder: 'Имя',
-              name: 'default-input-name',
-            },
-            textFieldParams2: {
-              type: 'text',
-              placeholder: 'Фамилия',
-              name: 'default-input-name',
-            },
-            radioButtonsParams: { 
-              groupName: 'gender',
-              inputs:[
-                {id: 'radio3', value: 'мужчина'},
-                {id: 'radio4', value: 'женщина'},
-              ]
-            },
-            label1: ({text: 'дата рождения'}),
-            textFieldMaskedParams: {
-              type: 'date',
-              placeholder: '',
-              name: 'default-input-name',
-            },
-            label2: ({text: 'данные для входа в сервис'}),
-            textFieldParams3: {
-              type: 'text',
-              placeholder: 'Email',
-              name: 'default-input-name',
-            },
-            textFieldParams4: {
-              type: 'password',
-              placeholder: 'Пароль',
-              name: 'default-input-name',
-            },
-            toggleParams: {
-              inputs:[
-                {id: 'toggle3', name: 'getoffres', value: 'получать спецпредложения'},
-              ]
-            },
-            buttonArrowParams: {text: 'Перейти к оплате'},
-            buttonLightParams: {text: 'Войти'},
-          };
-        +mixRegistration(registrationParams)
+			//- registration
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'registration'})
+				-
+					const registrationParams = {
+						title: 'Регистрация аккаунта',
+						textFieldParams1: {
+							type: 'text',
+							placeholder: 'Имя',
+							name: 'default-input-name',
+						},
+						textFieldParams2: {
+							type: 'text',
+							placeholder: 'Фамилия',
+							name: 'default-input-name',
+						},
+						radioButtonsParams: { 
+							groupName: 'gender',
+							inputs:[
+								{id: 'radio3', value: 'мужчина'},
+								{id: 'radio4', value: 'женщина'},
+							]
+						},
+						label1: ({text: 'дата рождения'}),
+						textFieldMaskedParams: {
+							type: 'date',
+							placeholder: '',
+							name: 'default-input-name',
+						},
+						label2: ({text: 'данные для входа в сервис'}),
+						textFieldParams3: {
+							type: 'text',
+							placeholder: 'Email',
+							name: 'default-input-name',
+						},
+						textFieldParams4: {
+							type: 'password',
+							placeholder: 'Пароль',
+							name: 'default-input-name',
+						},
+						toggleParams: {
+							inputs:[
+								{id: 'toggle3', name: 'getoffres', value: 'получать спецпредложения'},
+							]
+						},
+						buttonArrowParams: {text: 'Перейти к оплате'},
+						buttonLightParams: {text: 'Войти'},
+					};
+				+mixRegistration(registrationParams)
 
-      //- booking
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'booking'})
-        -
-          const bookingParams = {
-            //- data: { //данные о заказе - цена, скидки итд
-            //-   number: '888',
-            //-   type: 'Люкс',
-            //-   price: '9990₽ ',
-            //-   discountChild: '0.5',
-            //-   discountBaby: '0.2',
-            //-   serviceFee: '2179',
-            //-   serviceFeeDiscount: '2179',
-            //-   additionalServiceFee: '300',
-            //- },
-            dropdownSplitParams: {
-              label1: 'Прибытие',
-              label2: 'Выезд',
-              inputs:[
-                {id: 'inputdate5', name: 'date-from'},
-                {id: 'inputdate6', name: 'date-to'},
-              ]
-            },
-            label1: ({text: 'гости'}),
-            dropdownParams: {
-              label: 'Гости',
-              placeholder: 'Сколько гостей',
-              type: '1', // с гостями
-              inputNames: ['guests', 'children', 'babies']
-            },
-            buttonArrowParams: {text: 'Забронировать'},
-          };
-        +mixBooking(bookingParams)
+			//- booking
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'booking'})
+				-
+					const bookingParams = {
+						//- data: { //данные о заказе - цена, скидки итд
+						//-   number: '888',
+						//-   type: 'Люкс',
+						//-   price: '9990₽ ',
+						//-   discountChild: '0.5',
+						//-   discountBaby: '0.2',
+						//-   serviceFee: '2179',
+						//-   serviceFeeDiscount: '2179',
+						//-   additionalServiceFee: '300',
+						//- },
+						dropdownSplitParams: {
+							label1: 'Прибытие',
+							label2: 'Выезд',
+							inputs:[
+								{id: 'inputdate5', name: 'date-from'},
+								{id: 'inputdate6', name: 'date-to'},
+							]
+						},
+						label1: ({text: 'гости'}),
+						dropdownParams: {
+							label: 'Гости',
+							placeholder: 'Сколько гостей',
+							type: '1', // с гостями
+							inputNames: ['guests', 'children', 'babies']
+						},
+						buttonArrowParams: {text: 'Забронировать'},
+					};
+				+mixBooking(bookingParams)
 
-      //- login
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'login'})
-        -
-          const loginParams = {
-            title: 'Войти',
+			//- login
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'login'})
+				-
+					const loginParams = {
+						title: 'Войти',
 
-            textFieldParams3: {
-              type: 'text',
-              placeholder: 'Email',
-              name: 'default-input-name',
-            },
+						textFieldParams3: {
+							type: 'text',
+							placeholder: 'Email',
+							name: 'default-input-name',
+						},
 
-            textFieldParams4: {
-              type: 'password',
-              placeholder: 'Пароль',
-              name: 'default-input-name',
-            },
+						textFieldParams4: {
+							type: 'password',
+							placeholder: 'Пароль',
+							name: 'default-input-name',
+						},
 
-            buttonArrowParams: {text: 'Войти'},
+						buttonArrowParams: {text: 'Войти'},
 
-            buttonLightParams: {text: 'Создать'},
-          };
-        +mixLogin(loginParams)
+						buttonLightParams: {text: 'Создать'},
+					};
+				+mixLogin(loginParams)
 
-      //- product
-      .uikit-demo__item
-        .uikit-demo__label-container
-          +mixLabel({text: 'product'})
-        -
-          const productParams = {
-            buttonRateParams: {
-              name: 'rating-888',
-              inputIds: ['starrate6','starrate7','starrate8','starrate9','starrate10'],
-            },
-          };
-        +mixProduct(productParams)
+			//- product
+			.uikit-demo__item
+				.uikit-demo__label-container
+					+mixLabel({text: 'product'})
+				-
+					const productParams = {
+						buttonRateParams: {
+							groupName: 'rating-888',
+							inputIds: ['starrate6','starrate7','starrate8','starrate9','starrate10'],
+						},
+					};
+				+mixProduct(productParams)
 
-      //- menu
-      //- .uikit-demo__item
-      //-   .uikit-demo__label-container
-      //-     +mixLabel({text: 'menu'})
-      //-   -
-      //-     const menuParams = {
-      //-     };
-      //-   +mixMenu(menuParams)
+			//- menu
+			//- .uikit-demo__item
+			//-   .uikit-demo__label-container
+			//-     +mixLabel({text: 'menu'})
+			//-   -
+			//-     const menuParams = {
+			//-     };
+			//-   +mixMenu(menuParams)
 
-      //- header
-  +mixLabel({text: 'header'})
-  -
-    const headerParams1 = {
-      buttonLightParams: {text: 'войти'},
-      buttonDarkParams: {text: 'зарегистрироваться'},
-    };
-  +mixHeader(headerParams1)
+			//- header
+	+mixLabel({text: 'header'})
+	-
+		const headerParams1 = {
+			buttonLightParams: {text: 'войти'},
+			buttonDarkParams: {text: 'зарегистрироваться'},
+		};
+	+mixHeader(headerParams1)
 
-      //- header - user logged
-      //- .uikit-demo__item
-      //-   .uikit-demo__label-container
-      //-     +mixLabel({text: 'header - user logged'})
-      //-   -
-      //-     const headerParams2 = {
-      //-       buttonLightParams: {text: 'войти'},
-      //-       buttonDarkParams: {text: 'зарегистрироваться'},
-      //-       logged: 'true'
-      //-     };
-      //-   +mixHeader(headerParams2)
+			//- header - user logged
+			//- .uikit-demo__item
+			//-   .uikit-demo__label-container
+			//-     +mixLabel({text: 'header - user logged'})
+			//-   -
+			//-     const headerParams2 = {
+			//-       buttonLightParams: {text: 'войти'},
+			//-       buttonDarkParams: {text: 'зарегистрироваться'},
+			//-       logged: 'true'
+			//-     };
+			//-   +mixHeader(headerParams2)
 
-      //- footer
-  -
-    const footerParams = {
-    };
-  +mixLabel({text: 'footer'})
-  +mixFooter(footerParams)
-  
-  script(src='js/main.js')
-  
+			//- footer
+	-
+		const footerParams = {
+		};
+	+mixLabel({text: 'footer'})
+	+mixFooter(footerParams)
+	
+	script(src='js/main.js')
+	

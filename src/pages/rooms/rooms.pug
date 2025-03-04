@@ -1,0 +1,208 @@
+//- Вставка из другого файла, использование миксинов с параметрами
+include ../../modules/head/head
+
+//- Модули
+include ../../modules/label/label.pug
+include ../../modules/text-field/text-field.pug
+include ../../modules/text-field-masked/text-field-masked.pug
+include ../../modules/text-field-subscription/text-field-subscription.pug
+include ../../modules/dropdown/dropdown.pug
+include ../../modules/dropdown-date-split/dropdown-date-split.pug
+include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
+include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
+include ../../modules/checkbox-list/checkbox-list.pug
+include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
+include ../../modules/advantages/advantages.pug
+include ../../modules/radio-buttons/radio-buttons.pug
+include ../../modules/toggle/toggle.pug
+include ../../modules/button-like/button-like.pug
+include ../../modules/button-rate/button-rate.pug
+include ../../modules/slider-range/slider-range.pug
+include ../../modules/button-dark/button-dark.pug
+include ../../modules/button-light/button-light.pug
+include ../../modules/button-clear/button-clear.pug
+include ../../modules/button-arrow/button-arrow.pug
+include ../../modules/bullet-list/bullet-list.pug
+include ../../modules/products-list/products-list.pug
+include ../../modules/pagination/pagination.pug
+include ../../modules/menu/menu.pug
+
+//- Составные модули
+include ../../composite_modules/review/review.pug
+include ../../composite_modules/search/search.pug
+include ../../composite_modules/registration/registration.pug
+include ../../composite_modules/booking/booking.pug
+include ../../composite_modules/login/login.pug
+include ../../composite_modules/product/product.pug
+include ../../composite_modules/header/header.pug
+include ../../composite_modules/footer/footer.pug
+
+doctype html
+
+-
+	const headParams = {
+		pageTitle: 'Поиск номеров',
+		cssFile: 'css/rooms.css',
+	};
++mixHead(headParams)
+
+body
+
+	//- Header
+	-
+		const headerParams = {
+			buttonLightParams: {text: 'войти'},
+			buttonDarkParams: {text: 'зарегистрироваться'},
+		};
+	+mixHeader(headerParams)
+
+	//- Основная секция
+	section.main
+		.container
+			.main__body
+				.main__additional-panel
+					.main__panel-button
+						.main__panel-icon tune
+						.main__panel-text Фильтры
+				.main__filters-container
+					.main__filters
+						img.main__logo(src="@img/Logo.svg", alt="")
+						.main__dates
+							.main__label
+								+mixLabel({text: 'даты пребывания в отеле'})
+							//- dropdown-date-filter
+							-
+								const dropdownDateFilterParams = {
+									input: {id: 'input-date-filter-name1', name: 'dates-range'},
+								};
+							+mixDropdownDateFilter(dropdownDateFilterParams)
+
+						.main__guests
+							.main__label
+								+mixLabel({text: 'гости'})
+							//- dropdown - c гостями
+							-
+								const dropdownParams = {
+									placeholder: 'Сколько гостей',
+									type: '1', // с гостями
+									inputNames: ['adult', 'children', 'babies']
+								};
+							+mixDropdown(dropdownParams)
+
+						.main__slider
+							//- slider-range
+							-
+								const sliderRangeParams = {
+									label: 'диапазон цены',
+									min: '1000',
+									max: '20000',
+									minValue: '1000',
+									maxValue: '20000',
+									step: '100',
+									gap: '500'
+								};
+							+mixSliderRange(sliderRangeParams)
+							.main__slider-bottomtext Стоимость за сутки пребывания в номере
+
+						.main__rules
+							.main__label
+							//- checkbox-list
+							-
+								const checkboxListParams = {
+									label: 'правила дома',
+									inputs:[
+										{id: 'chkbox1', name: 'smoking', value: 'можно курить'},
+										{id: 'chkbox2', name: 'pets', value: 'можно с питомцами'},
+										{id: 'chkbox3', name: 'manyguests', value: 'можно пригласить гостей (до 10 человек)'},
+									]
+								};
+							+mixCheckboxList(checkboxListParams)
+
+						.main__accessibility
+							.main__label
+							//- checkbox-list-rich
+							-
+								const checkboxListRichParams = {
+									label: 'Доступность',
+									inputs:[
+										{id: 'chkbox4', name: 'wide-corridor', value: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'},
+										{id: 'chkbox5', name: 'disabled-assistant', value: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
+									]
+								};
+							+mixCheckboxListRich(checkboxListRichParams)
+
+						.main__amenities
+							.main__label
+								+mixLabel({text: 'Удобства номера'})
+							//- dropdown - с параметрами номера
+							-
+								const dropdownParams2 = {
+									placeholder: 'Параметры номера',
+									type: '2', // с параметрами номера
+									inputNames: ['amenities-bedrooms', 'amenities-beds', 'amenities-bathrooms']
+								};
+							+mixDropdown(dropdownParams2)
+
+						.main__add-amenities
+							//- checkbox-list-exp
+							-
+								const checkboxListExpParams = {
+									label: 'Дополнительные удобства',
+									inputs:[
+										{id: 'chkbox6', name: 'add-amenities-breakfast', value: 'завтрак'},
+										{id: 'chkbox7', name: 'add-amenities-desk', value: 'письменный стол'},
+										{id: 'chkbox8', name: 'add-amenities-high-chair', value: 'стул для кормления'},
+										{id: 'chkbox9', name: 'add-amenities-crib', value: 'кроватка'},
+										{id: 'chkbox10', name: 'add-amenities-tv', value: 'телевизор'},
+										{id: 'chkbox11', name: 'add-amenities-shampoo', value: 'шампунь'},
+									]
+								};
+							+mixCheckboxListExp(checkboxListExpParams)
+
+				.main__rooms
+					.main__title Номера, которые мы для вас подобрали
+					ul.main__items
+						//- li.main__item
+						//- 	-
+						//- 		const productParams = {
+						//- 			buttonRateParams: {
+						//- 				name: 'rating-888',
+						//- 				inputIds: ['starrate1','starrate2','starrate3','starrate4','starrate5'],
+						//- 			},
+						//- 		};
+						//- 	+mixProduct(productParams)
+
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+						//- .main__item
+						//- 	+mixProduct(productParams)
+					.main__pagination
+						-
+							const paginationParams = {
+							};
+						+mixPagination(paginationParams)
+
+
+	//- Footer
+	+mixFooter()
+
+	script(src='js/rooms.js')
+	

@@ -1245,7 +1245,7 @@ body {
     height: 100%;
     background-color: rgba(31, 32, 65, 0.75);
     transition: left 0.3s ease 0s;
-    z-index: 4;
+    z-index: 10;
     overflow: auto;
   }
 }
@@ -1683,7 +1683,7 @@ body {
 }
 
 .product {
-  width: 270px;
+  width: 100%;
   border: 1px dashed black;
   border-radius: 4px;
 }
@@ -1789,6 +1789,9 @@ body {
   transform: none;
 }
 
+.header {
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+}
 .header__body {
   width: 100%;
   display: flex;

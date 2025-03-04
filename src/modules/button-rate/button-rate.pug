@@ -1,5 +1,5 @@
 //- Объявление миксина
-mixin mixButtonRate({groupName: name, inputIds})
+mixin mixButtonRate({groupName, inputIds})
   .button-rate
     each item, index in inputIds
       input(type='radio' id=inputIds[4-index] name=groupName value=5-index)

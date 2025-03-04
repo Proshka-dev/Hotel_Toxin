@@ -3,6 +3,15 @@
 // *********************************************************************************
 import Splide from '@splidejs/splide';
 
+/** Нужно найти все элементы .splide
+ *  Для каждого проверить, не активирован ли слайдер
+ *  Если не активирован - активировать
+ *  А лишние отключить
+ * 
+ *  Или передавать в функцию параметр - элемент
+ *  И сделать 2 функции - для отключения и подключения слайдера
+ */
+
 const productActivate = () => {
     // @ts-ignore
     const splide1 = new Splide('.splide', {
@@ -11,7 +20,16 @@ const productActivate = () => {
 
     splide1.mount();
 }
+
+/** Функция активации слайдера */
+const activateSlider = (splideElement: HTMLElement) => {
+    // @ts-ignore
+    new Splide(splideElement, {
+        heightRatio: 0.56,
+    }).mount();
+};
+
 // *********************************************************************************
 //                              Экспорт
 // *********************************************************************************
-export { productActivate }
+export { productActivate, activateSlider }
