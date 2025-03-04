@@ -1245,7 +1245,7 @@ body {
     height: 100%;
     background-color: rgba(31, 32, 65, 0.75);
     transition: left 0.3s ease 0s;
-    z-index: 4;
+    z-index: 10;
     overflow: auto;
   }
 }

@@ -36,7 +36,26 @@ window.addEventListener('DOMContentLoaded', () => {
     // bookingUpdateCard();
     // bookingChangeHandlersInitialization();
     //productActivate();
+
+
+    /** Инициализация функционала отображения/скрытия панели фильтров */
+    clickButtonFiltersHandlersInitialization();
 });
+
+// *********************************************************************************
+//                              Функции
+// *********************************************************************************
+/** Функция обработки кликов на кнопке 'Фильтры' */
+const clickButtonFiltersHandlersInitialization = () => {
+    const buttonFilters = document.querySelector('.main__panel-button') as HTMLElement;
+    const panelFilters = document.querySelector('.main__filters-container') as HTMLElement;
+    buttonFilters.addEventListener('click', (e) => {
+        /** Обработчик кликов на кнопке отображения фильтров */
+        panelFilters.classList.toggle('main__filters-container_active');
+    });
+};
+
+
 
 // *********************************************************************************
 //                              Экспорт
