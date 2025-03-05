@@ -103,35 +103,104 @@ body {
 
 .main {
 
-	&__body {}
+	&__body {
+		padding-top: 70px;
+		display: flex;
+		gap: 70px;
+	}
 
-	&__details {}
+	&__details {
+		flex: 1 1 auto;
+		border: 1px dashed green;
 
-	&__info {}
+		display: grid;
+		grid-template-areas:
+			'info impressions'
+			'reviews reviews'
+			'rules cancel'
+		;
 
-	&__title {}
+		grid-template-columns: 1fr 1fr;
 
-	&__info-list {}
+		column-gap: 20px;
+	}
+
+	&__info {
+		grid-area: info;
+		margin-bottom: 30px;
+	}
+
+	&__title {
+		font-size: 19px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	&__info-list {
+		display: flex;
+		gap: 20px;
+		flex-direction: column;
+		width: fit-content;
+	}
 
 	&__info-item {}
 
-	&__impressions {}
+	&__impressions {
+		grid-area: impressions;
+	}
 
 	&__impressions-diagram {}
 
-	&__reviews {}
+	&__reviews {
+		grid-area: reviews;
+		margin-bottom: 30px;
+	}
+
+	&__title-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	&__reviews-counter {
+		font-size: 14px;
+		line-height: 14px;
+		font-weight: normal;
+		color: $color-darkshade50;
+	}
+
+	&__reviews-list {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
 
 	&__reviews-item {}
 
-	&__rules {}
+	&__rules {
+		grid-area: rules;
+	}
 
 	&__rules-list {}
 
-	&__cancel {}
+	&__cancel {
+		grid-area: cancel;
+	}
 
-	&__cancel-text {}
+	&__cancel-text {
+		font-size: 14px;
+		line-height: 24px;
+		color: $color-darkshade75;
+	}
 
-	&__booking {}
+	&__booking {
+		//flex: 0 0;
+		//border: 1px dashed red;
+	}
 
-	&__booking-card {}
+	&__booking-card {
+		width: 380px;
+		box-shadow: 0px 0px 25px $color-black20;
+		border: 1px solid $color-black12;
+	}
 }

@@ -33,8 +33,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // paginate(products);
 
     /** Активирование функций составных модулей */
-    // bookingUpdateCard();
-    // bookingChangeHandlersInitialization();
+    bookingUpdateCard();
+    bookingChangeHandlersInitialization();
     //productActivate();
 
 

@@ -1,8 +1,7 @@
 //- Объявление миксина
 //- Параметры: 
-mixin mixBulletList({label, items})
+mixin mixBulletList({items})
   .bullet-list
-    .bullet-list__label=label
     ul.bullet-list__items
       each item in items
         li.bullet-list__item=item

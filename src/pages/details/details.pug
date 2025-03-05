@@ -73,30 +73,114 @@ body
 					.main__info
 						.main__title Сведения о номере
 						ul.main__info-list
-							li.main__info-item Комфорт
-							li.main__info-item Удобство
-							li.main__info-item Уют
+							li.main__info-item
+								-
+									const advantagesParams1 = {
+										icon: 'insert_emoticon',
+										title: 'Комфорт',
+										description: 'Шумопоглощающие стены',
+										hasline: 'true',
+									};
+								+mixAdvantages(advantagesParams1)
+
+							li.main__info-item
+								-
+									const advantagesParams2 = {
+										icon: 'location_city',
+										title: 'Удобство',
+										description: 'Окно в каждой из спален',
+										hasline: 'true',
+									};
+								+mixAdvantages(advantagesParams2)
+							li.main__info-item
+								-
+									const advantagesParams3 = {
+										icon: 'mode_heat',
+										title: 'Уют',
+										description: 'Номер оснащён камином',
+										hasline: 'false',
+									};
+								+mixAdvantages(advantagesParams3)
+
 					.main__impressions
 						.main__title Впечатления от номера
 						.main__impressions-diagram Диаграмма
 					.main__reviews
-						.main__title Отзывы посетителей номера
+						.main__title-container
+							.main__title Отзывы посетителей номера
+							.main__reviews-counter 2 отзыва
 						ul.main__reviews-list
-							.main__reviews-item Отзыв1
-							.main__reviews-item Отзыв2
+							.main__reviews-item
+								-
+									const reviewParams1 = {
+										photo: '@img/review/review-photo1.jpg',
+										name: 'Мурад Сарафанов',
+										timeReview: '5 дней назад',
+										text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+										buttonLikeParams: {
+											numberOfLikes: '12',
+											id: 'btnlike1',
+											isChecked: 'true'
+										},
+									};
+								+mixReview(reviewParams1)
+
+							.main__reviews-item
+								-
+									const reviewParams2 = {
+										photo: '@img/review/review-photo2.jpg',
+										name: 'Патрисия Стёклышкова',
+										timeReview: 'неделю назад',
+										text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент',
+										buttonLikeParams: {
+											numberOfLikes: '2',
+											id: 'btnlike2',
+											isChecked: 'false'
+										},
+									};
+								+mixReview(reviewParams2)
+
 					.main__rules
 						.main__title Правила
-						.main__rules-list Список правил
+						.main__rules-list
+							-
+								const bulletListParams = {
+									//label: 'Bullet list',
+									items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'],
+								};
+							+mixBulletList(bulletListParams)
+
 					.main__cancel
 						.main__title Отмена
 						.main__cancel-text
 							|Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за
 							| 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
 				.main__booking
-					.main__booking-card Карточка заказа
+					.main__booking-card
+						-
+							const bookingParams = {
+								dropdownSplitParams: {
+									label1: 'Прибытие',
+									label2: 'Выезд',
+									inputs:[
+										{id: 'inputdate5', name: 'date-from'},
+										{id: 'inputdate6', name: 'date-to'},
+									]
+								},
+								label1: ({text: 'гости'}),
+								dropdownParams: {
+									label: 'Гости',
+									placeholder: 'Сколько гостей',
+									type: '1', // с гостями
+									inputNames: ['guests', 'children', 'babies']
+								},
+								buttonArrowParams: {text: 'Забронировать'},
+							};
+						+mixBooking(bookingParams)
+
 
 	//- Footer
 	+mixFooter()
 
-	script(src='js/rooms.js')
+	script(src='js/details.js')
 	
