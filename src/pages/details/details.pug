@@ -1,0 +1,68 @@
+//- Вставка из другого файла, использование миксинов с параметрами
+include ../../modules/head/head
+
+//- Модули
+include ../../modules/label/label.pug
+include ../../modules/text-field/text-field.pug
+include ../../modules/text-field-masked/text-field-masked.pug
+include ../../modules/text-field-subscription/text-field-subscription.pug
+include ../../modules/dropdown/dropdown.pug
+include ../../modules/dropdown-date-split/dropdown-date-split.pug
+include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
+include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
+include ../../modules/checkbox-list/checkbox-list.pug
+include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
+include ../../modules/advantages/advantages.pug
+include ../../modules/radio-buttons/radio-buttons.pug
+include ../../modules/toggle/toggle.pug
+include ../../modules/button-like/button-like.pug
+include ../../modules/button-rate/button-rate.pug
+include ../../modules/slider-range/slider-range.pug
+include ../../modules/button-dark/button-dark.pug
+include ../../modules/button-light/button-light.pug
+include ../../modules/button-clear/button-clear.pug
+include ../../modules/button-arrow/button-arrow.pug
+include ../../modules/bullet-list/bullet-list.pug
+include ../../modules/products-list/products-list.pug
+include ../../modules/pagination/pagination.pug
+include ../../modules/menu/menu.pug
+
+//- Составные модули
+include ../../composite_modules/review/review.pug
+include ../../composite_modules/search/search.pug
+include ../../composite_modules/registration/registration.pug
+include ../../composite_modules/booking/booking.pug
+include ../../composite_modules/login/login.pug
+include ../../composite_modules/product/product.pug
+include ../../composite_modules/header/header.pug
+include ../../composite_modules/footer/footer.pug
+
+doctype html
+
+-
+	const headParams = {
+		pageTitle: 'Информация о номере',
+		cssFile: 'css/details.css',
+	};
++mixHead(headParams)
+
+body
+
+	//- Header
+	-
+		const headerParams = {
+			buttonLightParams: {text: 'войти'},
+			buttonDarkParams: {text: 'зарегистрироваться'},
+		};
+	+mixHeader(headerParams)
+
+	//- Основная секция
+	section.main
+		.container
+			.main__body
+
+	//- Footer
+	+mixFooter()
+
+	script(src='js/rooms.js')
+	
