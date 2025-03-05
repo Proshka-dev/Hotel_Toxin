@@ -44,22 +44,94 @@
 @use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
 
 body {
-    //
+	//
 }
 
 .container {
-    max-width: 81.944%;
-    margin: 0 auto;
-    padding: 0 50px;
+	max-width: 81.944%;
+	margin: 0 auto;
+	padding: 0 50px;
 
-    @media (max-width: 1440px) {
-        max-width: 1180px;
-    }
+	@media (max-width: 1440px) {
+		max-width: 1180px;
+	}
 
+}
+
+.photos {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+
+	&__item {
+		position: relative;
+		padding-bottom: 49.44%; // Выставляем высоту в % соотношении от ширины
+
+		&_big {
+			grid-column: span 2;
+			grid-row: span 2;
+
+			@media (max-width: 768px) {
+				grid-column: span 1;
+				grid-row: span 1;
+			}
+		}
+
+		// все потомки, кроме первого
+		&:not(:first-child) {
+			@media (max-width: 768px) {
+				display: none;
+			}
+		}
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+
+		object-fit: cover;
+		object-position: center;
+	}
 }
 
 .main {
 
-    &__body {}
+	&__body {}
 
+	&__details {}
+
+	&__info {}
+
+	&__title {}
+
+	&__info-list {}
+
+	&__info-item {}
+
+	&__impressions {}
+
+	&__impressions-diagram {}
+
+	&__reviews {}
+
+	&__reviews-item {}
+
+	&__rules {}
+
+	&__rules-list {}
+
+	&__cancel {}
+
+	&__cancel-text {}
+
+	&__booking {}
+
+	&__booking-card {}
 }

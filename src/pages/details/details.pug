@@ -55,11 +55,45 @@ body
 			buttonDarkParams: {text: 'зарегистрироваться'},
 		};
 	+mixHeader(headerParams)
+	
+	//- Фотографии номера
+	section.photos
+		.photos__item.photos__item_big
+			img.photos__image(src="@img/rooms/room01-1.jpg", alt="")
+		.photos__item
+			img.photos__image(src="@img/rooms/room01-2.jpg", alt="")
+		.photos__item
+			img.photos__image(src="@img/rooms/room01-3.jpg", alt="")
 
 	//- Основная секция
 	section.main
 		.container
 			.main__body
+				.main__details
+					.main__info
+						.main__title Сведения о номере
+						ul.main__info-list
+							li.main__info-item Комфорт
+							li.main__info-item Удобство
+							li.main__info-item Уют
+					.main__impressions
+						.main__title Впечатления от номера
+						.main__impressions-diagram Диаграмма
+					.main__reviews
+						.main__title Отзывы посетителей номера
+						ul.main__reviews-list
+							.main__reviews-item Отзыв1
+							.main__reviews-item Отзыв2
+					.main__rules
+						.main__title Правила
+						.main__rules-list Список правил
+					.main__cancel
+						.main__title Отмена
+						.main__cancel-text
+							|Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за
+							| 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+				.main__booking
+					.main__booking-card Карточка заказа
 
 	//- Footer
 	+mixFooter()
