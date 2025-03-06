@@ -4,7 +4,14 @@
 const setWidthDependingOnContent = (buttonLike: HTMLElement) => {
 	const textElement = buttonLike.querySelector('.button-like__text') as HTMLElement;
 	if (!textElement) return;
-	const numOfSimbols = textElement.innerText.length;
+	let numOfSimbols = textElement.innerText.length;
+
+	if (!buttonLike.classList.contains('button-like_active')) {
+		const numOfSimbolsNext = String(Number(textElement.innerText) + 1).length;
+		if (numOfSimbolsNext > numOfSimbols) {
+			numOfSimbols = numOfSimbols + 1;
+		}
+	}
 
 	if (numOfSimbols > 2) {
 		textElement.style.minWidth = String(13.4 + (numOfSimbols - 2) * 6.63) + 'px';
