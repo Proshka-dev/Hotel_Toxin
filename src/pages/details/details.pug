@@ -110,7 +110,7 @@ body
 							.main__title Отзывы посетителей номера
 							.main__reviews-counter 2 отзыва
 						ul.main__reviews-list
-							.main__reviews-item
+							li.main__reviews-item
 								-
 									const reviewParams1 = {
 										photo: '@img/review/review-photo1.jpg',
@@ -124,8 +124,7 @@ body
 										},
 									};
 								+mixReview(reviewParams1)
-
-							.main__reviews-item
+							li.main__reviews-item
 								-
 									const reviewParams2 = {
 										photo: '@img/review/review-photo2.jpg',
