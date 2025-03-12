@@ -29,6 +29,7 @@
 @use '../../modules/products-list/products-list.scss';
 @use '../../modules/pagination/pagination.scss';
 @use '../../modules/menu/menu.scss';
+@use '../../modules/chart/chart.scss';
 
 // Составные модули
 @use '../../composite_modules/review/review.scss';
@@ -149,7 +150,11 @@ body {
 		grid-area: impressions;
 	}
 
-	&__impressions-diagram {}
+	&__chart {
+		border: 1px dashed green;
+	}
+
+	&chart {}
 
 	&__reviews {
 		grid-area: reviews;

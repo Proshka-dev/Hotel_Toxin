@@ -1,0 +1,15 @@
+@use '../../scss/colors.scss' as *;
+
+.chart {
+
+    &__body {
+        border: 1px dashed red;
+        width: 120px;
+        height: 120px;
+
+    }
+
+    &__circle {
+        fill: none;
+    }
+}

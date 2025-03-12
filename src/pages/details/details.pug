@@ -26,6 +26,7 @@ include ../../modules/bullet-list/bullet-list.pug
 include ../../modules/products-list/products-list.pug
 include ../../modules/pagination/pagination.pug
 include ../../modules/menu/menu.pug
+include ../../modules/chart/chart.pug
 
 //- Составные модули
 include ../../composite_modules/review/review.pug
@@ -104,7 +105,8 @@ body
 
 					.main__impressions
 						.main__title Впечатления от номера
-						.main__impressions-diagram Диаграмма
+						.main__chart
+							+mixChart()
 					.main__reviews
 						.main__title-container
 							.main__title Отзывы посетителей номера
