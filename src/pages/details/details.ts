@@ -12,6 +12,7 @@ import { dropdownDateFilterActivate } from '../../modules/dropdown-date-filter/d
 import { dropdownDateSplitActivate } from '../../modules/dropdown-date-split/dropdown-date-split.js';
 import { menuActivate } from '../../modules/menu/menu.js';
 import { sliderRangeActivate } from '../../modules/slider-range/slider-range.js';
+import { chartUpdate } from '../../modules/chart/chart.js';
 
 /** Импорт функций для активации составных модулей */
 import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
@@ -36,6 +37,8 @@ window.addEventListener('DOMContentLoaded', () => {
     bookingUpdateCard();
     bookingChangeHandlersInitialization();
     //productActivate();
+
+    chartUpdate([40, 30, 20, 10]);
 
 
 });
