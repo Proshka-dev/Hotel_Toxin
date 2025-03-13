@@ -1,0 +1,138 @@
+//- Вставка из другого файла, использование миксинов с параметрами
+include ../../modules/head/head
+
+//- Модули
+include ../../modules/label/label.pug
+include ../../modules/text-field/text-field.pug
+include ../../modules/text-field-masked/text-field-masked.pug
+include ../../modules/text-field-subscription/text-field-subscription.pug
+include ../../modules/dropdown/dropdown.pug
+include ../../modules/dropdown-date-split/dropdown-date-split.pug
+include ../../modules/dropdown-date-filter/dropdown-date-filter.pug
+include ../../modules/checkbox-list-exp/checkbox-list-exp.pug
+include ../../modules/checkbox-list/checkbox-list.pug
+include ../../modules/checkbox-list-rich/checkbox-list-rich.pug
+include ../../modules/advantages/advantages.pug
+include ../../modules/radio-buttons/radio-buttons.pug
+include ../../modules/toggle/toggle.pug
+include ../../modules/button-like/button-like.pug
+include ../../modules/button-rate/button-rate.pug
+include ../../modules/slider-range/slider-range.pug
+include ../../modules/button-dark/button-dark.pug
+include ../../modules/button-light/button-light.pug
+include ../../modules/button-clear/button-clear.pug
+include ../../modules/button-arrow/button-arrow.pug
+include ../../modules/bullet-list/bullet-list.pug
+include ../../modules/products-list/products-list.pug
+include ../../modules/pagination/pagination.pug
+include ../../modules/menu/menu.pug
+
+//- Составные модули
+include ../../composite_modules/review/review.pug
+include ../../composite_modules/search/search.pug
+include ../../composite_modules/registration/registration.pug
+include ../../composite_modules/booking/booking.pug
+include ../../composite_modules/login/login.pug
+include ../../composite_modules/product/product.pug
+include ../../composite_modules/header/header.pug
+include ../../composite_modules/footer/footer.pug
+
+doctype html
+
+-
+	const headParams = {
+		pageTitle: 'Быстрый поиск',
+		cssFile: 'css/registration.css',
+	};
++mixHead(headParams)
+
+body
+
+	//- header
+	-
+		const headerParams = {
+			buttonLightParams: {text: 'войти'},
+			buttonDarkParams: {text: 'зарегистрироваться'},
+		};
+	+mixHeader(headerParams)
+
+	section.main
+		.container
+			.main__body
+				.main__registration
+					//- registration
+					-
+						const registrationParams = {
+							title: 'Регистрация аккаунта',
+							textFieldParams1: {
+								type: 'text',
+								placeholder: 'Имя',
+								name: 'default-input-name',
+							},
+							textFieldParams2: {
+								type: 'text',
+								placeholder: 'Фамилия',
+								name: 'default-input-name',
+							},
+							radioButtonsParams: { 
+								groupName: 'gender',
+								inputs:[
+									{id: 'radio3', value: 'мужчина'},
+									{id: 'radio4', value: 'женщина'},
+								]
+							},
+							label1: ({text: 'дата рождения'}),
+							textFieldMaskedParams: {
+								type: 'date',
+								placeholder: '',
+								name: 'default-input-name',
+							},
+							label2: ({text: 'данные для входа в сервис'}),
+							textFieldParams3: {
+								type: 'text',
+								placeholder: 'Email',
+								name: 'default-input-name',
+							},
+							textFieldParams4: {
+								type: 'password',
+								placeholder: 'Пароль',
+								name: 'default-input-name',
+							},
+							toggleParams: {
+								inputs:[
+									{id: 'toggle3', name: 'getoffres', value: 'получать спецпредложения'},
+								]
+							},
+							buttonArrowParams: {text: 'Перейти к оплате'},
+							buttonLightParams: {text: 'Войти'},
+						};
+					+mixRegistration(registrationParams)
+
+					//- search
+					//- -
+					//-   const searchParams = {
+					//-     title: 'Найдем номера под ваши пожелания',
+					//-     dropdownSplitParams: {
+					//-       label1: 'Прибытие',
+					//-       label2: 'Выезд',
+					//-       inputs:[
+					//-         {id: 'inputdate3', name: 'date-from'},
+					//-         {id: 'inputdate4', name: 'date-to'},
+					//-       ]
+					//-     },
+					//-     label1: ({text: 'гости'}),
+					//-     dropdownParams: {
+					//-       label: 'Гости',
+					//-       placeholder: 'Сколько гостей',
+					//-       type: '1', // с гостями
+					//-       inputNames: ['select-value7', 'select-value8', 'select-value9']
+					//-     },
+					//-     buttonArrowParams: {text: 'Подобрать номер'},
+					//-   };
+					//- +mixSearch(searchParams)
+
+	//- footer
+	+mixFooter()
+
+	script(src='js/registration.js')
+	

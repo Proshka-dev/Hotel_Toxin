@@ -1,0 +1,81 @@
+// Базовые (цвета, шрифты, обнуление)
+@use '../../scss/nullstyle.scss';
+@use '../../scss/fonts.scss';
+@use '../../scss/colors.scss' as *;
+@use '../../scss/iconfont.scss';
+
+// Модули UI Kit
+@use '../../modules/label/label.scss';
+@use '../../modules/text-field/text-field.scss';
+@use '../../modules/text-field-masked/text-field-masked.scss';
+@use '../../modules/text-field-subscription/text-field-subscription.scss';
+@use '../../modules/dropdown/dropdown.scss';
+@use '../../modules/dropdown-date-split/dropdown-date-split.scss';
+@use '../../modules/dropdown-date-filter/dropdown-date-filter.scss';
+@use '../../modules/checkbox-list-exp/checkbox-list-exp.scss';
+@use '../../modules/checkbox-list/checkbox-list.scss';
+@use '../../modules/checkbox-list-rich/checkbox-list-rich.scss';
+@use '../../modules/advantages/advantages.scss';
+@use '../../modules/radio-buttons/radio-buttons.scss';
+@use '../../modules/toggle/toggle.scss';
+@use '../../modules/button-like/button-like.scss';
+@use '../../modules/button-rate/button-rate.scss';
+@use '../../modules/slider-range/slider-range.scss';
+@use '../../modules/button-dark/button-dark.scss';
+@use '../../modules/button-light/button-light.scss';
+@use '../../modules/button-clear/button-clear.scss';
+@use '../../modules/button-arrow/button-arrow.scss';
+@use '../../modules/bullet-list/bullet-list.scss';
+@use '../../modules/products-list/products-list.scss';
+@use '../../modules/pagination/pagination.scss';
+@use '../../modules/menu/menu.scss';
+
+// Составные модули
+@use '../../composite_modules/review/review.scss';
+@use '../../composite_modules/search/search.scss';
+@use '../../composite_modules/registration/registration.scss';
+@use '../../composite_modules/booking/booking.scss';
+@use '../../composite_modules/login/login.scss';
+@use '../../composite_modules/product/product.scss';
+@use '../../composite_modules/header/header.scss';
+@use '../../composite_modules/footer/footer.scss';
+
+// Переназначение стилей сторонних модулей
+@use '../../scss/air-datepicker-upd.scss'; //Переназначение стилей air-datepicker
+
+body {
+    //
+}
+
+.container {
+    max-width: 81.944%;
+    margin: 0 auto;
+    padding: 0 50px;
+
+    @media (max-width: 1440px) {
+        max-width: 1180px;
+    }
+
+}
+
+.main {
+
+    background-image: url('@img/registration/registration-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        height: 683px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__registration {}
+
+}
