@@ -4,13 +4,19 @@ import { numWord, sumArray } from '../../common/utils.js';
 // *********************************************************************************
 //                              Основная часть
 // *********************************************************************************
-function chartUpdate(chartData: number[], options: { gap: number }) {
+interface IChartUpdateOptions {
+	gap?: number;
+}
+
+function chartUpdate(chartData: number[], options?: IChartUpdateOptions) {
+
+	const gap = options.gap ?? 0.6;
 
 	const chartElement = document.querySelector('.chart') as HTMLElement;
 	if ((chartData.length !== 4) || (!chartElement)) { return }
 
 	renderSumOfVoices({ chartElement, chartData });
-	renderChart({ chartElement, chartData, gap: options.gap });
+	renderChart({ chartElement, chartData, gap });
 }
 
 // *********************************************************************************

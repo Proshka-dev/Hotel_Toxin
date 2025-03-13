@@ -36,8 +36,8 @@ window.addEventListener('DOMContentLoaded', () => {
     bookingChangeHandlersInitialization();
     //productActivate();
 
-    chartUpdate([40, 30, 20, 0], {
-        gap: 0.6, // отступ между линиями (в процентах)
+    chartUpdate([130, 65, 65, 0], {
+        gap: 1.6, // отступ между линиями (в процентах)
     });
 
 
