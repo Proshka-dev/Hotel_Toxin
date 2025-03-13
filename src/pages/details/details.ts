@@ -18,8 +18,6 @@ import { chartUpdate } from '../../modules/chart/chart.js';
 import { bookingUpdateCard, bookingChangeHandlersInitialization } from '../../composite_modules/booking/booking.js';
 import { productActivate } from '../../composite_modules/product/product.js'; // карточка товара
 
-
-
 window.addEventListener('DOMContentLoaded', () => {
     updateUserStatus(); // Обновляем статус пользователя
     menuActivate(); // Активация функционала меню
@@ -38,7 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
     bookingChangeHandlersInitialization();
     //productActivate();
 
-    chartUpdate([40, 30, 20, 10]);
+    chartUpdate([40, 30, 20, 0], {
+        gap: 0.6, // отступ между линиями (в процентах)
+    });
 
 
 });

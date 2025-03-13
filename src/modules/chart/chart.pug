@@ -4,6 +4,7 @@ mixin mixChart()
 		.chart__body
 			svg.chart__diagram(viewbox='0 0 33 33')
 				//- stroke-dasharray='0(заполнено) пропуск заполнено 100(пропуск)'
+				//- радиус выбран таким, чтобы длина окружности была равна 100
 				circle.chart__circle(r='15.9155' cx='50%' cy='50%' stroke='url(#gradient1)' stroke-dasharray='0 0 0 100' stroke-dashoffset='0' transform='rotate(270 16.5 16.5)')
 				circle.chart__circle(r='15.9155' cx='50%' cy='50%' stroke='url(#gradient2)' stroke-dasharray='0 0.3 24.4 100' stroke-dashoffset='0' transform='rotate(270 16.5 16.5)')
 				circle.chart__circle(r='15.9155' cx='50%' cy='50%' stroke='url(#gradient3)' stroke-dasharray='0 25.3 24.4 100' stroke-dashoffset='0' transform='rotate(270 16.5 16.5)')
