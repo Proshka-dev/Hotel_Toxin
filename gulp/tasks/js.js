@@ -10,6 +10,7 @@ const config = {
     rooms: './src/pages/rooms/rooms.ts',
     details: './src/pages/details/details.ts',
     registration: './src/pages/registration/registration.ts',
+    login: './src/pages/login/login.ts',
   },
   output: {
     //filename: "main.js",
