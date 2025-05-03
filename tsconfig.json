@@ -3,6 +3,13 @@
     "noImplicitAny": true,
     "target": "es2015",
     "moduleResolution": "nodenext",
-    "module": "nodenext"
+    "module": "nodenext",
+
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true
   }
 }
